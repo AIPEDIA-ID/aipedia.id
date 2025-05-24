@@ -1,6 +1,174 @@
 
 ---
 import '../styles/global.css';
+
+// Site Configuration
+const siteConfig = {
+  title: "Agency Tailwind CSS Template | Preline UI, crafted with Tailwind CSS",
+  description: "Crafted for agencies and studios specializing in web design and development.",
+  canonicalUrl: "https://preline.co/",
+  ogImage: "https://preline.co/assets/img/og-image.png",
+  favicon: "../../favicon.ico",
+  fontUrl: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+};
+
+// Brand Configuration
+const brand = {
+  name: "Preline",
+  tagline: "Transforming ideas into reality",
+  logoUrl: "../../templates/agency/index.html",
+  contactUrl: "../../templates/agency/index.html#contact"
+};
+
+// Hero Section
+const hero = {
+  title: "Preline Agency:",
+  subtitle: "Transforming ideas into reality",
+  description: "It is a creative hub where imagination meets craftsmanship to transform ideas into tangible realities. At Preline Agency, we specialize in turning conceptual visions into concrete forms, whether it be through design, artistry, or technological innovation.",
+  highlightColor: "#ff0"
+};
+
+// Navigation
+const navigation = [
+  { name: "Home", href: "../../templates/agency/index.html", current: true },
+  { name: "Stories", href: "#" },
+  { name: "Reviews", href: "#" },
+  { name: "Approach", href: "#" }
+];
+
+// Company Dropdown
+const companyDropdown = [
+  { name: "About", href: "#" },
+  { name: "Jobs", href: "#" },
+  { name: "Newsroom", href: "#" }
+];
+
+// Resources Dropdown
+const resourcesDropdown = [
+  { name: "Customer Stories", href: "#" },
+  { name: "Guides", href: "#" },
+  { name: "Contact Sales", href: "#" }
+];
+
+// Trusted Companies
+const trustedBy = "Trusted by Open Source, enterprise, and more than 99,000 of you";
+
+// Success Stories
+const successStories = {
+  title: "Success stories",
+  description: "Global brands see measurable success when they collaborate with us. From higher conversion and payment approval rates to faster processing speeds. Discover their stories here.",
+  stories: [
+    {
+      icon: "mailchimp",
+      percentage: "43%",
+      title: "Enhancement in Customer Engagement",
+      description: "With the aim of optimizing customer interactions and boosting brand loyalty, the team at Preline leveraged Mailchimp's powerful tools and expertise to deliver exceptional results."
+    },
+    {
+      icon: "shopify", 
+      percentage: "20%",
+      title: "Rise in E-commerce",
+      description: "In collaboration with Shopify, Preline embarked on a mission to revolutionize the e-commerce experience for a fictitious fashion brand, \"StyleAura.\"."
+    },
+    {
+      icon: "gitlab",
+      percentage: "12%", 
+      title: "Streamlining Development",
+      description: "With the goal of accelerating project delivery and enhancing collaboration among development teams, Preline leveraged GitLab's comprehensive suite of tools and Preline's expertise in digital product development."
+    }
+  ]
+};
+
+// Testimonials
+const testimonials = {
+  title: "Preline reviews",
+  description: "With over 30 awards, and achievements, we proudly demonstrate our unwavering dedication to excellence and client success.",
+  testimonial: {
+    quote: "To say that switching to Preline has been life-changing is an understatement. My business has tripled since then.",
+    author: "Nicole Grazioso",
+    position: "Director Payments & Risk | Airbnb",
+    image: "https://images.unsplash.com/photo-1671725501928-b7d85698ccd8?q=80&w=320&h=320&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    imageLarge: "https://images.unsplash.com/photo-1671725501928-b7d85698ccd8?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  }
+};
+
+// Stats
+const stats = [
+  {
+    number: "2,000+",
+    label: "Preline partners",
+    icon: "partners"
+  },
+  {
+    number: "85%", 
+    label: "Happy customers",
+    icon: "customers",
+    avatars: [
+      "https://images.unsplash.com/photo-1601935111741-ae98b2b230b0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80",
+      "https://images.unsplash.com/photo-1570654639102-bdd95efeca7a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80",
+      "https://images.unsplash.com/photo-1679412330254-90cb240038c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2.5&w=320&h=320&q=80"
+    ]
+  },
+  {
+    number: "$55M+",
+    label: "Ads managed yearly", 
+    icon: "ads"
+  }
+];
+
+// Approach
+const approach = {
+  title: "Our approach",
+  description: "This profound insight guides our comprehensive strategy — from meticulous research and strategic planning to the seamless execution of brand development and website or product deployment.",
+  image: "https://images.unsplash.com/photo-1587614203976-365c74645e83?q=80&w=480&h=600&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  steps: [
+    {
+      number: 1,
+      title: "Market Research and Analysis:",
+      description: "Identify your target audience and understand their needs, preferences, and behaviors."
+    },
+    {
+      number: 2,
+      title: "Product Development and Testing:",
+      description: "Develop digital products or services that address the needs and preferences of your target audience."
+    },
+    {
+      number: 3,
+      title: "Marketing and Promotion:",
+      description: "Develop a comprehensive marketing strategy to promote your digital products or services."
+    },
+    {
+      number: 4,
+      title: "Launch and Optimization:",
+      description: "Launch your digital products or services to the market, closely monitoring their performance and user feedback."
+    }
+  ]
+};
+
+// Contact
+const contact = {
+  title: "Contact us",
+  description: "Whatever your goal - we will get you there.",
+  address: {
+    title: "Our address:",
+    street: "300 Bath Street, Tay House",
+    city: "Glasgow G2 4JR, United Kingdom"
+  },
+  email: {
+    title: "Email us:",
+    address: "hello@example.so"
+  },
+  hiring: {
+    title: "We're hiring",
+    description: "We're thrilled to announce that we're expanding our team and looking for talented individuals like you to join us.",
+    link: "Job openings"
+  }
+};
+
+// Footer
+const footer = {
+  copyright: "© 2025 Preline Labs."
+};
 ---
 
 <!DOCTYPE html>
@@ -11,31 +179,31 @@ import '../styles/global.css';
   <meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1">
   <link rel="canonical" href="https://preline.co/">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Crafted for agencies and studios specializing in web design and development.">
+  <meta name="description" content={siteConfig.description}>
 
   <meta name="twitter:site" content="@preline">
   <meta name="twitter:creator" content="@preline">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Agency Tailwind CSS Template | Preline UI, crafted with Tailwind CSS">
-  <meta name="twitter:description" content="Crafted for agencies and studios specializing in web design and development.">
-  <meta name="twitter:image" content="https://preline.co/assets/img/og-image.png">
+  <meta name="twitter:title" content={siteConfig.title}>
+  <meta name="twitter:description" content={siteConfig.description}>
+  <meta name="twitter:image" content={siteConfig.ogImage}>
 
-  <meta property="og:url" content="https://preline.co/">
+  <meta property="og:url" content={siteConfig.canonicalUrl}>
   <meta property="og:locale" content="en_US">
   <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Preline">
-  <meta property="og:title" content="Agency Tailwind CSS Template | Preline UI, crafted with Tailwind CSS">
-  <meta property="og:description" content="Crafted for agencies and studios specializing in web design and development.">
-  <meta property="og:image" content="https://preline.co/assets/img/og-image.png">
+  <meta property="og:site_name" content={brand.name}>
+  <meta property="og:title" content={siteConfig.title}>
+  <meta property="og:description" content={siteConfig.description}>
+  <meta property="og:image" content={siteConfig.ogImage}>
 
   <!-- Title -->
-  <title>Agency Tailwind CSS Template | Preline UI, crafted with Tailwind CSS</title>
+  <title>{siteConfig.title}</title>
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="../../favicon.ico">
+  <link rel="shortcut icon" href={siteConfig.favicon}>
 
   <!-- Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href={siteConfig.fontUrl} rel="stylesheet">
 
 </head>
 
@@ -144,11 +312,11 @@ import '../styles/global.css';
     <div class="bg-neutral-900">
       <div class="max-w-5xl mx-auto px-4 xl:px-0 pt-24 lg:pt-32 pb-24">
         <h1 class="font-semibold text-white text-5xl md:text-6xl">
-          <span class="text-[#ff0] ">Preline Agency:</span> Transforming ideas into reality
+          <span class={`text-[${hero.highlightColor}]`}>{hero.title}</span> {hero.subtitle}
         </h1>
         <div class="max-w-4xl">
           <p class="mt-5 text-neutral-400 text-lg">
-            It is a creative hub where imagination meets craftsmanship to transform ideas into tangible realities. At Preline Agency, we specialize in turning conceptual visions into concrete forms, whether it be through design, artistry, or technological innovation.
+            {hero.description}
           </p>
         </div>
       </div>
