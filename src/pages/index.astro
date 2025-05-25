@@ -165,6 +165,30 @@ const contact = {
   // }
 };
 
+// Articles Section
+const articles = {
+  title: "Latest Insights",
+  description: "Explore our latest articles on AI implementation, automation strategies, and practical use cases.",
+  featured: [
+    {
+      title: "5 Ways AI is Transforming Content Creation",
+      excerpt: "Discover how AI tools are revolutionizing the content creation process for businesses of all sizes.",
+      link: "/articles/ai-content-creation"
+    },
+    {
+      title: "Building Your First AI Chatbot: A Step-by-Step Guide",
+      excerpt: "Learn how to create a powerful AI chatbot for customer support using open-source tools and APIs.",
+      link: "/articles/build-ai-chatbot"
+    },
+    {
+      title: "Automating Social Media with AI: Pros and Cons",
+      excerpt: "Explore the benefits and potential pitfalls of using AI to manage your social media presence.",
+      link: "/articles/ai-social-media-automation"
+    }
+  ],
+  moreLink: "/articles"
+};
+
 // Footer
 const footer = {
   copyright: "© 2025 AIPEDIA.ID Labs."
@@ -434,6 +458,46 @@ const footer = {
       </div>
     </div>
     <!-- End Case Stories -->
+
+<!-- Articles Section -->
+<div class="bg-neutral-900 bg-linear-to-t from-black to-transparent">
+  <div class="max-w-5xl px-4 xl:px-0 py-24 mx-auto">
+    <!-- Title -->
+    <div class="max-w-3xl mb-10 lg:mb-14">
+      <h2 class="text-white font-semibold text-2xl md:text-4xl md:leading-tight">{articles.title}</h2>
+      <p class="mt-1 text-neutral-400">{articles.description}</p>
+    </div>
+    <!-- End Title -->
+
+    <!-- Card Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      {articles.featured.map((article) => (
+        <a class="group relative z-10 p-4 md:p-6 h-full flex flex-col bg-neutral-900 focus:outline-hidden rounded-xl before:absolute before:inset-0 before:bg-linear-to-b hover:before:from-transparent hover:before:via-transparent hover:before:to-[#5978ea]/10 before:via-80% focus:before:from-transparent focus:before:via-transparent focus:before:to-[#5978ea]/10 before:-z-1 before:opacity-0 hover:before:opacity-100 focus:before:opacity-100" href={article.link}>
+          <div class="mb-5">
+            <h3 class="text-xl font-semibold text-white group-hover:text-[#5978ea] transition">{article.title}</h3>
+            <p class="mt-3 text-neutral-400">{article.excerpt}</p>
+          </div>
+          <p class="mt-auto">
+            <span class="font-medium text-sm text-[#5978ea] pb-1 border-b-2 border-neutral-700 group-hover:border-[#5978ea] group-focus:border-[#5978ea] transition focus:outline-hidden">
+              Read more
+            </span>
+          </p>
+        </a>
+      ))}
+    </div>
+    <!-- End Card Grid -->
+
+    <div class="mt-12 text-center">
+      <a class="inline-flex justify-center items-center gap-x-2 text-center bg-neutral-800 border border-neutral-700 text-sm text-[#5978ea] font-medium hover:bg-neutral-700 rounded-full focus:outline-none focus:ring-2 focus:ring-[#5978ea] focus:ring-offset-2 focus:ring-offset-neutral-900 transition py-3 px-4" href={articles.moreLink}>
+        View all articles
+        <svg class="w-2.5 h-2.5" width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M5.27921 2L10.9257 7.64645C11.1209 7.84171 11.1209 8.15829 10.9257 8.35355L5.27921 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</div>
+<!-- End Articles Section -->
 
     <!-- Testimonials -->
     <div class="bg-neutral-900">
