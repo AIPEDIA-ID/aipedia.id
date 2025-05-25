@@ -1,0 +1,133 @@
+---
+import Layout from '../../layouts/Layout.astro'
+
+// Dummy color set for fallback thumbnails
+const fallbackColors = [
+  "bg-[#1f2937]", // gray-800
+  "bg-[#14b8a6]", // teal-500
+  "bg-[#4b5563]", // gray-600
+  "bg-[#7c3aed]", // violet-600
+  "bg-[#374151]", // gray-700
+  "bg-[#0ea5e9]", // sky-500
+  "bg-[#6b7280]", // gray-500
+  "bg-[#f59e0b]", // amber-500
+]
+
+const page = {
+  title: "Learn with AIPEDIA",
+  description: "Explore curated eCourses to help you master automation, AI workflows, and build smarter digital products.",
+  featured: [
+    {
+      title: "n8n Crash Course",
+      excerpt: "Master automation using n8n for real-world business use cases.",
+      link: "/ecourses/n8n-crash-course",
+    //   thumbnail: "/images/courses/n8n.png",
+      price: "Rp129.000"
+    },
+    {
+      title: "Prompt Engineering for Business",
+      excerpt: "Write effective prompts that drive actual results in business.",
+      link: "/ecourses/prompt-engineering-business",
+      thumbnail: "", // intentionally empty
+      price: "Rp99.000"
+    },
+    {
+      title: "Build SaaS with Django",
+      excerpt: "Build scalable SaaS apps with Django and Midtrans integration.",
+      link: "/ecourses/django-saas",
+    //   thumbnail: "/images/courses/saas.png",
+      price: "Rp149.000"
+    },
+    {
+      title: "AI Content Writing",
+      excerpt: "Automate blog, caption, and copywriting with AI tools.",
+      link: "/ecourses/ai-writing",
+      thumbnail: "",
+      price: "Rp89.000"
+    },
+    {
+      title: "ChatGPT for Teams",
+      excerpt: "Implement internal AI assistant for customer support and ops.",
+      link: "/ecourses/chatgpt-teams",
+    //   thumbnail: "/images/courses/chatgpt.png",
+      price: "Rp109.000"
+    },
+    {
+      title: "n8n + WhatsApp Integration",
+      excerpt: "Automate WhatsApp messages and flows using n8n & webhook.",
+      link: "/ecourses/n8n-whatsapp",
+      thumbnail: "",
+      price: "Rp129.000"
+    },
+    {
+      title: "Keyword Research Automation",
+      excerpt: "Build your own keyword research automation system with AI.",
+      link: "/ecourses/keyword-ai",
+      thumbnail: "",
+      price: "Rp119.000"
+    },
+    {
+      title: "AI Tools for Remote Work",
+      excerpt: "Boost productivity and automate tasks as a remote worker.",
+      link: "/ecourses/ai-remote-work",
+    //   thumbnail: "/images/courses/remote.png",
+      price: "Rp79.000"
+    },
+    {
+      title: "LibreChat Custom Chatbot",
+      excerpt: "Build and host your own AI chatbot using LibreChat + OpenAI.",
+      link: "/ecourses/librechat",
+      thumbnail: "",
+      price: "Rp139.000"
+    },
+  ]
+};
+---
+
+<Layout title={page.title} description={page.description}>
+  <div class="bg-neutral-900 py-24">
+    <div class="max-w-6xl px-4 xl:px-0 mx-auto">
+      <!-- Page Header -->
+      <div class="mb-12 text-center">
+        <h1 class="text-white font-semibold text-3xl md:text-5xl">{page.title}</h1>
+        <p class="mt-3 text-neutral-400 text-lg">{page.description}</p>
+      </div>
+
+      <!-- Course Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {page.featured.map((course, idx) => (
+          <div class="flex flex-col bg-neutral-800 border border-neutral-700 rounded-xl overflow-hidden hover:border-[#5978ea] transition">
+            {course.thumbnail
+              ? <img src={course.thumbnail} alt={course.title} class="w-full h-48 object-cover" loading="lazy" />
+              : <div class={`w-full h-48 flex items-center justify-center text-white text-center text-lg font-semibold ${fallbackColors[idx % fallbackColors.length]}`}>
+                  {course.title}
+                </div>
+            }
+            <div class="flex flex-col p-5 flex-grow">
+              <h3 class="text-white text-lg font-semibold">{course.title}</h3>
+              <p class="text-sm text-neutral-400 mt-2">{course.excerpt}</p>
+              <div class="mt-4 flex justify-between items-center">
+                <span class="text-[#5978ea] font-semibold text-base">{course.price}</span>
+                <a href={course.link} class="inline-block text-sm font-medium text-white bg-[#5978ea] hover:bg-[#3f5fd6] rounded-full py-2 px-4 transition">
+                  Enroll now
+                </a>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Conditional Pagination CTA -->
+      {page.featured.length > 9 && (
+        <div class="mt-16 text-center">
+          <a href="/learn" class="inline-flex items-center gap-x-2 bg-neutral-800 border border-neutral-700 text-sm text-[#5978ea] font-medium hover:bg-neutral-700 rounded-full py-3 px-5 focus:outline-none focus:ring-2 focus:ring-[#5978ea] focus:ring-offset-2 focus:ring-offset-neutral-900 transition">
+            View all courses
+            <svg class="w-2.5 h-2.5" viewBox="0 0 16 16" fill="none">
+              <path d="M5.27921 2L10.9257 7.64645C11.1209 7.84171 11.1209 8.15829 10.9257 8.35355L5.27921 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </a>
+        </div>
+      )}
+    </div>
+  </div>
+</Layout>
