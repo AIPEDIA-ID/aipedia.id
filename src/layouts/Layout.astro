@@ -4,8 +4,8 @@ import Header from './Header.astro';
 
 const { title, description, canonicalUrl, ogImage, favicon, fontUrl } = Astro.props;
 const siteConfig = {
-  title: "Agency Tailwind CSS Template | AIPEDIA.ID UI, crafted with Tailwind CSS",
-  description: "Crafted for agencies and studios specializing in web design and development.",
+  title: "AIPEDIA.ID | All in one AI-Powered Solutions for Modern Businesses",
+  description: "AI automation agency helping solopreneurs and startups streamline operations with custom AI tools, chatbots, and SEO solutions.",
   canonicalUrl: "https://AIPEDIA.ID.co/",
   ogImage: "https://AIPEDIA.ID.co/assets/img/og-image.png",
   favicon: "/favicon.png",
@@ -19,12 +19,12 @@ const siteConfig = {
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{title}</title>
-    <meta name="description" content={description}>
-    <link rel="canonical" href={canonicalUrl}>
-    <meta property="og:image" content={ogImage}>
-    <link rel="icon" type="image/x-icon" href={favicon}>
-    <link href={fontUrl} rel="stylesheet">
+    <title>{siteConfig.title}</title>
+    <meta name="description" content={siteConfig.description}>
+    <link rel="canonical" href={siteConfig.canonicalUrl}>
+    <meta property="og:image" content={siteConfig.ogImage}>
+    <link rel="icon" type="image/x-icon" href={siteConfig.favicon}>
+    <link href={siteConfig.fontUrl} rel="stylesheet">
 </head>
 <body class="bg-neutral-900">
     <main id="content">
