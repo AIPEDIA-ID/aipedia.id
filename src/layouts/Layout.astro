@@ -1,7 +1,16 @@
 ---
 import '../styles/global.css';
+import Header from './Header.astro';
 
 const { title, description, canonicalUrl, ogImage, favicon, fontUrl } = Astro.props;
+const siteConfig = {
+  title: "Agency Tailwind CSS Template | AIPEDIA.ID UI, crafted with Tailwind CSS",
+  description: "Crafted for agencies and studios specializing in web design and development.",
+  canonicalUrl: "https://AIPEDIA.ID.co/",
+  ogImage: "https://AIPEDIA.ID.co/assets/img/og-image.png",
+  favicon: "../../favicon.ico",
+  fontUrl: "https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+};
 
 ---
 
@@ -18,7 +27,10 @@ const { title, description, canonicalUrl, ogImage, favicon, fontUrl } = Astro.pr
     <link href={fontUrl} rel="stylesheet">
 </head>
 <body class="bg-neutral-900">
-    <slot />
-    <script src="../scripts/preline.js"></script>
+    <main id="content">
+        <Header></Header>
+        <slot />
+        <script src="../scripts/preline.js"></script>
+    </main>
 </body>
 </html>

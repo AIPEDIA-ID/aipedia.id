@@ -1,0 +1,46 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+// Konfigurasi untuk halaman posts
+const postsConfig = {
+  title: "AIPEDIA.ID Blog Posts | Latest Insights and Articles",
+  description: "Explore our latest articles on AI implementation, automation strategies, and practical use cases.",
+  // ... tambahkan properti lain yang diperlukan
+};
+
+// Daftar posts (contoh)
+const posts = [
+  { title: "5 Ways AI is Transforming Content Creation", excerpt: "Discover how AI tools are revolutionizing the content creation process for businesses of all sizes.", link: "/posts/ai-content-creation" },
+  { title: "Building Your First AI Chatbot: A Step-by-Step Guide", excerpt: "Learn how to create a powerful AI chatbot for customer support using open-source tools and APIs.", link: "/posts/build-ai-chatbot" },
+  { title: "Automating Social Media with AI: Pros and Cons", excerpt: "Explore the benefits and potential pitfalls of using AI to manage your social media presence.", link: "/posts/ai-social-media-automation" },
+];
+---
+
+<Layout>
+  <main class="max-w-[85rem] px-4 sm:px-6 lg:px-8 mx-auto">
+    <div class="max-w-2xl mx-auto text-center mb-10 lg:mb-14">
+      <h2 class="text-2xl font-bold md:text-4xl md:leading-tight dark:text-white">Latest Blog Posts</h2>
+      <p class="mt-1 text-gray-600 dark:text-gray-400">{postsConfig.description}</p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {posts.map((post) => (
+        <a class="group rounded-xl overflow-hidden" href={post.link}>
+          <div class="sm:h-[350px] flex flex-col bg-white shadow-sm rounded-xl dark:bg-slate-900 dark:border-gray-700 dark:shadow-slate-700/[.7]">
+            <div class="p-4 md:p-6">
+              <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-300 dark:hover:text-white">
+                {post.title}
+              </h3>
+              <p class="mt-3 text-gray-500">
+                {post.excerpt}
+              </p>
+            </div>
+            <div class="mt-auto flex items-center gap-x-3 py-3 px-4 md:py-4 md:px-6 border-t border-gray-200 dark:border-gray-700">
+              <p class="text-sm text-blue-500">Read more</p>
+            </div>
+          </div>
+        </a>
+      ))}
+    </div>
+  </main>
+</Layout>
