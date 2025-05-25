@@ -178,7 +178,36 @@ const articles = {
   ],
   moreLink: "/articles"
 };
-
+const services = {
+  title: "Our Services",
+  subtitle: "From smart workflows to full-scale AI apps, we help you ship faster with automation and intelligence.",
+  cards: [
+    {
+      icon: "book",
+      title: "AI Content Creations",
+      description: "Let our AI tools generate optimized content for your brand — from blog posts to product copy."
+    },
+    {
+      icon: "sparkles",
+      title: "AI Powered Apps",
+      description: "We build AI-driven apps tailored to your business. Integrations, logic, and UX — done right."
+    },
+    {
+      icon: "bolt",
+      title: "n8n Automation",
+      description: "Automate your entire workflow stack using n8n — from lead gen to content publishing. Zero manual effort."
+    },
+    {
+      icon: "academic-cap",
+      title: "Education",
+      description: "AI Prompts & n8n Automations training to help you master the tools and accelerate your workflow."
+    }
+  ],
+  cta: {
+    text: "Explore Our Work",
+    href: "#"
+  }
+};
 // Footer
 const footer = {
   copyright: "© 2025 AIPEDIA.ID Labs."
@@ -324,63 +353,46 @@ const footer = {
       <div class="max-w-5xl px-4 xl:px-0 py-24 mx-auto">
         <!-- Title -->
         <div class="max-w-3xl mb-10 lg:mb-14">
-          <h2 class="text-white font-semibold text-2xl md:text-4xl md:leading-tight">Our Services</h2>
-          <p class="mt-1 text-neutral-400">From smart workflows to full-scale AI apps, we help you ship faster with automation and intelligence.</p>
+          <h2 class="text-white font-semibold text-2xl md:text-4xl md:leading-tight">{services.title}</h2>
+          <p class="mt-1 text-neutral-400">{services.subtitle}</p>
         </div>
-        <!-- End Title -->
 
         <!-- Card Grid -->
         <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-6">
-          <!-- Card 1 -->
-          <div class="group relative z-10 p-6 bg-neutral-900 border border-neutral-700 rounded-xl hover:border-neutral-600 transition">
-            <div class="mb-4">
-              <svg class="size-8 text-neutral-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
-              </svg>
+          {services.cards.map((card) => (
+            <div class="group relative z-10 p-6 bg-neutral-900 border border-neutral-700 rounded-xl hover:border-neutral-600 transition">
+              <div class="mb-4">
+                {card.icon === 'book' && (
+                  <svg class="size-8 text-neutral-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
+                  </svg>
+                )}
+                {card.icon === 'sparkles' && (
+                  <svg class="size-8 text-neutral-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" />
+                  </svg>
+                )}
+                {card.icon === 'bolt' && (
+                  <svg class="size-8 text-neutral-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+                  </svg>
+                )}
+                {card.icon === 'academic-cap' && (
+                  <svg class="size-8 text-neutral-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5" />
+                  </svg>
+                )}
+              </div>
+              <h3 class="text-xl font-semibold text-white mb-2">{card.title}</h3>
+              <p class="text-neutral-400">{card.description}</p>
             </div>
-            <h3 class="text-xl font-semibold text-white mb-2">AI Content Creations</h3>
-            <p class="text-neutral-400">Let our AI tools generate optimized content for your brand — from blog posts to product copy.</p>
-          </div>
-
-          <!-- Card 2 -->
-          <div class="group relative z-10 p-6 bg-neutral-900 border border-neutral-700 rounded-xl hover:border-neutral-600 transition">
-            <div class="mb-4">
-              <svg class="size-8 text-neutral-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" />
-              </svg>
-            </div>
-            <h3 class="text-xl font-semibold text-white mb-2">AI Powered Apps</h3>
-            <p class="text-neutral-400">We build AI-driven apps tailored to your business. Integrations, logic, and UX — done right.</p>
-          </div>
-
-          <!-- Card 3 -->
-          <div class="group relative z-10 p-6 bg-neutral-900 border border-neutral-700 rounded-xl hover:border-neutral-600 transition">
-            <div class="mb-4">
-              <svg class="size-8 text-neutral-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
-              </svg>
-            </div>
-            <h3 class="text-xl font-semibold text-white mb-2">n8n Automation</h3>
-            <p class="text-neutral-400">Automate your entire workflow stack using n8n — from lead gen to content publishing. Zero manual effort.</p>
-          </div>
-
-          <!-- Card 4 - Education -->
-          <div class="group relative z-10 p-6 bg-neutral-900 border border-neutral-700 rounded-xl hover:border-neutral-600 transition">
-            <div class="mb-4">
-              <svg class="size-8 text-neutral-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5" />
-              </svg>
-            </div>
-            <h3 class="text-xl font-semibold text-white mb-2">Education</h3>
-            <p class="text-neutral-400">AI Prompts & n8n Automations training to help you master the tools and accelerate your workflow.</p>
-          </div>
-
+          ))}
         </div>
 
         <!-- CTA Button -->
         <div class="mt-10 text-center">
-          <a href="#" class="inline-flex items-center gap-x-2 text-white bg-neutral-800 hover:bg-neutral-700 border border-neutral-700 rounded-lg px-6 py-3 text-sm font-medium transition">
-            Explore Our Work
+          <a href={services.cta.href} class="inline-flex items-center gap-x-2 text-white bg-neutral-800 hover:bg-neutral-700 border border-neutral-700 rounded-lg px-6 py-3 text-sm font-medium transition">
+            {services.cta.text}
             <svg class="size-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
             </svg>
@@ -389,45 +401,45 @@ const footer = {
       </div>
     </div>
 
-<!-- Articles Section -->
-<div class="bg-neutral-900 bg-linear-to-t from-black to-transparent">
-  <div class="max-w-5xl px-4 xl:px-0 py-24 mx-auto">
-    <!-- Title -->
-    <div class="max-w-3xl mb-10 lg:mb-14">
-      <h2 class="text-white font-semibold text-2xl md:text-4xl md:leading-tight">{articles.title}</h2>
-      <p class="mt-1 text-neutral-400">{articles.description}</p>
-    </div>
-    <!-- End Title -->
+    <!-- Articles Section -->
+    <div class="bg-neutral-900 bg-linear-to-t from-black to-transparent">
+      <div class="max-w-5xl px-4 xl:px-0 py-24 mx-auto">
+        <!-- Title -->
+        <div class="max-w-3xl mb-10 lg:mb-14">
+          <h2 class="text-white font-semibold text-2xl md:text-4xl md:leading-tight">{articles.title}</h2>
+          <p class="mt-1 text-neutral-400">{articles.description}</p>
+        </div>
+        <!-- End Title -->
 
-    <!-- Card Grid -->
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-      {articles.featured.map((article) => (
-        <a class="group relative z-10 p-4 md:p-6 h-full flex flex-col bg-neutral-900 focus:outline-hidden rounded-xl before:absolute before:inset-0 before:bg-linear-to-b hover:before:from-transparent hover:before:via-transparent hover:before:to-[#5978ea]/10 before:via-80% focus:before:from-transparent focus:before:via-transparent focus:before:to-[#5978ea]/10 before:-z-1 before:opacity-0 hover:before:opacity-100 focus:before:opacity-100" href={article.link}>
-          <div class="mb-5">
-            <h3 class="text-xl font-semibold text-white group-hover:text-[#5978ea] transition">{article.title}</h3>
-            <p class="mt-3 text-neutral-400">{article.excerpt}</p>
-          </div>
-          <p class="mt-auto">
-            <span class="font-medium text-sm text-[#5978ea] pb-1 border-b-2 border-neutral-700 group-hover:border-[#5978ea] group-focus:border-[#5978ea] transition focus:outline-hidden">
-              Read more
-            </span>
-          </p>
-        </a>
-      ))}
-    </div>
-    <!-- End Card Grid -->
+        <!-- Card Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          {articles.featured.map((article) => (
+            <a class="group relative z-10 p-4 md:p-6 h-full flex flex-col bg-neutral-900 focus:outline-hidden rounded-xl before:absolute before:inset-0 before:bg-linear-to-b hover:before:from-transparent hover:before:via-transparent hover:before:to-[#5978ea]/10 before:via-80% focus:before:from-transparent focus:before:via-transparent focus:before:to-[#5978ea]/10 before:-z-1 before:opacity-0 hover:before:opacity-100 focus:before:opacity-100" href={article.link}>
+              <div class="mb-5">
+                <h3 class="text-xl font-semibold text-white group-hover:text-[#5978ea] transition">{article.title}</h3>
+                <p class="mt-3 text-neutral-400">{article.excerpt}</p>
+              </div>
+              <p class="mt-auto">
+                <span class="font-medium text-sm text-[#5978ea] pb-1 border-b-2 border-neutral-700 group-hover:border-[#5978ea] group-focus:border-[#5978ea] transition focus:outline-hidden">
+                  Read more
+                </span>
+              </p>
+            </a>
+          ))}
+        </div>
+        <!-- End Card Grid -->
 
-    <div class="mt-12 text-center">
-      <a class="inline-flex justify-center items-center gap-x-2 text-center bg-neutral-800 border border-neutral-700 text-sm text-[#5978ea] font-medium hover:bg-neutral-700 rounded-full focus:outline-none focus:ring-2 focus:ring-[#5978ea] focus:ring-offset-2 focus:ring-offset-neutral-900 transition py-3 px-4" href={articles.moreLink}>
-        View all articles
-        <svg class="w-2.5 h-2.5" width="16" height="16" viewBox="0 0 16 16" fill="none">
-          <path d="M5.27921 2L10.9257 7.64645C11.1209 7.84171 11.1209 8.15829 10.9257 8.35355L5.27921 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-        </svg>
-      </a>
+        <div class="mt-12 text-center">
+          <a class="inline-flex justify-center items-center gap-x-2 text-center bg-neutral-800 border border-neutral-700 text-sm text-[#5978ea] font-medium hover:bg-neutral-700 rounded-full focus:outline-none focus:ring-2 focus:ring-[#5978ea] focus:ring-offset-2 focus:ring-offset-neutral-900 transition py-3 px-4" href={articles.moreLink}>
+            View all articles
+            <svg class="w-2.5 h-2.5" width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M5.27921 2L10.9257 7.64645C11.1209 7.84171 11.1209 8.15829 10.9257 8.35355L5.27921 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </a>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-<!-- End Articles Section -->
+    <!-- End Articles Section -->
 
     <!-- Testimonials -->
     <div class="bg-neutral-900">
