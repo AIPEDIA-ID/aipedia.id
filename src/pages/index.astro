@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import LearnSection from '../components/LearnSection.astro'
 
 const hero = {
   title: "AIPEDIA.ID:",
@@ -205,7 +206,7 @@ const services = {
       <div class="max-w-5xl px-4 xl:px-0 py-24 mx-auto">
         <!-- Title -->
         <div class="max-w-3xl mb-10 lg:mb-14">
-          <h2 class="text-white font-semibold text-2xl md:text-4xl md:leading-tight">Projects</h2>
+          <h2 class="text-white font-semibold text-2xl md:text-4xl md:leading-tight">Products</h2>
           <p class="mt-1 text-neutral-400">Global brands see measurable success when they collaborate with us. From higher conversion and payment approval rates to faster processing speeds. Discover their stories here.</p>
         </div>
         <!-- End Title -->
@@ -236,7 +237,7 @@ const services = {
 
     <!-- Our Services -->
     <div class="bg-neutral-900 bg-linear-to-t from-black to-transparent">
-      <div class="max-w-5xl px-4 xl:px-0 py-24 mx-auto">
+      <div class="max-w-5xl px-4 xl:px-0 py-20 mx-auto">
         <!-- Title -->
         <div class="max-w-3xl mb-10 lg:mb-14">
           <h2 class="text-white font-semibold text-2xl md:text-4xl md:leading-tight">{services.title}</h2>
@@ -286,6 +287,8 @@ const services = {
         </div> -->
       </div>
     </div>
+
+    <LearnSection />
 
     <!-- Articles Section -->
     <div class="bg-neutral-900 bg-linear-to-t from-black to-transparent">
