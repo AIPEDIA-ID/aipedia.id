@@ -26,8 +26,8 @@ const posts = [
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
       {posts.map((post) => (
         <a class="group rounded-xl overflow-hidden" href={post.link}>
-          <div class="sm:h-[350px] flex flex-col bg-white shadow-sm rounded-xl dark:bg-slate-900 dark:border-gray-700 dark:shadow-slate-700/[.7]">
-            <div class="p-4 md:p-6">
+          <div class="sm:h-[350px] flex flex-col bg-gray-50 shadow-sm rounded-xl border border-gray-200 dark:bg-slate-900 dark:border-gray-700 dark:shadow-slate-700/[.7]">
+            <div class="p-6 md:p-8">
               <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-300 dark:hover:text-white">
                 {post.title}
               </h3>
@@ -35,7 +35,7 @@ const posts = [
                 {post.excerpt}
               </p>
             </div>
-            <div class="mt-auto flex items-center gap-x-3 py-3 px-4 md:py-4 md:px-6 border-t border-gray-200 dark:border-gray-700">
+            <div class="mt-auto flex items-center gap-x-3 py-4 px-6 border-t border-gray-200 dark:border-gray-700">
               <p class="text-sm text-blue-500">Read more</p>
             </div>
           </div>

@@ -1,75 +1,40 @@
-
 ---
 import Layout from '../layouts/Layout.astro';
 
-// Brand Configuration
-const brand = {
-  name: "AIPEDIA.ID",
-  tagline: "Transforming ideas into reality",
-  logoUrl: "../../templates/agency/index.html",
-  contactUrl: "../../templates/agency/index.html#contact"
-};
-
-// Hero Section
 const hero = {
   title: "AIPEDIA.ID:",
-  subtitle: "Transforming ideas into reality",
-  description: "It is a creative hub where imagination meets craftsmanship to transform ideas into tangible realities. At AIPEDIA.ID, we specialize in turning conceptual visions into concrete forms, whether it be through design, artistry, or technological innovation.",
+  subtitle: "All in one AI-Powered Solutions for Modern Businesses",
+  description: "We help founders, teams, and solopreneurs automate workflows, content, and customer support using smart AI tools integrated seamlessly into your business operations.",
   highlightColor: "#5978ea"
 };
 
-// Navigation
-const navigation = [
-  { name: "Home", href: "../../templates/agency/index.html", current: true },
-  { name: "Stories", href: "#" },
-  { name: "Reviews", href: "#" },
-  { name: "Approach", href: "#" }
-];
-
-// Company Dropdown
-const companyDropdown = [
-  { name: "About", href: "#" },
-  { name: "Jobs", href: "#" },
-  { name: "Newsroom", href: "#" }
-];
-
-// Resources Dropdown
-const resourcesDropdown = [
-  { name: "Customer Stories", href: "#" },
-  { name: "Guides", href: "#" },
-  { name: "Contact Sales", href: "#" }
-];
-
-// Trusted Companies
-const trustedBy = "Trusted by Open Source, enterprise, and more than 99,000 of you";
-
-// Success Stories
-const successStories = {
+const ourProducts = {
   title: "Success stories",
   description: "We help creators, educators, and small businesses build impactful AI solutions. Here are a few success stories from our products and initiatives.",
   stories: [
     {
       icon: "sparkles",
-      percentage: "300+ users",
+      // percentage: "300+ users",
+      percentage: "AIPedia.pro",
       title: "Launch of AIPEDIA.pro",
-      description: "We built a prompt management system that allows users to organize, store, and trigger AI prompts efficiently. Without paid ads, AIPEDIA.pro attracted 300+ organic users via Threads."
+      description: "AIPEDIA.pro is a multi-model ChatGPT alternative. Chat with GPT-4, Claude, Gemini — all in one place. 300+ users joined."
     },
     {
       icon: "message-circle",
-      percentage: "5x faster responses",
+      // percentage: "5x faster responses",
+      percentage: "AI Chatbot",
       title: "AIPEDIA Chatbot for WhatsApp",
-      description: "An AI chatbot powered by GPT-4o, built to help educators answer student and customer inquiries automatically. It reduced customer service workload and scaled real-time responses effectively."
+      description: "An AI chatbot powered by GPT-4o, built to help business answer student and customer inquiries automatically. It reduced customer service workload and scaled real-time responses effectively."
     },
     {
       icon: "search",
-      percentage: "100+ articles",
+      percentage: "AIPedia SEO",
       title: "SEO AIPEDIA Automation",
-      description: "Using our internal AI tools, we produced 100+ SEO-optimized articles. A process that used to take 3–5 days now only takes a few hours from research to publish-ready content."
+      description: "Using our internal AI tools, we produced SEO-optimized articles. A process that used to take 3–5 days now only takes a few hours from research to publish-ready content."
     }
   ]
 };
 
-// Testimonials
 const testimonials = {
   title: "AIPEDIA.ID reviews",
   description: "With over 30 awards, and achievements, we proudly demonstrate our unwavering dedication to excellence and client success.",
@@ -82,77 +47,21 @@ const testimonials = {
   }
 };
 
-// Stats
-const stats = [
-  {
-    number: "2,000+",
-    label: "AIPEDIA.ID partners",
-    icon: "partners"
-  },
-  {
-    number: "85%", 
-    label: "Happy customers",
-    icon: "customers",
-    avatars: [
-      "https://images.unsplash.com/photo-1601935111741-ae98b2b230b0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80",
-      "https://images.unsplash.com/photo-1570654639102-bdd95efeca7a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80",
-      "https://images.unsplash.com/photo-1679412330254-90cb240038c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2.5&w=320&h=320&q=80"
-    ]
-  },
-  {
-    number: "$55M+",
-    label: "Ads managed yearly", 
-    icon: "ads"
-  }
-];
-
-// Approach
-const approach = {
-  title: "Our approach",
-  description: "We combine AI expertise with strategic thinking to deliver innovative solutions. Our proven methodology ensures successful digital transformation for businesses of all sizes.",
-  image: "https://images.unsplash.com/photo-1587614203976-365c74645e83?q=80&w=480&h=600&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  steps: [
-    {
-      number: 1,
-      title: "AI Strategy Assessment",
-      description: "We analyze your business needs and identify opportunities where AI can create the most impact and value."
-    },
-    {
-      number: 2,
-      title: "Custom AI Solution Development",
-      description: "Our team develops tailored AI solutions, from chatbots and automation tools to advanced analytics systems."
-    },
-    {
-      number: 3,
-      title: "Integration & Training",
-      description: "We ensure smooth integration of AI solutions into your existing workflows and provide comprehensive training."
-    },
-    {
-      number: 4,
-      title: "Continuous Optimization",
-      description: "We monitor performance metrics and user feedback to continuously improve and optimize your AI solutions."
-    }
-  ]
-};
-
-// Contact
 const contact = {
   title: "Contact us",
-  description: "Whatever your goal - we will get you there.",
   address: {
-    title: "Our address:",
-    street: "300 Bath Street, Tay House",
-    city: "Glasgow G2 4JR, United Kingdom"
+    title: "Phone: (+62) 878 8714 7114",
+    street: "Jati, Jaten",
+    city: " Karanganyar, Central Java, Indonesia",
   },
   email: {
     title: "Email us:",
-    address: "hello@example.so"
+    address: "aipedia.pro@gmail.com"
   },
-  // hiring: {
-  //   title: "We're hiring",
-  //   description: "We're thrilled to announce that we're expanding our team and looking for talented individuals like you to join us.",
-  //   link: "Job openings"
-  // }
+  phone: {
+    title: "Phone: (+62) 878 8714 7114",
+    number: "878 8714 7114"
+  }
 };
 
 // Articles Section
@@ -208,10 +117,6 @@ const services = {
     href: "#"
   }
 };
-// Footer
-const footer = {
-  copyright: "© 2025 AIPEDIA.ID Labs."
-};
 ---
 
 <Layout >
@@ -251,8 +156,7 @@ const footer = {
         <path d="M0.5 22.991C232.505 95.9276 853.749 219.81 1482.69 131.846C2111.63 43.8824 2585.54 126.715 2743.87 179.127" class="stroke-neutral-700/50" stroke="currentColor" />
         <path d="M0.5 1C232.505 73.9367 853.749 197.819 1482.69 109.855C2111.63 21.8914 2585.54 104.724 2743.87 157.136" class="stroke-neutral-700/50" stroke="currentColor" />
       </svg>
-
-      <div class="relative z-10">
+      <!-- <div class="relative z-10">
         <div class="max-w-5xl px-4 xl:px-0 mx-auto">
           <div class="mb-4">
             <h2 class="text-neutral-400">Trusted by Open Source, enterprise, and more than 99,000 of you</h2>
@@ -291,7 +195,8 @@ const footer = {
             </svg>
           </div>
         </div>
-      </div>
+      </div> -->
+
     </div>
     <!-- End Clients -->
 
@@ -307,28 +212,9 @@ const footer = {
 
         <!-- Card Grid -->
         <div class="grid grid-cols-1 lg:grid-cols-3 items-center border border-neutral-700 divide-y lg:divide-y-0 lg:divide-x divide-neutral-700 rounded-xl">
-          {successStories.stories.map((story) => (
+          {ourProducts.stories.map((story) => (
             <a class="group relative z-10 p-4 md:p-6 h-full flex flex-col bg-neutral-900 focus:outline-hidden first:rounded-t-xl last:rounded-b-xl lg:first:rounded-l-xl lg:first:rounded-tr-none lg:last:rounded-r-xl lg:last:rounded-bl-none before:absolute before:inset-0 before:bg-linear-to-b hover:before:from-transparent hover:before:via-transparent hover:before:to-[#5978ea]/10 before:via-80% focus:before:from-transparent focus:before:via-transparent focus:before:to-[#5978ea]/10 before:-z-1 last:before:rounded-b-xl lg:first:before:rounded-s-xl lg:last:before:rounded-e-xl lg:last:before:rounded-bl-none before:opacity-0 hover:before:opacity-100 focus:before:opacity-100" href="#">
               <div class="mb-5">
-                {/* Icon based on story.icon */}
-                {story.icon === 'sparkles' && (
-                  <svg class="shrink-0 size-8" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <g clip-path="url(#clip0_11766_122079)">
-                      <path d="M16 32C7.16 32 0 24.84 0 16C0 7.16 7.16 0 16 0C24.84 0 32 7.16 32 16C32 24.84 24.84 32 16 32Z" fill="#FFE01B" />
-                      <path d="M11.72 19.28C11.74 19.3 11.74 19.34 11.72 19.38C11.64 19.52 11.48 19.6 11.32 19.58C11.02 19.54 10.8 19.3 10.82 19C10.82 18.8 10.86 18.62 10.92 18.42C11.02 18.18 10.92 17.92 10.72 17.78C10.6 17.7 10.44 17.68 10.3 17.7C10.16 17.72 10.04 17.82 9.96001 17.94C9.90001 18.04 9.86001 18.14 9.84001 18.24C9.84001 18.26 9.82001 18.28 9.82001 18.28C9.78001 18.4 9.70001 18.44 9.64001 18.44C9.62001 18.44 9.58001 18.42 9.56001 18.36C9.50001 18.02 9.62001 17.68 9.84001 17.42C10.04 17.2 10.32 17.1 10.62 17.14C10.92 17.18 11.2 17.38 11.32 17.66C11.46 18 11.42 18.38 11.24 18.7C11.22 18.72 11.22 18.76 11.2 18.78C11.14 18.9 11.12 19.06 11.2 19.18C11.26 19.26 11.34 19.3 11.44 19.3C11.48 19.3 11.52 19.3 11.56 19.28C11.64 19.24 11.7 19.24 11.72 19.28Z" fill="black" />
-                    </g>
-                  </svg>
-                )}
-                {story.icon === 'message-circle' && (
-                  <svg class="shrink-0 size-8" width="33" height="32" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M27.462 6.28384C27.44 6.12384 27.2998 6.03529 27.184 6.02554C27.0684 6.01589 24.6215 5.83452 24.6215 5.83452C24.6215 5.83452 22.9221 4.1474 22.7355 3.96066C22.5489 3.77403 22.1844 3.8308 22.0429 3.87244C22.0221 3.87858 21.6716 3.98674 21.0919 4.16614C20.5243 2.53261 19.5224 1.03145 17.7599 1.03145C17.7112 1.03145 17.6611 1.03343 17.611 1.03628C17.1098 0.373373 16.4889 0.0853729 15.9525 0.0853729C11.8468 0.0853729 9.88524 5.21798 9.27023 7.82619C7.67483 8.32055 6.54146 8.672 6.39669 8.71748C5.50617 8.99682 5.47801 9.02488 5.36108 9.864C5.27308 10.4993 2.94299 28.5189 2.94299 28.5189L21.0995 31.9208L30.9373 29.7925C30.9373 29.7925 27.4837 6.44384 27.462 6.28384Z" fill="#95BF46" />
-                  </svg>
-                )}
-                {story.icon === 'search' && (
-                  <svg class="shrink-0 size-8" width="33" height="32" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M32.8875 15.3054C32.9242 16.2093 32.8209 17.1099 32.5811 17.9792C32.3447 18.8486 31.9716 19.6695 31.4787 20.4141C30.989 21.1593 30.3861 21.8167 29.6935 22.3607L29.6769 22.3745L23.019 27.563L19.7451 30.1433L17.7501 31.7089C17.6335 31.8024 17.5036 31.8716 17.3671 31.9201C17.2305 31.9686 17.084 31.9929 16.9374 31.9929C16.7942 31.9929 16.6477 31.9686 16.5111 31.9201C16.3745 31.8716 16.2447 31.8024 16.1281 31.7089L14.1331 30.1433L10.8591 27.563L4.24125 22.4057L4.20129 22.378L4.18796 22.3641C3.49187 21.8203 2.88904 21.1623 2.39611 20.4176C1.90319 19.6729 1.53016 18.8486 1.29036 17.9792C1.05056 17.1099 0.947313 16.2059 0.98395 15.3019C1.02392 14.3979 1.20044 13.5078 1.51018 12.6626L1.55348 12.5414L5.90654 0.747936C5.92875 0.69021 5.95539 0.634792 5.98648 0.581684C6.01534 0.528576 6.04976 0.478931 6.08972 0.43275C6.12747 0.38426 6.16855 0.339234 6.21295 0.297671C6.25736 0.258417 6.30399 0.221472 6.35284 0.186836C6.45609 0.121028 6.56267 0.0725381 6.67924 0.0448295C6.79248 0.0136573 6.91238 -0.000196993 7.02895 0.00673016C7.14885 0.0136573 7.26542 0.0379024 7.37533 0.0829289C7.48524 0.124492 7.59181 0.186836 7.68507 0.263035C7.72948 0.302289 7.77278 0.343852 7.81496 0.387724C7.85493 0.433905 7.89046 0.483549 7.92154 0.536658C7.95485 0.587457 7.98371 0.641719 8.00814 0.699446C8.03256 0.754863 8.05254 0.812589 8.06809 0.872625L11.0023 10.2139H22.8792L25.8134 0.872625C25.8289 0.812589 25.85 0.754863 25.8767 0.699446C25.9011 0.644029 25.93 0.589766 25.9633 0.536658C25.9944 0.485858 26.0299 0.437368 26.0699 0.391187C26.1098 0.345006 26.1531 0.302289 26.1997 0.263035C26.293 0.186836 26.3962 0.127955 26.5062 0.0829289C26.6194 0.0413659 26.736 0.0171209 26.8525 0.0101937C26.9724 0.00326659 27.089 0.0136573 27.2056 0.0448295C27.3188 0.0760017 27.4287 0.124492 27.5286 0.1903C27.5797 0.222627 27.6275 0.259571 27.6719 0.301134C27.7163 0.340388 27.7573 0.38426 27.7951 0.43275C27.8328 0.48124 27.8673 0.532039 27.8983 0.585148C27.9272 0.638256 27.9527 0.693673 27.9749 0.751399L32.3213 12.5483L32.3646 12.6696C32.6744 13.5112 32.8509 14.4014 32.8875 15.3054Z" fill="#E24329" />
-                  </svg>
-                )}
 
                 <div class="mt-5">
                   <p class="font-semibold text-5xl text-white">{story.percentage}</p>
@@ -338,7 +224,7 @@ const footer = {
               </div>
               <p class="mt-auto">
                 <span class="font-medium text-sm text-[#5978ea] pb-1 border-b-2 border-neutral-700 group-hover:border-[#5978ea] group-focus:border-[#5978ea] transition focus:outline-hidden">
-                  Case study
+                  Try It Now
                 </span>
               </p>
             </a>
@@ -390,14 +276,14 @@ const footer = {
         </div>
 
         <!-- CTA Button -->
-        <div class="mt-10 text-center">
+        <!-- <div class="mt-10 text-center">
           <a href={services.cta.href} class="inline-flex items-center gap-x-2 text-white bg-neutral-800 hover:bg-neutral-700 border border-neutral-700 rounded-lg px-6 py-3 text-sm font-medium transition">
             {services.cta.text}
             <svg class="size-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
             </svg>
           </a>
-        </div>
+        </div> -->
       </div>
     </div>
 
@@ -681,7 +567,7 @@ const footer = {
     <!-- End Approach -->
 
     <!-- Contact -->
-    <div class="bg-neutral-900">
+    <div class="bg-neutral-900" id="contact">
       <div class="max-w-5xl px-4 xl:px-0 py-10 lg:py-20 mx-auto">
         <!-- Title -->
         <div class="max-w-3xl mb-10 lg:mb-14">
