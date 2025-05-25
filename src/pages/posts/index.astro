@@ -6,84 +6,72 @@ const posts = [
   {
     title: "How Automation Saves Time for Solopreneurs",
     excerpt: "Discover how using automation tools like n8n and AI chatbots can streamline your workflow.",
-    slug: "automation-for-solopreneurs",
     date: "2025-05-25",
     // thumbnail: "/images/posts/automation.png"
   },
   {
     title: "Prompt Engineering Basics",
     excerpt: "Learn the core principles behind crafting effective prompts for GPT-based models.",
-    slug: "prompt-engineering-basics",
     date: "2025-05-18",
     thumbnail: ""
   },
   {
     title: "How Automation Saves Time for Solopreneurs",
     excerpt: "Discover how using automation tools like n8n and AI chatbots can streamline your workflow.",
-    slug: "automation-for-solopreneurs",
     date: "2025-05-25",
     // thumbnail: "/images/posts/automation.png"
   },
   {
     title: "Prompt Engineering Basics",
     excerpt: "Learn the core principles behind crafting effective prompts for GPT-based models.",
-    slug: "prompt-engineering-basics",
     date: "2025-05-18",
     thumbnail: ""
   },
   {
     title: "How Automation Saves Time for Solopreneurs",
     excerpt: "Discover how using automation tools like n8n and AI chatbots can streamline your workflow.",
-    slug: "automation-for-solopreneurs",
     date: "2025-05-25",
     // thumbnail: "/images/posts/automation.png"
   },
   {
     title: "Prompt Engineering Basics",
     excerpt: "Learn the core principles behind crafting effective prompts for GPT-based models.",
-    slug: "prompt-engineering-basics",
     date: "2025-05-18",
     thumbnail: ""
   },
   {
     title: "How Automation Saves Time for Solopreneurs",
     excerpt: "Discover how using automation tools like n8n and AI chatbots can streamline your workflow.",
-    slug: "automation-for-solopreneurs",
     date: "2025-05-25",
     // thumbnail: "/images/posts/automation.png"
   },
   {
     title: "Prompt Engineering Basics",
     excerpt: "Learn the core principles behind crafting effective prompts for GPT-based models.",
-    slug: "prompt-engineering-basics",
     date: "2025-05-18",
     thumbnail: ""
   },
   {
     title: "How Automation Saves Time for Solopreneurs",
     excerpt: "Discover how using automation tools like n8n and AI chatbots can streamline your workflow.",
-    slug: "automation-for-solopreneurs",
     date: "2025-05-25",
     // thumbnail: "/images/posts/automation.png"
   },
   {
     title: "Prompt Engineering Basics",
     excerpt: "Learn the core principles behind crafting effective prompts for GPT-based models.",
-    slug: "prompt-engineering-basics",
     date: "2025-05-18",
     thumbnail: ""
   },
   {
     title: "How Automation Saves Time for Solopreneurs",
     excerpt: "Discover how using automation tools like n8n and AI chatbots can streamline your workflow.",
-    slug: "automation-for-solopreneurs",
     date: "2025-05-25",
     // thumbnail: "/images/posts/automation.png"
   },
   {
     title: "Prompt Engineering Basics",
     excerpt: "Learn the core principles behind crafting effective prompts for GPT-based models.",
-    slug: "prompt-engineering-basics",
     date: "2025-05-18",
     thumbnail: ""
   }
@@ -100,19 +88,14 @@ const fallbackColors = ["bg-[#1f2937]", "bg-[#4b5563]", "bg-[#7c3aed]"]
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {posts.map((post, idx) => (
-          <a href={`/posts/${post.slug}`} class="flex flex-col bg-neutral-800 border border-neutral-700 rounded-xl overflow-hidden hover:border-[#5978ea] transition">
-            {post.thumbnail
-              ? <img src={post.thumbnail} alt={post.title} class="w-full h-48 object-cover" loading="lazy" />
-              : <div class={`w-full h-48 flex items-center justify-center text-white text-center text-lg font-semibold ${fallbackColors[idx % fallbackColors.length]}`}>
-                  {post.title}
-                </div>
-            }
+            <div class={`w-full h-48 flex items-center justify-center text-white text-center text-lg font-semibold ${fallbackColors[idx % fallbackColors.length]}`}>
+              {post.title}
+            </div>
             <div class="p-5 flex flex-col flex-grow">
               <span class="text-sm text-neutral-400 mb-2">{post.date}</span>
               <h3 class="text-white text-lg font-semibold">{post.title}</h3>
               <p class="text-sm text-neutral-400 mt-2">{post.excerpt}</p>
             </div>
-          </a>
         ))}
       </div>
     </div>
