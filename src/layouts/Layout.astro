@@ -25,6 +25,14 @@ const siteConfig = {
     <meta property="og:image" content={siteConfig.ogImage}>
     <link rel="icon" type="image/x-icon" href={siteConfig.favicon}>
     <link href={siteConfig.fontUrl} rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+    <script type="text/partytown" src="https://www.googletagmanager.com/gtag/js?id=G-JSE8M9GG8Y"></script>
+    <script type="text/partytown">
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date()); d
+      gtag('config', 'G-JSE8M9GG8Y');
+    </script>
 </head>
 <body class="bg-neutral-900">
     <main id="content">
