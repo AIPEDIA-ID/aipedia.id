@@ -1,103 +1,22 @@
 ---
-import Layout from '../../layouts/Layout.astro'
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
 
-// Dummy data - nanti bisa diganti pakai content collection atau API
-const posts = [
-  {
-    title: "How Automation Saves Time for Solopreneurs",
-    excerpt: "Discover how using automation tools like n8n and AI chatbots can streamline your workflow.",
-    date: "2025-05-25",
-    // thumbnail: "/images/posts/automation.png"
-  },
-  {
-    title: "Prompt Engineering Basics",
-    excerpt: "Learn the core principles behind crafting effective prompts for GPT-based models.",
-    date: "2025-05-18",
-    thumbnail: ""
-  },
-  {
-    title: "How Automation Saves Time for Solopreneurs",
-    excerpt: "Discover how using automation tools like n8n and AI chatbots can streamline your workflow.",
-    date: "2025-05-25",
-    // thumbnail: "/images/posts/automation.png"
-  },
-  {
-    title: "Prompt Engineering Basics",
-    excerpt: "Learn the core principles behind crafting effective prompts for GPT-based models.",
-    date: "2025-05-18",
-    thumbnail: ""
-  },
-  {
-    title: "How Automation Saves Time for Solopreneurs",
-    excerpt: "Discover how using automation tools like n8n and AI chatbots can streamline your workflow.",
-    date: "2025-05-25",
-    // thumbnail: "/images/posts/automation.png"
-  },
-  {
-    title: "Prompt Engineering Basics",
-    excerpt: "Learn the core principles behind crafting effective prompts for GPT-based models.",
-    date: "2025-05-18",
-    thumbnail: ""
-  },
-  {
-    title: "How Automation Saves Time for Solopreneurs",
-    excerpt: "Discover how using automation tools like n8n and AI chatbots can streamline your workflow.",
-    date: "2025-05-25",
-    // thumbnail: "/images/posts/automation.png"
-  },
-  {
-    title: "Prompt Engineering Basics",
-    excerpt: "Learn the core principles behind crafting effective prompts for GPT-based models.",
-    date: "2025-05-18",
-    thumbnail: ""
-  },
-  {
-    title: "How Automation Saves Time for Solopreneurs",
-    excerpt: "Discover how using automation tools like n8n and AI chatbots can streamline your workflow.",
-    date: "2025-05-25",
-    // thumbnail: "/images/posts/automation.png"
-  },
-  {
-    title: "Prompt Engineering Basics",
-    excerpt: "Learn the core principles behind crafting effective prompts for GPT-based models.",
-    date: "2025-05-18",
-    thumbnail: ""
-  },
-  {
-    title: "How Automation Saves Time for Solopreneurs",
-    excerpt: "Discover how using automation tools like n8n and AI chatbots can streamline your workflow.",
-    date: "2025-05-25",
-    // thumbnail: "/images/posts/automation.png"
-  },
-  {
-    title: "Prompt Engineering Basics",
-    excerpt: "Learn the core principles behind crafting effective prompts for GPT-based models.",
-    date: "2025-05-18",
-    thumbnail: ""
-  }
-]
-
-// Fallback colors for posts without thumbnail
-const fallbackColors = ["bg-[#1f2937]", "bg-[#4b5563]", "bg-[#7c3aed]"]
+const posts = await getCollection('blog');
 ---
 
-<Layout title="All Posts" description="Explore the latest articles, tips, and insights from AIPEDIA.">
-  <div class="bg-neutral-900 py-24">
-    <div class="max-w-6xl px-4 mx-auto">
-      <h1 class="text-white text-3xl md:text-5xl font-bold text-center mb-10">All Posts</h1>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {posts.map((post, idx) => (
-            <div class={`w-full h-48 flex items-center justify-center text-white text-center text-lg font-semibold ${fallbackColors[idx % fallbackColors.length]}`}>
-              {post.title}
-            </div>
-            <div class="p-5 flex flex-col flex-grow">
-              <span class="text-sm text-neutral-400 mb-2">{post.date}</span>
-              <h3 class="text-white text-lg font-semibold">{post.title}</h3>
-              <p class="text-sm text-neutral-400 mt-2">{post.excerpt}</p>
-            </div>
-        ))}
-      </div>
+<Layout title="Blog Posts">
+  <div class="max-w-7xl mx-auto py-12 px-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {posts.map(post => (
+        <article class="bg-neutral-800 border border-neutral-700 rounded-lg p-6 hover:border-[#5978ea] transition">
+          <h2 class="text-white text-2xl font-bold mb-2">
+            <a href={`/posts/${post.slug}`} class="hover:text-[#5978ea] transition">{post.data.title}</a>
+          </h2>
+          <p class="text-neutral-400 mb-4">{post.data.excerpt}</p>
+          <time class="text-sm text-neutral-500">{post.data.date}</time>
+        </article>
+      ))}
     </div>
   </div>
 </Layout>
