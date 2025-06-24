@@ -17,7 +17,9 @@ const colors = ['bg-[#db2777]', 'bg-[#7c3aed]', 'bg-[#0ea5e9]', 'bg-[#14b8a6]', 
 
       <!-- Posts Grid -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {posts.map((post, index) => {
+        {posts
+          .sort((a, b) => Number(new Date(b.data.date)) - Number(new Date(a.data.date)))
+          .map((post, index) => {
           const randomColor = colors[index % colors.length];
           return (
             <a href={`/posts/${post.slug}`} class="flex flex-col bg-neutral-800 rounded-xl overflow-hidden hover:border-[#5978ea] transition">
