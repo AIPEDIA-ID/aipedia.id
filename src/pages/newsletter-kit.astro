@@ -6,7 +6,7 @@ import Footer from '../components/Footer.astro';
 const faqs = [
   {
     question: "Apa saja yang saya dapat setelah membeli?",
-    answer: "Anda mendapat akses ke semua file tema Astro, workflow n8n, tutorial setup lengkap, dan panduan integrasi Mailjet. Semua update di masa depan juga gratis."
+    answer: "Anda mendapat akses ke semua file Tema Website Static Site, workflow n8n, tutorial setup lengkap, dan panduan integrasi Mailjet. Semua update di masa depan juga gratis."
   },
   {
     question: "Berapa lama saya bisa mengakses materi?",
@@ -23,28 +23,32 @@ const faqs = [
   {
     question: "Bagaimana dengan support?",
     answer: "Anda dapat mengajukan pertanyaan via GitHub Issues. Kami aktif membantu pengguna Newsletter Kit."
+  },
+  {
+    question: "GPT Writer itu apa?",
+    answer: "Itu adalah custome GPT yang kami gunakan untuk menulis artikel, dan mereview."
   }
 ];
 ---
 
-<Layout title="Newsletter Pack - Bangun Newsletter AI Anda Sendiri | AIPEDIA.ID" description="Paket lengkap untuk membangun sistem riset konten otomatis + editorial manusia. Website cepat, email gratis, dan kontrol penuh di tangan Anda.">
-  <Navbar />
+<Layout title="Newsletter Kit - Bangun Newsletter AI Anda Sendiri | AIPEDIA.ID" description="Paket lengkap untuk membangun sistem riset konten otomatis + editorial manusia. Website cepat, email gratis, dan kontrol penuh di tangan Anda.">
   
   <!-- Hero Section -->
-  <section class="bg-white py-16 px-6 lg:px-8">
+  <!-- Di awal Hero Section -->
+  <section class="bg-white py-20 px-8 lg:px-8">
     <div class="max-w-6xl mx-auto text-center">
-      <h1 class="text-4xl md:text-6xl font-bold text-text mb-6 leading-tight">
+      <a href="/">
+        <img src="/logo.png" alt="AIPEDIA.ID" class="h-14 mx-auto mb-8" />
+      </a>
+      <h1 class="text-3xl md:text-5xl font-bold text-text mb-6 leading-tight">
         Bangun Newsletter Anda Sendiri
       </h1>
       <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-8 leading-relaxed">
-        Paket lengkap untuk membangun sistem riset konten otomatis dengan AI tapi tetap menggunakan editorial manusia. Website cepat, email gratis, dan kontrol penuh di tangan Anda.
+        Paket lengkap untuk membangun sistem newsletter: mulai dari riset konten otomatis dengan AI, kurasi editorial manual, hingga pengiriman email gratis, hingga miliki website berperforma tinggi. Kontrol penuh tetap di tangan Anda.
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="#buy" class="bg-primary text-white px-8 py-4 rounded-xl font-bold hover:bg-blue-600 transition-colors text-lg">
-            Newsletter Pack
-        </a>
-        <a href="/" class="bg-white text-text border-2 border-gray-200 px-8 py-4 rounded-xl font-bold hover:border-gray-300 hover:bg-gray-50 transition-colors text-lg">
-          Lihat Demo
+        <a href="#pricing" class="bg-primary text-white px-8 py-4 rounded-xl font-bold hover:bg-blue-600 transition-colors text-lg">
+            Newsletter Kit
         </a>
       </div>
     </div>
@@ -53,7 +57,7 @@ const faqs = [
   <!-- Features Section -->
   <section class="bg-gray-50 py-16 px-6 lg:px-8">
     <div class="max-w-6xl mx-auto">
-      <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Isi Newsletter Kit</h2>
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Newsletter Kit</h2>
       <div class="grid md:grid-cols-5 gap-6">
         <div class="bg-white p-6 rounded-xl border border-gray-200">
           <div class="w-12 h-12 flex items-center justify-center rounded-lg bg-primary/10 mb-4">
@@ -61,7 +65,7 @@ const faqs = [
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
             </svg>
           </div>
-          <h3 class="text-lg font-bold mb-2">AI Workflow</h3>
+          <h3 class="text-lg font-bold mb-2">AI n8n Workflow</h3>
           <p class="text-gray-600 text-sm">Riset konten & auto-publish</p>
         </div>
 
@@ -72,7 +76,7 @@ const faqs = [
             </svg>
           </div>
           <h3 class="text-lg font-bold mb-2">Website Pro</h3>
-          <p class="text-gray-600 text-sm">Tema Astro SEO-ready</p>
+          <p class="text-gray-600 text-sm">Template Website Static Site SEO-ready</p>
         </div>
 
         <div class="bg-white p-6 rounded-xl border border-gray-200">
@@ -81,7 +85,7 @@ const faqs = [
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
             </svg>
           </div>
-          <h3 class="text-lg font-bold mb-2">Email Gratis</h3>
+          <h3 class="text-lg font-bold mb-2">Setup Email Gratis</h3>
           <p class="text-gray-600 text-sm">6.000 email/bulan</p>
         </div>
 
@@ -91,8 +95,8 @@ const faqs = [
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
             </svg>
           </div>
-          <h3 class="text-lg font-bold mb-2">Tutorial</h3>
-          <p class="text-gray-600 text-sm">Setup lengkap A-Z</p>
+          <h3 class="text-lg font-bold mb-2">Panduan Lengkap</h3>
+          <p class="text-gray-600 text-sm">Panduan Setup lengkap A-Z</p>
         </div>
 
         <div class="bg-white p-6 rounded-xl border border-gray-200">
@@ -111,7 +115,7 @@ const faqs = [
   <!-- Workflow Section -->
   <section class="bg-white py-16 px-6 lg:px-8">
     <div class="max-w-6xl mx-auto">
-      <h2 class="text-3xl md:text-4xl font-bold text-center mb-8">Workflow Cerdas. Kontrol Tetap di Tangan Anda.</h2>
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-8">Dengan AI Workflow Tapi Kontrol Tetap di Tangan Anda</h2>
       <p class="text-center text-gray-600 text-lg max-w-3xl mx-auto mb-12">Manfaatkan AI untuk riset dan draft awal. Anda tetap pegang kendali penuh untuk kurasi dan review sebelum konten dipublikasi.</p>
       <div class="flex items-center justify-center gap-4 mb-12">
         <div class="flex items-center gap-2 text-primary">
@@ -200,58 +204,75 @@ const faqs = [
   <!-- Newsletter Stats Section -->
   <section class="bg-white py-16 px-6 lg:px-8">
     <div class="max-w-6xl mx-auto">
-      <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Email Masih Hidup. Bahkan Lebih Kuat.</h2>
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Kenapa Email Newsletter?</h2>
 
       <div class="grid md:grid-cols-2 gap-16">
         <div>
           <h3 class="text-2xl font-bold mb-8">Fakta Terkini:</h3>
           <div class="space-y-6">
             <div class="flex items-start gap-4">
-              <div class="text-primary font-bold">93-99%</div>
-              <p class="text-gray-600">pengguna internet buka email tiap hari (DragApp, 2024)</p>
+              <div class="text-primary font-bold">58%</div>
+              <p class="text-gray-600">orang dewasa global buka email setiap pagi (MTARGET, 2024)</p>
             </div>
 
             <div class="flex items-start gap-4">
-              <div class="text-primary font-bold">42%</div>
-              <p class="text-gray-600">Open rate rata-rata email (Mailmodo, 2025)</p>
+              <div class="text-primary font-bold">38.5%</div>
+              <p class="text-gray-600">open rate email di segmen B2B Indonesia (MTARGET, 2023)</p>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="text-primary font-bold">4.2%</div>
+              <p class="text-gray-600">rata-rata konversi email marketing - tertinggi dibanding social media (MTARGET)</p>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="text-primary font-bold">+200%</div>
+              <p class="text-gray-600">ROI email marketing dibanding platform lain (GetResponse, 2024)</p>
             </div>
 
             <div class="flex items-start gap-4">
               <div class="text-primary font-bold">•</div>
-              <p class="text-gray-600">Newsletter tetap jadi kanal paling personal dan direct</p>
+              <p class="text-gray-600">Newsletter membangun hubungan langsung tanpa tergantung algoritma</p>
             </div>
           </div>
         </div>
 
         <div>
-          <h3 class="text-2xl font-bold mb-8">Newsletter Pack memungkinkan Anda untuk:</h3>
+          <h3 class="text-2xl font-bold mb-8">Newsletter Kit memungkinkan Anda untuk:</h3>
           <div class="space-y-4">
             <div class="flex items-start gap-4">
               <svg class="w-6 h-6 text-green-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
               </svg>
-              <p class="text-gray-600">Punya sistem editorial sendiri via GitHub</p>
+              <p class="text-gray-600">Punya sistem editorial mandiri berbasis GitHub - efisien & kolaboratif</p>
             </div>
 
             <div class="flex items-start gap-4">
               <svg class="w-6 h-6 text-green-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
               </svg>
-              <p class="text-gray-600">Kirim email berkualitas tanpa bayar langganan</p>
+              <p class="text-gray-600">Kirim email tanpa biaya bulanan - terintegrasi Mailjet & n8n</p>
             </div>
 
             <div class="flex items-start gap-4">
               <svg class="w-6 h-6 text-green-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
               </svg>
-              <p class="text-gray-600">Miliki website profesional yang membangun trust</p>
+              <p class="text-gray-600">Miliki website ultra-cepat yang meningkatkan kredibilitas & SEO</p>
             </div>
 
             <div class="flex items-start gap-4">
               <svg class="w-6 h-6 text-green-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
               </svg>
-              <p class="text-gray-600">Lepas dari ketergantungan Substack, Medium, Mailchimp</p>
+              <p class="text-gray-600">Kendali penuh: lepas dari Substack, Mailchimp, dan platform tertutup</p>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <svg class="w-6 h-6 text-green-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <p class="text-gray-600">Bangun aset media jangka panjang yang bisa dimonetisasi</p>
             </div>
           </div>
         </div>
@@ -311,12 +332,12 @@ const faqs = [
   </section>
 
   <!-- CTA Section with Pricing Box -->
-  <section class="bg-primary text-white py-16 px-6 lg:px-8">
+  <section id="pricing" class="bg-primary text-white py-16 px-6 lg:px-8">
     <div class="max-w-6xl mx-auto">
       <div class="bg-white rounded-2xl overflow-hidden shadow-xl max-w-2xl mx-auto">
         <div class="p-8 text-center">
           <h3 class="text-2xl font-bold text-gray-900 mb-2">Newsletter Kit</h3>
-          <div class="text-4xl font-bold text-primary mb-6">Rp198.000</div>
+          <div class="text-4xl font-bold text-primary mb-6">Rp198k</div>
           <p class="text-gray-600 mb-8">Sekali bayar, akses selamanya</p>
           
           <ul class="space-y-4 mb-8 text-left">
@@ -330,7 +351,7 @@ const faqs = [
               <svg class="w-6 h-6 text-green-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
               </svg>
-              <span class="text-gray-600">Tema Astro yang cepat & SEO-friendly</span>
+              <span class="text-gray-600">Tema Website Static Site yang cepat & SEO-friendly</span>
             </li>
             <li class="flex items-start gap-3">
               <svg class="w-6 h-6 text-green-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -347,11 +368,16 @@ const faqs = [
           </ul>
 
           <div class="flex flex-col gap-4">
-            <a href="#buy" class="bg-primary text-white px-8 py-4 rounded-xl font-bold hover:bg-blue-600 transition-colors text-lg w-full text-center">
+            <a href="https://aipedia.lemonsqueezy.com/checkout" class="bg-primary text-white px-8 py-4 rounded-xl font-bold hover:bg-blue-600 transition-colors text-lg w-full text-center">
               Buat Newsletter Sekarang
             </a>
-            <a href="/" class="text-primary hover:text-blue-600 font-medium">
-              Lihat Demo Live
+            <a href="https://aipedia.id" class="text-primary hover:text-blue-600 font-medium">
+              <span class="relative group">
+                Lihat Demo Live
+                <span class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1 text-sm text-white bg-gray-900 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                  Sistem ini digunakan secara production oleh AIPEDIA.ID
+                </span>
+              </span>
             </a>
           </div>
         </div>
@@ -382,5 +408,11 @@ const faqs = [
     </div>
   </section>
 
-  <Footer />
 </Layout>
+
+<!-- Tambahkan sebelum closing Layout -->
+<button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="fixed bottom-8 right-8 bg-primary text-white p-3 rounded-full shadow-lg hover:bg-blue-600 transition-colors">
+  <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+  </svg>
+</button>
