@@ -16,7 +16,11 @@ const { post } = Astro.props;
 const { Content } = await post.render();
 ---
 
-<Layout>
+<Layout
+  title={`${post.data.title} | AIPEDIA.ID`}
+  description={post.data.subtitle}
+  ogImage={post.data.image}
+>
   <!-- Article Content -->
   <article class="bg-white relative">
     <!-- Progress Bar -->
