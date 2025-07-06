@@ -9,8 +9,6 @@ type: "article"
 readTime: "8 min read"
 ---
 
-# Google AI Overviews Dituding Ancam Kelangsungan Penerbit Independen
-
 Pada pertengahan tahun 2024, kekhawatiran sejumlah penerbit independen Eropa memuncak. Di tengah arus transformasi digital yang begitu deras, muncul kekuatan baru yang sulit dilawan: kecerdasan buatan di mesin pencarian. Aliansi Penerbit Independen (Independent Publishers Alliance), yang terdiri dari media dan penerbit berbagai ukuran di Eropa, resmi mengajukan pengaduan antitrust ke Komisi Eropa terhadap Google.
 
 Yang dipersoalkan bukanlah hal teknis semata, melainkan fitur bernama *AI Overviews* dalam layanan pencarian Google. Sejak fitur ini diluncurkan lebih dari setahun lalu, Google mulai menampilkan ringkasan hasil pencarian yang dihasilkan oleh AI tepat di bagian atas halaman, bahkan sebelum tautan menuju situs aslinya. Bagi sebagian pengguna, ini adalah kemudahan. Namun bagi para penerbit berita, ini bisa berarti awal dari kemunduran.

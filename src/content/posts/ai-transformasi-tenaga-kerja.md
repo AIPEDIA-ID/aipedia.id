@@ -9,8 +9,6 @@ type: "article"
 readTime: "8 min read"
 ---
 
-# Bagaimana AI Mengubah Wajah Dunia Kerja: Perspektif CEO LinkedIn
-
 Dalam beberapa tahun terakhir, kecerdasan buatan atau artificial intelligence (AI) telah bergerak lebih cepat dari yang diprediksi para analis. Bukan hanya merubah cara perusahaan menyusun strategi, AI juga merevolusi bagaimana pekerjaan dilakukan di hampir semua sektor industri. Dan di tengah semua transformasi ini, LinkedIn sebagai jaringan profesional terbesar di dunia memainkan peran kunci sebagai barometer perubahan.
 
 Ryan Roslansky, CEO LinkedIn, dalam wawancaranya dengan media ekonomi terkemuka minggu lalu, menyampaikan bahwa AI bukan hanya menghapus pekerjaan lama, tetapi juga menciptakan peluang baru yang belum pernah ada sebelumnya. “Yang kita lihat sekarang adalah perubahan signifikan dalam 'skill set' dan bukan sekadar penghapusan pekerjaan,” ujarnya.

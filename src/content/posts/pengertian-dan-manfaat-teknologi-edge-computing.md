@@ -9,8 +9,6 @@ type: "article"
 readTime: "8 min read"
 ---
 
-# Pengertian dan Manfaat Teknologi Edge Computing untuk Masa Depan Digital
-
 Di tengah perkembangan teknologi yang begitu pesat, kebutuhan akan pengolahan data secara real-time menjadi sangat penting. Salah satu teknologi yang hadir sebagai solusi atas tantangan ini adalah **edge computing**. Berbeda dengan komputasi tradisional berbasis cloud, edge computing memungkinkan pemrosesan data dilakukan lebih dekat ke sumbernya. Teknologi ini menawarkan efisiensi tinggi, kecepatan pemrosesan, dan latensi lebih rendah yang sangat krusial di era Internet of Things (IoT) dan automasi industri.
 
 Dalam artikel ini, kita akan membahas secara lengkap mengenai apa itu edge computing, bagaimana cara kerjanya, manfaat, serta penerapannya di berbagai sektor industri.

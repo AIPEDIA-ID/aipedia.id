@@ -9,8 +9,6 @@ type: "article"
 readTime: "8 min read"
 ---
 
-# Uni Eropa Tegaskan Tidak Akan Tunda Aturan AI Meski Didemo Raksasa Teknologi
-
 Pada suatu pagi yang biasanya tenang di Brussel, suara dari balik pintu Komisi Eropa terdengar lebih tegas dari biasanya. Ketika tekanan dari lebih dari seratus perusahaan teknologi global mencoba merembes lewat surat dan pernyataan publik, jawaban yang datang justru lugas dan tak bergeser: Uni Eropa tidak akan menunda implementasi Undang-Undang Kecerdasan Buatan (AI Act).
 
 Kebijakan yang telah disusun bertahun-tahun ini, menurut para pembuatnya, terlalu penting untuk ditunda. Diumumkan secara resmi pada hari Jumat, perwakilan Komisi Eropa, Thomas Regnier, menyampaikan posisi tegas institusi tersebut dalam konferensi pers yang dikutip berbagai media. 

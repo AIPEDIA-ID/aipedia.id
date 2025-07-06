@@ -9,8 +9,6 @@ type: "article"
 readTime: "8 min read"
 ---
 
-# UE Tegaskan Tetap Jalankan Aturan AI di Tengah Tekanan dari Raksasa Teknologi
-
 Pada hari Jumat lalu, Uni Eropa menyampaikan pesan yang sangat jelas: mereka tidak akan menunda penerapan AI Act, sebuah regulasi ekstensif yang bisa menjadi tonggak penting dalam cara dunia mengelola perkembangan teknologi kecerdasan buatan. Pernyataan ini muncul di tengah tekanan besar-besaran dari lebih dari seratus perusahaan teknologi global, termasuk nama-nama besar seperti Alphabet, Meta, Mistral AI, dan ASML, yang secara terbuka meminta agar pelaksanaan aturan tersebut ditangguhkan.
 
 "Tidak ada penghentian sementara. Tidak ada masa tenggang. Tidak ada jeda waktu," tegas juru bicara Komisi Eropa, Thomas Regnier, dikutip oleh Reuters. Penegasan ini menggarisbawahi sikap Uni Eropa yang memilih konsistensi meski menghadapi desakan berkepanjangan dari industri teknologi yang khawatir kebijakan tersebut dapat menghambat daya saing Eropa dalam perlombaan AI global.
