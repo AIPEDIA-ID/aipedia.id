@@ -1,44 +1,14 @@
----
-import '../styles/global.css';
-import Header from './Header.astro';
-
-const { title, description, canonicalUrl, ogImage, favicon, fontUrl } = Astro.props;
-const siteConfig = {
-  title: "AIPEDIA.ID | All in one AI-Powered Solutions for Modern Businesses",
-  description: "AI automation agency helping solopreneurs and startups streamline operations with custom AI tools, chatbots, and SEO solutions.",
-  canonicalUrl: "https://AIPEDIA.ID.co/",
-  ogImage: "https://AIPEDIA.ID.co/assets/img/og-image.png",
-  favicon: "/favicon.png",
-  fontUrl: "https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
-};
-
----
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{siteConfig.title}</title>
-    <meta name="description" content={siteConfig.description}>
-    <link rel="canonical" href={siteConfig.canonicalUrl}>
-    <meta property="og:image" content={siteConfig.ogImage}>
-    <link rel="icon" type="image/x-icon" href={siteConfig.favicon}>
-    <link href={siteConfig.fontUrl} rel="stylesheet">
-    <!-- Google tag (gtag.js) -->
-    <script type="text/partytown" src="https://www.googletagmanager.com/gtag/js?id=G-JSE8M9GG8Y"></script>
-    <script type="text/partytown">
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date()); d
-      gtag('config', 'G-JSE8M9GG8Y');
-    </script>
-</head>
-<body class="bg-neutral-900">
-    <main id="content">
-        <Header></Header>
-        <slot />
-        <script src="../scripts/preline.js"></script>
-    </main>
-</body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>AIPEDIA.ID - AI That Matters for Solopreneurs</title>
+		<meta name="description" content="Dapatkan info tools AI terbaru, insight praktis, dan strategi cerdas untuk bisnis kecil—langsung ke inbox Anda, gratis setiap minggu." />
+	</head>
+	<body class="bg-white text-text min-h-screen">
+		<slot />
+	</body>
 </html>

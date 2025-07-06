@@ -1,0 +1,271 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts');
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post }
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+---
+
+<Layout>
+  <!-- Article Content -->
+  <article class="bg-white relative">
+    <!-- Progress Bar -->
+    <div class="sticky top-0 left-0 w-full h-1 bg-gray-200">
+      <div class="progress-bar h-full bg-primary" id="progressBar"></div>
+    </div>
+
+    <!-- Back Arrow - Positioned outside container -->
+    <div class="absolute left-4 top-4 md:left-8 md:top-8">
+      <a href="/" class="text-gray-500 hover:text-primary transition-colors">
+        <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+        </svg>
+      </a>
+    </div>
+
+    <div class="max-w-6xl mx-auto px-6 lg:px-8 py-10">
+      <div class="max-w-3xl mx-auto">
+        <!-- Breadcrumbs -->
+        <nav class="flex mb-4" aria-label="Breadcrumb">
+          <ol class="flex items-center space-x-2 text-sm text-gray-500">
+            <li>
+              <a href="/" class="hover:text-primary transition-colors">Post</a>
+            </li>
+            <li>
+              <span class="mx-2">/</span>
+            </li>
+            <li>
+              <span class="text-gray-900">{post.data.title}</span>
+            </li>
+          </ol>
+        </nav>
+
+        <!-- Article Meta -->
+        <div class="mb-6">
+          <div class="flex items-center text-sm text-gray-500 mb-3">
+            <span class="inline-block bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded-full mr-3 font-medium">
+              {post.data.type}
+            </span>
+            <span>{post.data.date}</span>
+            <span class="mx-2">•</span>
+            <a href={`/author/${post.data.authorSlug}`} class="hover:text-primary transition-colors">
+              {post.data.author}
+            </a>
+            <span class="mx-2">•</span>
+            <span>{post.data.readTime}</span>
+          </div>
+          
+          <!-- Title -->
+          <h1 class="text-3xl md:text-4xl font-bold text-text mb-3 leading-tight">
+            {post.data.title}
+          </h1>
+          
+          <!-- Subtitle -->
+          <p class="text-lg text-gray-600 leading-relaxed">
+            {post.data.subtitle}
+          </p>
+        </div>
+        
+        <!-- Featured Image -->
+        <div class="mb-8">
+          <img 
+            src={post.data.image} 
+            alt={post.data.title}
+            class="w-full h-64 md:h-80 object-cover rounded-2xl border-2 border-gray-200"
+          />
+        </div>
+        
+        <!-- Article Body -->
+        <div class="prose prose-lg max-w-none">
+          <div class="article-content">
+            <Content />
+          </div>
+        </div>
+        
+        <!-- Tags -->
+        {post.data.tags && post.data.tags.length > 0 && (
+          <div class="mt-8 pt-6 border-t-2 border-gray-200">
+            <h3 class="text-lg font-bold text-text mb-3">Tags</h3>
+            <div class="flex flex-wrap gap-2">
+              {post.data.tags.map((tag) => (
+                <span class="inline-block bg-gray-100 text-gray-700 text-sm px-3 py-1 rounded-full font-medium">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+        )}
+        
+        <!-- Article Footer -->
+        <div class="border-t-2 border-gray-200 mt-8 pt-6">
+          <div class="flex items-center justify-between">
+            <!-- Author Info -->
+            <div class="flex items-center">
+              <div class="w-10 h-10 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mr-3">
+                <span class="text-primary font-bold text-sm">
+                  {post.data.author.charAt(0)}
+                </span>
+              </div>
+              <div>
+                <a href={`/author/${post.data.authorSlug}`} class="font-bold text-text text-sm hover:text-primary transition-colors">
+                  {post.data.author}
+                </a>
+                <p class="text-gray-500 text-xs">Content Creator & AI Enthusiast</p>
+              </div>
+            </div>
+            
+            <!-- Share Buttons -->
+            <div class="flex space-x-2">
+              <button class="p-2 text-gray-400 hover:text-primary transition-colors rounded-lg hover:bg-gray-50">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
+                </svg>
+              </button>
+              <button class="p-2 text-gray-400 hover:text-primary transition-colors rounded-lg hover:bg-gray-50">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path>
+                </svg>
+              </button>
+              <button class="p-2 text-gray-400 hover:text-red-500 transition-colors rounded-lg hover:bg-gray-50">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Newsletter CTA -->
+        <div class="bg-gray-50 rounded-2xl border-2 border-gray-200 p-5 mt-8">
+          <div class="text-center">
+            <h3 class="text-xl font-bold text-text mb-3">
+              Suka artikel ini? Subscribe untuk update terbaru!
+            </h3>
+            <p class="text-gray-600 mb-4 leading-relaxed text-sm">
+              Dapatkan insight AI dan tips bisnis langsung ke inbox Anda setiap minggu.
+            </p>
+            <div class="max-w-md mx-auto">
+              <form class="flex flex-col sm:flex-row gap-3">
+                <input 
+                  type="email" 
+                  placeholder="Enter your email address" 
+                  required
+                  class="flex-1 px-3 py-2 border-2 border-gray-200 rounded-xl focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary text-text text-sm"
+                />
+                <button 
+                  type="submit"
+                  class="bg-primary text-white px-4 py-2 rounded-xl font-medium hover:bg-blue-600 transition-colors text-sm"
+                >
+                  Subscribe
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+  
+  <Footer />
+</Layout>
+
+<script>
+  const progressBar = document.getElementById('progressBar');
+  const article = document.querySelector('article');
+
+  window.addEventListener('scroll', () => {
+    const articleTop = article?.offsetTop || 0;
+    const articleHeight = article?.offsetHeight || 0;
+    const scrollPosition = window.scrollY - articleTop;
+    const progress = (scrollPosition / (articleHeight - window.innerHeight)) * 100;
+    
+    if (progressBar) {
+      progressBar.style.width = Math.max(0, Math.min(100, progress)) + '%';
+    }
+  });
+</script>
+
+<style>
+  .article-content h2 {
+    @apply text-2xl font-bold text-text mt-8 mb-4;
+  }
+  
+  .article-content h3 {
+    @apply text-xl font-bold text-text mt-6 mb-3;
+  }
+  
+  .article-content h4 {
+    @apply text-lg font-bold text-text mt-5 mb-2;
+  }
+  
+  .article-content p {
+    @apply text-gray-700 leading-relaxed mb-4 text-base;
+  }
+  
+  .article-content ul, .article-content ol {
+    @apply mb-6 pl-6;
+  }
+  
+  .article-content li {
+    @apply text-gray-700 mb-2 leading-relaxed text-base;
+  }
+  
+  .article-content ul li {
+    @apply list-disc;
+  }
+  
+  .article-content ol li {
+    @apply list-decimal;
+  }
+  
+  .article-content blockquote {
+    @apply border-l-4 border-primary bg-gray-50 p-4 my-6 italic text-gray-700 rounded-r-xl text-base;
+  }
+  
+  .article-content strong {
+    @apply font-bold text-text;
+  }
+  
+  .article-content a {
+    @apply text-primary hover:underline;
+  }
+  
+  .article-content code {
+    @apply bg-gray-100 text-gray-800 px-2 py-1 rounded text-sm font-mono;
+  }
+  
+  .article-content pre {
+    @apply bg-gray-900 text-gray-100 p-4 rounded-xl overflow-x-auto my-6;
+  }
+  
+  .article-content pre code {
+    @apply bg-transparent text-gray-100 p-0;
+  }
+  
+  .progress-bar {
+    width: 0%;
+    transition: width 0.2s ease;
+  }
+</style>
+
+<script>
+  const progressBar = document.getElementById('progressBar');
+
+  window.addEventListener('scroll', () => {
+    const winScroll = document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (winScroll / height) * 100;
+    
+    if (progressBar) progressBar.style.width = scrolled + '%';
+  });
+</script>

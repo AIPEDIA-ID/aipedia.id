@@ -1,0 +1,264 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout>
+  <Navbar />
+  
+  <!-- About Hero Section -->
+  <section class="bg-white py-16 px-6 lg:px-8">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16">
+        <h1 class="text-4xl md:text-5xl font-bold text-text mb-6 leading-tight">
+          About AIPEDIA.ID
+        </h1>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          Media & newsletter AI untuk pelaku bisnis kecil dan solopreneur di Indonesia yang ingin memanfaatkan teknologi AI secara praktis dan efektif.
+        </p>
+      </div>
+      
+      <!-- Mission & Vision -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+        <div class="bg-gray-50 rounded-2xl border-2 border-gray-200 p-8">
+          <div class="w-12 h-12 bg-primary bg-opacity-10 rounded-xl flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+            </svg>
+          </div>
+          <h2 class="text-2xl font-bold text-text mb-4">Our Mission</h2>
+          <p class="text-gray-700 leading-relaxed">
+            Membantu solopreneur dan pelaku bisnis kecil di Indonesia untuk memahami, mengadopsi, dan memanfaatkan teknologi AI secara praktis untuk meningkatkan produktivitas dan pertumbuhan bisnis mereka.
+          </p>
+        </div>
+        
+        <div class="bg-gray-50 rounded-2xl border-2 border-gray-200 p-8">
+          <div class="w-12 h-12 bg-primary bg-opacity-10 rounded-xl flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+            </svg>
+          </div>
+          <h2 class="text-2xl font-bold text-text mb-4">Our Vision</h2>
+          <p class="text-gray-700 leading-relaxed">
+            Menjadi sumber informasi AI terpercaya dan terdepan di Indonesia yang membantu menciptakan ekosistem bisnis yang lebih cerdas dan efisien melalui adopsi teknologi AI yang tepat sasaran.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- What We Do Section -->
+  <section class="bg-gray-50 py-16 px-6 lg:px-8">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-text mb-4">What We Do</h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+          Kami menyediakan konten berkualitas tinggi dan insights praktis tentang AI untuk bisnis.
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Content Creation -->
+        <div class="bg-white rounded-2xl border-2 border-gray-200 p-6 text-center">
+          <div class="w-16 h-16 bg-primary bg-opacity-10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-text mb-3">Content Creation</h3>
+          <p class="text-gray-600 leading-relaxed text-sm">
+            Artikel mendalam, tutorial praktis, dan analisis tren AI yang relevan untuk bisnis kecil dan solopreneur.
+          </p>
+        </div>
+        
+        <!-- Tool Reviews -->
+        <div class="bg-white rounded-2xl border-2 border-gray-200 p-6 text-center">
+          <div class="w-16 h-16 bg-primary bg-opacity-10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-text mb-3">Tool Reviews</h3>
+          <p class="text-gray-600 leading-relaxed text-sm">
+            Review mendalam dan perbandingan AI tools dengan fokus pada value for money dan kemudahan implementasi.
+          </p>
+        </div>
+        
+        <!-- Newsletter -->
+        <div class="bg-white rounded-2xl border-2 border-gray-200 p-6 text-center">
+          <div class="w-16 h-16 bg-primary bg-opacity-10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-text mb-3">Weekly Newsletter</h3>
+          <p class="text-gray-600 leading-relaxed text-sm">
+            Rangkuman mingguan perkembangan AI, tips praktis, dan insights eksklusif langsung ke inbox Anda.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Our Story Section -->
+  <section class="bg-white py-16 px-6 lg:px-8">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-bold text-text mb-6">Our Story</h2>
+          <div class="space-y-4 text-gray-700 leading-relaxed">
+            <p>
+              AIPEDIA.ID lahir dari kebutuhan nyata para solopreneur dan pelaku bisnis kecil di Indonesia yang ingin memanfaatkan teknologi AI, namun sering kali terkendala oleh informasi yang terlalu teknis atau tidak relevan dengan konteks bisnis mereka.
+            </p>
+            <p>
+              Kami memahami bahwa sebagai solopreneur, waktu adalah aset paling berharga. Oleh karena itu, kami berkomitmen untuk menyajikan informasi AI yang praktis, actionable, dan dapat langsung diimplementasikan untuk meningkatkan efisiensi bisnis.
+            </p>
+            <p>
+              Dengan pengalaman bertahun-tahun di dunia digital marketing dan teknologi, tim AIPEDIA.ID memiliki pemahaman mendalam tentang tantangan yang dihadapi bisnis kecil dalam mengadopsi teknologi baru.
+            </p>
+          </div>
+        </div>
+        
+        <div class="bg-gray-50 rounded-2xl border-2 border-gray-200 p-8">
+          <h3 class="text-2xl font-bold text-text mb-6">Why Choose AIPEDIA.ID?</h3>
+          <div class="space-y-4">
+            <div class="flex items-start">
+              <div class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center mr-3 mt-0.5">
+                <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-bold text-text mb-1">Practical Focus</h4>
+                <p class="text-gray-600 text-sm">Konten yang fokus pada implementasi praktis, bukan teori yang rumit.</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start">
+              <div class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center mr-3 mt-0.5">
+                <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-bold text-text mb-1">Local Context</h4>
+                <p class="text-gray-600 text-sm">Memahami konteks bisnis dan budaya Indonesia.</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start">
+              <div class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center mr-3 mt-0.5">
+                <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-bold text-text mb-1">Budget-Conscious</h4>
+                <p class="text-gray-600 text-sm">Rekomendasi tools yang sesuai dengan budget bisnis kecil.</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start">
+              <div class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center mr-3 mt-0.5">
+                <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-bold text-text mb-1">Regular Updates</h4>
+                <p class="text-gray-600 text-sm">Konten fresh dan update terbaru setiap minggu.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Team Section -->
+  <section class="bg-gray-50 py-16 px-6 lg:px-8">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-text mb-4">Meet Our Team</h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+          Tim berpengalaman yang passionate tentang AI dan bisnis.
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Team Member 1 -->
+        <div class="bg-white rounded-2xl border-2 border-gray-200 p-6 text-center">
+          <img 
+            src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=200&h=200&fit=crop" 
+            alt="Aji Pratama"
+            class="w-20 h-20 rounded-full object-cover mx-auto mb-4 border-4 border-gray-200"
+          />
+          <h3 class="text-lg font-bold text-text mb-2">Aji Pratama</h3>
+          <p class="text-gray-600 text-sm mb-3">Founder & Content Creator</p>
+          <p class="text-gray-600 text-xs leading-relaxed">
+            5+ tahun pengalaman di digital marketing dan AI implementation untuk bisnis kecil.
+          </p>
+        </div>
+        
+        <!-- Team Member 2 -->
+        <div class="bg-white rounded-2xl border-2 border-gray-200 p-6 text-center">
+          <img 
+            src="https://images.pexels.com/photos/3785077/pexels-photo-3785077.jpeg?auto=compress&cs=tinysrgb&w=200&h=200&fit=crop" 
+            alt="Sarah Wijaya"
+            class="w-20 h-20 rounded-full object-cover mx-auto mb-4 border-4 border-gray-200"
+          />
+          <h3 class="text-lg font-bold text-text mb-2">Sarah Wijaya</h3>
+          <p class="text-gray-600 text-sm mb-3">AI Research Analyst</p>
+          <p class="text-gray-600 text-xs leading-relaxed">
+            Spesialis riset AI tools dan trend analysis dengan background teknologi.
+          </p>
+        </div>
+        
+        <!-- Team Member 3 -->
+        <div class="bg-white rounded-2xl border-2 border-gray-200 p-6 text-center">
+          <img 
+            src="https://images.pexels.com/photos/3778876/pexels-photo-3778876.jpeg?auto=compress&cs=tinysrgb&w=200&h=200&fit=crop" 
+            alt="Budi Santoso"
+            class="w-20 h-20 rounded-full object-cover mx-auto mb-4 border-4 border-gray-200"
+          />
+          <h3 class="text-lg font-bold text-text mb-2">Budi Santoso</h3>
+          <p class="text-gray-600 text-sm mb-3">Business Strategy Advisor</p>
+          <p class="text-gray-600 text-xs leading-relaxed">
+            Konsultan bisnis dengan fokus pada implementasi teknologi untuk UMKM.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- CTA Section -->
+  <section class="bg-white py-16 px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-text mb-6">
+        Ready to Transform Your Business with AI?
+      </h2>
+      <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+        Bergabunglah dengan ribuan solopreneur yang sudah merasakan manfaat AI untuk bisnis mereka.
+      </p>
+      
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a 
+          href="/subscribe" 
+          class="bg-primary text-white px-8 py-4 rounded-xl font-medium hover:bg-blue-600 transition-colors text-lg"
+        >
+          Subscribe Newsletter
+        </a>
+        <a 
+          href="/" 
+          class="bg-white text-text border-2 border-gray-200 px-8 py-4 rounded-xl font-medium hover:border-gray-300 hover:bg-gray-50 transition-colors text-lg"
+        >
+          Explore Content
+        </a>
+      </div>
+    </div>
+  </section>
+  
+  <Footer />
+</Layout>
