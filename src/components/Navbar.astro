@@ -1,4 +1,11 @@
 ---
+const menuItems = [
+  // { href: '/sponsorship', text: 'Sponsorships' },
+  { href: '/newsletter-pack', text: 'Newsletter Pack' },
+  { href: '/about', text: 'About' },
+  // { href: '#', text: 'Login' },
+  { href: '/subscribe', text: 'Subscribe', isButton: true }
+];
 ---
 
 <nav class="bg-white border-b-2 border-gray-200 sticky top-0 z-50">
@@ -15,21 +22,17 @@
       <!-- Navigation -->
       <div class="hidden md:block">
         <div class="ml-10 flex items-baseline space-x-6">
-          <!-- <a href="/sponsorship" class="text-text hover:text-primary px-3 py-2 font-medium transition-colors">
-            Sponsorships
-          </a> -->
-          <a href="/newsletter-pack" class="text-text hover:text-primary px-3 py-2 font-medium transition-colors">
-            Newsletter Pack
-          </a>
-          <a href="/about" class="text-text hover:text-primary px-3 py-2 font-medium transition-colors">
-            About
-          </a>
-          <!-- <a href="#" class="text-text hover:text-primary px-3 py-2 font-medium transition-colors">
-            Login
-          </a> -->
-          <a href="/subscribe" class="bg-primary text-white px-4 py-2 rounded-xl font-medium hover:bg-blue-600 transition-colors">
-            Subscribe
-          </a>
+          {menuItems.map(item => (
+            item.isButton ? (
+              <a href={item.href} class="bg-primary text-white px-4 py-2 rounded-xl font-medium hover:bg-blue-600 transition-colors">
+                {item.text}
+              </a>
+            ) : (
+              <a href={item.href} class="text-text hover:text-primary px-3 py-2 font-medium transition-colors">
+                {item.text}
+              </a>
+            )
+          ))}
         </div>
       </div>
       
@@ -48,18 +51,17 @@
   <!-- Mobile menu -->
   <div class="mobile-menu hidden md:hidden">
     <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t-2 border-gray-200">
-      <a href="/sponsorship" class="text-text hover:text-primary block px-3 py-2 font-medium">
-        Sponsorships
-      </a>
-      <a href="/about" class="text-text hover:text-primary block px-3 py-2 font-medium">
-        About
-      </a>
-      <a href="#" class="text-text hover:text-primary block px-3 py-2 font-medium">
-        Login
-      </a>
-      <a href="/subscribe" class="bg-primary text-white block px-3 py-2 rounded-xl font-medium hover:bg-blue-600 transition-colors mx-3 mt-4">
-        Subscribe
-      </a>
+      {menuItems.map(item => (
+        item.isButton ? (
+          <a href={item.href} class="bg-primary text-white block px-3 py-2 rounded-xl font-medium hover:bg-blue-600 transition-colors mx-3 mt-4">
+            {item.text}
+          </a>
+        ) : (
+          <a href={item.href} class="text-text hover:text-primary block px-3 py-2 font-medium">
+            {item.text}
+          </a>
+        )
+      ))}
     </div>
   </div>
 </nav>

@@ -9,8 +9,6 @@ type: "article"
 readTime: "8 min read"
 ---
 
-# Keunggulan dan Cara Kerja Teknologi 5G: Masa Depan Konektivitas Nirkabel
-
 Seiring perkembangan zaman, kebutuhan akan kecepatan internet dan konektivitas yang stabil terus meningkat. Teknologi 5G hadir sebagai solusi revolusioner dalam dunia komunikasi nirkabel, menawarkan kecepatan transfer data yang jauh lebih tinggi, latensi rendah, serta kapasitas jaringan yang lebih besar dibandingkan generasi sebelumnya. Artikel ini akan membahas secara mendalam apa itu teknologi 5G, bagaimana cara kerjanya, keunggulannya, serta pengaruhnya terhadap berbagai aspek kehidupan.
 
 ## Apa Itu Teknologi 5G?
