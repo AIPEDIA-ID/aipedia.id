@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
-import Navbar from '../../components/Navbar.astro';
+import EmailSubscriptionForm from '../../components/EmailSubscriptionForm.astro';
 import Footer from '../../components/Footer.astro';
 
 export async function getStaticPaths() {
@@ -159,20 +159,7 @@ const { Content } = await post.render();
               Dapatkan insight AI dan tips bisnis langsung ke inbox Anda setiap minggu.
             </p>
             <div class="max-w-md mx-auto">
-              <form class="flex flex-col sm:flex-row gap-3">
-                <input 
-                  type="email" 
-                  placeholder="Enter your email address" 
-                  required
-                  class="flex-1 px-3 py-2 border-2 border-gray-200 rounded-xl focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary text-text text-sm"
-                />
-                <button 
-                  type="submit"
-                  class="bg-primary text-white px-4 py-2 rounded-xl font-medium hover:bg-blue-600 transition-colors text-sm"
-                >
-                  Subscribe
-                </button>
-              </form>
+              <EmailSubscriptionForm />
             </div>
           </div>
         </div>

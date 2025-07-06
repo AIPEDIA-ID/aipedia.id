@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
+import EmailSubscriptionForm from '../components/EmailSubscriptionForm.astro';
 ---
 
 <Layout>
@@ -29,22 +30,7 @@ import Footer from '../components/Footer.astro';
       </p>
       
       <!-- Subscribe Form -->
-      <form class="space-y-4 mb-8">
-        <div>
-          <input 
-            type="email" 
-            placeholder="Enter your email address" 
-            required
-            class="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary text-text text-lg"
-          />
-        </div>
-        <button 
-          type="submit"
-          class="w-full bg-primary text-white px-6 py-4 rounded-xl font-medium hover:bg-blue-600 transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 text-lg"
-        >
-          Subscribe Now
-        </button>
-      </form>
+      <EmailSubscriptionForm />
       
       <!-- Benefits -->
       <div class="space-y-3 mb-8">
