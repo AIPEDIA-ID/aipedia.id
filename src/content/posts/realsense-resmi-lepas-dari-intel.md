@@ -4,7 +4,7 @@ subtitle: "Setelah 14 tahun berada di bawah naungan Intel, RealSense membentuk i
 date: "2024-04-27"
 author: "Aji Pratama"
 authorSlug: "aji-pratama"
-image: "https://unsplash.com/photos/intel-computer-processor-in-selective-color-photography-0uXzoEzYZ4I"
+image: "https://images.unsplash.com/photo-1540829917886-91ab031b1764?q=80&w=1170&auto=format"
 type: "article"
 readTime: "8 min read"
 featured: true
