@@ -1,4 +1,4 @@
-name: Auto PR on Content Branch
+name: Auto PR from Content Branch
 
 on:
   push:
@@ -10,7 +10,7 @@ permissions:
   pull-requests: write
 
 jobs:
-  create-pr:
+  pr:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -20,6 +20,6 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           title: "📝 Konten Baru: ${{ github.ref_name }}"
-          body: "Konten baru siap direview sebelum publish."
+          body: "Konten baru siap direview."
           base: main
           branch: ${{ github.ref_name }}
