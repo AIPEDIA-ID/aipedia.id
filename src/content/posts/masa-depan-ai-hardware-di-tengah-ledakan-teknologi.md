@@ -4,7 +4,7 @@ subtitle: "Dua sosok pionir, Raquel Urtasun dan Jeff Cardenas, menyoroti bagaima
 date: "2024-06-17"
 author: "Aji Pratama"
 authorSlug: "aji-pratama"
-image: "images/techcrunch-ai-hardware-2025.jpg"
+image: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1170&auto=format"
 type: "article"
 readTime: "12 menit"
 featured: true
