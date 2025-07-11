@@ -1,5 +1,9 @@
 name: Auto PR from New Post in Main
 
+permissions:
+  contents: write
+  pull-requests: write
+
 on:
   push:
     branches:
