@@ -1,7 +1,7 @@
 ---
 title: "Masa Depan AI Hardware di Tengah Ledakan Teknologi"
 subtitle: "Dua sosok pionir, Raquel Urtasun dan Jeff Cardenas, menyoroti bagaimana perangkat keras AI akan menentukan arah baru robotika dan kendaraan otonom."
-date: "2024-06-17"
+date: "2025-07-11"
 author: "Aji Pratama"
 authorSlug: "aji-pratama"
 image: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1170&auto=format"
