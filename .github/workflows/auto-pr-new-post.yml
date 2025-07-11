@@ -1,0 +1,50 @@
+name: Auto PR from New Post in Main
+
+on:
+  push:
+    branches:
+      - 'main'
+
+jobs:
+  detect-new-post-and-pr:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Detect new files in posts
+        id: new_files
+        run: |
+          git fetch origin main
+          FILES=$(git diff-tree --no-commit-id --name-status -r ${{ github.sha }} | grep '^A' | awk '{print $2}' | grep '^src/content/posts/' || true)
+          echo "FILES<<EOF" >> $GITHUB_OUTPUT
+          echo "$FILES" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+          echo "COUNT=$(echo \"$FILES\" | wc -l)" >> $GITHUB_OUTPUT
+
+      - name: Create new branch and push
+        if: steps.new_files.outputs.COUNT != '0'
+        run: |
+          BRANCH=auto/pr-$(date +%s)
+          git checkout -b $BRANCH
+          git push origin $BRANCH
+          echo "branch_name=$BRANCH" >> $GITHUB_OUTPUT
+        id: new_branch
+
+      - name: Create Pull Request
+        if: steps.new_files.outputs.COUNT != '0'
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "Move new post(s) to PR"
+          title: "Auto PR for new post(s)"
+          body: |
+            Detected new file(s) in `src/content/posts/`. Creating PR for review.
+            ```
+            ${{ steps.new_files.outputs.FILES }}
+            ```
+          base: main
+          branch: ${{ steps.new_branch.outputs.branch_name }}
