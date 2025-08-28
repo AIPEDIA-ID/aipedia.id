@@ -8,8 +8,8 @@ const allPosts = await getCollection('posts');
 const sortedPosts = allPosts.sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
 ---
 
-<section class="bg-white py-12 px-6 lg:px-8">
-  <div class="max-w-6xl mx-auto">
+<section class="bg-white py-8 px-6 lg:px-8">
+  <div class="max-w-4xl mx-auto">
     <!-- Section Header -->
     <div class="text-center mb-10">
       <h2 class="text-3xl md:text-4xl font-bold text-text mb-4">Latest Posts</h2>
