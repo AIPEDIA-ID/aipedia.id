@@ -1,0 +1,42 @@
+{
+  "header": {
+    "title": {
+      "main": "Bukan Sekadar",
+      "highlight": "AI Tool Biasa"
+    },
+    "description": "Kenapa AIPEDIA unggul dibanding AI generik dan sumber pengetahuan yang tercecer"
+  },
+  "comparison": {
+    "typical": {
+      "title": "AI Generik / Sumber Tersebar",
+      "items": [
+        "Respons generik tanpa expertise domain",
+        "Tidak ada framework atau template spesialis",
+        "Butuh prompt engineering yang ekstensif",
+        "Kualitas tidak konsisten di berbagai task",
+        "Langganan bulanan dengan batas usage",
+        "Riset memakan waktu di berbagai sumber",
+        "Tidak ada workflow terstruktur atau best practice"
+      ]
+    },
+    "aipedia": {
+      "title": "Cara Kerja AIPEDIA",
+      "items": [
+        "Asisten spesialis domain dengan pengetahuan ahli",
+        "Framework pre-built dan template terbukti",
+        "Prompt teroptimasi untuk output konsisten berkualitas",
+        "Expertise terkurasi di 16 domain spesialis",
+        "Beli sekali, akses lifetime",
+        "Hasil instan dengan workflow terstruktur",
+        "Panduan lengkap dari strategi ke eksekusi"
+      ]
+    }
+  },
+  "cta": {
+    "text": "Stop buang waktu dengan AI generik. Dapatkan pengetahuan spesialis yang dorong kerja kamu maju.",
+    "button": {
+      "text": "Jelajahi Asisten",
+      "link": "#pricing"
+    }
+  }
+}

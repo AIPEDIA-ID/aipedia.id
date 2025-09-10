@@ -1,0 +1,182 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const allPosts = await getCollection('blog');
+const posts = allPosts.map(post => ({
+  ...post.data,
+  slug: post.slug,
+  url: `/blog/${post.slug}`
+})).sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+
+// Pagination
+const currentPage = parseInt(Astro.url.searchParams.get('page') || '1');
+const postsPerPage = 12;
+const totalPages = Math.ceil(posts.length / postsPerPage);
+const startIndex = (currentPage - 1) * postsPerPage;
+const endIndex = startIndex + postsPerPage;
+const currentPosts = posts.slice(startIndex, endIndex);
+
+// Search
+const searchQuery = Astro.url.searchParams.get('search') || '';
+const filteredPosts = searchQuery 
+  ? posts.filter(post => 
+      post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      post.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      post.tags.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase()))
+    )
+  : currentPosts;
+---
+
+<Layout title="Blog - aipedia AI Trading Assistant">
+  <div class="min-h-screen bg-black text-white py-16">
+    <div class="max-w-7xl mx-auto px-4">
+      <!-- Header -->
+      <div class="text-center mb-12">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent">
+          Trading Blog
+        </h1>
+        <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+          Insights, strategi, dan analisis terbaru dari dunia trading crypto
+        </p>
+      </div>
+
+      <!-- Search Form -->
+      <div class="mb-8">
+        <form method="GET" class="max-w-md mx-auto">
+          <div class="relative">
+            <input 
+              type="text" 
+              name="search" 
+              value={searchQuery}
+              placeholder="Cari artikel..."
+              class="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-primary-400"
+            />
+            <button 
+              type="submit"
+              class="absolute right-2 top-1/2 transform -translate-y-1/2 px-4 py-1 bg-primary-500 hover:bg-primary-600 rounded text-sm font-medium transition-colors"
+            >
+              Cari
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Blog Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+        {filteredPosts.map((post) => (
+          <article class="bg-white/5 backdrop-blur-sm border border-white/10 hover:border-white/20 rounded-lg overflow-hidden hover:shadow-xl hover:shadow-primary-500/10 transition-all duration-300 group">
+            <div class="aspect-video bg-gray-800 relative overflow-hidden">
+              <img 
+                src={post.image} 
+                alt={post.title}
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent group-hover:from-black/40 transition-all duration-300"></div>
+            </div>
+            
+            <div class="p-6">
+              <div class="flex flex-wrap gap-2 mb-3">
+                {post.tags.slice(0, 2).map((tag) => (
+                  <span class="px-2 py-1 bg-primary-500/20 text-primary-400 text-xs rounded-full group-hover:bg-primary-500/30 transition-colors">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+              
+              <h2 class="text-xl font-bold mb-3 line-clamp-2 group-hover:text-primary-400 transition-colors">
+                <a href={post.url}>{post.title}</a>
+              </h2>
+              
+              <p class="text-gray-400 text-sm mb-4 line-clamp-3 group-hover:text-gray-300 transition-colors">
+                {post.description}
+              </p>
+              
+              <div class="flex items-center justify-between text-sm text-gray-500 mb-4">
+                <span class="group-hover:text-gray-400 transition-colors">{post.author}</span>
+                <time class="group-hover:text-gray-400 transition-colors">{new Date(post.date).toLocaleDateString('id-ID')}</time>
+              </div>
+              
+              <a 
+                href={post.url}
+                class="inline-flex items-center px-4 py-2 bg-primary-500 hover:bg-primary-600 rounded text-sm font-medium transition-all duration-300 group-hover:shadow-lg group-hover:shadow-primary-500/25"
+              >
+                Baca Selengkapnya
+                <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <!-- Pagination -->
+      {!searchQuery && totalPages > 1 && (
+        <div class="flex justify-center items-center space-x-2">
+          {currentPage > 1 && (
+            <a 
+              href={`/blog?page=${currentPage - 1}`}
+              class="px-4 py-2 bg-gray-800 hover:bg-gray-700 rounded transition-colors"
+            >
+              ← Previous
+            </a>
+          )}
+          
+          {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+            <a 
+              href={`/blog?page=${page}`}
+              class={`px-4 py-2 rounded transition-colors ${
+                page === currentPage 
+                  ? 'bg-primary-500 text-white' 
+                  : 'bg-gray-800 hover:bg-gray-700'
+              }`}
+            >
+              {page}
+            </a>
+          ))}
+          
+          {currentPage < totalPages && (
+            <a 
+              href={`/blog?page=${currentPage + 1}`}
+              class="px-4 py-2 bg-gray-800 hover:bg-gray-700 rounded transition-colors"
+            >
+              Next →
+            </a>
+          )}
+        </div>
+      )}
+
+      <!-- No Results -->
+      {searchQuery && filteredPosts.length === 0 && (
+        <div class="text-center py-12">
+          <p class="text-gray-400 text-lg">
+            Tidak ada artikel yang ditemukan untuk "{searchQuery}"
+          </p>
+          <a 
+            href="/blog"
+            class="inline-block mt-4 px-6 py-3 bg-primary-500 hover:bg-primary-600 rounded font-medium transition-colors"
+          >
+            Lihat Semua Artikel
+          </a>
+        </div>
+      )}
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>

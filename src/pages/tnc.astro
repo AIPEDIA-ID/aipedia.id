@@ -1,0 +1,95 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Variabel untuk tanggal pembaruan T&C
+const lastUpdated = "25 Juli 2025";
+
+// Variabel untuk konten TnC
+const tncSections = [
+  {
+    title: "Disclaimer - Bukan Nasihat Keuangan",
+    content: "Informasi yang disediakan oleh aipedia Trading Assistant adalah untuk tujuan informasi dan edukasi saja. Konten yang tersedia melalui layanan ini tidak dimaksudkan sebagai nasihat keuangan, investasi, atau perdagangan, dan tidak boleh dianggap demikian. Sebelum membuat keputusan investasi atau perdagangan apa pun, Anda harus melakukan riset Anda sendiri dan/atau berkonsultasi dengan penasihat keuangan berlisensi. Perdagangan cryptocurrency melibatkan risiko yang signifikan dan dapat mengakibatkan kerugian sebagian atau seluruh modal Anda."
+  },
+  {
+    title: "Keterbatasan AI",
+    content: "aipedia Trading Assistant menggunakan teknologi kecerdasan buatan (AI) yang, meskipun canggih, memiliki keterbatasan. AI dapat menghasilkan informasi yang tidak akurat, tidak lengkap, atau menyesatkan (\"halusinasi\"). Pengguna harus selalu memverifikasi informasi yang diberikan dengan sumber tepercaya lainnya. Analisis dan Signal yang dihasilkan oleh aipedia didasarkan pada data historis dan kondisi pasar saat ini, yang mungkin tidak memprediksi pergerakan pasar masa depan dengan akurat. Kinerja masa lalu tidak menjamin hasil di masa depan."
+  },
+  {
+    title: "Ketergantungan Platform",
+    content: "aipedia Trading Assistant beroperasi sebagai CustomGPT di platform ChatGPT yang disediakan oleh OpenAI. Akses dan fungsionalitas layanan kami bergantung pada kebijakan, ketersediaan, dan perubahan yang dilakukan oleh OpenAI. Kami tidak dapat menjamin bahwa layanan akan terus tersedia tanpa gangguan atau bahwa fungsionalitasnya tidak akan berubah karena pembaruan kebijakan atau platform OpenAI. Dengan menggunakan aipedia, Anda mengakui dan menerima risiko ini."
+  },
+  {
+    title: "Penerimaan Ketentuan",
+    content: "Dengan mengakses atau menggunakan aipedia Trading Assistant (\"Layanan\"), Anda menyetujui untuk terikat oleh ketentuan dan persyaratan ini. Jika Anda tidak menyetujui semua ketentuan ini, Anda tidak diizinkan untuk menggunakan Layanan."
+  },
+  {
+    title: "Tidak Ada Jaminan",
+    content: "Layanan disediakan \"sebagaimana adanya\" dan \"sebagaimana tersedia\" tanpa jaminan apa pun, baik tersurat maupun tersirat. Kami tidak menjamin keakuratan, kelengkapan, atau kegunaan informasi yang disediakan oleh Layanan."
+  },
+  {
+    title: "Batasan Tanggung Jawab",
+    content: "Dalam keadaan apa pun, kami tidak bertanggung jawab atas kerugian atau kerusakan langsung, tidak langsung, insidental, konsekuensial, khusus, atau teladan yang timbul dari penggunaan Anda atas Layanan, termasuk tetapi tidak terbatas pada kerugian finansial."
+  },
+  {
+    title: "Kebijakan Pengembalian Dana",
+    content: "Semua pembelian bersifat final. Kami tidak menawarkan pengembalian dana setelah Anda mendapatkan akses ke Layanan. Kami menyarankan Anda untuk mencoba versi gratis terlebih dahulu untuk mengevaluasi kesesuaian Layanan dengan kebutuhan Anda."
+  },
+  {
+    title: "Perubahan Ketentuan",
+    content: "Kami berhak untuk memodifikasi ketentuan ini kapan saja. Perubahan akan berlaku segera setelah diposting. Penggunaan berkelanjutan Anda atas Layanan setelah perubahan tersebut merupakan penerimaan Anda terhadap ketentuan yang dimodifikasi."
+  }
+];
+
+// Variabel untuk teks tambahan
+const additionalText = {
+  title: "Penggunaan Atas Risiko Sendiri",
+  content: "Penggunaan aipedia Trading Assistant sepenuhnya atas risiko Anda sendiri. Kami tidak bertanggung jawab atas kerugian atau kerusakan yang timbul dari penggunaan atau ketergantungan pada informasi yang disediakan oleh layanan kami. Dengan menggunakan aipedia Trading Assistant, Anda mengakui bahwa Anda telah membaca, memahami, dan menyetujui ketentuan ini."
+};
+---
+
+<Layout title="Terms & Conditions - aipedia Trading Assistant">
+  <section class="py-16 px-4 relative">
+    <!-- Background -->
+    <div class="absolute inset-0 bg-gradient-to-b from-black via-gray-900/20 to-black"></div>
+    
+    <div class="relative z-10 max-w-3xl mx-auto">
+      <!-- Section Header -->
+      <div class="text-center mb-10">
+        <h1 class="text-3xl md:text-4xl font-bold mb-4">
+          <span class="bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent">Terms & Conditions</span>
+        </h1>
+        <p class="text-lg text-gray-400">
+          Disclaimer dan ketentuan penggunaan aipedia Trading Assistant
+        </p>
+        <p class="text-sm text-gray-500 mt-2">Terakhir diperbarui: {lastUpdated}</p>
+      </div>
+      
+      <!-- Content -->
+      <div class="p-6 rounded-lg bg-white/5 backdrop-blur-sm border border-white/10">
+        <div class="prose prose-invert max-w-none">
+          {tncSections.map((section, index) => (
+            <div class="mb-8">
+              <h2 class="text-xl font-semibold text-primary-500 mb-4">{index + 1}. {section.title}</h2>
+              <p class="mb-4">{section.content}</p>
+            </div>
+          ))}
+          
+          <div class="mb-8">
+            <h2 class="text-xl font-semibold text-primary-500 mb-4">{tncSections.length + 1}. {additionalText.title}</h2>
+            <p>{additionalText.content}</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Back Button -->
+      <div class="mt-16 text-center">
+        <a href="/" class="inline-flex items-center gap-2 px-6 py-3 bg-white/5 hover:bg-white/10 text-white font-semibold rounded-xl border border-white/20 hover:border-white/30 transition-all duration-200 backdrop-blur-sm">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+          </svg>
+          Kembali ke Beranda
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

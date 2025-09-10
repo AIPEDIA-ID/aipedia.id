@@ -1,0 +1,26 @@
+{
+  "badge": "Platform Pengetahuan AI",
+  "logo": {
+    "src": "/logo.png",
+    "alt": "aipedia Logo"
+  },
+  "heading": {
+    "main": "16 Asisten AI untuk Bisnis Kamu",
+    "highlight": "Hemat Biaya & Eksekusi Ngebut"
+  },
+  "subheading1": "Dapatkan <strong class=\"bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent\">strategi & eksekusi ala expert</strong> dalam <strong class=\"bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent\">menit</strong> — dari <strong class=\"text-white\">ide & konten</strong> sampai <strong class=\"text-white\">analitik</strong>. <strong class=\"text-white\">Hemat biaya</strong>, <strong class=\"text-white\">percepat output</strong>, tanpa rekrut tim baru.",
+  "subheading2": "*16 spesialis AI untuk marketing, sales, finance, HR, dan operasional",
+  "cta": [
+    {
+      "text": "Jelajahi Asisten",
+      "href": "#characters",
+      "isPrimary": true
+    },
+    {
+      "text": "Lihat Demo",
+      "href": "#see-in-action",
+      "isPrimary": false
+    }
+  ],
+  "socialProof": "[TBD] (butuh data)"
+}

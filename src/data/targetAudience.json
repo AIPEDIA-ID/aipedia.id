@@ -1,0 +1,63 @@
+{
+  "header": {
+    "title": {
+      "main": "Who is",
+      "highlight": "AIPEDIA for?"
+    },
+    "description": "AIPEDIA buat profesional, kreator, dan tim yang mau hasil tingkat ahli tanpa buang jam buat riset atau belajar framework dari nol."
+  },
+  "targetGroups": [
+    {
+      "title": "Profesional Sibuk",
+      "description": "Kerja full-time tapi butuh output ahli untuk marketing, finance, atau operations? AIPEDIA kasih hasil profesional dalam menit, bukan jam.",
+      "icon": "M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0H8m8 0v2a2 2 0 01-2 2H10a2 2 0 01-2-2V6m8 0H8",
+      "benefits": [
+        "Konsultasi ahli 5 menit",
+        "Tanpa riset berjam-jam",
+        "Framework siap pakai"
+      ],
+      "bgColor": "from-primary-500/10 to-primary-600/5",
+      "borderColor": "border-primary-500/30"
+    },
+    {
+      "title": "Content Creator & Marketer",
+      "description": "Butuh konten konsisten lintas channel? Asisten AIPEDIA bantu bikin, repurpose, dan optimasi dengan framework terbukti.",
+      "icon": "M13 7L9 12H15L11 17M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z",
+      "benefits": [
+        "Strategi konten multi-channel",
+        "Content repurposing otomatis",
+        "Copy dioptimasi performa"
+      ],
+      "bgColor": "from-primary-500/10 to-primary-600/5",
+      "borderColor": "border-primary-500/30"
+    },
+    {
+      "title": "Mahasiswa & Learning Professional",
+      "description": "Baru di SEO, finance, atau HR? Belajar praktik terbaik lewat panduan hands-on dan contoh real-world.",
+      "icon": "M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253",
+      "benefits": [
+        "Belajar sambil praktik",
+        "Setiap output ada reasoning",
+        "Kuasai framework tanpa kursus mahal"
+      ],
+      "bgColor": "from-primary-500/10 to-primary-600/5",
+      "borderColor": "border-primary-500/30"
+    },
+    {
+      "title": "Tim & Agency",
+      "description": "Sudah ahli tapi perlu scale output tim? AIPEDIA bantu jaga hasil konsisten dan profesional di semua anggota.",
+      "icon": "M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z",
+      "benefits": [
+        "Kualitas standar di seluruh tim",
+        "Expertise scalable tanpa hiring",
+        "Brand voice & metodologi konsisten"
+      ],
+      "bgColor": "from-primary-500/10 to-primary-600/5",
+      "borderColor": "border-primary-500/30"
+    }
+  ],
+  "bottomNote": {
+    "text": "Tidak cocok untuk yang cari respons AI generik",
+    "subtext": "AIPEDIA fokus pada expertise spesialis, bukan generalisasi luas."
+  }
+}

@@ -1,23 +1,119 @@
 ---
-import EmailSubscriptionForm from './EmailSubscriptionForm.astro';
+// Hero data
+import heroData from '../data/hero.json';
 ---
 
-<section class="bg-white pt-24 pb-12 px-6 lg:px-8" id="subscribe">
-  <div class="max-w-4xl mx-auto text-center">
-    <h1 class="text-4xl md:text-6xl font-bold text-text mb-6 leading-tight">
-      AIPEDIA.ID
-      <span class="block text-3xl md:text-5xl mt-3 text-gray-600">
-        Newsletter AI Indonesia
-      </span>
+<section id="hero" class="relative min-h-screen flex items-center justify-center px-6 py-14 overflow-hidden">
+  <!-- Background Elements -->
+  <div class="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-900"></div>
+  <div class="absolute top-20 left-10 w-64 h-64 bg-primary-500/10 rounded-full blur-[100px] animate-pulse-slow"></div>
+  <div class="absolute bottom-20 right-10 w-80 h-80 bg-primary-400/5 rounded-full blur-[120px] animate-float"></div>
+  
+  <!-- Content -->
+  <div class="relative z-10 max-w-4xl mx-auto text-center">
+    <div class="inline-flex items-center gap-2 px-2 py-1 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 mb-6">
+      <span class="w-2 h-2 bg-primary-400 rounded-full animate-pulse"></span>
+      <span class="text-xs text-gray-300">{heroData.badge}</span>
+    </div>
+    <!-- Logo -->
+    <div class="flex items-center justify-center mb-4">
+      <img src={heroData.logo.src} alt={heroData.logo.alt} class="w-14 h-14" />
+    </div>
+    <h1 class="text-3xl md:text-4xl font-bold mb-4">
+      {heroData.heading.main} <br />
+      <span class="bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent">{heroData.heading.highlight}</span>
     </h1>
     
-    <p class="text-lg md:text-xl text-gray-600 mb-8 max-w-4xl mx-auto leading-relaxed">
-      Dapatkan info tools AI terbaru, insight praktis, dan strategi smart untuk bisnis langsung ke inbox Anda, gratis setiap minggu.
+    <p class="text-base md:text-lg text-gray-300 mb-3 max-w-xl mx-auto" set:html={heroData.subheading1}></p>
+
+    <div class="max-w-3xl w-full mx-auto mb-5">
+      <div class="p-[2px] rounded-xl bg-gradient-to-r from-white/30 via-white/10 to-primary-500/30">
+        <img 
+          src="/screenshots/hero.png" 
+          alt="Preview Hero" 
+          class="w-full object-contain rounded-xl bg-black block" 
+          loading="lazy"
+        />
+      </div>
+    </div>
+
+    <p class="text-base text-gray-400 mb-8 max-w-xl mx-auto">
+      {heroData.subheading2}
     </p>
+
+    <!-- CTA Buttons -->
+    <div class="flex flex-col sm:flex-row gap-3 justify-center items-center mb-12">
+      {heroData.cta.map((button) => (
+        <a 
+          href={button.href} 
+          class={button.isPrimary 
+            ? "group inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-primary-400 to-primary-600 hover:from-primary-500 hover:to-primary-700 text-white font-medium rounded-lg transition-all duration-200 hover:shadow-lg hover:shadow-primary-500/25" 
+            : "inline-flex items-center gap-2 px-6 py-3 bg-white/5 hover:bg-white/10 text-white font-medium rounded-lg border border-white/20 hover:border-white/30 transition-all duration-200 backdrop-blur-sm hover:border-primary-500/30"}
+        >
+          {button.text}
+          {button.isPrimary && (
+            <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+            </svg>
+          )}
+        </a>
+      ))}
+    </div>
     
-    <!-- Email Subscription Form -->
-    <div class="w-full flex justify-center">
-      <EmailSubscriptionForm />
+    <!-- Social Proof -->
+    <div class="flex flex-col items-center gap-4">
+      <div class="flex items-center gap-2 text-xs text-gray-400">
+        <div class="flex -space-x-2">
+          <div class="w-6 h-6 bg-gradient-to-r from-primary-400 to-primary-600 rounded-full border-2 border-black"></div>
+          <div class="w-6 h-6 bg-gradient-to-r from-primary-400 to-primary-600 rounded-full border-2 border-black"></div>
+          <div class="w-6 h-6 bg-gradient-to-r from-primary-400 to-primary-600 rounded-full border-2 border-black"></div>
+        </div>
+        <span>{heroData.socialProof}</span>
+      </div>
     </div>
   </div>
 </section>
+
+<style>
+  @keyframes rotate {
+    to {
+      --angle: 360deg;
+    }
+  }
+
+  @property --angle {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+  }
+
+  .p-\[2px\].rounded-xl.bg-gradient-to-r.from-white\/30.via-white\/10.to-primary-500\/30 {
+    position: relative;
+    background: transparent !important;
+    z-index: 1;
+  }
+
+  /* Inject glassy animated border */
+  .p-\[2px\].rounded-xl.bg-gradient-to-r.from-white\/30.via-white\/10.to-primary-500\/30::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 2px;
+    background: linear-gradient(
+      var(--angle, 0deg),
+      rgba(255, 255, 255, 0.05),
+      rgba(99, 32, 238, 0.3),
+      rgba(255, 255, 255, 0.1),
+      rgba(99, 32, 238, 0.2)
+    );
+    -webkit-mask: 
+      linear-gradient(#fff 0 0) content-box, 
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    z-index: 0;
+    animation: rotate 8s linear infinite;
+  }
+</style>

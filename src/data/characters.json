@@ -1,0 +1,256 @@
+{
+  "sectionHeader": {
+    "title": "Pilih Asisten AI Sesuai Kebutuhan",
+    "subtitle": "16 Custom GPT Assistants yang dirancang khusus untuk workflow spesifik"
+  },
+  "characters": [
+    {
+      "id": "beny",
+      "name": "Beny",
+      "role": "Business Model Canvas Assistant",
+      "themeColor": "#F97300",
+      "gender": "Male",
+      "image": "/character/beny.png",
+      "description": "Bantu mapping ide bisnis ke Business Model Canvas lengkap dengan analisis risiko dan strategi channel.",
+      "examplePrompt": "Map ide skincare DTC saya ke Business Model Canvas lengkap dengan risiko, mitigasi, dan strategi channel.",
+      "category": "business",
+      "price": "86k"
+    },
+    {
+      "id": "fina",
+      "name": "Fina",
+      "role": "Finance Assistant",
+      "themeColor": "#FFD400",
+      "gender": "Female",
+      "image": "/character/fina.png",
+      "description": "Analisis keuangan, cash flow forecast, dan break-even analysis untuk bisnis kamu.",
+      "examplePrompt": "Buat cash flow forecast 3 bulan dan break-even analysis untuk café dengan COGS 30% dan sewa 15%.",
+      "category": "finance",
+      "price": "86k"
+    },
+    {
+      "id": "cisa",
+      "name": "Cisa",
+      "role": "Customer Support Assistant",
+      "themeColor": "#FF7D00",
+      "gender": "Female",
+      "image": "/character/cisa.png",
+      "description": "Rancang sistem customer support yang efektif dengan macro responses dan escalation rules.",
+      "examplePrompt": "Rancang CS macro untuk inquiry Tier-1 dengan variasi tone dan escalation rules untuk refund.",
+      "category": "operations",
+      "price": "86k"
+    },
+    {
+      "id": "sora",
+      "name": "Sora",
+      "role": "Social Media Content Assistant",
+      "themeColor": "#580cfc",
+      "gender": "Female",
+      "image": "/character/sora.png",
+      "description": "Buat konten social media yang engaging untuk Instagram, TikTok, dan platform lainnya.",
+      "examplePrompt": "Buat kalender IG/TikTok 14 hari dengan hooks, CTA, dan caption dengan brand voice yang playful.",
+      "category": "marketing",
+      "price": "86k"
+    },
+    {
+      "id": "hoki",
+      "name": "Hoki",
+      "role": "Copywriting Assistant",
+      "themeColor": "#8a6ef0",
+      "gender": "Male",
+      "image": "/character/hoki.png",
+      "description": "Tulis copy yang convert untuk landing page, ads, dan sales materials.",
+      "examplePrompt": "Tulis 5 varian hero landing page pakai PAS dan 3 angle ad short-form untuk cold audience.",
+      "category": "marketing",
+      "price": "86k"
+    },
+    {
+      "id": "rea",
+      "name": "Rea",
+      "role": "Content Repurpose Assistant",
+      "themeColor": "#C1A6FF",
+      "gender": "Female",
+      "image": "/character/rea.png",
+      "description": "Transform satu konten jadi multiple format untuk berbagai platform dengan tetap mempertahankan key message.",
+      "examplePrompt": "Ubah blog 1,500 kata ini jadi 10 tweet, 1 LinkedIn post, dan 1 email sambil pertahankan key POV.",
+      "category": "marketing",
+      "price": "86k"
+    },
+    {
+      "id": "viko",
+      "name": "Viko",
+      "role": "Video Script Writer Assistant",
+      "themeColor": "#E0BEFF",
+      "gender": "Male",
+      "image": "/character/viko.png",
+      "description": "Buat script video yang engaging untuk UGC, ads, dan content marketing.",
+      "examplePrompt": "Outline script UGC 60 detik dengan 3 hooks, objections handling, dan CTA yang kuat.",
+      "category": "marketing",
+      "price": "86k"
+    },
+    {
+      "id": "milo",
+      "name": "Milo",
+      "role": "Email & Newsletter Assistant",
+      "themeColor": "#00FFA4",
+      "gender": "Male",
+      "image": "/character/milo.png",
+      "description": "Rancang email marketing dan newsletter yang engaging dengan conversion rate tinggi.",
+      "examplePrompt": "Draft newsletter mingguan dengan 1 lead story, 3 curated links, dan soft sell section.",
+      "category": "marketing",
+      "price": "86k"
+    },
+    {
+      "id": "mita",
+      "name": "Mita",
+      "role": "Meta Ads Assistant",
+      "themeColor": "#00FF50",
+      "gender": "Female",
+      "image": "/character/mita.png",
+      "description": "Optimasi Meta Ads campaign dengan struktur TOFU/MOFU/BOFU dan targeting yang tepat.",
+      "examplePrompt": "Generate struktur campaign Meta Ads: TOFU/MOFU/BOFU, variasi copy, dan ide targeting.",
+      "category": "marketing",
+      "price": "86k"
+    },
+    {
+      "id": "selo",
+      "name": "Selo",
+      "role": "SEO Assistant",
+      "themeColor": "#20a944",
+      "gender": "Male",
+      "image": "/character/selo.png",
+      "description": "Strategi SEO komprehensif dengan topical mapping dan internal linking plan.",
+      "examplePrompt": "Buat topical map dan internal linking plan untuk blog niche sustainable travel.",
+      "category": "marketing",
+      "price": "86k"
+    },
+    {
+      "id": "kobi",
+      "name": "Kobi",
+      "role": "Outreach & DM Writer",
+      "themeColor": "#00FFEF",
+      "gender": "Male",
+      "image": "/character/kobi.png",
+      "description": "Tulis outreach messages dan DM yang personal untuk partnership dan networking.",
+      "examplePrompt": "Tulis 5 DM personal untuk partnership outreach dengan first-line personalization.",
+      "category": "marketing",
+      "price": "86k"
+    },
+    {
+      "id": "hira",
+      "name": "Hira",
+      "role": "HR Assistant",
+      "themeColor": "#163b92",
+      "gender": "Female",
+      "image": "/character/hira.png",
+      "description": "Sistem HR yang efektif dengan performance review dan competency framework.",
+      "examplePrompt": "Buat rubrik performance review untuk junior marketer dengan competency levels.",
+      "category": "hr",
+      "price": "86k"
+    },
+    {
+      "id": "rika",
+      "name": "Rika",
+      "role": "Recruitment Assistant",
+      "themeColor": "#0057FF",
+      "gender": "Female",
+      "image": "/character/rika.png",
+      "description": "Streamline proses recruitment dengan job description dan screening questions yang tepat.",
+      "examplePrompt": "Draft JD dan screening questions untuk part-time video editor dengan kriteria portfolio.",
+      "category": "hr",
+      "price": "86k"
+    },
+    {
+      "id": "lara",
+      "name": "Lara",
+      "role": "L&D Assistant",
+      "themeColor": "#4694FF",
+      "gender": "Female",
+      "image": "/character/lara.png",
+      "description": "Rancang program learning & development dengan curriculum yang terstruktur.",
+      "examplePrompt": "Rancang kurikulum onboarding 4 minggu untuk SDR baru dengan weekly outcomes.",
+      "category": "hr",
+      "price": "86k"
+    },
+    {
+      "id": "dany",
+      "name": "Dany",
+      "role": "Data Analyst Assistant",
+      "themeColor": "#FF4B00",
+      "gender": "Male",
+      "image": "/character/dany.png",
+      "description": "Analisis data mendalam dengan insights actionable untuk business decision making.",
+      "examplePrompt": "Analisis CSV untuk cohort retention dan buat summary key churn drivers.",
+      "category": "analytics",
+      "price": "86k"
+    },
+    {
+      "id": "prima",
+      "name": "Prima",
+      "role": "Prompt Generator",
+      "themeColor": "#FF003E",
+      "gender": "Female",
+      "image": "/character/prima.png",
+      "description": "Generate prompts yang efektif untuk berbagai task dan workflow optimization.",
+      "examplePrompt": "Generate 20 prompt task-specific untuk product research dan competitor analysis.",
+      "category": "productivity",
+      "price": "86k"
+    }
+  ],
+  "categories": {
+    "marketing": {
+      "name": "Marketing",
+      "description": "Assistants untuk growth, content, dan digital marketing",
+      "color": "#580cfc"
+    },
+    "business": {
+      "name": "Business",
+      "description": "Assistants untuk business planning dan strategy",
+      "color": "#F97300"
+    },
+    "finance": {
+      "name": "Finance",
+      "description": "Assistants untuk financial analysis dan planning",
+      "color": "#FFD400"
+    },
+    "hr": {
+      "name": "HR",
+      "description": "Assistants untuk human resources dan talent management",
+      "color": "#163b92"
+    },
+    "operations": {
+      "name": "Operations",
+      "description": "Assistants untuk operational efficiency",
+      "color": "#FF7D00"
+    },
+    "analytics": {
+      "name": "Analytics",
+      "description": "Assistants untuk data analysis dan insights",
+      "color": "#FF4B00"
+    },
+    "productivity": {
+      "name": "Productivity",
+      "description": "Assistants untuk workflow optimization",
+      "color": "#FF003E"
+    }
+  },
+  "bundles": [
+    {
+      "id": "marketing_bundle",
+      "name": "Marketing Bundle",
+      "description": "Semua assistants untuk growth workflows",
+      "price": "578k",
+      "originalPrice": "[TBD] (butuh data)",
+      "savings": "[TBD] (butuh data)",
+      "characters": ["sora", "hoki", "rea", "viko", "milo", "mita", "selo", "kobi"],
+      "isPopular": true
+    },
+    {
+      "id": "all_assistants",
+      "name": "All Assistants Bundle",
+      "price": "587k",
+      "description": "Akses penuh ke seluruh roster AIPEDIA. Cocok untuk tim dan enterprise yang butuh solusi lengkap.",
+      "category": "bundle"
+    }
+  ]
+}

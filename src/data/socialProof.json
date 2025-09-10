@@ -1,0 +1,36 @@
+{
+  "header": {
+    "title": {
+      "main": "Trusted by",
+      "highlight": "Smart Professionals"
+    },
+    "description": "Testimoni dari pengguna yang mempercepat kerja mereka dengan asisten spesialis AIPEDIA"
+  },
+  "testimonials": [
+    {
+      "avatar": {
+        "initial": "M",
+        "gradient": "from-primary-400 to-primary-600"
+      },
+      "name": "Marcus",
+      "role": "Marketing Manager & Content Creator",
+      "quote": "Copywriting assistant langsung ke inti. Tanpa buang waktu bikin campaign berjam-jam — hasilnya rapi dengan alasan di balik tiap keputusan.",
+      "rating": 5
+    },
+    {
+      "avatar": {
+        "initial": "S",
+        "gradient": "from-primary-400 to-primary-600"
+      },
+      "name": "Sarah",
+      "role": "Digital Agency Owner",
+      "quote": "Yang bikin yakin itu kedalaman pengetahuan spesialis. Tim saya bisa kirim strategi SEO dan sosial yang solid tanpa hire konsultan mahal.",
+      "rating": 5
+    }
+  ],
+  "stats": [
+    { "value": "[TBD]", "label": "Profesional Aktif (butuh data)" },
+    { "value": "[TBD]", "label": "Rata-rata waktu per task (butuh data)" },
+    { "value": "Dibuat Ahli", "label": "Berdasarkan Kebutuhan Real-World" }
+  ]
+}

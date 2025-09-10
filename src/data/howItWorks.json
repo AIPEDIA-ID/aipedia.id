@@ -1,0 +1,43 @@
+{
+  "sectionHeader": {
+    "title": "Cara Kerja AIPEDIA",
+    "description": "Mulai dari pilih asisten sampai dapat hasil ahli. Simpel, terstruktur, efektif."
+  },
+  "steps": [
+    {
+      "number": 1,
+      "title": "Pilih Asisten AI kamu",
+      "description": "Pilih dari 16 asisten spesialis sesuai kebutuhan — marketing, finance, HR, analytics, atau operations.",
+      "features": [
+        "Expertise domain-spesifik built-in",
+        "Prompt dan framework teroptimasi",
+        "Akses instan via ChatGPT"
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Eksplorasi & Bertanya",
+      "description": "Chat pakai bahasa natural. Dapat panduan ahli, framework, dan insight yang bisa langsung dipakai.",
+      "features": [
+        "Konsultasi ahli secara conversational",
+        "Panduan step-by-step included",
+        "Contoh real-world dan template"
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Terapkan di Workflow",
+      "description": "Bawa output terstruktur dan rekomendasi langsung ke pekerjaan kamu untuk eksekusi cepat.",
+      "features": [
+        "Deliverable siap pakai",
+        "Proses dan sistem yang scalable",
+        "Pembelajaran dan iterasi berkelanjutan"
+      ]
+    }
+  ],
+  "bottomCTA": {
+    "text": "Berhenti buang jam untuk riset. Biarkan asisten AIPEDIA tangani kerjaan ahli — kamu fokus eksekusi.",
+    "buttonText": "Mulai Sekarang",
+    "buttonLink": "#pricing"
+  }
+}

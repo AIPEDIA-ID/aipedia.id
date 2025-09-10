@@ -1,0 +1,86 @@
+---
+import pricing from '../data/pricing.json';
+const { pricingTiers, proStats, sectionHeader, proTagline, proFooter } = pricing;
+---
+
+<section id="pricing" class="py-16 px-6 relative">
+  <!-- Background -->
+  <div class="absolute inset-0 bg-gradient-to-b from-black via-gray-900/30 to-black"></div>
+  
+  <div class="relative z-10 max-w-6xl mx-auto">
+    <!-- Section Header -->
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">
+        {sectionHeader.title.split(' ').slice(0, -1).join(' ')}
+        <span class="bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent">{sectionHeader.title.split(' ').pop()}</span>
+      </h2>
+      <p class="text-lg text-gray-400 max-w-xl mx-auto">
+        {sectionHeader.subtitle}
+      </p>
+    </div>
+    
+    <!-- Pricing Cards -->
+    <div class="flex flex-wrap justify-center gap-8 max-w-5xl mx-auto">
+      {pricingTiers.map((tier) => (
+        <div class={`${tier.cardClass} max-w-md w-full md:w-auto md:flex-1`}>
+          {tier.isPopular && (
+            <div class="absolute top-3 right-3 px-2 py-1 bg-primary-500 text-white text-xs font-medium rounded-full">
+              POPULAR
+            </div>
+          )}
+          
+          <div class="text-center mb-6">
+            <h3 class="text-xl font-semibold mb-2 text-white">{tier.name}</h3>
+            <div class="text-4xl font-bold mb-2 text-white">
+              {tier.price}
+              {tier.priceSubtext && <span class="text-base font-normal text-gray-400">{tier.priceSubtext}</span>}
+            </div>
+            <p class="text-gray-400">{tier.description}</p>
+          </div>
+          
+          <div class="space-y-3 mb-6">
+            {tier.features.map((feature) => (
+              <div class="flex items-center gap-3">
+                <svg class={`flex-shrink-0 ${tier.isPopular ? 'w-5 h-5 text-primary-400' : 'w-4 h-4 text-primary-400'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class={tier.isPopular ? "text-white font-medium" : "text-gray-300 text-sm"}>{feature}</span>
+              </div>
+            ))}
+          </div>
+          
+          <div class="w-full flex justify-center">
+          {tier.buttonLink.startsWith('http') ? (
+            <a href={tier.buttonLink} class={tier.buttonClass}>
+              {tier.buttonText}
+            </a>
+          ) : (
+            <button class={tier.buttonClass}>
+              {tier.buttonText}
+            </button>
+          )}
+          </div>
+          
+          {tier.isPopular && (
+            <p class="text-center text-xs text-gray-400 mt-3">
+              {proFooter}
+            </p>
+          )}
+        </div>
+      ))}
+    </div>
+    
+    <!-- Features Comparison -->
+    <div class="mt-16 text-center">
+      <p class="text-gray-400 mb-8">{proTagline}</p>
+      <div class="grid md:grid-cols-3 gap-12 max-w-6xl mx-auto">
+        {proStats.map((stat) => (
+          <div class="text-center">
+            <div class="text-2xl font-bold text-primary-400 mb-2">{stat.value}</div>
+            <p class="text-gray-300">{stat.label}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

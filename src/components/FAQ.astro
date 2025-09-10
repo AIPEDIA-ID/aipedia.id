@@ -1,0 +1,73 @@
+---
+import { faqItems } from '../data/faq.json';
+var copyFAQ = {
+  "mainTitle": "Pertanyaan yang",
+  "title": "Sering Ditanyakan",
+  "description": "AIPEDIA bantu Anda akses pengetahuan spesialis di berbagai domain dengan mudah dan efisien. Tinggal tanya, dan asisten AI kami berikan insight tingkat ahli dengan akurat dan reliable."
+}
+---
+
+<section class="py-12 px-4 relative">  <!-- Reduced padding -->
+  <!-- Background -->
+  <div class="absolute inset-0 bg-gradient-to-b from-black via-gray-900/20 to-black"></div>
+  
+  <div class="relative z-10 max-w-3xl mx-auto">  <!-- Reduced max width -->
+    <!-- Section Header -->
+    <div class="text-center mb-10">  <!-- Reduced margin -->
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">  <!-- Reduced font size and margin -->
+        <span class="bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent">{copyFAQ.mainTitle}</span>
+        {copyFAQ.title}
+      </h2>
+      <p class="text-lg text-gray-400">
+        {copyFAQ.description}
+      </p>
+    </div>
+    
+    <!-- FAQ Items -->
+    <div class="space-y-4">  <!-- Reduced spacing -->
+      {faqItems.map((item) => (
+        <div class="faq-item p-4 rounded-lg bg-white/5 backdrop-blur-sm border border-white/10">  <!-- Reduced padding and border radius -->
+          <button class="faq-question w-full flex justify-between items-center text-left">
+            <h3 class="text-base font-semibold text-white">{item.question}</h3>  <!-- Reduced font size -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-primary-500 transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">  <!-- Reduced icon size -->
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="faq-answer mt-2 hidden">  <!-- Reduced margin -->
+            <p class="text-sm text-gray-400">{item.answer}</p>  <!-- Reduced font size -->
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <script is:inline>
+    document.addEventListener('DOMContentLoaded', () => {
+      const faqQuestions = document.querySelectorAll('.faq-question');
+      
+      faqQuestions.forEach(question => {
+        question.addEventListener('click', () => {
+          const faqItem = question.parentElement;
+          const answer = faqItem.querySelector('.faq-answer');
+          const icon = question.querySelector('svg');
+          
+          // Toggle current FAQ item
+          answer.classList.toggle('hidden');
+          icon.classList.toggle('rotate-180');
+          
+          // Close other FAQ items (optional - for accordion behavior)
+          faqQuestions.forEach(otherQuestion => {
+            if (otherQuestion !== question) {
+              const otherFaqItem = otherQuestion.parentElement;
+              const otherAnswer = otherFaqItem.querySelector('.faq-answer');
+              const otherIcon = otherQuestion.querySelector('svg');
+              
+              otherAnswer.classList.add('hidden');
+              otherIcon.classList.remove('rotate-180');
+            }
+          });
+        });
+      });
+    });
+  </script>
+</section>

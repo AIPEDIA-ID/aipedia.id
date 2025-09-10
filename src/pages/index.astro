@@ -1,14 +1,28 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Navbar from '../components/Navbar.astro';
 import Hero from '../components/Hero.astro';
-import BlogGrid from '../components/BlogGrid.astro';
-import Footer from '../components/Footer.astro';
+import TargetAudience from '../components/TargetAudience.astro';
+import Comparison from '../components/Comparison.astro';
+import Features from '../components/Features.astro';
+import SeeInAction from '../components/SeeInAction.astro';
+import Pricing from '../components/Pricing.astro';
+import Characters from '../components/Characters.astro';
+import SocialProof from '../components/SocialProof.astro';
+import FAQ from '../components/FAQ.astro';
+import CTA from '../components/CTA.astro';
+import HowItWorks from '../components/HowItWorks.astro';
 ---
 
-<Layout>
-  <Navbar />
-  <Hero />
-  <BlogGrid />
-  <Footer />
+<Layout title="AIPEDIA - Your AI Encyclopedia for Expert Knowledge & Specialized Assistants">
+	<Hero />
+	<Characters />
+	<TargetAudience />
+	<Comparison />
+	<Features />
+	<SeeInAction />
+	<HowItWorks />
+	<SocialProof />
+	<Pricing />
+	<FAQ />
+	<CTA />
 </Layout>

@@ -1,0 +1,117 @@
+---
+import charactersData from '../data/characters.json';
+const { sectionHeader, characters, categories, bundles } = charactersData;
+---
+
+<section id="characters" class="py-16 px-6 relative">
+  <!-- Background -->
+  <div class="absolute inset-0 bg-gradient-to-b from-black via-gray-900/30 to-black"></div>
+  
+  <div class="relative z-10 max-w-5xl mx-auto">
+    <!-- Section Header -->
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">
+        {sectionHeader.title.split(' ').slice(0, -1).join(' ')}
+        <span class="bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent">{sectionHeader.title.split(' ').pop()}</span>
+      </h2>
+      <p class="text-lg text-gray-400 max-w-xl mx-auto">
+        {sectionHeader.subtitle}
+      </p>
+    </div>
+
+    <!-- Category Filter -->
+    <div class="mb-8">
+      <div class="flex flex-wrap justify-center gap-3">
+        <button class="text-sm category-filter active px-2 py-1 rounded-lg bg-primary-500 text-white font-medium transition-all duration-200" data-category="all">
+          Semua
+        </button>
+        {Object.entries(categories).map(([key, category]) => (
+          <button class="text-sm category-filter px-2 py-1 rounded-lg bg-white/10 hover:bg-white/20 text-gray-300 hover:text-white font-medium transition-all duration-200" data-category={key}>
+            {category.name}
+          </button>
+        ))}
+      </div>
+    </div>
+
+    <!-- Characters Grid -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+      {characters.map((character) => (
+        <div class={`character-card group p-4 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-primary-500/30 hover:bg-white/10 transition-all duration-300`} data-category={character.category}>
+          <!-- Character Image -->
+          <div class="text-center">
+            <h4 class="text-xl font-semibold mb-2 text-white">{character.name}</h4>
+          </div>
+          <div class="flex justify-center mb-2">
+            <div class="w-36 h-36 rounded-full overflow-hidden border-3 border-white/20 group-hover:border-primary-400/50 transition-all duration-300">
+              <img src={character.image} alt={character.name} class="w-full h-full object-cover" loading="lazy" />
+            </div>
+          </div>
+          
+          <!-- Character Info -->
+          <div class="text-center">
+            <p class="text-sm font-medium mb-3" style={`color: ${character.themeColor}`}>{character.role}</p>
+            <p class="text-xs text-gray-400 mb-4">{character.description}</p>
+          </div>
+          
+          <!-- CTA -->
+          {/* <div class="text-center">
+            <button class="w-full py-2 px-4 bg-gradient-to-r from-primary-400 to-primary-600 hover:from-primary-500 hover:to-primary-700 text-white font-medium rounded-lg transition-all duration-200 hover:shadow-lg hover:shadow-primary-500/25 text-sm">
+              Pilih {character.name} ({character.price})
+            </button>
+          </div> */}
+        </div>
+      ))}
+    </div>
+
+    <!-- Bottom CTA -->
+    <div class="text-center mt-12">
+      <p class="text-gray-300 mb-4">Tidak yakin mau pilih yang mana?</p>
+      <a href="#pricing" class="inline-flex items-center gap-2 px-6 py-3 bg-white/10 hover:bg-white/20 text-white font-medium rounded-lg border border-white/20 hover:border-primary-500/30 transition-all duration-200">
+        Lihat Perbandingan Paket
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+
+  <script>
+    // Category filtering functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const filterButtons = document.querySelectorAll('.category-filter');
+      const characterCards = document.querySelectorAll('.character-card');
+
+      filterButtons.forEach(button => {
+        button.addEventListener('click', function(this: HTMLElement) {
+          const category = this.getAttribute('data-category');
+          
+          // Update active button
+          filterButtons.forEach(btn => {
+            btn.classList.remove('active', 'bg-primary-500', 'text-white');
+            btn.classList.add('bg-white/10', 'text-gray-300');
+          });
+          this.classList.add('active', 'bg-primary-500', 'text-white');
+          this.classList.remove('bg-white/10', 'text-gray-300');
+          
+          // Filter characters
+          characterCards.forEach(card => {
+            const htmlCard = card as HTMLElement;
+            if (category === 'all' || card.getAttribute('data-category') === category) {
+              htmlCard.style.display = 'block';
+              htmlCard.style.animation = 'fadeIn 0.3s ease-in-out';
+            } else {
+              htmlCard.style.display = 'none';
+            }
+          });
+        });
+      });
+    });
+  </script>
+
+  <style>
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</section>

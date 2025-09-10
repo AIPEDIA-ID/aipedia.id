@@ -1,49 +1,94 @@
 ---
-interface Props {
-	title?: string;
-	description?: string;
-	ogImage?: string;
+export interface Props {
+	title: string;
 }
 
-const {
-	title = "AIPEDIA.ID - Newsletter AI untuk Solopreneur & Bisnis Kecil | Tips & Strategi Mingguan",
-	description = "Dapatkan info tools AI terbaru, insight praktis, dan strategi cerdas untuk bisnis kecil—langsung ke inbox Anda, gratis setiap minggu. Khusus untuk solopreneur Indonesia.",
-	ogImage = "/logo.png"
-} = Astro.props;
+const { title } = Astro.props;
 ---
 
-<!doctype html>
-<html lang="id">
+<!DOCTYPE html>
+<html lang="en">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.png" />
 		<meta name="generator" content={Astro.generator} />
+
 		<title>{title}</title>
-		<meta name="description" content={description} />
-		<meta name="robots" content="index, follow" />
+		<meta name="description" content="AIPEDIA adalah Ensiklopedia AI Anda dengan 16 asisten spesialis di marketing, finance, HR, dan analytics. Dapatkan insight tingkat ahli dan framework dalam hitungan menit, bukan jam." />
+		<meta name="keywords" content="asisten AI, AI spesialis, marketing AI, finance AI, HR AI, analytics AI, pengetahuan ahli, tools AI profesional, AIPEDIA" />
+		<meta name="author" content="aipedia by AIPEDIA.ID" />
 
-		<meta property="og:title" content={title} />
-		<meta property="og:description" content={description} />
+		<!-- Canonical & Language -->
+		<link rel="canonical" href="https://aipedia.aipedia.id/" />
+		<meta name="language" content="id" />
+		<!-- Open Graph (Facebook, LinkedIn) -->
+		<meta property="og:title" content="AIPEDIA – Your AI Encyclopedia for Expert Knowledge" />
+		<meta property="og:description" content="Access 16 specialized AI assistants with expert frameworks across marketing, finance, HR, and analytics. Professional insights in minutes." />
+		<meta property="og:url" content="https://aipedia.aipedia.id/" />
+		<meta property="og:image" content="https://aipedia.aipedia.id/og-image.jpg" />
 		<meta property="og:type" content="website" />
-		<meta property="og:image" content={ogImage} />
 
+		<!-- Twitter Card -->
 		<meta name="twitter:card" content="summary_large_image" />
-		<meta name="twitter:title" content={title} />
-		<meta name="twitter:description" content={description} />
-		<meta name="twitter:image" content={ogImage} />
+		<meta name="twitter:title" content="AIPEDIA – Specialized AI Assistants Platform" />
+		<meta name="twitter:description" content="Get expert-level insights from 16 specialized AI assistants. Perfect for busy professionals needing domain expertise." />
+		<meta name="twitter:image" content="https://aipedia.aipedia.id/og-image.jpg" />
 
-		<!-- Google tag (gtag.js) -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=G-JSE8M9GG8Y" is:inline></script>
-		<script is:inline>
+		<!-- Favicon & Fonts -->
+		<link rel="icon" type="image/svg+xml" href="/favicon.png" />
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+	</head>
+	<body class="bg-black text-white font-sans">
+		<slot />
+		
+		<!-- Footer with Legal Links -->
+		<footer class="py-4 px-4 text-center text-gray-500 text-sm">
+			<div class="max-w-4xl mx-auto">
+				<div class="flex flex-wrap justify-center gap-4">
+					<a href="/tnc" class="hover:text-primary-400 transition-colors">Terms & Conditions</a>
+					<a href="/affiliate" class="hover:text-primary-400 transition-colors">Affiliate</a>
+				</div>
+				<div class="mt-4">
+					© {new Date().getFullYear()} aipedia
+					<!-- by <a href="https://aipedia.id" class="hover:text-primary-400 transition-colors">AIPEDIA.ID</a>. -->
+					All rights reserved.
+				</div>
+			</div>
+		</footer>
+	</body>
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-GVV8KYYQFZ"></script>
+	<script is:inline>
 		window.dataLayer = window.dataLayer || [];
 		function gtag(){dataLayer.push(arguments);}
 		gtag('js', new Date());
-		gtag('config', 'G-JSE8M9GG8Y');
-		</script>
 
-	</head>
-	<body class="bg-white text-text min-h-screen pt-20">
-		<slot />
-	</body>
+		gtag('config', 'G-GVV8KYYQFZ');
+	</script>
 </html>
+
+<style>
+	:root {
+		--font-custom: 'Plus Jakarta Sans', Helvetica Neue, Helvetica, Arial, sans-serif;
+	}
+	
+	html {
+		scroll-behavior: smooth;
+		font-family: var(--font-custom);
+	}
+	
+	body {
+		margin: 0;
+		padding: 0;
+		min-height: 100vh;
+		font-family: var(--font-custom);
+	}
+</style>
+
+<style is:global>
+  @tailwind base;
+  @tailwind components;
+  @tailwind utilities;
+</style>

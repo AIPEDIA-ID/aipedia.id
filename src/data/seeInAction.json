@@ -1,0 +1,33 @@
+{
+  "galleryImages": [
+    {
+      "src": "/screenshots/1.png",
+      "alt": "aipedia Demo 1"
+    },
+    {
+      "src": "/screenshots/2.png",
+      "alt": "aipedia Demo 2"
+    },
+    {
+      "src": "/screenshots/3.png",
+      "alt": "aipedia Demo 3"
+    },
+    {
+      "src": "/screenshots/4.png",
+      "alt": "aipedia Demo 4"
+    },
+    {
+      "src": "/screenshots/5.png",
+      "alt": "aipedia Demo 5"
+    },
+    {
+      "src": "/screenshots/6.png",
+      "alt": "aipedia Demo 6"
+    }
+  ],
+  "content": {
+    "title": "Lihat Bagaimana",
+    "brandName": "AIPEDIA",
+    "subtitle": "Rasakan asisten spesialis beraksi"
+  }
+}

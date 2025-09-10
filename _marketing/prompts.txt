@@ -1,0 +1,208 @@
+
+Create a glossy, chibi 3D robot mascot named "Beny", infer gender expression as "male" and persona from the name; keep it friendly, competent, and trustworthy for an AI Employee Assistant brand used in tools like "BMC Assistant" and "Meta Ads Assistant" [7][10][16].
+Primary theme color = #F97300 (hex); apply as dominant body panels, trims, and accents with neutral complements (charcoal gray, slate, white) for contrast and accessibility [16][10][7].
+Design: rounded shapes, soft bevels, face as black glass display with cyan glow eyes, welcoming open-arm pose, clean silhouette readable at small sizes (icon usage) [16][10][7].
+Accessories driven by 'Business Model Canvas - Assistant': add optional tools/props, UI glyphs, or wearables that communicate the role without text (e.g., analytics icons, dashboards, checklists), but keep minimalist and brand-safe [16][10][7].
+Background/output: isolated subject on transparent background, export as PNG RGBA with real alpha channel; no backdrop, no floor, no drop shadow, no watermark, no text, no logo [3][12][9].
+Lighting/render: studio softbox reflections, subtle rim light, high dynamic range look, crisp edges, 4k detail; avoid noisy patterns that break alpha edges [3][6][9].
+Framing: centered, full-body, slight 3/4 angle, ample padding for cropping into square/round app icons [16][10][7].
+If the model cannot output native transparency, generate on solid white or green and prepare clean matting for downstream background removal (keep hard separation from background) [3][15][4].
+Style constraints: no weapons, no text, no letters, no background scenes; focus on a reusable, modular mascot asset with consistent proportions for a design system [16][10][7].
+
+
+
+
+Create a glossy, chibi 3D robot mascot named "Fina", infer gender expression as "female" and persona from the name; keep it friendly, competent, and trustworthy for an AI Employee Assistant brand used in tools like "BMC Assistant" and "Meta Ads Assistant" [7][10][16].
+Primary theme color = #FFD400 (hex); apply as dominant body panels, trims, and accents with neutral complements (charcoal gray, slate, white) for contrast and accessibility [16][10][7].
+Design: rounded shapes, soft bevels, face as black glass display with cyan glow eyes, welcoming open-arm pose, clean silhouette readable at small sizes (icon usage) [16][10][7].
+Accessories driven by 'Finance Assistant': add optional tools/props, UI glyphs, or wearables that communicate the role without text (e.g., analytics icons, dashboards, checklists), but keep minimalist and brand-safe [16][10][7].
+Background/output: isolated subject on transparent background, export as PNG RGBA with real alpha channel; no backdrop, no floor, no drop shadow, no watermark, no text, no logo [3][12][9].
+Lighting/render: studio softbox reflections, subtle rim light, high dynamic range look, crisp edges, 4k detail; avoid noisy patterns that break alpha edges [3][6][9].
+Framing: centered, full-body, slight 3/4 angle, ample padding for cropping into square/round app icons [16][10][7].
+If the model cannot output native transparency, generate on solid white or green and prepare clean matting for downstream background removal (keep hard separation from background) [3][15][4].
+Style constraints: no weapons, no text, no letters, no background scenes; focus on a reusable, modular mascot asset with consistent proportions for a design system [16][10][7].
+
+
+
+
+Create a glossy, chibi 3D robot mascot named "Cisa", infer gender expression as "female" and persona from the name; keep it friendly, competent, and trustworthy for an AI Employee Assistant brand used in tools like "BMC Assistant" and "Meta Ads Assistant" [7][10][16].
+Primary theme color = #FF7D00 (hex); apply as dominant body panels, trims, and accents with neutral complements (charcoal gray, slate, white) for contrast and accessibility [16][10][7].
+Design: rounded shapes, soft bevels, face as black glass display with cyan glow eyes, welcoming open-arm pose, clean silhouette readable at small sizes (icon usage) [16][10][7].
+Accessories driven by 'CS Assistant': add optional tools/props, UI glyphs, or wearables that communicate the role without text (e.g., analytics icons, dashboards, checklists), but keep minimalist and brand-safe [16][10][7].
+Background/output: isolated subject on transparent background, export as PNG RGBA with real alpha channel; no backdrop, no floor, no drop shadow, no watermark, no text, no logo [3][12][9].
+Lighting/render: studio softbox reflections, subtle rim light, high dynamic range look, crisp edges, 4k detail; avoid noisy patterns that break alpha edges [3][6][9].
+Framing: centered, full-body, slight 3/4 angle, ample padding for cropping into square/round app icons [16][10][7].
+If the model cannot output native transparency, generate on solid white or green and prepare clean matting for downstream background removal (keep hard separation from background) [3][15][4].
+Style constraints: no weapons, no text, no letters, no background scenes; focus on a reusable, modular mascot asset with consistent proportions for a design system [16][10][7].
+
+
+
+
+Create a glossy, chibi 3D robot mascot named "Sora", infer gender expression as "female" and persona from the name; keep it friendly, competent, and trustworthy for an AI Employee Assistant brand used in tools like "BMC Assistant" and "Meta Ads Assistant" [7][10][16].
+Primary theme color = #580cfc (hex); apply as dominant body panels, trims, and accents with neutral complements (charcoal gray, slate, white) for contrast and accessibility [16][10][7].
+Design: rounded shapes, soft bevels, face as black glass display with cyan glow eyes, welcoming open-arm pose, clean silhouette readable at small sizes (icon usage) [16][10][7].
+Accessories driven by 'Social Media Content Assistant': add optional tools/props, UI glyphs, or wearables that communicate the role without text (e.g., analytics icons, dashboards, checklists), but keep minimalist and brand-safe [16][10][7].
+Background/output: isolated subject on transparent background, export as PNG RGBA with real alpha channel; no backdrop, no floor, no drop shadow, no watermark, no text, no logo [3][12][9].
+Lighting/render: studio softbox reflections, subtle rim light, high dynamic range look, crisp edges, 4k detail; avoid noisy patterns that break alpha edges [3][6][9].
+Framing: centered, full-body, slight 3/4 angle, ample padding for cropping into square/round app icons [16][10][7].
+If the model cannot output native transparency, generate on solid white or green and prepare clean matting for downstream background removal (keep hard separation from background) [3][15][4].
+Style constraints: no weapons, no text, no letters, no background scenes; focus on a reusable, modular mascot asset with consistent proportions for a design system [16][10][7].
+
+
+
+
+Create a glossy, chibi 3D robot mascot named "Hoki", infer gender expression as "male" and persona from the name; keep it friendly, competent, and trustworthy for an AI Employee Assistant brand used in tools like "BMC Assistant" and "Meta Ads Assistant" [7][10][16].
+Primary theme color = #8a6ef0 (hex); apply as dominant body panels, trims, and accents with neutral complements (charcoal gray, slate, white) for contrast and accessibility [16][10][7].
+Design: rounded shapes, soft bevels, face as black glass display with cyan glow eyes, welcoming open-arm pose, clean silhouette readable at small sizes (icon usage) [16][10][7].
+Accessories driven by 'CopyWriting Assistant': add optional tools/props, UI glyphs, or wearables that communicate the role without text (e.g., analytics icons, dashboards, checklists), but keep minimalist and brand-safe [16][10][7].
+Background/output: isolated subject on transparent background, export as PNG RGBA with real alpha channel; no backdrop, no floor, no drop shadow, no watermark, no text, no logo [3][12][9].
+Lighting/render: studio softbox reflections, subtle rim light, high dynamic range look, crisp edges, 4k detail; avoid noisy patterns that break alpha edges [3][6][9].
+Framing: centered, full-body, slight 3/4 angle, ample padding for cropping into square/round app icons [16][10][7].
+If the model cannot output native transparency, generate on solid white or green and prepare clean matting for downstream background removal (keep hard separation from background) [3][15][4].
+Style constraints: no weapons, no text, no letters, no background scenes; focus on a reusable, modular mascot asset with consistent proportions for a design system [16][10][7].
+
+
+
+
+Create a glossy, chibi 3D robot mascot named "Rea", infer gender expression as "female" and persona from the name; keep it friendly, competent, and trustworthy for an AI Employee Assistant brand used in tools like "BMC Assistant" and "Meta Ads Assistant" [7][10][16].
+Primary theme color = #C1A6FF (hex); apply as dominant body panels, trims, and accents with neutral complements (charcoal gray, slate, white) for contrast and accessibility [16][10][7].
+Design: rounded shapes, soft bevels, face as black glass display with cyan glow eyes, welcoming open-arm pose, clean silhouette readable at small sizes (icon usage) [16][10][7].
+Accessories driven by 'Content Repurpose Assistant': add optional tools/props, UI glyphs, or wearables that communicate the role without text (e.g., analytics icons, dashboards, checklists), but keep minimalist and brand-safe [16][10][7].
+Background/output: isolated subject on transparent background, export as PNG RGBA with real alpha channel; no backdrop, no floor, no drop shadow, no watermark, no text, no logo [3][12][9].
+Lighting/render: studio softbox reflections, subtle rim light, high dynamic range look, crisp edges, 4k detail; avoid noisy patterns that break alpha edges [3][6][9].
+Framing: centered, full-body, slight 3/4 angle, ample padding for cropping into square/round app icons [16][10][7].
+If the model cannot output native transparency, generate on solid white or green and prepare clean matting for downstream background removal (keep hard separation from background) [3][15][4].
+Style constraints: no weapons, no text, no letters, no background scenes; focus on a reusable, modular mascot asset with consistent proportions for a design system [16][10][7].
+
+
+
+
+Create a glossy, chibi 3D robot mascot named "Viko", infer gender expression as "male" and persona from the name; keep it friendly, competent, and trustworthy for an AI Employee Assistant brand used in tools like "BMC Assistant" and "Meta Ads Assistant" [7][10][16].
+Primary theme color =rgb(210, 28, 204) (hex); apply as dominant body panels, trims, and accents with neutral complements (charcoal gray, slate, white) for contrast and accessibility [16][10][7].
+Design: rounded shapes, soft bevels, face as black glass display with cyan glow eyes, welcoming open-arm pose, clean silhouette readable at small sizes (icon usage) [16][10][7].
+Accessories driven by 'Video Script Writer Assistant': add optional tools/props, UI glyphs, or wearables that communicate the role without text (e.g., analytics icons, dashboards, checklists), but keep minimalist and brand-safe [16][10][7].
+Background/output: isolated subject on transparent background, export as PNG RGBA with real alpha channel; no backdrop, no floor, no drop shadow, no watermark, no text, no logo [3][12][9].
+Lighting/render: studio softbox reflections, subtle rim light, high dynamic range look, crisp edges, 4k detail; avoid noisy patterns that break alpha edges [3][6][9].
+Framing: centered, full-body, slight 3/4 angle, ample padding for cropping into square/round app icons [16][10][7].
+If the model cannot output native transparency, generate on solid white or green and prepare clean matting for downstream background removal (keep hard separation from background) [3][15][4].
+Style constraints: no weapons, no text, no letters, no background scenes; focus on a reusable, modular mascot asset with consistent proportions for a design system [16][10][7].
+
+
+
+
+Create a glossy, chibi 3D robot mascot named "Milo", infer gender expression as "male" and persona from the name; keep it friendly, competent, and trustworthy for an AI Employee Assistant brand used in tools like "BMC Assistant" and "Meta Ads Assistant" [7][10][16].
+Primary theme color = #00FFA4 (hex); apply as dominant body panels, trims, and accents with neutral complements (charcoal gray, slate, white) for contrast and accessibility [16][10][7].
+Design: rounded shapes, soft bevels, face as black glass display with cyan glow eyes, welcoming open-arm pose, clean silhouette readable at small sizes (icon usage) [16][10][7].
+Accessories driven by 'Email & Newsletter Assistant': add optional tools/props, UI glyphs, or wearables that communicate the role without text (e.g., analytics icons, dashboards, checklists), but keep minimalist and brand-safe [16][10][7].
+Background/output: isolated subject on transparent background, export as PNG RGBA with real alpha channel; no backdrop, no floor, no drop shadow, no watermark, no text, no logo [3][12][9].
+Lighting/render: studio softbox reflections, subtle rim light, high dynamic range look, crisp edges, 4k detail; avoid noisy patterns that break alpha edges [3][6][9].
+Framing: centered, full-body, slight 3/4 angle, ample padding for cropping into square/round app icons [16][10][7].
+If the model cannot output native transparency, generate on solid white or green and prepare clean matting for downstream background removal (keep hard separation from background) [3][15][4].
+Style constraints: no weapons, no text, no letters, no background scenes; focus on a reusable, modular mascot asset with consistent proportions for a design system [16][10][7].
+
+
+
+
+Create a glossy, chibi 3D robot mascot named "Mita", infer gender expression as "female" and persona from the name; keep it friendly, competent, and trustworthy for an AI Employee Assistant brand used in tools like "BMC Assistant" and "Meta Ads Assistant" [7][10][16].
+Primary theme color = #00FF50 (hex); apply as dominant body panels, trims, and accents with neutral complements (charcoal gray, slate, white) for contrast and accessibility [16][10][7].
+Design: rounded shapes, soft bevels, face as black glass display with cyan glow eyes, welcoming open-arm pose, clean silhouette readable at small sizes (icon usage) [16][10][7].
+Accessories driven by 'Meta Ads Assistant': add optional tools/props, UI glyphs, or wearables that communicate the role without text (e.g., analytics icons, dashboards, checklists), but keep minimalist and brand-safe [16][10][7].
+Background/output: isolated subject on transparent background, export as PNG RGBA with real alpha channel; no backdrop, no floor, no drop shadow, no watermark, no text, no logo [3][12][9].
+Lighting/render: studio softbox reflections, subtle rim light, high dynamic range look, crisp edges, 4k detail; avoid noisy patterns that break alpha edges [3][6][9].
+Framing: centered, full-body, slight 3/4 angle, ample padding for cropping into square/round app icons [16][10][7].
+If the model cannot output native transparency, generate on solid white or green and prepare clean matting for downstream background removal (keep hard separation from background) [3][15][4].
+Style constraints: no weapons, no text, no letters, no background scenes; focus on a reusable, modular mascot asset with consistent proportions for a design system [16][10][7].
+
+
+
+
+Create a glossy, chibi 3D robot mascot named "Selo", infer gender expression as "male" and persona from the name; keep it friendly, competent, and trustworthy for an AI Employee Assistant brand used in tools like "BMC Assistant" and "Meta Ads Assistant" [7][10][16].
+Primary theme color = #20a944 (hex); apply as dominant body panels, trims, and accents with neutral complements (charcoal gray, slate, white) for contrast and accessibility [16][10][7].
+Design: rounded shapes, soft bevels, face as black glass display with cyan glow eyes, welcoming open-arm pose, clean silhouette readable at small sizes (icon usage) [16][10][7].
+Accessories driven by 'SEO Assistant': add optional tools/props, UI glyphs, or wearables that communicate the role without text (e.g., analytics icons, dashboards, checklists), but keep minimalist and brand-safe [16][10][7].
+Background/output: isolated subject on transparent background, export as PNG RGBA with real alpha channel; no backdrop, no floor, no drop shadow, no watermark, no text, no logo [3][12][9].
+Lighting/render: studio softbox reflections, subtle rim light, high dynamic range look, crisp edges, 4k detail; avoid noisy patterns that break alpha edges [3][6][9].
+Framing: centered, full-body, slight 3/4 angle, ample padding for cropping into square/round app icons [16][10][7].
+If the model cannot output native transparency, generate on solid white or green and prepare clean matting for downstream background removal (keep hard separation from background) [3][15][4].
+Style constraints: no weapons, no text, no letters, no background scenes; focus on a reusable, modular mascot asset with consistent proportions for a design system [16][10][7].
+
+
+
+
+Create a glossy, chibi 3D robot mascot named "Kobi", infer gender expression as "male" and persona from the name; keep it friendly, competent, and trustworthy for an AI Employee Assistant brand used in tools like "BMC Assistant" and "Meta Ads Assistant" [7][10][16].
+Primary theme color = #00FFEF (hex); apply as dominant body panels, trims, and accents with neutral complements (charcoal gray, slate, white) for contrast and accessibility [16][10][7].
+Design: rounded shapes, soft bevels, face as black glass display with cyan glow eyes, welcoming open-arm pose, clean silhouette readable at small sizes (icon usage) [16][10][7].
+Accessories driven by 'Outreach & DM Writer': add optional tools/props, UI glyphs, or wearables that communicate the role without text (e.g., analytics icons, dashboards, checklists), but keep minimalist and brand-safe [16][10][7].
+Background/output: isolated subject on transparent background, export as PNG RGBA with real alpha channel; no backdrop, no floor, no drop shadow, no watermark, no text, no logo [3][12][9].
+Lighting/render: studio softbox reflections, subtle rim light, high dynamic range look, crisp edges, 4k detail; avoid noisy patterns that break alpha edges [3][6][9].
+Framing: centered, full-body, slight 3/4 angle, ample padding for cropping into square/round app icons [16][10][7].
+If the model cannot output native transparency, generate on solid white or green and prepare clean matting for downstream background removal (keep hard separation from background) [3][15][4].
+Style constraints: no weapons, no text, no letters, no background scenes; focus on a reusable, modular mascot asset with consistent proportions for a design system [16][10][7].
+
+
+
+
+Create a glossy, chibi 3D robot mascot named "Hira", infer gender expression as "female" and persona from the name; keep it friendly, competent, and trustworthy for an AI Employee Assistant brand used in tools like "BMC Assistant" and "Meta Ads Assistant" [7][10][16].
+Primary theme color = #163b92 (hex); apply as dominant body panels, trims, and accents with neutral complements (charcoal gray, slate, white) for contrast and accessibility [16][10][7].
+Design: rounded shapes, soft bevels, face as black glass display with cyan glow eyes, welcoming open-arm pose, clean silhouette readable at small sizes (icon usage) [16][10][7].
+Accessories driven by 'HR Assistant': add optional tools/props, UI glyphs, or wearables that communicate the role without text (e.g., analytics icons, dashboards, checklists), but keep minimalist and brand-safe [16][10][7].
+Background/output: isolated subject on transparent background, export as PNG RGBA with real alpha channel; no backdrop, no floor, no drop shadow, no watermark, no text, no logo [3][12][9].
+Lighting/render: studio softbox reflections, subtle rim light, high dynamic range look, crisp edges, 4k detail; avoid noisy patterns that break alpha edges [3][6][9].
+Framing: centered, full-body, slight 3/4 angle, ample padding for cropping into square/round app icons [16][10][7].
+If the model cannot output native transparency, generate on solid white or green and prepare clean matting for downstream background removal (keep hard separation from background) [3][15][4].
+Style constraints: no weapons, no text, no letters, no background scenes; focus on a reusable, modular mascot asset with consistent proportions for a design system [16][10][7].
+
+
+
+
+Create a glossy, chibi 3D robot mascot named "Rika", infer gender expression as "female" and persona from the name; keep it friendly, competent, and trustworthy for an AI Employee Assistant brand used in tools like "BMC Assistant" and "Meta Ads Assistant" [7][10][16].
+Primary theme color = #0057FF (hex); apply as dominant body panels, trims, and accents with neutral complements (charcoal gray, slate, white) for contrast and accessibility [16][10][7].
+Design: rounded shapes, soft bevels, face as black glass display with cyan glow eyes, welcoming open-arm pose, clean silhouette readable at small sizes (icon usage) [16][10][7].
+Accessories driven by 'Recruitment Assistant': add optional tools/props, UI glyphs, or wearables that communicate the role without text (e.g., analytics icons, dashboards, checklists), but keep minimalist and brand-safe [16][10][7].
+Background/output: isolated subject on transparent background, export as PNG RGBA with real alpha channel; no backdrop, no floor, no drop shadow, no watermark, no text, no logo [3][12][9].
+Lighting/render: studio softbox reflections, subtle rim light, high dynamic range look, crisp edges, 4k detail; avoid noisy patterns that break alpha edges [3][6][9].
+Framing: centered, full-body, slight 3/4 angle, ample padding for cropping into square/round app icons [16][10][7].
+If the model cannot output native transparency, generate on solid white or green and prepare clean matting for downstream background removal (keep hard separation from background) [3][15][4].
+Style constraints: no weapons, no text, no letters, no background scenes; focus on a reusable, modular mascot asset with consistent proportions for a design system [16][10][7].
+
+
+
+
+Create a glossy, chibi 3D robot mascot named "Lara", infer gender expression as "female" and persona from the name; keep it friendly, competent, and trustworthy for an AI Employee Assistant brand used in tools like "BMC Assistant" and "Meta Ads Assistant" [7][10][16].
+Primary theme color = #4694FF (hex); apply as dominant body panels, trims, and accents with neutral complements (charcoal gray, slate, white) for contrast and accessibility [16][10][7].
+Design: rounded shapes, soft bevels, face as black glass display with cyan glow eyes, welcoming open-arm pose, clean silhouette readable at small sizes (icon usage) [16][10][7].
+Accessories driven by 'L&D Assistant': add optional tools/props, UI glyphs, or wearables that communicate the role without text (e.g., analytics icons, dashboards, checklists), but keep minimalist and brand-safe [16][10][7].
+Background/output: isolated subject on transparent background, export as PNG RGBA with real alpha channel; no backdrop, no floor, no drop shadow, no watermark, no text, no logo [3][12][9].
+Lighting/render: studio softbox reflections, subtle rim light, high dynamic range look, crisp edges, 4k detail; avoid noisy patterns that break alpha edges [3][6][9].
+Framing: centered, full-body, slight 3/4 angle, ample padding for cropping into square/round app icons [16][10][7].
+If the model cannot output native transparency, generate on solid white or green and prepare clean matting for downstream background removal (keep hard separation from background) [3][15][4].
+Style constraints: no weapons, no text, no letters, no background scenes; focus on a reusable, modular mascot asset with consistent proportions for a design system [16][10][7].
+
+
+
+
+Create a glossy, chibi 3D robot mascot named "Dany", infer gender expression as "male" and persona from the name; keep it friendly, competent, and trustworthy for an AI Employee Assistant brand used in tools like "BMC Assistant" and "Meta Ads Assistant" [7][10][16].
+Primary theme color = #FF4B00 (hex); apply as dominant body panels, trims, and accents with neutral complements (charcoal gray, slate, white) for contrast and accessibility [16][10][7].
+Design: rounded shapes, soft bevels, face as black glass display with cyan glow eyes, welcoming open-arm pose, clean silhouette readable at small sizes (icon usage) [16][10][7].
+Accessories driven by 'Data Analyst Assistant': add optional tools/props, UI glyphs, or wearables that communicate the role without text (e.g., analytics icons, dashboards, checklists), but keep minimalist and brand-safe [16][10][7].
+Background/output: isolated subject on transparent background, export as PNG RGBA with real alpha channel; no backdrop, no floor, no drop shadow, no watermark, no text, no logo [3][12][9].
+Lighting/render: studio softbox reflections, subtle rim light, high dynamic range look, crisp edges, 4k detail; avoid noisy patterns that break alpha edges [3][6][9].
+Framing: centered, full-body, slight 3/4 angle, ample padding for cropping into square/round app icons [16][10][7].
+If the model cannot output native transparency, generate on solid white or green and prepare clean matting for downstream background removal (keep hard separation from background) [3][15][4].
+Style constraints: no weapons, no text, no letters, no background scenes; focus on a reusable, modular mascot asset with consistent proportions for a design system [16][10][7].
+
+
+
+
+Create a glossy, chibi 3D robot mascot named "Prima", infer gender expression as "female" and persona from the name; keep it friendly, competent, and trustworthy for an AI Employee Assistant brand used in tools like "BMC Assistant" and "Meta Ads Assistant" [7][10][16].
+Primary theme color = #FF003E (hex); apply as dominant body panels, trims, and accents with neutral complements (charcoal gray, slate, white) for contrast and accessibility [16][10][7].
+Design: rounded shapes, soft bevels, face as black glass display with cyan glow eyes, welcoming open-arm pose, clean silhouette readable at small sizes (icon usage) [16][10][7].
+Accessories driven by 'Prompt Generator': add optional tools/props, UI glyphs, or wearables that communicate the role without text (e.g., analytics icons, dashboards, checklists), but keep minimalist and brand-safe [16][10][7].
+Background/output: isolated subject on transparent background, export as PNG RGBA with real alpha channel; no backdrop, no floor, no drop shadow, no watermark, no text, no logo [3][12][9].
+Lighting/render: studio softbox reflections, subtle rim light, high dynamic range look, crisp edges, 4k detail; avoid noisy patterns that break alpha edges [3][6][9].
+Framing: centered, full-body, slight 3/4 angle, ample padding for cropping into square/round app icons [16][10][7].
+If the model cannot output native transparency, generate on solid white or green and prepare clean matting for downstream background removal (keep hard separation from background) [3][15][4].
+Style constraints: no weapons, no text, no letters, no background scenes; focus on a reusable, modular mascot asset with consistent proportions for a design system [16][10][7].
+
+
+

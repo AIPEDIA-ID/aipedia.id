@@ -1,0 +1,36 @@
+{
+  "faqItems": [
+    {
+      "question": "Apa bedanya AIPEDIA dengan AI tool generik?",
+      "answer": "AI tool generik kasih respons luas tanpa expertise domain. AIPEDIA sediakan asisten spesialis dengan framework siap pakai, template terbukti, dan pengetahuan tingkat ahli di domain seperti marketing, finance, dan HR."
+    },
+    {
+      "question": "Saya sibuk kerja. Butuh waktu berapa lama?",
+      "answer": "AIPEDIA dibuat untuk profesional sibuk. Rata-rata waktu per task [TBD] (butuh data) untuk hasil tingkat ahli yang biasanya butuh jam riset atau konsultasi."
+    },
+    {
+      "question": "Saya baru di domain ini. Bisa pakai asisten dengan efektif?",
+      "answer": "Bisa. Setiap asisten punya panduan step-by-step dan jelasin reasoning di balik rekomendasi. Kamu belajar best practice sambil dapat hasil."
+    },
+    {
+      "question": "Perlu install software atau plugin?",
+      "answer": "Tidak. AIPEDIA jalan 100% lewat ChatGPT. Akses langsung via browser atau app, tanpa install apa pun."
+    },
+    {
+      "question": "Gimana cara akses AIPEDIA setelah beli?",
+      "answer": "Setelah bayar, kamu terima link GPT. Klik dan langsung pakai. Tanpa setup dan tanpa extension."
+    },
+    {
+      "question": "Bisa pakai dengan akun ChatGPT gratis?",
+      "answer": "Bisa, tapi ChatGPT Plus (GPT-4) biasanya hasilnya lebih baik untuk analisis kompleks dan penjelasan detail."
+    },
+    {
+      "question": "Bisa tanya follow-up atau minta revisi?",
+      "answer": "Bisa. Anggap setiap asisten sebagai konsultan ahli personal. Minta breakdown, sesuaikan dengan brand voice kamu, atau minta pendekatan lain."
+    },
+    {
+      "question": "Kalau tidak puas gimana? Bisa refund?",
+      "answer": "Tidak ada refund. Setelah diakses, asisten jadi milik kamu selamanya (lifetime access)."
+    }
+  ]
+}
