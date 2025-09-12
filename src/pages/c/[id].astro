@@ -1,0 +1,228 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import charactersData from '../../data/characters.json';
+import pricingData from '../../data/pricing.json';
+
+export async function getStaticPaths() {
+  const { characters } = charactersData;
+  return characters.map((character) => ({
+    params: { id: character.id },
+    props: { character },
+  }));
+}
+
+const { character } = Astro.props;
+const { pricingTiers } = pricingData;
+
+// Get individual and bundle pricing
+const individualPricing = pricingTiers.find(tier => tier.name === "Individual Assistant");
+const bundlePricing = pricingTiers.find(tier => tier.name === "All Assistants Bundle");
+---
+
+<Layout title={`${character.name} - ${character.role} | AIPEDIA`}>
+  <!-- Hero Section -->
+  <section class="py-16 px-6 relative min-h-[60vh] flex items-center">
+    <!-- Background -->
+    <div class="absolute inset-0 bg-gradient-to-b from-black via-gray-900/30 to-black"></div>
+    
+    <div class="relative z-10 max-w-6xl mx-auto">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <!-- Character Info -->
+        <div class="text-center lg:text-left">
+          <div class="mb-6">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">
+              Kenalan dengan <span class="bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent">{character.name}</span>
+            </h1>
+            <p class="text-xl text-gray-300 mb-2">{character.role}</p>
+            <div class="inline-flex items-center gap-2 px-3 py-1 bg-white/10 rounded-full text-sm text-gray-300">
+              <div class="w-2 h-2 rounded-full" style={`background-color: ${character.themeColor}`}></div>
+              {character.category === 'marketing' ? 'Marketing' : 'Business & Operations'}
+            </div>
+          </div>
+          
+          <p class="text-lg text-gray-400 mb-8 max-w-xl">
+            {character.description}
+          </p>
+          
+          <!-- Quick CTA -->
+          <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+            <a href="#pricing" class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-primary-400 to-primary-600 hover:from-primary-500 hover:to-primary-700 text-white font-medium rounded-lg transition-all duration-200 hover:shadow-lg hover:shadow-primary-500/25">
+              Mulai dengan {character.name}
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+              </svg>
+            </a>
+            <a href="/#characters" class="inline-flex items-center gap-2 px-6 py-3 bg-white/10 hover:bg-white/20 text-white font-medium rounded-lg border border-white/20 hover:border-primary-500/30 transition-all duration-200">
+              Lihat Semua Assistant
+            </a>
+          </div>
+        </div>
+        
+        <!-- Character Image -->
+        <div class="flex justify-center lg:justify-end">
+          <div class="relative">
+            <div class="w-80 h-80 rounded-full overflow-hidden border-4 border-primary-400/30 shadow-2xl shadow-primary-500/20">
+              <img src={character.image} alt={character.name} class="w-full h-full object-contain" />
+            </div>
+            <!-- Floating accent -->
+            <div class="absolute -top-4 -right-4 w-24 h-24 rounded-full opacity-20 animate-pulse" style={`background: linear-gradient(135deg, ${character.themeColor}, transparent)`}></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Video Demo Section -->
+  <section class="py-16 px-6 relative">
+    <div class="absolute inset-0 bg-gradient-to-b from-black via-gray-900/20 to-black"></div>
+    
+    <div class="relative z-10 max-w-4xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">
+          Lihat <span class="bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent">{character.name}</span> Beraksi
+        </h2>
+        <p class="text-lg text-gray-400">
+          Demo singkat bagaimana {character.name} membantu workflow Anda
+        </p>
+      </div>
+      
+      <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-8">
+        <div class="aspect-video rounded-lg overflow-hidden bg-black/30 border border-white/10">
+          <iframe 
+            class="w-full h-full" 
+            src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+            title="{character.name} Demo Video" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            allowfullscreen>
+          </iframe>
+        </div>
+        
+        <div class="mt-6 text-center">
+          <p class="text-gray-400 text-sm">
+            Video ini menunjukkan cara menggunakan {character.name} untuk {character.role.toLowerCase()}
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section id="pricing" class="py-16 px-6 relative">
+    <div class="absolute inset-0 bg-gradient-to-b from-black via-gray-900/30 to-black"></div>
+    
+    <div class="relative z-10 max-w-5xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">
+          Pilih <span class="bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent">Paket</span>
+        </h2>
+        <p class="text-lg text-gray-400">
+          Mulai dengan {character.name} atau akses semua assistant
+        </p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <!-- Individual Character Pricing -->
+        <div class="group p-6 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-white/20 transition-all duration-300">
+          <div class="text-center mb-6">
+            <div class="w-20 h-20 rounded-full overflow-hidden border-2 border-primary-400/30 mx-auto mb-4">
+              <img src={character.image} alt={character.name} class="w-full h-full object-contain" />
+            </div>
+            <h3 class="text-xl font-semibold mb-2 text-white">{character.name} Only</h3>
+            <div class="text-4xl font-bold mb-2 text-white">
+              {character.price}
+              <span class="text-base font-normal text-gray-400">sekali bayar</span>
+            </div>
+            <p class="text-gray-400">Akses penuh ke {character.name} - {character.role}</p>
+          </div>
+          
+          <div class="space-y-3 mb-6">
+            <div class="flex items-center gap-3">
+              <svg class="w-4 h-4 text-primary-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span class="text-gray-300 text-sm">Akses penuh ke {character.name}</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <svg class="w-4 h-4 text-primary-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span class="text-gray-300 text-sm">Panduan penggunaan lengkap</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <svg class="w-4 h-4 text-primary-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span class="text-gray-300 text-sm">Template dan framework siap pakai</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <svg class="w-4 h-4 text-primary-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span class="text-gray-300 text-sm">Lifetime access tanpa biaya tambahan</span>
+            </div>
+          </div>
+          
+          <button class="w-full py-3 px-4 bg-white/10 hover:bg-white/20 text-white font-medium rounded-lg border border-white/20 hover:border-primary-500/30 transition-all duration-200">
+            Pilih {character.name}
+          </button>
+        </div>
+        
+        <!-- Bundle Pricing -->
+        {bundlePricing && (
+          <div class="group p-6 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-white/20 transition-all duration-300 ring-2 ring-primary-500/30 relative">
+            <div class="absolute top-3 right-3 px-2 py-1 bg-primary-500 text-white text-xs font-medium rounded-full">
+              POPULAR
+            </div>
+            
+            <div class="text-center mb-6">
+              <h3 class="text-xl font-semibold mb-2 text-white">{bundlePricing.name}</h3>
+              <div class="text-4xl font-bold mb-2 text-white">
+                {bundlePricing.price}
+                <span class="text-base font-normal text-gray-400">sekali bayar</span>
+              </div>
+              <p class="text-gray-400">{bundlePricing.description}</p>
+            </div>
+            
+            <div class="space-y-3 mb-6">
+              {bundlePricing.features.map((feature) => (
+                <div class="flex items-center gap-3">
+                  <svg class="w-5 h-5 text-primary-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span class="text-white font-medium">{feature}</span>
+                </div>
+              ))}
+            </div>
+            
+            <button class="w-full py-3 px-4 bg-gradient-to-r from-primary-400 to-primary-600 hover:from-primary-500 hover:to-primary-700 text-white font-medium rounded-lg transition-all duration-200 hover:shadow-lg hover:shadow-primary-500/25">
+              {bundlePricing.buttonText}
+            </button>
+          </div>
+        )}
+      </div>
+      
+      <!-- Bottom CTA -->
+      <div class="text-center mt-12">
+        <p class="text-gray-300 mb-4">Masih ada pertanyaan?</p>
+        <a href="/#faq" class="inline-flex items-center gap-2 px-6 py-3 bg-white/10 hover:bg-white/20 text-white font-medium rounded-lg border border-white/20 hover:border-primary-500/30 transition-all duration-200">
+          Lihat FAQ
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .floating-card {
+    animation: fadeIn 0.6s ease-out;
+  }
+</style>

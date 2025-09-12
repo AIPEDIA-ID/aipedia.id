@@ -38,7 +38,7 @@ const { sectionHeader, characters, categories, bundles } = charactersData;
       {characters.map((character) => (
         <div class={`character-card floating-card group p-4 rounded-xl backdrop-blur-md border border-primary-300/25 hover:border-primary-200/40 transition-all duration-300 shadow-xl shadow-primary-500/5`} data-category={character.category}>
           <div class="text-center">
-            <h4 class="text-xl font-semibold mb-2" style={`color: ${character.themeColor}`}>{character.name}</h4>
+            <a href={`/c/${character.id}`} class="text-xl font-semibold mb-2 hover:opacity-80 transition-opacity" style={`color: ${character.themeColor}`}>{character.name}</a>
           </div>
           <div class="flex justify-center mb-2">
             <div class="w-36 h-36 rounded-full overflow-hidden border-3 border-primary-400/30 group-hover:border-primary-300/70 transition-all duration-300">
