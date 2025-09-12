@@ -1,7 +1,7 @@
 [
   {
     "title": "Asisten AI Spesialis",
-    "description": "Akses 16 asisten AI terkurasi. Tiap asisten dibekali framework domain-spesifik dan pengetahuan ahli untuk hasil profesional.",
+    "description": "Akses 12 Asisten AI terkurasi. Tiap asisten dibekali framework domain-spesifik dan pengetahuan ahli untuk hasil profesional.",
     "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z\"></path>",
     "items": [
       { "text": "Marketing, Finance, HR, Analytics", "color": "primary" },
@@ -45,7 +45,7 @@
   },
   {
     "title": "Pilihan Asisten Fleksibel",
-    "description": "Pilih 16 asisten spesialis lintas domain, atau mix sesuai kebutuhan proyek kamu.",
+    "description": "Pilih 12 Asisten spesialis lintas domain, atau mix sesuai kebutuhan proyek kamu.",
     "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M3 7h18M3 12h18M3 17h18\"></path>",
     "items": [
       { "text": "Marketing, Finance, HR, Analytics", "color": "primary" },

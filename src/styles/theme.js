@@ -2,29 +2,29 @@
 export const theme = {
   colors: {
     primary: {
-      50: '#f3f0ff',
-      100: '#e9e2ff',
-      200: '#d6c8ff',
-      300: '#b8a1ff',
-      400: '#9570ff',
-      500: '#6320ee', // Main brand color (replacing orange)
-      600: '#5a1dd8',
-      700: '#4c18b8',
-      800: '#3f1596',
-      900: '#35137a',
-      950: '#1f0a4a'
+      50: '#f5f3ff',
+      100: '#ede9fe',
+      200: '#ddd6fe',
+      300: '#c4b5fd',
+      400: '#a78bfa',
+      500: '#8b5cf6', // Main brand color - ungu cerah
+      600: '#7c3aed',
+      700: '#6d28d9',
+      800: '#5b21b6',
+      900: '#4c1d95',
+      950: '#3b0764'
     },
     accent: {
-      50: '#fef7ee',
-      100: '#fdecd7',
-      200: '#fad5ae',
-      300: '#f6b67a',
-      400: '#f18f44',
-      500: '#ed7014', // Secondary accent
-      600: '#de5a0a',
-      700: '#b8460b',
-      800: '#923810',
-      900: '#762f11'
+      50: '#fff7ed',
+      100: '#ffedd5',
+      200: '#fed7aa',
+      300: '#fdba74',
+      400: '#fb923c',
+      500: '#f97316', // Secondary accent - orange cerah
+      600: '#ea580c',
+      700: '#c2410c',
+      800: '#9a3412',
+      900: '#7c2d12'
     },
     neutral: {
       50: '#f8fafc',
