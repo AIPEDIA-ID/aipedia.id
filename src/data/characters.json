@@ -25,7 +25,7 @@
       "image": "/character/fina.png",
       "description": "Analisis keuangan, cash flow forecast, dan break-even analysis untuk bisnis kamu.",
       "examplePrompt": "Buat cash flow forecast 3 bulan dan break-even analysis untuk café dengan COGS 30% dan sewa 15%.",
-      "category": "finance",
+      "category": "business",
       "price": "86k"
     },
     {
@@ -37,7 +37,7 @@
       "image": "/character/cisa.png",
       "description": "Rancang sistem customer support yang efektif dengan macro responses dan escalation rules.",
       "examplePrompt": "Rancang CS macro untuk inquiry Tier-1 dengan variasi tone dan escalation rules untuk refund.",
-      "category": "operations",
+      "category": "business",
       "price": "86k"
     },
     {
@@ -85,7 +85,7 @@
       "image": "/character/dany.png",
       "description": "Analisis data mendalam dengan insights actionable untuk business decision making.",
       "examplePrompt": "Analisis CSV untuk cohort retention dan buat summary key churn drivers.",
-      "category": "analytics",
+      "category": "business",
       "price": "86k"
     },
     {
@@ -121,7 +121,7 @@
       "image": "/character/hira.png",
       "description": "Sistem HR yang efektif dengan performance review dan competency framework.",
       "examplePrompt": "Buat rubrik performance review untuk junior marketer dengan competency levels.",
-      "category": "hr",
+      "category": "business",
       "price": "86k"
     },
     {
@@ -145,7 +145,7 @@
       "image": "/character/prima.png",
       "description": "Generate prompts yang efektif untuk berbagai task dan workflow optimization.",
       "examplePrompt": "Generate 20 prompt task-specific untuk product research dan competitor analysis.",
-      "category": "productivity",
+      "category": "business",
       "price": "86k"
     }
   ],
@@ -156,34 +156,9 @@
       "color": "#580cfc"
     },
     "business": {
-      "name": "Business",
-      "description": "Assistants untuk business planning dan strategy",
+      "name": "Business & Operations",
+      "description": "Assistants untuk business strategy, finance, HR, analytics, dan productivity",
       "color": "#F97300"
-    },
-    "finance": {
-      "name": "Finance",
-      "description": "Assistants untuk financial analysis dan planning",
-      "color": "#FFD400"
-    },
-    "hr": {
-      "name": "HR",
-      "description": "Assistants untuk human resources dan talent management",
-      "color": "#163b92"
-    },
-    "operations": {
-      "name": "Operations",
-      "description": "Assistants untuk operational efficiency",
-      "color": "#FF7D00"
-    },
-    "analytics": {
-      "name": "Analytics",
-      "description": "Assistants untuk data analysis dan insights",
-      "color": "#FF4B00"
-    },
-    "productivity": {
-      "name": "Productivity",
-      "description": "Assistants untuk workflow optimization",
-      "color": "#FF003E"
     }
   },
   "bundles": [
