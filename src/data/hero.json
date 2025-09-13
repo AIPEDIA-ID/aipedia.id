@@ -1,18 +1,18 @@
 {
-  "badge": "Platform Pengetahuan AI",
+  "badge": "GPT AI Assistant",
   "logo": {
     "src": "/logo.png",
     "alt": "aipedia Logo"
   },
   "heading": {
-    "main": "12 Asisten AI untuk Bisnis Kamu",
-    "highlight": "Hemat Biaya & Eksekusi Ngebut"
+    "main": "12 Asisten AI untuk Bisnis Anda",
+    "highlight": "Kerja Lebih Cepat, Biaya Lebih Hemat"
   },
-  "subheading1": "Dapatkan <strong class=\"bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent\">strategi & eksekusi ala expert</strong> dalam <strong class=\"bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent\">menit</strong> — dari <strong class=\"text-white\">ide & konten</strong> sampai <strong class=\"text-white\">analitik</strong>. <strong class=\"text-white\">Hemat biaya</strong>, <strong class=\"text-white\">percepat output</strong>, tanpa rekrut tim baru.",
-  "subheading2": "*16 spesialis AI untuk marketing, sales, finance, HR, dan operasional",
+  "subheading1": "Dapatkan <strong class=\"bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent\">eksekusi sekelas expert</strong> hanya dalam <strong class=\"bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent\">hitungan menit</strong> — mulai dari <strong class=\"text-white\">ide & konten</strong> hingga <strong class=\"text-white\">analitik & strategi</strong>. <strong class=\"text-white\">Potong biaya</strong>, <strong class=\"text-white\">lipat gandakan produktivitas</strong>, tanpa perlu rekrut tim tambahan",
+  "subheading2": "*16 spesialis AI siap pakai untuk marketing, sales, finance, HR, dan operasional",
   "cta": [
     {
-      "text": "Jelajahi Asisten",
+      "text": "Akses Asisten AI",
       "href": "#characters",
       "isPrimary": true
     },
