@@ -2,37 +2,37 @@
 import Layout from '../layouts/Layout.astro';
 
 // Variabel untuk tanggal pembaruan T&C
-const lastUpdated = "25 Juli 2025";
+const lastUpdated = "25 Januari 2025";
 
 // Variabel untuk konten TnC
 const tncSections = [
   {
-    title: "Disclaimer - Bukan Nasihat Keuangan",
-    content: "Informasi yang disediakan oleh aipedia Trading Assistant adalah untuk tujuan informasi dan edukasi saja. Konten yang tersedia melalui layanan ini tidak dimaksudkan sebagai nasihat keuangan, investasi, atau perdagangan, dan tidak boleh dianggap demikian. Sebelum membuat keputusan investasi atau perdagangan apa pun, Anda harus melakukan riset Anda sendiri dan/atau berkonsultasi dengan penasihat keuangan berlisensi. Perdagangan cryptocurrency melibatkan risiko yang signifikan dan dapat mengakibatkan kerugian sebagian atau seluruh modal Anda."
+    title: "Disclaimer - Bukan Nasihat Profesional",
+    content: "Informasi yang disediakan oleh AIPEDIA Custom GPT Assistants adalah untuk tujuan informasi dan edukasi saja. Konten yang tersedia melalui layanan ini tidak dimaksudkan sebagai nasihat profesional dalam bidang keuangan, hukum, medis, atau konsultasi bisnis resmi, dan tidak boleh dianggap demikian. Sebelum membuat keputusan bisnis atau implementasi strategi apa pun, Anda harus melakukan riset Anda sendiri dan/atau berkonsultasi dengan ahli berlisensi di bidang terkait. Keputusan bisnis melibatkan risiko yang signifikan dan dapat mengakibatkan kerugian finansial."
   },
   {
     title: "Keterbatasan AI",
-    content: "aipedia Trading Assistant menggunakan teknologi kecerdasan buatan (AI) yang, meskipun canggih, memiliki keterbatasan. AI dapat menghasilkan informasi yang tidak akurat, tidak lengkap, atau menyesatkan (\"halusinasi\"). Pengguna harus selalu memverifikasi informasi yang diberikan dengan sumber tepercaya lainnya. Analisis dan Signal yang dihasilkan oleh aipedia didasarkan pada data historis dan kondisi pasar saat ini, yang mungkin tidak memprediksi pergerakan pasar masa depan dengan akurat. Kinerja masa lalu tidak menjamin hasil di masa depan."
+    content: "AIPEDIA menggunakan teknologi kecerdasan buatan (AI) yang, meskipun canggih, memiliki keterbatasan. AI dapat menghasilkan informasi yang tidak akurat, tidak lengkap, atau menyesatkan (\"halusinasi\"). Pengguna harus selalu memverifikasi informasi yang diberikan dengan sumber tepercaya lainnya. Rekomendasi dan analisis yang dihasilkan oleh AIPEDIA didasarkan pada data dan framework yang tersedia, yang mungkin tidak sepenuhnya sesuai dengan kondisi spesifik bisnis Anda. Hasil yang diperoleh dapat bervariasi tergantung pada implementasi dan faktor eksternal."
   },
   {
     title: "Ketergantungan Platform",
-    content: "aipedia Trading Assistant beroperasi sebagai CustomGPT di platform ChatGPT yang disediakan oleh OpenAI. Akses dan fungsionalitas layanan kami bergantung pada kebijakan, ketersediaan, dan perubahan yang dilakukan oleh OpenAI. Kami tidak dapat menjamin bahwa layanan akan terus tersedia tanpa gangguan atau bahwa fungsionalitasnya tidak akan berubah karena pembaruan kebijakan atau platform OpenAI. Dengan menggunakan aipedia, Anda mengakui dan menerima risiko ini."
+    content: "AIPEDIA beroperasi sebagai Custom GPT di platform ChatGPT yang disediakan oleh OpenAI. Akses dan fungsionalitas layanan kami bergantung pada kebijakan, ketersediaan, dan perubahan yang dilakukan oleh OpenAI. Kami tidak dapat menjamin bahwa layanan akan terus tersedia tanpa gangguan atau bahwa fungsionalitasnya tidak akan berubah karena pembaruan kebijakan atau platform OpenAI. Dengan menggunakan AIPEDIA, Anda mengakui dan menerima risiko ini."
   },
   {
     title: "Penerimaan Ketentuan",
-    content: "Dengan mengakses atau menggunakan aipedia Trading Assistant (\"Layanan\"), Anda menyetujui untuk terikat oleh ketentuan dan persyaratan ini. Jika Anda tidak menyetujui semua ketentuan ini, Anda tidak diizinkan untuk menggunakan Layanan."
+    content: "Dengan mengakses atau menggunakan AIPEDIA Custom GPT Assistants (\"Layanan\"), Anda menyetujui untuk terikat oleh ketentuan dan persyaratan ini. Jika Anda tidak menyetujui semua ketentuan ini, Anda tidak diizinkan untuk menggunakan Layanan."
   },
   {
     title: "Tidak Ada Jaminan",
-    content: "Layanan disediakan \"sebagaimana adanya\" dan \"sebagaimana tersedia\" tanpa jaminan apa pun, baik tersurat maupun tersirat. Kami tidak menjamin keakuratan, kelengkapan, atau kegunaan informasi yang disediakan oleh Layanan."
+    content: "Layanan disediakan \"sebagaimana adanya\" dan \"sebagaimana tersedia\" tanpa jaminan apa pun, baik tersurat maupun tersirat. Kami tidak menjamin keakuratan, kelengkapan, atau kegunaan informasi yang disediakan oleh Layanan. Hasil bisnis yang diperoleh dari penggunaan layanan ini sepenuhnya bergantung pada implementasi dan faktor eksternal yang tidak dapat kami kendalikan."
   },
   {
     title: "Batasan Tanggung Jawab",
-    content: "Dalam keadaan apa pun, kami tidak bertanggung jawab atas kerugian atau kerusakan langsung, tidak langsung, insidental, konsekuensial, khusus, atau teladan yang timbul dari penggunaan Anda atas Layanan, termasuk tetapi tidak terbatas pada kerugian finansial."
+    content: "Dalam keadaan apa pun, kami tidak bertanggung jawab atas kerugian atau kerusakan langsung, tidak langsung, insidental, konsekuensial, khusus, atau teladan yang timbul dari penggunaan Anda atas Layanan, termasuk tetapi tidak terbatas pada kerugian finansial, kehilangan data, atau kerugian bisnis."
   },
   {
     title: "Kebijakan Pengembalian Dana",
-    content: "Semua pembelian bersifat final. Kami tidak menawarkan pengembalian dana setelah Anda mendapatkan akses ke Layanan. Kami menyarankan Anda untuk mencoba versi gratis terlebih dahulu untuk mengevaluasi kesesuaian Layanan dengan kebutuhan Anda."
+    content: "Semua pembelian bersifat final. Kami tidak menawarkan pengembalian dana setelah Anda mendapatkan akses ke Custom GPT Assistants. Pastikan Anda memahami fitur dan keterbatasan layanan sebelum melakukan pembelian. Kami menyediakan deskripsi lengkap dan contoh penggunaan untuk setiap asisten AI."
   },
   {
     title: "Perubahan Ketentuan",
@@ -43,11 +43,11 @@ const tncSections = [
 // Variabel untuk teks tambahan
 const additionalText = {
   title: "Penggunaan Atas Risiko Sendiri",
-  content: "Penggunaan aipedia Trading Assistant sepenuhnya atas risiko Anda sendiri. Kami tidak bertanggung jawab atas kerugian atau kerusakan yang timbul dari penggunaan atau ketergantungan pada informasi yang disediakan oleh layanan kami. Dengan menggunakan aipedia Trading Assistant, Anda mengakui bahwa Anda telah membaca, memahami, dan menyetujui ketentuan ini."
+  content: "Penggunaan AIPEDIA Custom GPT Assistants sepenuhnya atas risiko Anda sendiri. Kami tidak bertanggung jawab atas kerugian atau kerusakan yang timbul dari penggunaan atau ketergantungan pada informasi yang disediakan oleh layanan kami. Dengan menggunakan AIPEDIA, Anda mengakui bahwa Anda telah membaca, memahami, dan menyetujui ketentuan ini."
 };
 ---
 
-<Layout title="Terms & Conditions - aipedia Trading Assistant">
+<Layout title="Terms & Conditions - AIPEDIA">
   <section class="py-16 px-4 relative">
     <!-- Background -->
     <div class="absolute inset-0 bg-gradient-to-b from-black via-gray-900/20 to-black"></div>
@@ -59,7 +59,7 @@ const additionalText = {
           <span class="bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent">Terms & Conditions</span>
         </h1>
         <p class="text-lg text-gray-400">
-          Disclaimer dan ketentuan penggunaan aipedia Trading Assistant
+          Disclaimer dan ketentuan penggunaan AIPEDIA Custom GPT Assistants
         </p>
         <p class="text-sm text-gray-500 mt-2">Terakhir diperbarui: {lastUpdated}</p>
       </div>

@@ -16,7 +16,7 @@ const { Content } = await post.render();
 const { title, description, date, author, tags, image } = post.data;
 ---
 
-<Layout title={`${title} - aipedia Blog`}>
+<Layout title={`${title} - AIPEDIA Blog`}>
   <article class="min-h-screen bg-black text-white">
     <!-- Hero Section -->
     <div class="relative h-96 overflow-hidden">
@@ -30,11 +30,19 @@ const { title, description, date, author, tags, image } = post.data;
       <div class="absolute bottom-0 left-0 right-0 p-8">
         <div class="max-w-4xl mx-auto">
           <div class="flex flex-wrap gap-2 mb-4">
-            {tags.map((tag) => (
-              <span class="px-3 py-1 bg-primary-500/20 text-primary-400 text-sm rounded-full">
-                {tag}
-              </span>
-            ))}
+            {tags.map((tag, index) => {
+              const colorVariants = [
+                'bg-primary-500/20 text-primary-400 border border-primary-500/30',
+                'bg-accent-500/20 text-accent-400 border border-accent-500/30',
+                'bg-neutral-500/20 text-neutral-300 border border-neutral-500/30'
+              ];
+              const colorClass = colorVariants[index % colorVariants.length];
+              return (
+                <span class={`px-3 py-1 text-sm rounded-full ${colorClass}`}>
+                  {tag}
+                </span>
+              );
+            })}
           </div>
           
           <h1 class="text-3xl md:text-5xl font-bold mb-4">
@@ -124,15 +132,15 @@ const { title, description, date, author, tags, image } = post.data;
       <!-- CTA to Home Page -->
       <div class="mt-12 pt-8 border-t border-gray-800">
         <div class="text-center">
-          <h3 class="text-2xl font-bold mb-4">Siap Memulai Trading dengan AI?</h3>
+          <h3 class="text-2xl font-bold mb-4">Siap Tingkatkan Produktivitas dengan AI?</h3>
           <p class="text-gray-300 mb-6 max-w-2xl mx-auto">
-            Bergabunglah dengan ribuan trader yang sudah merasakan keuntungan trading dengan bantuan AI aipedia. Mulai perjalanan trading Anda hari ini!
+            Bergabunglah dengan ribuan profesional yang sudah merasakan efisiensi kerja dengan bantuan 12 Custom GPT Assistants AIPEDIA. Mulai transformasi bisnis Anda hari ini!
           </p>
           <a 
             href="/"
             class="group inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-primary-400 to-primary-600 hover:from-primary-500 hover:to-primary-700 text-white font-semibold rounded-xl transition-all duration-200 hover:shadow-lg hover:shadow-primary-500/25 hover:scale-105"
           >
-            Mulai Trading Sekarang
+            Akses Asisten AI Sekarang
             <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
             </svg>
