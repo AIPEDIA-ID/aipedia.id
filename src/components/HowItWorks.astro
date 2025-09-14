@@ -12,9 +12,9 @@ const { sectionHeader, steps, bottomCTA } = howItWorks;
     <!-- Section Header -->
     <div class="text-center mb-12">
       <h2 class="text-3xl md:text-4xl font-bold mb-4">
-        {sectionHeader.title.split("aipedia")[0]}
-        <span class="bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent">aipedia</span>
-        {sectionHeader.title.split("aipedia")[1]}
+        {sectionHeader.title.split("AIPEDIA")[0]}
+        <span class="bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent">AIPEDIA</span>
+        {sectionHeader.title.split("AIPEDIA")[1]}
       </h2>
       <p class="text-lg text-gray-400 max-w-2xl mx-auto">
         {sectionHeader.description}
@@ -47,9 +47,6 @@ const { sectionHeader, steps, bottomCTA } = howItWorks;
     
     <!-- Bottom CTA -->
     <div class="text-center">
-      <p class="text-gray-300 mb-6 max-w-2xl mx-auto">
-        {bottomCTA.text}
-      </p>
       <a href={bottomCTA.buttonLink} class="inline-flex items-center gap-2 px-6 py-3 bg-primary-500 hover:bg-primary-600 text-white font-medium rounded-lg transition-all duration-200 hover:shadow-lg hover:shadow-primary-500/25">
         {bottomCTA.buttonText}
         <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">

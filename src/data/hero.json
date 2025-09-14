@@ -1,26 +1,21 @@
 {
-  "badge": "GPT AI Assistant",
+  "badge": "Custom GPT AI Assistant",
   "logo": {
     "src": "/logo.png",
     "alt": "aipedia Logo"
   },
   "heading": {
-    "main": "12 Asisten AI untuk Bisnis",
-    "highlight": "Kerja Lebih Cepat, Biaya Lebih Hemat"
+    "main": "12 AI untuk Bisnis",
+    "highlight": "Kerja Lebih Cepat, Produktivitas Meningkat"
   },
   "subheading1": "Asisten AI untuk <strong class=\"text-white\">marketing</strong>, <strong class=\"text-white\">konten</strong>, <strong class=\"text-white\">sales</strong>, <strong class=\"text-white\">finance</strong>, <strong class=\"text-white\">HR</strong> & <strong class=\"text-white\">operasional</strong>",
   "subheading2": "*12 pre-built Custom GPT",
   "cta": [
     {
       "text": "Akses Asisten AI",
-      "href": "#characters",
+      "href": "#pricing",
       "isPrimary": true
-    },
-    {
-      "text": "Lihat Demo",
-      "href": "#see-in-action",
-      "isPrimary": false
     }
   ],
-  "socialProof": "[TBD] (butuh data)"
+  "socialProof": false
 }

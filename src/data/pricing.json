@@ -3,12 +3,12 @@
     {
       "name": "Individual Assistant",
       "price": "86k",
-      "description": "Pilih satu assistant sesuai kebutuhan spesifik Anda",
+      "description": "Pilih asisten sesuai kebutuhan spesifik Anda",
       "features": [
-        "Akses penuh ke 1 Custom GPT Assistant",
-        "Panduan penggunaan lengkap",
+        "Akses penuh 1 Custom GPT Assistant",
+        "Panduan lengkap penggunaan",
         "Template dan framework siap pakai",
-        "Lifetime access tanpa biaya tambahan"
+        "Akses seumur hidup tanpa biaya tambahan"
       ],
       "buttonText": "Pilih Assistant",
       "buttonLink": "#characters",
@@ -19,14 +19,14 @@
     {
       "name": "All Assistants Bundle",
       "price": "437k",
-      "priceSubtext": "sekali bayar",
-      "description": "Akses penuh ke seluruh roster. Cocok untuk tim dan enterprise.",
+      "priceSubtext": "Hemat 80%",
+      "description": "Akses seluruh asisten, ideal untuk tim dan bisnis",
       "features": [
         "12 Custom GPT Assistants lengkap",
         "Marketing, HR, Finance, Analytics",
         "Business Planning & Operations",
-        "Productivity & Workflow Optimization",
-        "Priority support dan updates"
+        "Produktivitas & Workflow Optimization",
+        "Prioritas support dan update"
       ],
       "buttonText": "Akses Semua",
       "buttonLink": "#characters",
@@ -37,8 +37,8 @@
     {
       "name": "Marketing Bundle",
       "price": "289k",
-      "priceSubtext": "sekali bayar",
-      "description": "Semua asisten untuk growth workflows. Cocok untuk marketer dan agency.",
+      "priceSubtext": "Hemat 34%",
+      "description": "Cocok untuk marketer dan agency",
       "features": [
         "6 Marketing Assistants lengkap",
         "Social Media, Copywriting, SEO, Ads",
@@ -54,14 +54,14 @@
     }
   ],
   "proStats": [
-    { "value": "16", "label": "Asisten AI Spesialis Tersedia" },
-    { "value": "2 Bundle", "label": "Opsi fleksibel untuk setiap kebutuhan dan budget" },
-    { "value": "IDR 0", "label": "Tanpa langganan bulanan atau biaya tersembunyi" }
+    { "value": "12", "label": "Asisten AI Spesialis" },
+    { "value": "2 Bundle", "label": "Opsi fleksibel sesuaikan kebutuhan & budget" },
+    { "value": "IDR 0", "label": "Tanpa langganan atau biaya tersembunyi" }
   ],
   "sectionHeader": {
     "title": "Beli Sekali, Akses Selamanya",
-    "subtitle": "Pilih asisten individual atau bundle hemat untuk workflow lengkap"
+    "subtitle": "Pilih paket bundle untuk lebih lengkap dan hemat"
   },
-  "proTagline": "Bundle Terpopuler: All Assistants Bundle (587k)",
-  "proFooter": "Pembayaran sekali. Akses lifetime. Tanpa biaya tambahan."
+  "proTagline": "Bundle Terpopuler: All Assistants Bundle (437k)",
+  "proFooter": "Bayar sekali, akses lifetime."
 }

@@ -7,27 +7,27 @@
     {
       "number": 1,
       "title": "Pilih Asisten AI kamu",
-      "description": "Pilih dari 12 Asisten spesialis sesuai kebutuhan — marketing, finance, HR, analytics, atau operations.",
+      "description": "Pilih dari 12 Asisten spesialis sesuai kebutuhan: marketing, finance, HR, analytics, atau operations.",
       "features": [
-        "Expertise domain-spesifik built-in",
+        "Keahlian domain-spesifik terintegrasi",
         "Prompt dan framework teroptimasi",
-        "Akses instan via ChatGPT"
+        "Akses instan melalui ChatGPT"
       ]
     },
     {
       "number": 2,
       "title": "Eksplorasi & Bertanya",
-      "description": "Chat pakai bahasa natural. Dapat panduan ahli, framework, dan insight yang bisa langsung dipakai.",
+      "description": "Chat interaktif, dapatkan panduan ahli, framework, dan insight secara 2 arah",
       "features": [
         "Konsultasi ahli secara conversational",
-        "Panduan step-by-step included",
-        "Contoh real-world dan template"
+        "Panduan langkah demi langkah",
+        "Contoh nyata dan template siap pakai"
       ]
     },
     {
       "number": 3,
       "title": "Terapkan di Workflow",
-      "description": "Bawa output terstruktur dan rekomendasi langsung ke pekerjaan kamu untuk eksekusi cepat.",
+      "description": "Gunakan output terstruktur dan rekomendasi untuk pekerjaan kamu agar eksekusi cepat dan tepat.",
       "features": [
         "Deliverable siap pakai",
         "Proses dan sistem yang scalable",
@@ -36,7 +36,7 @@
     }
   ],
   "bottomCTA": {
-    "text": "Berhenti buang jam untuk riset. Biarkan asisten AIPEDIA tangani kerjaan ahli — kamu fokus eksekusi.",
+    "text": "Tingkatkan efisiensi dengan AIPEDIA",
     "buttonText": "Mulai Sekarang",
     "buttonLink": "#pricing"
   }

@@ -1,7 +1,7 @@
 {
   "sectionHeader": {
     "title": "Pilih Asisten AI Sesuai Kebutuhan",
-    "subtitle": "16 Custom GPT Assistants yang dirancang khusus untuk workflow spesifik"
+    "subtitle": "12 Asisten GPT Spesialis"
   },
   "characters": [
     {
@@ -11,8 +11,8 @@
       "themeColor": "#F97300",
       "gender": "Male",
       "image": "/character/beny.png",
-      "description": "Bantu mapping ide bisnis ke Business Model Canvas lengkap dengan analisis risiko dan strategi channel.",
-      "examplePrompt": "Map ide skincare DTC saya ke Business Model Canvas lengkap dengan risiko, mitigasi, dan strategi channel.",
+      "description": "Mapping ide bisnis ke Business Model Canvas lengkap dengan analisis risiko dan strategi channel.",
+      "examplePrompt": "Map ide skincare DTC ke Business Model Canvas dengan risiko dan strategi channel.",
       "category": "business",
       "price": "86k"
     },
@@ -23,8 +23,8 @@
       "themeColor": "#FFD400",
       "gender": "Female",
       "image": "/character/fina.png",
-      "description": "Analisis keuangan, cash flow forecast, dan break-even analysis untuk bisnis kamu.",
-      "examplePrompt": "Buat cash flow forecast 3 bulan dan break-even analysis untuk café dengan COGS 30% dan sewa 15%.",
+      "description": "Analisis keuangan, cash flow forecast, dan break-even bisnis.",
+      "examplePrompt": "Buat cash flow forecast 3 bulan dan break-even analysis untuk café.",
       "category": "business",
       "price": "86k"
     },
@@ -35,8 +35,8 @@
       "themeColor": "#FF003E",
       "gender": "Female",
       "image": "/character/cisa.png",
-      "description": "Rancang sistem customer support yang efektif dengan macro responses dan escalation rules.",
-      "examplePrompt": "Rancang CS macro untuk inquiry Tier-1 dengan variasi tone dan escalation rules untuk refund.",
+      "description": "Sistem customer support dengan macro response dan escalation rules.",
+      "examplePrompt": "Rancang CS macro untuk inquiry Tier-1 dan escalation refund.",
       "category": "business",
       "price": "86k"
     },
@@ -47,8 +47,8 @@
       "themeColor": "#580cfc",
       "gender": "Female",
       "image": "/character/sora.png",
-      "description": "Buat konten social media yang engaging untuk Instagram, TikTok, dan platform lainnya.",
-      "examplePrompt": "Buat kalender IG/TikTok 14 hari dengan hooks, CTA, dan caption dengan brand voice yang playful.",
+      "description": "Konten social media engaging untuk Instagram dan TikTok.",
+      "examplePrompt": "Buat kalender IG/TikTok 14 hari dengan hooks dan CTA.",
       "category": "marketing",
       "price": "86k"
     },
@@ -59,8 +59,8 @@
       "themeColor": "#E0BEFF",
       "gender": "Male",
       "image": "/character/viko.png",
-      "description": "Buat script video yang engaging untuk UGC, ads, dan content marketing.",
-      "examplePrompt": "Outline script UGC 60 detik dengan 3 hooks, objections handling, dan CTA yang kuat.",
+      "description": "Script video engaging untuk UGC dan ads.",
+      "examplePrompt": "Outline script UGC 60 detik dengan hooks dan CTA.",
       "category": "marketing",
       "price": "86k"
     },
@@ -71,8 +71,8 @@
       "themeColor": "#8a6ef0",
       "gender": "Male",
       "image": "/character/wita.png",
-      "description": "Tulis copy yang convert untuk landing page, ads, dan sales materials.",
-      "examplePrompt": "Tulis 5 varian hero landing page pakai PAS dan 3 angle ad short-form untuk cold audience.",
+      "description": "Copy convert untuk landing page dan ads.",
+      "examplePrompt": "Tulis 5 varian hero landing page dan 3 angle short-form ads.",
       "category": "marketing",
       "price": "86k"
     },
@@ -83,8 +83,8 @@
       "themeColor": "#FF4B00",
       "gender": "Male",
       "image": "/character/dany.png",
-      "description": "Analisis data mendalam dengan insights actionable untuk business decision making.",
-      "examplePrompt": "Analisis CSV untuk cohort retention dan buat summary key churn drivers.",
+      "description": "Analisis data dengan insight untuk keputusan bisnis.",
+      "examplePrompt": "Analisis CSV cohort retention dan churn drivers.",
       "category": "business",
       "price": "86k"
     },
@@ -95,8 +95,8 @@
       "themeColor": "#0164e0",
       "gender": "Female",
       "image": "/character/mita.png",
-      "description": "Optimasi Meta Ads campaign dengan struktur TOFU/MOFU/BOFU dan targeting yang tepat.",
-      "examplePrompt": "Generate struktur campaign Meta Ads: TOFU/MOFU/BOFU, variasi copy, dan ide targeting.",
+      "description": "Optimasi Meta Ads campaign dengan struktur TOFU/MOFU/BOFU.",
+      "examplePrompt": "Generate campaign structure dan targeting Meta Ads.",
       "category": "marketing",
       "price": "86k"
     },
@@ -107,8 +107,8 @@
       "themeColor": "#20a944",
       "gender": "Male",
       "image": "/character/selo.png",
-      "description": "Strategi SEO komprehensif dengan topical mapping dan internal linking plan.",
-      "examplePrompt": "Buat topical map dan internal linking plan untuk blog niche sustainable travel.",
+      "description": "Strategi SEO dengan topical mapping dan internal linking.",
+      "examplePrompt": "Buat topical map dan internal linking blog niche travel.",
       "category": "marketing",
       "price": "86k"
     },
@@ -119,8 +119,8 @@
       "themeColor": "#163b92",
       "gender": "Female",
       "image": "/character/hima.png",
-      "description": "Sistem HR yang efektif dengan performance review dan competency framework.",
-      "examplePrompt": "Buat rubrik performance review untuk junior marketer dengan competency levels.",
+      "description": "Sistem HR dengan performance review dan competency framework.",
+      "examplePrompt": "Buat rubrik performance review untuk junior marketer.",
       "category": "business",
       "price": "86k"
     },
@@ -131,8 +131,8 @@
       "themeColor": "#00FFA4",
       "gender": "Male",
       "image": "/character/milo.png",
-      "description": "Rancang email marketing dan newsletter yang engaging dengan conversion rate tinggi.",
-      "examplePrompt": "Draft newsletter mingguan dengan 1 lead story, 3 curated links, dan soft sell section.",
+      "description": "Rancang email marketing dan newsletter dengan engagement tinggi.",
+      "examplePrompt": "Draft newsletter mingguan dengan lead story dan curated links.",
       "category": "marketing",
       "price": "86k"
     },
@@ -143,8 +143,8 @@
       "themeColor": "#BB6653",
       "gender": "Female",
       "image": "/character/prima.png",
-      "description": "Generate prompts yang efektif untuk berbagai task dan workflow optimization.",
-      "examplePrompt": "Generate 20 prompt task-specific untuk product research dan competitor analysis.",
+      "description": "Generate prompt efektif untuk task dan workflow optimasi.",
+      "examplePrompt": "Generate 20 prompt untuk product research dan competitor analysis.",
       "category": "business",
       "price": "86k"
     }
@@ -152,32 +152,11 @@
   "categories": {
     "marketing": {
       "name": "Marketing",
-      "description": "Assistants untuk growth, content, dan digital marketing",
       "color": "#580cfc"
     },
     "business": {
       "name": "Business & Operations",
-      "description": "Assistants untuk business strategy, finance, HR, analytics, dan productivity",
       "color": "#F97300"
     }
-  },
-  "bundles": [
-    {
-      "id": "marketing_bundle",
-      "name": "Marketing Bundle",
-      "description": "Semua assistants untuk growth workflows",
-      "price": "578k",
-      "originalPrice": "[TBD] (butuh data)",
-      "savings": "[TBD] (butuh data)",
-      "characters": ["sora", "hoki", "rea", "viko", "milo", "mita", "selo", "kobi"],
-      "isPopular": true
-    },
-    {
-      "id": "all_assistants",
-      "name": "All Assistants Bundle",
-      "price": "587k",
-      "description": "Akses penuh ke seluruh roster AIPEDIA. Cocok untuk tim dan enterprise yang butuh solusi lengkap.",
-      "category": "bundle"
-    }
-  ]
+  }
 }
