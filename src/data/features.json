@@ -1,12 +1,13 @@
 [
   {
     "title": "Asisten AI Spesialis",
-    "description": "12 Asisten AI dengan framework domain-spesifik dan pengetahuan ahli untuk hasil profesional.",
+    "description": "12+ Asisten AI dengan framework domain-spesifik dan pengetahuan ahli untuk hasil profesional.",
     "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z\"></path>",
     "items": [
       { "text": "Marketing, Finance, HR, Analytics", "color": "primary" },
       { "text": "Template siap pakai & framework terbukti", "color": "primary" },
-      { "text": "Insight ahli dalam menit", "color": "primary" }
+      { "text": "Insight ahli dalam menit", "color": "primary" },
+      { "text": "Terus update *untuk bundle Business pack", "color": "primary" }
     ],
     "size": "small"
   },

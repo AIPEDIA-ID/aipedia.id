@@ -5,11 +5,11 @@
     "alt": "aipedia Logo"
   },
   "heading": {
-    "main": "12 AI untuk Bisnis",
-    "highlight": "Kerja Lebih Cepat, Produktivitas Meningkat"
+    "main": "12+ AI Spesialis untuk Bisnis",
+    "highlight": "Kerja 3x Lebih Cepat, Hasil Lebih Konsisten"
   },
-  "subheading1": "Asisten AI untuk <strong class=\"text-white\">marketing</strong>, <strong class=\"text-white\">konten</strong>, <strong class=\"text-white\">sales</strong>, <strong class=\"text-white\">finance</strong>, <strong class=\"text-white\">HR</strong> & <strong class=\"text-white\">operasional</strong>",
-  "subheading2": "*12 pre-built Custom GPT",
+  "subheading1": "Saatnya punya <strong class=\"text-white\">Asisten AI</strong> untuk <strong class=\"text-white\">Marketing</strong>, <strong class=\"text-white\">Sales</strong>, dan <strong class=\"text-white\">Operasional</strong>",
+  "subheading2": "Bayar sekali, akses seterusnya. 12+ Custom GPT pre-built (dan terus update)",
   "cta": [
     {
       "text": "Akses Asisten AI",
@@ -17,5 +17,6 @@
       "isPrimary": true
     }
   ],
-  "socialProof": false
+  "socialProof": false,
+  "discountBanner": "⏳ Diskon 60% untuk waktu terbatas"
 }

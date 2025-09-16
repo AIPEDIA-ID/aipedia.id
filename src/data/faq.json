@@ -1,32 +1,24 @@
 {
   "faqItems": [
     {
+      "question": "Apakah AIPEDIA perlu langganan bulanan?",
+      "answer": "Tidak. AIPEDIA adalah bundle custom GPT yg sudah dioptimasi, hanya perlu sekali bayar, akses seumur hidup. Tidak ada biaya bulanan atau biaya tersembunyi."
+    },
+    {
+      "question": "AIPEDIA cocok untuk siapa?",
+      "answer": "Pebisnis, profesional, dan kreator yang ingin menghemat waktu sambil tetap mendapat output setara ahli di bidang marketing, sales, atau operasional."
+    },
+    {
       "question": "Apa bedanya AIPEDIA dengan AI tool generik?",
-      "answer": "AI tool generik memberikan respons umum tanpa keahlian domain. AIPEDIA menyediakan asisten spesialis dengan template dan framework terbukti serta pengetahuan ahli di bidang seperti marketing, finance, dan HR."
-    },
-    {
-      "question": "Saya pebisnis dan profesional sibuk. Berapa lama yang dibutuhkan?",
-      "answer": "AIPEDIA dirancang untuk pebisnis dan profesional supaya lebih efisien. Waktu per tugas jauh lebih singkat dibanding riset atau konsultasi manual, dengan hasil tingkat ahli."
-    },
-    {
-      "question": "Saya pemula di bidang ini, bisa pakai asisten dengan efektif?",
-      "answer": "Bisa. Setiap asisten dilengkapi panduan step-by-step dan penjelasan alasan di balik rekomendasi, membantu kamu belajar sambil bekerja."
-    },
-    {
-      "question": "Perlu install software atau plugin?",
-      "answer": "Tidak. AIPEDIA berjalan 100% lewat ChatGPT, akses langsung melalui browser tanpa instalasi."
+      "answer": "AI tool generik memberikan respons umum tanpa keahlian domain. AIPEDIA menyediakan asisten spesialis dengan template dan framework terbukti di bidang seperti marketing, sales, dan operasional."
     },
     {
       "question": "Bagaimana cara akses setelah pembelian?",
-      "answer": "Setelah pembayaran, kamu dapat link GPT yang bisa langsung digunakan tanpa setup tambahan."
+      "answer": "Setelah pembayaran, kamu langsung mendapat link GPT yang siap digunakan tanpa setup tambahan."
     },
     {
-      "question": "Apakah bisa pakai dengan akun ChatGPT gratis?",
-      "answer": "Bisa, tapi ChatGPT Plus (GPT-4) memberikan hasil lebih baik untuk analisis dan penjelasan kompleks."
-    },
-    {
-      "question": "Bisakah tanya follow-up atau minta revisi?",
-      "answer": "Bisa. Anggap asisten seperti konsultan pribadi yang siap memberi penjelasan, menyesuaikan brand voice, atau pendekatan lain."
+      "question": "Apakah bisa dipakai dengan akun ChatGPT gratis?",
+      "answer": "Bisa, tapi ChatGPT Plus (GPT-5) memberi hasil lebih baik untuk analisis kompleks."
     },
     {
       "question": "Apakah ada refund jika tidak puas?",

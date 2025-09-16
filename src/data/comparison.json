@@ -8,26 +8,25 @@
   },
   "comparison": {
     "typical": {
-      "title": "AI Generik (belum dioptimasi)",
+      "title": "AI Generik",
       "items": [
-        "Respons generik tanpa keahlian domain",
-        "Tidak ada framework atau template khusus",
-        "Memerlukan prompt engineering yang rumit",
-        "Kualitas tidak konsisten di berbagai tugas",
-        "Riset memakan waktu dari berbagai sumber",
-        "Tidak ada workflow terstruktur atau praktik terbaik"
+        "Jawaban umum, tidak spesialis",
+        "Tanpa framework atau template",
+        "Butuh prompt rumit untuk hasil konsisten",
+        "Kualitas sering tidak konsisten",
+        "Riset manual makan waktu",
+        "Workflow berantakan, tanpa best practice"
       ]
     },
     "aipedia": {
-      "title": "Cara Kerja AIPEDIA",
+      "title": "AIPEDIA",
       "items": [
-        "Asisten spesialis dengan pengetahuan ahli",
-        "AI siap pakai sesuai task",
-        "Prompt teroptimasi untuk hasil konsisten berkualitas",
-        "Keahlian terkurasi di 12 domain spesialis",
-        "Beli sekali, akses seumur hidup",
-        "Hasil cepat dengan workflow terstruktur",
-        "Panduan lengkap dari strategi hingga eksekusi"
+        "Asisten AI spesialis di 12+ domain",
+        "Langsung siap pakai sesuai kebutuhan",
+        "Prompt pre-built yang teroptimasi, hasil lebih konsisten",
+        "Akses sekali bayar, seumur hidup",
+        "Workflow jelas, cepat, terstruktur",
+        "Panduan lengkap: strategi → eksekusi"
       ]
     }
   },
