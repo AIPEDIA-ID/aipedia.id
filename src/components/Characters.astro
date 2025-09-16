@@ -36,12 +36,28 @@ const { sectionHeader, characters, categories } = charactersData;
     <!-- Characters Grid -->
     <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
       {characters.map((character) => (
-        <div class={`character-card floating-card group p-4 rounded-xl backdrop-blur-md border border-primary-300/25 hover:border-primary-200/40 transition-all duration-300 shadow-xl shadow-primary-500/5`} data-category={character.category}>
+        <div 
+          class={`character-card floating-card group p-4 rounded-xl backdrop-blur-md transition-all duration-300 shadow-xl`} 
+          data-category={character.category}
+          style={`
+            border: 1px solid ${character.themeColor}40;
+            box-shadow: 0 4px 20px ${character.themeColor}20;
+            background: linear-gradient(
+              90deg,
+              rgba(255, 255, 255, 0.15) 0%,
+              ${character.themeColor}20 50%,
+              rgba(255, 255, 255, 0.15) 100%
+            );
+          `}
+        >
           <div class="text-center">
             <a href={`/c/${character.id}`} class="text-xl font-semibold mb-2 hover:opacity-80 transition-opacity" style={`color: ${character.themeColor}`}>{character.name}</a>
           </div>
           <div class="flex justify-center mb-2">
-            <div class="w-36 h-36 rounded-full overflow-hidden border-3 border-primary-400/30 group-hover:border-primary-300/70 transition-all duration-300">
+            <div 
+              class="w-36 h-36 rounded-full overflow-hidden border-3 transition-all duration-300"
+              style={`border-color: ${character.themeColor}50;`}
+            >
               <img src={character.image} alt={character.name} class="w-full h-full object-contain" loading="lazy" />
             </div>
           </div>
@@ -95,6 +111,31 @@ const { sectionHeader, characters, categories } = charactersData;
           });
         });
       });
+
+      // Dynamic hover effects based on themeColor
+      characterCards.forEach(card => {
+        const htmlCard = card as HTMLElement;
+        const nameLink = htmlCard.querySelector('a[style*="color"]') as HTMLElement;
+        const themeColor = nameLink?.style.color || '#8B5CF6';
+        
+        // Store original styles
+        const originalStyle = htmlCard.getAttribute('style') || '';
+        
+        htmlCard.addEventListener('mouseenter', function() {
+          const hoverStyle = originalStyle.replace(
+            /box-shadow: [^;]+;/,
+            `box-shadow: 0 8px 30px ${themeColor}40;`
+          ).replace(
+            /border: [^;]+;/,
+            `border: 1px solid ${themeColor}80;`
+          );
+          htmlCard.setAttribute('style', hoverStyle);
+        });
+        
+        htmlCard.addEventListener('mouseleave', function() {
+          htmlCard.setAttribute('style', originalStyle);
+        });
+      });
     });
   </script>
 
@@ -113,50 +154,34 @@ const { sectionHeader, characters, categories } = charactersData;
       }
     }
 
-    @keyframes subtleBorder {
-      0%, 100% {
-        border-color: rgba(139, 92, 246, 0.4);
-        box-shadow: 0 0 15px rgba(139, 92, 246, 0.1);
-      }
-      50% {
-        border-color: rgba(139, 92, 246, 0.6);
-        box-shadow: 0 0 25px rgba(139, 92, 246, 0.2);
-      }
-    }
-
     .floating-card {
-      background: linear-gradient(
-        90deg,
-        rgba(255, 255, 255, 0.15) 0%,
-        rgba(139, 92, 246, 0.1) 50%,
-        rgba(255, 255, 255, 0.15) 100%
-      );
       background-size: 200% 100%;
-      animation: simpleGlass 4s ease-in-out infinite, subtleBorder 3s ease-in-out infinite;
+      animation: simpleGlass 4s ease-in-out infinite;
     }
 
     .floating-card:nth-child(2n) {
-      animation: simpleGlass 5s ease-in-out infinite reverse, subtleBorder 4s ease-in-out infinite;
+      animation: simpleGlass 5s ease-in-out infinite reverse;
     }
 
     .floating-card:nth-child(3n) {
-      animation: simpleGlass 6s ease-in-out infinite, subtleBorder 3.5s ease-in-out infinite;
+      animation: simpleGlass 6s ease-in-out infinite;
     }
 
     .floating-card:nth-child(4n) {
-      animation: simpleGlass 4.5s ease-in-out infinite reverse, subtleBorder 4.5s ease-in-out infinite;
+      animation: simpleGlass 4.5s ease-in-out infinite reverse;
     }
 
     .floating-card:hover {
       transform: translateY(-3px);
-      border-color: rgba(139, 92, 246, 0.8);
-      box-shadow: 0 8px 30px rgba(139, 92, 246, 0.3);
-      background: linear-gradient(
-        90deg,
-        rgba(255, 255, 255, 0.2) 0%,
-        rgba(139, 92, 246, 0.15) 50%,
-        rgba(255, 255, 255, 0.2) 100%
-      );
+    }
+
+    /* Hover effects akan menggunakan CSS variables yang diset dari themeColor */
+    .floating-card:hover {
+      filter: brightness(1.1);
+    }
+
+    .floating-card:hover .w-36 {
+      transform: scale(1.05);
     }
   </style>
 </section>
