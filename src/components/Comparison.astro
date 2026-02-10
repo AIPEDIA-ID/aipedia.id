@@ -1,77 +1,129 @@
 ---
-import content from '../data/comparison.json';
+import content from "../data/comparison.json";
 ---
 
 <section class="py-16 px-4 relative">
   <!-- Background -->
-  <div class="absolute inset-0 bg-gradient-to-b from-black via-gray-900/30 to-black"></div>
-  
+  <div
+    class="absolute inset-0 bg-gradient-to-b from-black via-gray-900/30 to-black"
+  >
+  </div>
+
   <div class="relative z-10 max-w-5xl mx-auto">
     <!-- Section Header -->
     <div class="text-center mb-12">
-      <h2 class="text-3xl md:text-4xl font-bold mb-4">
+      <h2 class="text-4xl md:text-5xl font-bold mb-6">
         {content.header.title.main}
-        <span class="bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent">{content.header.title.highlight}</span>
+        <span
+          class="bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent"
+          >{content.header.title.highlight}</span
+        >
       </h2>
-      <p class="text-lg text-gray-400 max-w-2xl mx-auto">
+      <p class="text-xl text-gray-400 max-w-3xl mx-auto">
         {content.header.description}
       </p>
     </div>
-    
+
     <!-- Comparison Grid -->
     <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
       <!-- Typical Signal Services -->
-      <div class="p-6 rounded-xl bg-red-500/5 backdrop-blur-sm border border-red-500/20">
+      <div
+        class="p-6 rounded-xl bg-red-500/5 backdrop-blur-sm border border-red-500/20"
+      >
         <div class="flex items-center gap-3 mb-4">
-          <div class="w-8 h-8 bg-red-500/20 rounded-lg flex items-center justify-center">
-            <svg class="w-4 h-4 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          <div
+            class="w-8 h-8 bg-red-500/20 rounded-lg flex items-center justify-center"
+          >
+            <svg
+              class="w-4 h-4 text-red-400"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"></path>
             </svg>
           </div>
-          <h3 class="text-lg font-semibold text-red-300">{content.comparison.typical.title}</h3>
+          <h3 class="text-xl font-semibold text-red-300">
+            {content.comparison.typical.title}
+          </h3>
         </div>
-        
-        <div class="space-y-3 text-sm">
-          {content.comparison.typical.items.map(item => (
-            <div class="flex items-start gap-2">
-              <span class="w-1 h-1 bg-red-400 rounded-full mt-2 flex-shrink-0"></span>
-              <span class="text-gray-400">{item}</span>
-            </div>
-          ))}
+
+        <div class="space-y-3 text-base">
+          {
+            content.comparison.typical.items.map((item) => (
+              <div class="flex items-start gap-2">
+                <span class="w-1 h-1 bg-red-400 rounded-full mt-2 flex-shrink-0" />
+                <span class="text-gray-400">{item}</span>
+              </div>
+            ))
+          }
         </div>
       </div>
-      
+
       <!-- aipedia Approach -->
-      <div class="p-6 rounded-xl bg-green-500/5 backdrop-blur-sm border border-green-500/20">
+      <div
+        class="p-6 rounded-xl bg-green-500/5 backdrop-blur-sm border border-green-500/20"
+      >
         <div class="flex items-center gap-3 mb-4">
-          <div class="w-8 h-8 bg-green-500/20 rounded-lg flex items-center justify-center">
-            <svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+          <div
+            class="w-8 h-8 bg-green-500/20 rounded-lg flex items-center justify-center"
+          >
+            <svg
+              class="w-4 h-4 text-green-400"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M5 13l4 4L19 7"></path>
             </svg>
           </div>
-          <h3 class="text-lg font-semibold text-green-300">{content.comparison.aipedia.title}</h3>
+          <h3 class="text-xl font-semibold text-green-300">
+            {content.comparison.aipedia.title}
+          </h3>
         </div>
-        
-        <div class="space-y-3 text-sm">
-          {content.comparison.aipedia.items.map(item => (
-            <div class="flex items-start gap-2">
-              <span class="w-1 h-1 bg-green-400 rounded-full mt-2 flex-shrink-0"></span>
-              <span class="text-gray-300">{item}</span>
-            </div>
-          ))}
+
+        <div class="space-y-3 text-base">
+          {
+            content.comparison.aipedia.items.map((item) => (
+              <div class="flex items-start gap-2">
+                <span class="w-1 h-1 bg-green-400 rounded-full mt-2 flex-shrink-0" />
+                <span class="text-gray-300">{item}</span>
+              </div>
+            ))
+          }
         </div>
       </div>
     </div>
-    
+
     <!-- Bottom CTA -->
     <div class="text-center mt-10">
       <p class="text-gray-400 mb-6">
         <!-- {content.cta.text} -->
       </p>
-      <a href={content.cta.button.link} class="inline-flex items-center gap-2 px-6 py-3 bg-white/10 hover:bg-white/20 text-white font-medium rounded-lg border border-white/20 hover:border-primary-500/30 transition-all duration-200">
+      <a
+        href={content.cta.button.link}
+        class="inline-flex items-center gap-2 px-6 py-3 bg-white/10 hover:bg-white/20 text-white font-medium rounded-lg border border-white/20 hover:border-primary-500/30 transition-all duration-200"
+      >
         {content.cta.button.text}
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+        <svg
+          class="w-4 h-4"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
         </svg>
       </a>
     </div>

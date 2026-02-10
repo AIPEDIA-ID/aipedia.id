@@ -1,40 +1,65 @@
 ---
-import features from '../data/features.json';
+import features from "../data/features.json";
 var copyFeature = {
-  "title": "Jadi",
-  "boldTitle": "Lebih Expert",
-  "description": "Asisten AI spesialis. Tanya → dapat jawaban relevan, jelas, dan mudah dipakai."
-}
+  title: "Jadi",
+  boldTitle: "Lebih Expert",
+  description:
+    "Asisten AI spesialis. Tanya → dapat jawaban relevan, jelas, dan mudah dipakai.",
+};
 ---
 
 <section id="features" class="py-16 px-6 relative">
   <!-- Background -->
-  <div class="absolute inset-0 bg-gradient-to-b from-black via-gray-900/50 to-black"></div>
-  
+  <div
+    class="absolute inset-0 bg-gradient-to-b from-black via-gray-900/50 to-black"
+  >
+  </div>
+
   <div class="relative z-10 max-w-5xl mx-auto">
     <!-- Section Header -->
     <div class="text-center mb-12">
-      <h2 class="text-3xl md:text-4xl font-bold mb-4">
+      <h2 class="text-4xl md:text-5xl font-bold mb-6">
         {copyFeature.title}
-        <span class="bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent">{copyFeature.boldTitle}</span>
+        <span
+          class="bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent"
+          >{copyFeature.boldTitle}</span
+        >
       </h2>
-      <p class="text-lg text-gray-400 max-w-2xl mx-auto">
+      <p class="text-xl text-gray-400 max-w-3xl mx-auto">
         {copyFeature.description}
       </p>
     </div>
-    
+
     <!-- Features Grid -->
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-      {features.map((feature) => (
-        <div class={`group p-4 rounded-${feature.size === 'large' ? '2xl' : 'xl'} bg-white/5 backdrop-blur-sm border border-white/10 hover:border-primary-500/30 hover:bg-white/10 transition-all duration-300`}>
-          <div class={`w-${feature.size === 'large' ? '12' : '10'} h-${feature.size === 'large' ? '12' : '10'} bg-gradient-to-r from-primary-400 to-primary-600 rounded-${feature.size === 'large' ? 'xl' : 'lg'} flex items-center justify-center mb-${feature.size === 'large' ? '6' : '4'}`}>
-            <svg class={`w-${feature.size === 'large' ? '6' : '5'} h-${feature.size === 'large' ? '6' : '5'} text-white`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <Fragment set:html={feature.icon} />
-            </svg>
-          </div>
-          <h3 class={`text-${feature.size === 'large' ? 'xl' : 'lg'} font-semibold mb-${feature.size === 'large' ? '4' : '3'} text-white`}>{feature.title}</h3>
-          <p class={`text-gray-400 mb-${feature.size === 'large' ? '4' : '3'} ${feature.size === 'large' ? '' : 'text-sm'}`}>{feature.description}</p>
-          {/* <ul class={`space-y-${feature.size === 'large' ? '2' : '1.5'} ${feature.size === 'large' ? 'text-sm' : 'text-xs'} text-gray-300`}>
+      {
+        features.map((feature) => (
+          <div
+            class={`group p-4 rounded-${feature.size === "large" ? "2xl" : "xl"} bg-white/5 backdrop-blur-sm border border-white/10 hover:border-primary-500/30 hover:bg-white/10 transition-all duration-300`}
+          >
+            <div
+              class={`w-${feature.size === "large" ? "12" : "10"} h-${feature.size === "large" ? "12" : "10"} bg-gradient-to-r from-primary-400 to-primary-600 rounded-${feature.size === "large" ? "xl" : "lg"} flex items-center justify-center mb-${feature.size === "large" ? "6" : "4"}`}
+            >
+              <svg
+                class={`w-${feature.size === "large" ? "6" : "5"} h-${feature.size === "large" ? "6" : "5"} text-white`}
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <Fragment set:html={feature.icon} />
+              </svg>
+            </div>
+            <h3
+              class={`text-${feature.size === "large" ? "xl" : "lg"} font-semibold mb-${feature.size === "large" ? "4" : "3"} text-white`}
+            >
+              {feature.title}
+            </h3>
+            <p
+              class={`text-gray-400 mb-${feature.size === "large" ? "4" : "3"} ${feature.size === "large" ? "" : "text-sm"}`}
+            >
+              {feature.description}
+            </p>
+            {/* <ul class={`space-y-${feature.size === 'large' ? '2' : '1.5'} ${feature.size === 'large' ? 'text-sm' : 'text-xs'} text-gray-300`}>
             {feature.items.map((item) => (
               <li class="flex items-center gap-2">
                 <span class={`w-${feature.size === 'large' ? '1.5' : '1'} h-${feature.size === 'large' ? '1.5' : '1'} bg-${item.color}-400 rounded-full`}></span>
@@ -42,8 +67,9 @@ var copyFeature = {
               </li>
             ))}
           </ul> */}
-        </div>
-      ))}
+          </div>
+        ))
+      }
     </div>
   </div>
 </section>

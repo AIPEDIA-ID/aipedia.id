@@ -1,50 +1,80 @@
 ---
-import ctaContent from '../data/cta.json';
+import ctaContent from "../data/cta.json";
 ---
 
 <section class="py-20 px-4 relative">
   <!-- Background -->
-  <div class="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-900"></div>
-  
+  <div
+    class="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-900"
+  >
+  </div>
+
   <div class="relative z-10 max-w-4xl mx-auto text-center">
     <!-- Glassy Container -->
-    <div class="glassy-container relative max-w-3xl mx-auto mb-12 rounded-2xl p-8 bg-white/5 backdrop-blur-sm overflow-hidden">
+    <div
+      class="glassy-container relative max-w-3xl mx-auto mb-12 rounded-2xl p-8 bg-white/5 backdrop-blur-sm overflow-hidden"
+    >
       <!-- Animated Border Effect -->
       <div class="glassy-border"></div>
-      
-      <h2 class="text-3xl md:text-4xl font-bold mb-4">
+
+      <h2 class="text-4xl md:text-5xl font-bold mb-6">
         {ctaContent.title.main}
-        <span class="bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent">{ctaContent.title.highlight}</span>
+        <span
+          class="bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent"
+          >{ctaContent.title.highlight}</span
+        >
       </h2>
-      
-      <p class="text-xl text-gray-300 mb-4 max-w-2xl mx-auto">
+
+      <p class="text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
         {ctaContent.description}
       </p>
-      
-      <p class="text-lg text-gray-400 mb-8 max-w-xl mx-auto">
-        {ctaContent.subtext}
-      </p>
-      
+
       <!-- CTA Buttons -->
       <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-        <a href={ctaContent.button.link} class="group inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-primary-400 to-primary-600 hover:from-primary-500 hover:to-primary-700 text-white font-semibold rounded-xl transition-all duration-200 hover:shadow-lg hover:shadow-primary-500/25 hover:scale-105">
+        <a
+          href={ctaContent.button.link}
+          class="group inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-primary-400 to-primary-600 hover:from-primary-500 hover:to-primary-700 text-white font-semibold rounded-xl transition-all duration-200 hover:shadow-lg hover:shadow-primary-500/25 hover:scale-105"
+        >
           {ctaContent.button.text}
-          <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+          <svg
+            class="w-5 h-5 group-hover:translate-x-1 transition-transform"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
           </svg>
         </a>
       </div>
     </div>
-    
-    <div class="flex flex-col sm:flex-row items-center justify-center gap-8 text-sm text-gray-400">
-      {ctaContent.features.map(feature => (
-        <div class="flex items-center gap-2">
-          <svg class="w-5 h-5 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={feature.icon}></path>
-          </svg>
-          <span>{feature.text}</span>
-        </div>
-      ))}
+
+    <div
+      class="flex flex-col sm:flex-row items-center justify-center gap-8 text-base text-gray-400"
+    >
+      {
+        ctaContent.features.map((feature) => (
+          <div class="flex items-center gap-2">
+            <svg
+              class="w-5 h-5 text-primary-400"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d={feature.icon}
+              />
+            </svg>
+            <span>{feature.text}</span>
+          </div>
+        ))
+      }
     </div>
   </div>
 
@@ -54,7 +84,7 @@ import ctaContent from '../data/cta.json';
       z-index: 1;
       box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     }
-    
+
     .glassy-border {
       position: absolute;
       inset: 0;
@@ -67,23 +97,23 @@ import ctaContent from '../data/cta.json';
         rgba(255, 255, 255, 0.1),
         rgba(139, 92, 246, 0.2)
       );
-      -webkit-mask: 
-        linear-gradient(#fff 0 0) content-box, 
+      -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
         linear-gradient(#fff 0 0);
       -webkit-mask-composite: xor;
       mask-composite: exclude;
       pointer-events: none;
       animation: rotate 8s linear infinite;
     }
-    
+
     @keyframes rotate {
       to {
         --angle: 360deg;
       }
     }
-    
+
     @property --angle {
-      syntax: '<angle>';
+      syntax: "<angle>";
       initial-value: 0deg;
       inherits: false;
     }
