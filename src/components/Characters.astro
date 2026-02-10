@@ -48,15 +48,79 @@ const { sectionHeader, characters, categories } = charactersData;
     </div>
 
     <!-- Characters Grid -->
-    <div
-      class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 md:gap-5"
-    >
-      {
-        characters.map((character) => (
-          <div
-            class={`character-card floating-card group p-2 md:p-4 rounded-xl backdrop-blur-md transition-all duration-300 shadow-xl`}
-            data-category={character.category}
-            style={`
+    <!-- Mobile: Horizontal Scroll Carousel (2 ROWS) with Scroll Indicator -->
+    <!-- Desktop: Normal Grid (UNCHANGED) -->
+    <div class="relative">
+      <!-- Scroll container for mobile - 2 ROWS -->
+      <div
+        class="md:hidden overflow-x-auto overflow-y-hidden pb-4 -mx-4"
+        style="scrollbar-width: none; -ms-overflow-style: none;"
+      >
+        <div
+          class="grid grid-rows-2 grid-flow-col gap-3 px-4"
+          style="width: max-content;"
+        >
+          {
+            characters.map((character, index) => (
+              <div
+                class="character-card floating-card group p-4 rounded-xl backdrop-blur-md transition-all duration-300 shadow-xl block"
+                data-category={character.category}
+                style={`
+                  width: 160px;
+                  border: 1px solid ${character.themeColor}40;
+                  background: linear-gradient(135deg, ${character.themeColor}08, ${character.themeColor}03);
+                  box-shadow: 0 4px 20px ${character.themeColor}20;
+                `}
+              >
+                <div class="flex flex-col items-center text-center">
+                  {/* Character Image */}
+                  <img
+                    src={character.image}
+                    alt={character.name}
+                    class="w-20 h-20 rounded-full mb-2 object-cover"
+                    style={`border: 2px solid ${character.themeColor}60;`}
+                  />
+                  <h3
+                    class="text-base font-semibold mb-1"
+                    style={`color: ${character.themeColor}`}
+                  >
+                    {character.name}
+                  </h3>
+                  <p class="text-xs text-gray-500 mb-1">{character.role}</p>
+                  <p class="text-xs text-gray-400 line-clamp-2">
+                    {character.description}
+                  </p>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- Scroll Indicator - Mobile Only (No Gap) -->
+      <div
+        class="md:hidden absolute -right-4 top-0 bottom-4 w-32 pointer-events-none"
+      >
+        <div
+          class="absolute inset-0 bg-gradient-to-l from-black via-black/60 via-black/30 to-transparent"
+        >
+        </div>
+        <div
+          class="absolute inset-0 bg-gradient-to-l from-primary-500/30 via-primary-500/10 to-transparent"
+        >
+        </div>
+      </div>
+
+      <!-- Desktop Grid (unchanged) -->
+      <div
+        class="hidden md:grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 md:gap-5"
+      >
+        {
+          characters.map((character) => (
+            <div
+              class={`character-card floating-card group p-2 md:p-4 rounded-xl backdrop-blur-md transition-all duration-300 shadow-xl`}
+              data-category={character.category}
+              style={`
             border: 1px solid ${character.themeColor}40;
             box-shadow: 0 4px 20px ${character.themeColor}20;
             background: linear-gradient(
@@ -66,38 +130,41 @@ const { sectionHeader, characters, categories } = charactersData;
               rgba(255, 255, 255, 0.15) 100%
             );
           `}
-          >
-            <div class="text-center">
-              <a
-                href={`/c/${character.id}`}
-                class="text-2xl font-semibold mb-2 hover:opacity-80 transition-opacity"
-                style={`color: ${character.themeColor}`}
-              >
-                {character.name}
-              </a>
-            </div>
-            <div class="flex justify-center mb-2">
-              <div
-                class="w-36 h-36 rounded-full overflow-hidden border-3 transition-all duration-300"
-                style={`border-color: ${character.themeColor}50;`}
-              >
-                <img
-                  src={character.image}
-                  alt={character.name}
-                  class="w-full h-full object-contain"
-                  loading="lazy"
-                />
+            >
+              <div class="text-center">
+                <a
+                  href={`/c/${character.id}`}
+                  class="text-2xl font-semibold mb-2 hover:opacity-80 transition-opacity"
+                  style={`color: ${character.themeColor}`}
+                >
+                  {character.name}
+                </a>
+              </div>
+              <div class="flex justify-center mb-2">
+                <div
+                  class="w-36 h-36 rounded-full overflow-hidden border-3 transition-all duration-300"
+                  style={`border-color: ${character.themeColor}50;`}
+                >
+                  <img
+                    src={character.image}
+                    alt={character.name}
+                    class="w-full h-full object-contain"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+              <div class="text-center">
+                <p class="text-base font-medium mb-3 text-white">
+                  {character.role}
+                </p>
+                <p class="text-sm text-gray-400 mb-4">
+                  {character.description}
+                </p>
               </div>
             </div>
-            <div class="text-center">
-              <p class="text-base font-medium mb-3 text-white">
-                {character.role}
-              </p>
-              <p class="text-sm text-gray-400 mb-4">{character.description}</p>
-            </div>
-          </div>
-        ))
-      }
+          ))
+        }
+      </div>
     </div>
 
     <!-- Bottom CTA -->
@@ -128,7 +195,11 @@ const { sectionHeader, characters, categories } = charactersData;
     // Category filtering functionality
     document.addEventListener("DOMContentLoaded", function () {
       const filterButtons = document.querySelectorAll(".category-filter");
-      const characterCards = document.querySelectorAll(".character-card");
+      // ONLY select desktop grid cards, NOT mobile carousel
+      const desktopGrid = document.querySelector(".hidden.md\\:grid");
+      const characterCards = desktopGrid
+        ? desktopGrid.querySelectorAll(".character-card")
+        : [];
 
       filterButtons.forEach((button) => {
         button.addEventListener("click", function (this: HTMLElement) {
@@ -142,7 +213,7 @@ const { sectionHeader, characters, categories } = charactersData;
           this.classList.add("active", "bg-primary-500", "text-white");
           this.classList.remove("bg-white/10", "text-gray-300");
 
-          // Filter characters
+          // Filter characters (desktop grid only)
           characterCards.forEach((card) => {
             const htmlCard = card as HTMLElement;
             if (
@@ -187,6 +258,12 @@ const { sectionHeader, characters, categories } = charactersData;
   </script>
 
   <style>
+    /* Hide scrollbar for mobile carousel - WebKit browsers */
+    .overflow-x-auto::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* Character cards floating animation */
     @keyframes fadeIn {
       from {
         opacity: 0;
