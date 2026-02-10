@@ -3,24 +3,24 @@ import charactersData from "../data/characters.json";
 const { sectionHeader, characters, categories } = charactersData;
 ---
 
-<section id="characters" class="py-16 px-6 relative">
+<section id="characters" class="py-16 px-6 relative bg-black">
   <!-- Background -->
   <div
-    class="absolute inset-0 bg-gradient-to-b from-black via-gray-900/30 to-black"
+    class="absolute inset-0 bg-gradient-to-b from-black via-gray-950 to-black"
   >
   </div>
 
   <div class="relative z-10 max-w-5xl mx-auto">
     <!-- Section Header -->
     <div class="text-center mb-12">
-      <h2 class="text-4xl md:text-5xl font-bold mb-6">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">
         {sectionHeader.title.split(" ").slice(0, -1).join(" ")}
         <span
           class="bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent"
           >{sectionHeader.title.split(" ").pop()}</span
         >
       </h2>
-      <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+      <p class="text-base text-gray-400 max-w-2xl mx-auto">
         {sectionHeader.subtitle}
       </p>
     </div>

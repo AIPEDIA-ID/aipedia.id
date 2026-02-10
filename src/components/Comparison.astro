@@ -2,24 +2,24 @@
 import content from "../data/comparison.json";
 ---
 
-<section class="py-16 px-4 relative">
+<section class="py-16 px-4 relative bg-black">
   <!-- Background -->
   <div
-    class="absolute inset-0 bg-gradient-to-b from-black via-gray-900/30 to-black"
+    class="absolute inset-0 bg-gradient-to-b from-black via-gray-950 to-black"
   >
   </div>
 
   <div class="relative z-10 max-w-5xl mx-auto">
     <!-- Section Header -->
     <div class="text-center mb-12">
-      <h2 class="text-4xl md:text-5xl font-bold mb-6">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">
         {content.header.title.main}
         <span
           class="bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent"
           >{content.header.title.highlight}</span
         >
       </h2>
-      <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+      <p class="text-base text-gray-400 max-w-3xl mx-auto">
         {content.header.description}
       </p>
     </div>
@@ -101,31 +101,6 @@ import content from "../data/comparison.json";
           }
         </div>
       </div>
-    </div>
-
-    <!-- Bottom CTA -->
-    <div class="text-center mt-10">
-      <p class="text-gray-400 mb-6">
-        <!-- {content.cta.text} -->
-      </p>
-      <a
-        href={content.cta.button.link}
-        class="inline-flex items-center gap-2 px-6 py-3 bg-white/10 hover:bg-white/20 text-white font-medium rounded-lg border border-white/20 hover:border-primary-500/30 transition-all duration-200"
-      >
-        {content.cta.button.text}
-        <svg
-          class="w-4 h-4"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
-        </svg>
-      </a>
     </div>
   </div>
 </section>

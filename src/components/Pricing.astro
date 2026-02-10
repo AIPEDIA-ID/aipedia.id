@@ -4,24 +4,32 @@ const { pricingTiers, proStats, sectionHeader, proTagline, proFooter } =
   pricing;
 ---
 
-<section id="pricing" class="py-16 px-6 relative">
-  <!-- Background -->
+<section id="pricing" class="py-16 px-6 relative overflow-hidden">
+  <!-- Background Elements (sama seperti Hero) -->
   <div
-    class="absolute inset-0 bg-gradient-to-b from-black via-gray-900/30 to-black"
+    class="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-900"
+  >
+  </div>
+  <div
+    class="absolute top-20 left-10 w-64 h-64 bg-primary-500/10 rounded-full blur-[100px] animate-pulse-slow"
+  >
+  </div>
+  <div
+    class="absolute bottom-20 right-10 w-80 h-80 bg-primary-400/5 rounded-full blur-[120px] animate-float"
   >
   </div>
 
   <div class="relative z-10 max-w-6xl mx-auto">
     <!-- Section Header -->
     <div class="text-center mb-12">
-      <h2 class="text-4xl md:text-5xl font-bold mb-6">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6">
         {sectionHeader.title.split(" ").slice(0, -1).join(" ")}
         <span
           class="bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent"
           >{sectionHeader.title.split(" ").pop()}</span
         >
       </h2>
-      <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+      <p class="text-base text-gray-400 max-w-3xl mx-auto">
         {sectionHeader.subtitle}
       </p>
     </div>

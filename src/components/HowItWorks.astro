@@ -4,19 +4,19 @@ import howItWorks from '../data/howItWorks.json';
 const { sectionHeader, steps, bottomCTA } = howItWorks;
 ---
 
-<section id="how-it-works" class="py-16 px-6 relative">
+<section id="how-it-works" class="py-16 px-6 relative bg-black">
   <!-- Background -->
-  <div class="absolute inset-0 bg-gradient-to-b from-black via-gray-900/50 to-black"></div>
+  <div class="absolute inset-0 bg-gradient-to-b from-black via-gray-950 to-black"></div>
   
   <div class="relative z-10 max-w-5xl mx-auto">
     <!-- Section Header -->
     <div class="text-center mb-12">
-      <h2 class="text-4xl md:text-5xl font-bold mb-6">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6">
         {sectionHeader.title.split("AIPEDIA")[0]}
         <span class="bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent">AIPEDIA</span>
         {sectionHeader.title.split("AIPEDIA")[1]}
       </h2>
-      <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+      <p class="text-base text-gray-400 max-w-3xl mx-auto">
         {sectionHeader.description}
       </p>
     </div>
@@ -43,16 +43,6 @@ const { sectionHeader, steps, bottomCTA } = howItWorks;
           </div>
         </div>
       ))}
-    </div>
-    
-    <!-- Bottom CTA -->
-    <div class="text-center">
-      <a href={bottomCTA.buttonLink} class="inline-flex items-center gap-2 px-6 py-3 bg-white/10 hover:bg-white/20 text-white font-medium rounded-lg border border-white/20 hover:border-primary-500/30 transition-all duration-200">
-        {bottomCTA.buttonText}
-        <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
-        </svg>
-      </a>
     </div>
   </div>
 </section>
