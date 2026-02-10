@@ -3,7 +3,7 @@ import charactersData from "../data/characters.json";
 const { sectionHeader, characters, categories } = charactersData;
 ---
 
-<section id="characters" class="py-16 px-6 relative bg-black">
+<section id="characters" class="py-14 px-4 md:px-6 relative bg-black">
   <!-- Background -->
   <div
     class="absolute inset-0 bg-gradient-to-b from-black via-gray-950 to-black"
@@ -49,12 +49,12 @@ const { sectionHeader, characters, categories } = charactersData;
 
     <!-- Characters Grid -->
     <div
-      class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5"
+      class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 md:gap-5"
     >
       {
         characters.map((character) => (
           <div
-            class={`character-card floating-card group p-4 rounded-xl backdrop-blur-md transition-all duration-300 shadow-xl`}
+            class={`character-card floating-card group p-2 md:p-4 rounded-xl backdrop-blur-md transition-all duration-300 shadow-xl`}
             data-category={character.category}
             style={`
             border: 1px solid ${character.themeColor}40;
