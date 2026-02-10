@@ -16,7 +16,7 @@ import heroData from "../data/hero.json";
 
 <section
   id="hero"
-  class="relative min-h-screen flex items-center justify-center px-6 py-12 overflow-hidden"
+  class="relative min-h-screen flex items-center justify-center px-6 py-10 overflow-hidden"
 >
   <!-- Background Elements -->
   <div
@@ -44,7 +44,7 @@ import heroData from "../data/hero.json";
     <div class="flex items-center justify-center mb-4">
       <img src={heroData.logo.src} alt={heroData.logo.alt} class="w-14 h-14" />
     </div>
-    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+    <h1 class="text-4xl md:text-5xl lg:text-5xl font-bold mb-6 leading-tight">
       {heroData.heading.main}
       <br />
       <span
@@ -58,7 +58,7 @@ import heroData from "../data/hero.json";
       set:html={heroData.subheading1}
     />
 
-    <div class="max-w-3xl w-full mx-auto mb-4">
+    <div class="max-w-2xl w-full mx-auto mb-4">
       <div
         class="p-[2px] rounded-xl bg-gradient-to-r from-white/30 via-white/10 to-primary-500/30"
       >

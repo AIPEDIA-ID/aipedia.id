@@ -47,17 +47,15 @@ const { sectionHeader, characters, categories } = charactersData;
       </div>
     </div>
 
-    <!-- Characters Grid -->
-    <!-- Mobile: Horizontal Scroll Carousel (2 ROWS) with Scroll Indicator -->
-    <!-- Desktop: Normal Grid (UNCHANGED) -->
+    <!-- Mobile: Auto-scroll Carousel | Desktop: Grid -->
     <div class="relative">
-      <!-- Scroll container for mobile - 2 ROWS -->
+      <!-- Mobile Carousel -->
       <div
-        class="md:hidden overflow-x-auto overflow-y-hidden pb-4 -mx-4"
+        class="md:hidden overflow-x-auto overflow-y-hidden pb-4 -mx-4 character-scroll"
         style="scrollbar-width: none; -ms-overflow-style: none;"
       >
         <div
-          class="grid grid-rows-2 grid-flow-col gap-3 px-4"
+          class="grid grid-rows-2 grid-flow-col gap-3 px-4 character-scroll-content"
           style="width: max-content;"
         >
           {
@@ -97,39 +95,20 @@ const { sectionHeader, characters, categories } = charactersData;
         </div>
       </div>
 
-      <!-- Scroll Indicator - Mobile Only (No Gap) -->
-      <div
-        class="md:hidden absolute -right-4 top-0 bottom-4 w-32 pointer-events-none"
-      >
-        <div
-          class="absolute inset-0 bg-gradient-to-l from-black via-black/60 via-black/30 to-transparent"
-        >
-        </div>
-        <div
-          class="absolute inset-0 bg-gradient-to-l from-primary-500/30 via-primary-500/10 to-transparent"
-        >
-        </div>
-      </div>
-
-      <!-- Desktop Grid (unchanged) -->
+      <!-- Desktop Grid (Static) -->
       <div
         class="hidden md:grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 md:gap-5"
       >
         {
           characters.map((character) => (
             <div
-              class={`character-card floating-card group p-2 md:p-4 rounded-xl backdrop-blur-md transition-all duration-300 shadow-xl`}
+              class="character-card floating-card group p-4 rounded-xl backdrop-blur-md transition-all duration-300 shadow-xl"
               data-category={character.category}
               style={`
-            border: 1px solid ${character.themeColor}40;
-            box-shadow: 0 4px 20px ${character.themeColor}20;
-            background: linear-gradient(
-              90deg,
-              rgba(255, 255, 255, 0.15) 0%,
-              ${character.themeColor}20 50%,
-              rgba(255, 255, 255, 0.15) 100%
-            );
-          `}
+                border: 1px solid ${character.themeColor}40;
+                box-shadow: 0 4px 20px ${character.themeColor}20;
+                background: linear-gradient(90deg, rgba(255, 255, 255, 0.15) 0%, ${character.themeColor}20 50%, rgba(255, 255, 255, 0.15) 100%);
+              `}
             >
               <div class="text-center">
                 <a
@@ -192,6 +171,45 @@ const { sectionHeader, characters, categories } = charactersData;
   </div>
 
   <script>
+    // Auto-scroll mobile carousel with smooth loop
+    document.addEventListener("DOMContentLoaded", () => {
+      const scrollContainer = document.querySelector(".character-scroll");
+      const scrollContent = document.querySelector(".character-scroll-content");
+
+      if (!scrollContainer || !scrollContent) return;
+
+      // Clone items for seamless infinite scroll
+      const items = scrollContent.innerHTML;
+      scrollContent.innerHTML = items + items; // Duplicate for infinite effect
+
+      let paused = false;
+      let timeout: any;
+      const scrollSpeed = 1;
+
+      // Auto-scroll
+      setInterval(() => {
+        if (paused) return;
+
+        scrollContainer.scrollLeft += scrollSpeed;
+
+        // Seamless loop: jump back invisibly
+        const maxScroll = scrollContainer.scrollWidth / 2;
+        if (scrollContainer.scrollLeft >= maxScroll) {
+          scrollContainer.scrollLeft = 0;
+        }
+      }, 30);
+
+      // Pause on touch
+      scrollContainer.addEventListener("touchstart", () => {
+        paused = true;
+        clearTimeout(timeout);
+      });
+
+      scrollContainer.addEventListener("touchend", () => {
+        timeout = setTimeout(() => (paused = false), 2000);
+      });
+    });
+
     // Category filtering functionality
     document.addEventListener("DOMContentLoaded", function () {
       const filterButtons = document.querySelectorAll(".category-filter");
