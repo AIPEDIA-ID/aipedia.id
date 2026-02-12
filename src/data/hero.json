@@ -1,22 +1,27 @@
 {
-  "badge": "Pre-trained AI untuk Bisnis",
+  "badge": "Pre-trained AI",
   "logo": {
     "src": "/logo.png",
     "alt": "AIPEDIA Logo"
   },
   "heading": {
     "main": "12+ AI untuk Bisnis",
-    "highlight": "Siap Pakai Tanpa Prompt Ribet"
+    "highlight": "Seperti Tim Ahli"
   },
-  "subheading1": "<strong class=\"text-white\">Asisten AI</strong> di AIPEDIA sudah <strong class=\"text-white\">pre-trained untuk kerja & bisnis</strong> — <strong class=\"text-white\">tidak perlu nulis prompt panjang</strong> atau mikir struktur yang rumit",
-  "subheading2": "Cukup jelasin kebutuhan bisnis. Asisten AI sudah tahu cara kerjanya, bukan AI kosong yang harus diajarin dari nol",
+  "subheading1": "<strong class=\"text-white\">SEO, Meta Ads, Business Plan, Copywriting, Scriptwriting, Finance, Data, HR, Email & CS</strong> — semua dalam <strong class=\"text-white\">1 bundle Asisten AI pre-trained</strong>.",
+  "subheading2": "Tinggal jelasin target bisnis. AI langsung riset, susun strategi, tulis konten & iklan, hitung angka, dan lain-lain tanpa prompt yang ribet",
   "cta": [
     {
-      "text": "Akses Asisten AI",
+      "text": "Akses Bundle Sekarang",
       "href": "#pricing",
       "isPrimary": true
     }
   ],
-  "socialProof": false,
+  "socialProof": "61+ orang sudah pakai",
+  "avatars": [
+    "/avatars/user-1.png",
+    "/avatars/user-2.png",
+    "/avatars/user-3.png"
+  ],
   "discountBanner": "⏳ Diskon 60% untuk waktu terbatas"
 }

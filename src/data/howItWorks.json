@@ -6,7 +6,7 @@
   "steps": [
     {
       "number": 1,
-      "title": "Pilih Asisten AI kamu",
+      "title": "Pilih Asisten AI",
       "description": "Pilih dari 12 Asisten spesialis sesuai kebutuhan: marketing, finance, HR, analytics, atau operations.",
       "features": [
         "Keahlian domain-spesifik terintegrasi",
@@ -27,7 +27,7 @@
     {
       "number": 3,
       "title": "Terapkan di Workflow",
-      "description": "Gunakan output terstruktur dan rekomendasi untuk pekerjaan kamu agar eksekusi cepat dan tepat.",
+      "description": "Gunakan output terstruktur dan rekomendasi untuk pekerjaan agar eksekusi cepat dan tepat.",
       "features": [
         "Deliverable siap pakai",
         "Proses dan sistem yang scalable",
