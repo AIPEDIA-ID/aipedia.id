@@ -1,53 +1,72 @@
 ---
-import content from '../data/socialProof.json';
+import content from "../data/socialProof.json";
 // SVG path for star icon
-const starIconPath = "M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z";
+const starIconPath =
+  "M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z";
 ---
 
-<section class="py-20 px-4 relative">
+<section class="py-8 px-4 relative">
   <!-- Background -->
-  <div class="absolute inset-0 bg-gradient-to-b from-black via-gray-900/20 to-black"></div>
-  
+  <div
+    class="absolute inset-0 bg-gradient-to-b from-black via-gray-900/20 to-black"
+  >
+  </div>
+
   <div class="relative z-10 max-w-6xl mx-auto">
     <!-- Section Header -->
     <div class="text-center mb-16">
       <h2 class="text-3xl md:text-4xl font-bold mb-4">
         {content.header.title.main}
-        <span class="bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent">{content.header.title.highlight}</span>
+        <span
+          class="bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent"
+          >{content.header.title.highlight}</span
+        >
       </h2>
-      <p class="text-xl text-gray-400 max-w-2xl mx-auto">
+      <!-- <p class="text-xl text-gray-400 max-w-2xl mx-auto">
         {content.header.description}
-      </p>
+      </p> -->
     </div>
-    
+
     <!-- Testimonials -->
     <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-16">
-      {content.testimonials.map(testimonial => (
-        <div class="p-8 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10">
-          <div class="flex items-center gap-4 mb-6">
-            <div class={`w-12 h-12 bg-gradient-to-r ${testimonial.avatar.gradient} rounded-full flex items-center justify-center text-white font-semibold`}>
-              {testimonial.avatar.initial}
+      {
+        content.testimonials.map((testimonial) => (
+          <div class="p-8 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10">
+            <div class="flex items-center gap-4 mb-6">
+              <div
+                class={`w-12 h-12 bg-gradient-to-r ${testimonial.avatar.gradient} rounded-full flex items-center justify-center text-white font-semibold overflow-hidden`}
+              >
+                {testimonial.avatar.image ? (
+                  <img
+                    src={testimonial.avatar.image}
+                    alt={testimonial.name}
+                    class="w-full h-full object-cover"
+                  />
+                ) : (
+                  testimonial.avatar.initial
+                )}
+              </div>
+              <div>
+                <div class="font-semibold text-white">{testimonial.name}</div>
+                <div class="text-sm text-gray-400">{testimonial.role}</div>
+              </div>
             </div>
-            <div>
-              <div class="font-semibold text-white">{testimonial.name}</div>
-              <div class="text-sm text-gray-400">{testimonial.role}</div>
+            <blockquote class="text-gray-300 italic mb-4">
+              "{testimonial.quote}"
+            </blockquote>
+            <div class="flex text-primary-400">
+              {Array.from({ length: testimonial.rating }).map(() => (
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                  <path d={starIconPath} />
+                </svg>
+              ))}
             </div>
           </div>
-          <blockquote class="text-gray-300 italic mb-4">
-            "{testimonial.quote}"
-          </blockquote>
-          <div class="flex text-primary-400">
-            {Array.from({ length: testimonial.rating }).map(() => (
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                <path d={starIconPath}></path>
-              </svg>
-            ))}
-          </div>
-        </div>
-      ))}
+        ))
+      }
     </div>
     <!-- Stats -->
-    <div class="flex justify-center max-w-3xl mx-auto">
+    <!-- <div class="flex justify-center max-w-3xl mx-auto">
       <div class="grid grid-cols-3 gap-8 text-center">
         {content.stats.map(stat => (
           <div>
@@ -56,6 +75,6 @@ const starIconPath = "M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 0
           </div>
         ))}
       </div>
-    </div>
+    </div> -->
   </div>
 </section>
