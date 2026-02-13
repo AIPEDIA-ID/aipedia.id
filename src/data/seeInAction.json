@@ -2,32 +2,50 @@
   "galleryImages": [
     {
       "src": "/screenshots/1.png",
-      "alt": "aipedia Demo 1"
+      "alt": "Business Strategy Demo",
+      "capability": "Business Strategy",
+      "role": "Mapping Ide ke BMC",
+      "color": "#F97300"
     },
     {
       "src": "/screenshots/2.png",
-      "alt": "aipedia Demo 2"
+      "alt": "Social Media Demo",
+      "capability": "Marketing & Social",
+      "role": "Content Calendar 14 Hari",
+      "color": "#580cfc"
     },
     {
       "src": "/screenshots/3.png",
-      "alt": "aipedia Demo 3"
+      "alt": "Data Analysis Demo",
+      "capability": "Data Analysis",
+      "role": "Cohort & Churn Drivers",
+      "color": "#FF4B00"
     },
     {
       "src": "/screenshots/4.png",
-      "alt": "aipedia Demo 4"
+      "alt": "SEO Strategy Demo",
+      "capability": "SEO Optimization",
+      "role": "Topical Map & Linking",
+      "color": "#20a944"
     },
     {
       "src": "/screenshots/5.png",
-      "alt": "aipedia Demo 5"
+      "alt": "Finance Demo",
+      "capability": "Finance Assistant",
+      "role": "Cash Flow Forecast",
+      "color": "#FFD400"
     },
     {
       "src": "/screenshots/6.png",
-      "alt": "aipedia Demo 6"
+      "alt": "Copywriting Demo",
+      "capability": "Copywriting & Ads",
+      "role": "High-Convert Landing Page",
+      "color": "#8a6ef0"
     }
   ],
   "content": {
     "title": "Yang bisa dilakukan dengan",
     "brandName": "AIPEDIA",
-    "subtitle": "Contoh penggunaan, click untuk full screen"
+    "subtitle": "Lihat bagaimana asisten spesialis kami membantu operasional bisnis Anda sehari-hari."
   }
 }
