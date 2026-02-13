@@ -3,10 +3,13 @@ import charactersData from "../data/characters.json";
 const { sectionHeader, characters, categories } = charactersData;
 ---
 
-<section id="characters" class="py-16 md:py-24 px-4 md:px-6 relative bg-black">
+<section
+  id="characters"
+  class="py-16 md:py-24 px-4 md:px-6 relative bg-gradient-to-br from-gray-900 via-black to-gray-900 overflow-hidden"
+>
   <!-- Background -->
   <div
-    class="absolute inset-0 bg-gradient-to-b from-black via-gray-950 to-black"
+    class="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-900"
   >
   </div>
 
@@ -37,7 +40,7 @@ const { sectionHeader, characters, categories } = charactersData;
         {
           Object.entries(categories).map(([key, category]) => (
             <button
-              class="text-sm category-filter px-2 py-1 rounded-lg bg-white/10 hover:bg-white/20 text-gray-300 hover:text-white font-medium transition-all duration-200"
+              class="text-sm category-filter px-2 py-1 rounded-lg bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white font-medium transition-all duration-200"
               data-category={key}
             >
               {category.name}
@@ -151,7 +154,7 @@ const { sectionHeader, characters, categories } = charactersData;
       <!-- <p class="text-gray-300 mb-4">Tidak yakin mau pilih yang mana?</p> -->
       <a
         href="#pricing"
-        class="inline-flex items-center gap-2 px-6 py-3 bg-white/10 hover:bg-white/20 text-white font-medium rounded-lg border border-white/20 hover:border-primary-500/30 transition-all duration-200"
+        class="inline-flex items-center gap-2 px-6 py-3 bg-white/5 hover:bg-white/10 text-white font-medium rounded-lg border border-white/20 hover:border-white/30 hover:border-primary-500/30 transition-all duration-200 backdrop-blur-sm"
       >
         Lihat Paket
         <svg

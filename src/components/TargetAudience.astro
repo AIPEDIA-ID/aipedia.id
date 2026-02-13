@@ -1,34 +1,58 @@
 ---
-import content from '../data/targetAudience.json';
+import content from "../data/targetAudience.json";
 ---
 
-<section class="py-16 px-6 bg-black">
-  <div class="max-w-6xl mx-auto">
+<section
+  class="py-16 px-6 bg-gradient-to-br from-gray-900 via-black to-gray-900 overflow-hidden"
+>
+  <!-- Background -->
+  <div
+    class="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-900"
+  >
+  </div>
+  <div class="relative z-10 max-w-6xl mx-auto">
     <!-- Section Header -->
     <div class="text-center mb-12">
       <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">
         {content.header.title.main}
-        <span class="text-primary-400">{content.header.title.highlight}</span>
+        <span
+          class="bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent"
+          >{content.header.title.highlight}</span
+        >
       </h2>
       <p class="text-lg text-gray-400 max-w-2xl mx-auto">
         {content.header.description}
       </p>
     </div>
-    
+
     <!-- Target Groups – 1 Row, Simple Layout -->
     <div class="flex flex-wrap justify-center gap-4 mb-12">
-      {content.targetGroups.map((group) => (
-        <div class="flex items-center gap-3 px-4 py-3 bg-gray-900 border border-gray-800 rounded-md">
-          <div class={`w-8 h-8 bg-gradient-to-br ${group.bgColor} rounded flex items-center justify-center border ${group.borderColor}`}>
-            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={group.icon}></path>
-            </svg>
+      {
+        content.targetGroups.map((group) => (
+          <div class="flex items-center gap-3 px-4 py-3 bg-white/5 backdrop-blur-sm border border-white/10 rounded-md">
+            <div
+              class={`w-8 h-8 bg-gradient-to-br ${group.bgColor} rounded flex items-center justify-center border ${group.borderColor}`}
+            >
+              <svg
+                class="w-4 h-4 text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d={group.icon}
+                />
+              </svg>
+            </div>
+            <span class="text-white text-sm font-medium">{group.title}</span>
           </div>
-          <span class="text-white text-sm font-medium">{group.title}</span>
-        </div>
-      ))}
+        ))
+      }
     </div>
-    
+
     <!-- Bottom Note -->
     <div class="text-center max-w-2xl mx-auto">
       <div class="p-4 rounded-lg bg-red-900/20 border border-red-800/30">
