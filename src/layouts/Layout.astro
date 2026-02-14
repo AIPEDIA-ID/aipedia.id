@@ -4,18 +4,26 @@ export interface Props {
 }
 
 const { title } = Astro.props;
+// SETTING TEMA DI SINI: 'light' atau 'dark'
+const appTheme = "light";
 ---
 
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" class={appTheme === "dark" ? "dark" : ""}>
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="generator" content={Astro.generator} />
 
 		<title>{title}</title>
-		<meta name="description" content="AIPEDIA adalah 12+ Asisten AI CustomGPT spesialis untuk marketing, sales, finance, HR, dan analytics. Kerja lebih cepat dengan insight tingkat ahli." />
-		<meta name="keywords" content="AIPEDIA, asisten AI, AI spesialis, marketing AI, sales AI, finance AI, HR AI, analytics AI" />
+		<meta
+			name="description"
+			content="AIPEDIA adalah 12+ Asisten AI CustomGPT spesialis untuk marketing, sales, finance, HR, dan analytics. Kerja lebih cepat dengan insight tingkat ahli."
+		/>
+		<meta
+			name="keywords"
+			content="AIPEDIA, asisten AI, AI spesialis, marketing AI, sales AI, finance AI, HR AI, analytics AI"
+		/>
 		<meta name="author" content="AIPEDIA.ID" />
 
 		<!-- Canonical & Language -->
@@ -23,63 +31,100 @@ const { title } = Astro.props;
 		<meta name="language" content="id" />
 
 		<!-- Open Graph (Facebook, LinkedIn) -->
-		<meta property="og:title" content="AIPEDIA - 12+ Asisten AI Spesialis untuk Bisnis" />
-		<meta property="og:description" content="Kerja lebih cepat dengan insight ahli dari 12+ Asisten AI teroptimasi. Cocok untuk marketing, finance, HR, dan operasional." />
+		<meta
+			property="og:title"
+			content="AIPEDIA - 12+ Asisten AI Spesialis untuk Bisnis"
+		/>
+		<meta
+			property="og:description"
+			content="Kerja lebih cepat dengan insight ahli dari 12+ Asisten AI teroptimasi. Cocok untuk marketing, finance, HR, dan operasional."
+		/>
 		<meta property="og:url" content="https://aipedia.id/" />
-		<meta property="og:image" content="https://aipedia.id/screenshots/hero.png" />
+		<meta
+			property="og:image"
+			content="https://aipedia.id/screenshots/hero.png"
+		/>
 		<meta property="og:type" content="website" />
 
 		<!-- Twitter Card -->
 		<meta name="twitter:card" content="summary_large_image" />
-		<meta name="twitter:title" content="AIPEDIA - 12+ Asisten AI Spesialis untuk Bisnis" />
-		<meta name="twitter:description" content="Dapatkan hasil tingkat ahli dengan 12+ Asisten AI spesialis. Praktis, cepat, dan tanpa ribet." />
-		<meta name="twitter:image" content="https://aipedia.id/screenshots/hero.png" />
+		<meta
+			name="twitter:title"
+			content="AIPEDIA - 12+ Asisten AI Spesialis untuk Bisnis"
+		/>
+		<meta
+			name="twitter:description"
+			content="Dapatkan hasil tingkat ahli dengan 12+ Asisten AI spesialis. Praktis, cepat, dan tanpa ribet."
+		/>
+		<meta
+			name="twitter:image"
+			content="https://aipedia.id/screenshots/hero.png"
+		/>
 
 		<!-- Favicon & Fonts -->
 		<link rel="icon" type="image/png" href="/favicon.png" />
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
 	</head>
 
-	<body class="bg-black text-white font-sans">
+	<body
+		class="bg-gray-50 dark:bg-black text-gray-900 dark:text-white font-sans transition-colors duration-300"
+	>
 		<slot />
 		<!-- Footer with Legal Links -->
-		<footer class="py-4 px-4 text-center text-gray-500 text-sm">
+		<footer
+			class="py-4 px-4 text-center text-gray-500 dark:text-gray-500 text-sm"
+		>
 			<div class="max-w-4xl mx-auto">
 				<div class="flex flex-wrap justify-center gap-4">
-					<a href="/tnc" class="hover:text-primary-400 transition-colors">Terms & Conditions</a>
-					<a href="/affiliate" class="hover:text-primary-400 transition-colors">Affiliate</a>
+					<a
+						href="/tnc"
+						class="hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+						>Terms & Conditions</a
+					>
+					<a
+						href="/affiliate"
+						class="hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+						>Affiliate</a
+					>
 				</div>
 				<div class="mt-4">
 					© {new Date().getFullYear()} aipedia
-					<!-- by <a href="https://aipedia.id" class="hover:text-primary-400 transition-colors">AIPEDIA.ID</a>. -->
+					<!-- by <a href="https://aipedia.id" class="hover:text-primary-600 dark:hover:text-primary-400 transition-colors">AIPEDIA.ID</a>. -->
 					All rights reserved.
 				</div>
 			</div>
 		</footer>
 	</body>
 	<!-- Google tag (gtag.js) -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-GVV8KYYQFZ"></script>
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-GVV8KYYQFZ"
+	></script>
 	<script is:inline>
 		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
-		gtag('js', new Date());
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag("js", new Date());
 
-		gtag('config', 'G-GVV8KYYQFZ');
+		gtag("config", "G-GVV8KYYQFZ");
 	</script>
 </html>
 
 <style>
 	:root {
-		--font-custom: 'Plus Jakarta Sans', Helvetica Neue, Helvetica, Arial, sans-serif;
+		--font-custom:
+			"Plus Jakarta Sans", Helvetica Neue, Helvetica, Arial, sans-serif;
 	}
-	
+
 	html {
 		scroll-behavior: smooth;
 		font-family: var(--font-custom);
 	}
-	
+
 	body {
 		margin: 0;
 		padding: 0;
@@ -89,7 +134,7 @@ const { title } = Astro.props;
 </style>
 
 <style is:global>
-  @tailwind base;
-  @tailwind components;
-  @tailwind utilities;
+	@tailwind base;
+	@tailwind components;
+	@tailwind utilities;
 </style>

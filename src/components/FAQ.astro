@@ -8,7 +8,7 @@ var copyFAQ = {
 
 <section class="py-16 md:py-24 px-4 relative overflow-hidden">
   <!-- Background -->
-  <div class="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-900"></div>
+  <div class="absolute inset-0 bg-gradient-to-br from-indigo-50/50 via-white to-purple-50/50 dark:from-gray-900 dark:via-black dark:to-gray-900"></div>
   
   <div class="relative z-10 max-w-3xl mx-auto">  <!-- Reduced max width -->
     <!-- Section Header -->
@@ -22,15 +22,15 @@ var copyFAQ = {
     <!-- FAQ Items -->
     <div class="space-y-4">  <!-- Reduced spacing -->
       {faqItems.map((item) => (
-        <div class="faq-item p-4 rounded-lg bg-white/5 backdrop-blur-sm border border-white/10">  <!-- Reduced padding and border radius -->
+        <div class="faq-item p-4 rounded-lg bg-white/60 dark:bg-white/5 backdrop-blur-sm border border-gray-200 dark:border-white/10">  <!-- Reduced padding and border radius -->
           <button class="faq-question w-full flex justify-between items-center text-left">
-            <h3 class="text-lg font-semibold text-white">{item.question}</h3>
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-white">{item.question}</h3>
             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-primary-500 transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">  <!-- Reduced icon size -->
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
             </svg>
           </button>
           <div class="faq-answer mt-2 hidden">  <!-- Reduced margin -->
-            <p class="text-base text-gray-400">{item.answer}</p>
+            <p class="text-base text-gray-600 dark:text-gray-400">{item.answer}</p>
           </div>
         </div>
       ))}

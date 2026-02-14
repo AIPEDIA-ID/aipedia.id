@@ -3,11 +3,11 @@ import content from "../data/comparison.json";
 ---
 
 <section
-  class="py-16 md:py-24 px-4 relative bg-gradient-to-br from-gray-900 via-black to-gray-900 overflow-hidden"
+  class="py-16 md:py-24 px-4 relative bg-gradient-to-br from-gray-50 via-white to-gray-50 dark:from-gray-900 dark:via-black dark:to-gray-900 overflow-hidden"
 >
   <!-- Background -->
   <div
-    class="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-900"
+    class="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-gray-50 dark:from-gray-900 dark:via-black dark:to-gray-900"
   >
   </div>
 
@@ -21,7 +21,7 @@ import content from "../data/comparison.json";
           >{content.header.title.highlight}</span
         >
       </h2>
-      <p class="text-base text-gray-400 max-w-3xl mx-auto">
+      <p class="text-base text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
         {content.header.description}
       </p>
     </div>
@@ -30,7 +30,7 @@ import content from "../data/comparison.json";
     <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
       <!-- Typical Signal Services -->
       <div
-        class="p-6 rounded-xl bg-red-500/5 backdrop-blur-sm border border-red-500/20"
+        class="p-6 rounded-xl bg-red-50 dark:bg-red-500/5 backdrop-blur-sm border border-red-200 dark:border-red-500/20"
       >
         <div class="flex items-center gap-3 mb-4">
           <div
@@ -49,7 +49,7 @@ import content from "../data/comparison.json";
                 d="M6 18L18 6M6 6l12 12"></path>
             </svg>
           </div>
-          <h3 class="text-xl font-semibold text-red-300">
+          <h3 class="text-xl font-semibold text-red-700 dark:text-red-300">
             {content.comparison.typical.title}
           </h3>
         </div>
@@ -59,7 +59,7 @@ import content from "../data/comparison.json";
             content.comparison.typical.items.map((item) => (
               <div class="flex items-start gap-2">
                 <span class="w-1 h-1 bg-red-400 rounded-full mt-2 flex-shrink-0" />
-                <span class="text-gray-400">{item}</span>
+                <span class="text-gray-600 dark:text-gray-400">{item}</span>
               </div>
             ))
           }
@@ -68,7 +68,7 @@ import content from "../data/comparison.json";
 
       <!-- aipedia Approach -->
       <div
-        class="p-6 rounded-xl bg-green-500/5 backdrop-blur-sm border border-green-500/20"
+        class="p-6 rounded-xl bg-green-50 dark:bg-green-500/5 backdrop-blur-sm border border-green-200 dark:border-green-500/20"
       >
         <div class="flex items-center gap-3 mb-4">
           <div
@@ -87,7 +87,7 @@ import content from "../data/comparison.json";
                 d="M5 13l4 4L19 7"></path>
             </svg>
           </div>
-          <h3 class="text-xl font-semibold text-green-300">
+          <h3 class="text-xl font-semibold text-green-700 dark:text-green-300">
             {content.comparison.aipedia.title}
           </h3>
         </div>
@@ -97,7 +97,7 @@ import content from "../data/comparison.json";
             content.comparison.aipedia.items.map((item) => (
               <div class="flex items-start gap-2">
                 <span class="w-1 h-1 bg-green-400 rounded-full mt-2 flex-shrink-0" />
-                <span class="text-gray-300">{item}</span>
+                <span class="text-gray-600 dark:text-gray-300">{item}</span>
               </div>
             ))
           }
