@@ -151,3 +151,5 @@ Default structure:
 No long explanations.
 No generic advice.
 No filler.
+
+</output_format>
