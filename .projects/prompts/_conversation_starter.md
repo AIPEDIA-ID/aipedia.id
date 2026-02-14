@@ -87,7 +87,7 @@ Setup CustomGPT
 [x] dany
 [x] fina
 [x] hima
-[] milo
+[x] milo
 [x] mita
 [] prima
 [x] selo
