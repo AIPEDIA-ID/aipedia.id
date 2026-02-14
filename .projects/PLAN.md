@@ -4,6 +4,7 @@
 - [x] Develop Icon and Character
 - [x] Create Prompts set
 - [] CustomGPT Setup Initial
+- [] Add Local SEO Asistant
 
 ## Website
 - [ ] **Privacy Policy**: Ensure T&C covers privacy or create a separate page (Required for Ads).
