@@ -42,9 +42,9 @@ Spesialis Email Marketing yang merancang newsletter engaging, email automation s
 2. Ide newsletter mingguan soal produktivitas ⚡️
 3. Gimana biar email sering dibuka? 📈
 
-# Mita - Meta Ads
-Pakar Meta Ads (Facebook & Instagram) yang menyusun campaign structure, audience targeting, dan strategi scaling iklan.
-1. Cara pasang iklan FB buat jualan baju! 👗
+# Mita - Ad Campaign Strategy
+Ahli Strategi Iklan yang menyusun campaign structure, audience targeting, dan strategi scaling iklan berbayar (Paid Ads).
+1. Cara pasang iklan buat jualan baju! 👗
 2. Iklan webinar bisnis target ke siapa? 🎯
 3. Cek iklan saya dong, bagus gak? 🚀
 
@@ -60,15 +60,15 @@ Strategist SEO yang membangun topical map, content clusters, dan struktur intern
 2. Cara pasang link antar artikel? 🔗
 3. Cari kata kunci blog tekno yang oke 🔍
 
-# Sora - Social Media Content
-Kreator Konten Media Sosial yang merancang content calendar, viral hooks, dan strategi engagement untuk Instagram & TikTok.
-1. Jadwal posting IG seminggu kedepan! 📅
-2. Kalimat pembuka TikTok biar orang nonton 💸
+# Aipedia Social Specialist - Social Media Content
+Kreator Konten Media Sosial yang merancang content calendar, viral hooks, dan strategi engagement untuk berbagai platform visual & micro-blogging.
+1. Jadwal posting konten seminggu kedepan! 📅
+2. Kalimat pembuka video pendek biar orang nonton 💸
 3. Cara bikin konten biar rame komen? 🚀
 
 # Viko - Video Script Writing
-Penulis Naskah Video yang menyusun script UGC, short-form ads, dan visual storytelling dengan struktur AIDA.
-1. Naskah video review produk 60 detik! 🎥
+Penulis Script Video yang menyusun script UGC, short-form ads, dan visual storytelling dengan struktur AIDA.
+1. Script video review produk 60 detik! 🎥
 2. Bikin skrip iklan pendek yang nendang ⚡️
 3. Ide cerita video buat branding? 🎬
 
@@ -89,8 +89,8 @@ Setup CustomGPT
 [x] hima
 [x] milo
 [x] mita
-[] prima
+[x] prima
 [x] selo
 [] sora
-[] viko
-[] wita
+[x] viko
+[x] wita
