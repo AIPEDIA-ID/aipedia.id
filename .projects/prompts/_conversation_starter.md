@@ -91,6 +91,6 @@ Setup CustomGPT
 [x] mita
 [x] prima
 [x] selo
-[] sora
+[x] sola
 [x] viko
 [x] wita
