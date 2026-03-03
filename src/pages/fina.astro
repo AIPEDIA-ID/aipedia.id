@@ -1,0 +1,665 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Fina - Solusi Pajak Coretax & Keuangan UMKM AI">
+    <!-- ============================================ -->
+    <!-- [P] PROBLEM — HERO                           -->
+    <!-- (pattern dari Hero.astro)                   -->
+    <!-- ============================================ -->
+    <section
+        id="hero"
+        class="relative min-h-screen flex items-center justify-center px-6 py-10 md:py-16 overflow-hidden"
+    >
+        <!-- Background Elements -->
+        <div
+            class="absolute inset-0 bg-gradient-to-br from-indigo-50/50 via-white to-purple-50/50 dark:from-gray-900 dark:via-black dark:to-gray-900"
+        >
+        </div>
+        <div
+            class="absolute top-20 left-10 w-64 h-64 bg-primary-500/10 rounded-full blur-[100px] animate-pulse-slow"
+        >
+        </div>
+        <div
+            class="absolute bottom-20 right-10 w-80 h-80 bg-primary-400/5 rounded-full blur-[120px] animate-float"
+        >
+        </div>
+
+        <!-- Content -->
+        <div class="relative z-10 max-w-4xl mx-auto text-center">
+            <div
+                class="inline-flex items-center gap-2 px-2 py-1 rounded-full bg-black/5 dark:bg-white/5 backdrop-blur-sm border border-black/10 dark:border-white/10 mb-4"
+            >
+                <span class="w-2 h-2 bg-red-500 rounded-full animate-pulse"
+                ></span>
+                <span class="text-sm text-gray-600 dark:text-gray-300"
+                    >Peringatan untuk Pemilik UMKM</span
+                >
+            </div>
+
+            <h1
+                class="text-4xl md:text-5xl lg:text-5xl font-bold mb-6 leading-tight"
+            >
+                Bingung Ngerjain Pajak Coretax?<br />
+                <span
+                    class="bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent"
+                    >Tanya Fina Saja.</span
+                >
+            </h1>
+
+            <p
+                class="text-base md:text-lg text-gray-600 dark:text-gray-300 mb-4 max-w-2xl mx-auto"
+            >
+                Jangan biarkan denda pajak dan kebocoran cash flow diam-diam
+                menghancurkan bisnis Anda. Fina — Asisten AI Keuangan Aipedia
+                yang dilatih khusus untuk UMKM Indonesia, siap membantu.
+            </p>
+
+            <!-- CTA Buttons -->
+            <div
+                class="flex flex-col sm:flex-row gap-3 justify-center items-center mb-8"
+            >
+                <a
+                    href="/#pricing"
+                    class="group inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-primary-500 to-primary-700 dark:from-primary-400 dark:to-primary-600 hover:from-primary-600 hover:to-primary-800 dark:hover:from-primary-500 dark:hover:to-primary-700 text-white font-medium rounded-lg transition-all duration-200 hover:shadow-lg hover:shadow-primary-500/25"
+                >
+                    Akses Fina Sekarang
+                    <svg
+                        class="w-4 h-4 group-hover:translate-x-1 transition-transform"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                    </svg>
+                </a>
+                <a
+                    href="#agitate"
+                    class="inline-flex items-center gap-2 px-6 py-3 bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 text-gray-900 dark:text-white font-medium rounded-lg border border-black/10 dark:border-white/20 hover:border-black/20 dark:hover:border-white/30 transition-all duration-200 backdrop-blur-sm"
+                >
+                    Lihat Masalahnya
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- [A] AGITATE — PAIN POINTS                   -->
+    <!-- (pattern dari Features.astro)               -->
+    <!-- ============================================ -->
+    <section id="agitate" class="py-16 md:py-24 px-2 relative overflow-hidden">
+        <div
+            class="absolute inset-0 bg-gradient-to-br from-indigo-50/50 via-white to-purple-50/50 dark:from-gray-900 dark:via-black dark:to-gray-900"
+        >
+        </div>
+
+        <div class="relative z-10 max-w-5xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">
+                    Coba Jujur, Berapa Banyak Uang Terbuang
+                    <span
+                        class="bg-gradient-to-r from-red-400 to-red-600 bg-clip-text text-transparent"
+                        >Karena Nebak-Nebak Angka?</span
+                    >
+                </h2>
+                <p
+                    class="text-base text-gray-600 dark:text-gray-400 max-w-3xl mx-auto"
+                >
+                    Penjualan kencang belum tentu aman jika fundamental
+                    finansial bocor halus. Inikah yang Anda rasakan?
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-6">
+                <!-- Pain 1 -->
+                <div
+                    class="group p-3 md:p-4 rounded-xl bg-white/60 dark:bg-white/5 backdrop-blur-sm border border-gray-200 dark:border-white/10 hover:border-red-500/30 dark:hover:border-red-500/30 hover:bg-white/80 dark:hover:bg-white/10 transition-all duration-300"
+                >
+                    <div
+                        class="w-10 h-10 bg-gradient-to-r from-red-400 to-red-600 rounded-lg flex items-center justify-center mb-4"
+                    >
+                        <svg
+                            class="w-5 h-5 text-white"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                            ></path>
+                        </svg>
+                    </div>
+                    <h3
+                        class="text-lg font-semibold mb-3 text-gray-900 dark:text-white"
+                    >
+                        Denda Coretax Selangit
+                    </h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">
+                        Salah lapor PPh/PPN dan gagap regulasi Coretax berujung
+                        teguran DJP. Dendanya bisa jauh melampaui margin profit
+                        bulanan Anda.
+                    </p>
+                </div>
+
+                <!-- Pain 2 -->
+                <div
+                    class="group p-3 md:p-4 rounded-xl bg-white/60 dark:bg-white/5 backdrop-blur-sm border border-gray-200 dark:border-white/10 hover:border-red-500/30 dark:hover:border-red-500/30 hover:bg-white/80 dark:hover:bg-white/10 transition-all duration-300"
+                >
+                    <div
+                        class="w-10 h-10 bg-gradient-to-r from-red-400 to-red-600 rounded-lg flex items-center justify-center mb-4"
+                    >
+                        <svg
+                            class="w-5 h-5 text-white"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6"></path>
+                        </svg>
+                    </div>
+                    <h3
+                        class="text-lg font-semibold mb-3 text-gray-900 dark:text-white"
+                    >
+                        Ilusi Profit (Cash Poor)
+                    </h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">
+                        Di laporan tertulis untung besar. Pas bayar gaji
+                        karyawan rekening kosong. Defisit arus kas karena salah
+                        urus keuangan bisnis.
+                    </p>
+                </div>
+
+                <!-- Pain 3 -->
+                <div
+                    class="group p-3 md:p-4 rounded-xl bg-white/60 dark:bg-white/5 backdrop-blur-sm border border-gray-200 dark:border-white/10 hover:border-red-500/30 dark:hover:border-red-500/30 hover:bg-white/80 dark:hover:bg-white/10 transition-all duration-300"
+                >
+                    <div
+                        class="w-10 h-10 bg-gradient-to-r from-red-400 to-red-600 rounded-lg flex items-center justify-center mb-4"
+                    >
+                        <svg
+                            class="w-5 h-5 text-white"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                            ></path>
+                        </svg>
+                    </div>
+                    <h3
+                        class="text-lg font-semibold mb-3 text-gray-900 dark:text-white"
+                    >
+                        Konsultan Pajak Mahal
+                    </h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">
+                        Terpaksa bayar retainer konsultan pajak konvensional
+                        jutaan rupiah per bulan hanya untuk urus hal finansial
+                        yang sebenarnya bisa diotomasi.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- [S] SOLUTION — SCREENSHOTS                  -->
+    <!-- (pattern dari SeeInAction.astro)            -->
+    <!-- ============================================ -->
+    <section
+        id="solution"
+        class="py-16 md:py-24 px-6 relative overflow-hidden bg-gradient-to-br from-indigo-50/50 via-white to-purple-50/50 dark:from-gray-900 dark:via-black dark:to-gray-900"
+    >
+        <!-- Background Decorations -->
+        <div
+            class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full -z-10 pointer-events-none"
+        >
+            <div
+                class="absolute top-1/4 left-1/4 w-96 h-96 bg-primary-600/10 rounded-full blur-[120px]"
+            >
+            </div>
+            <div
+                class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-primary-600/5 rounded-full blur-[120px]"
+            >
+            </div>
+        </div>
+
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2
+                    class="text-4xl md:text-5xl font-extrabold mb-6 tracking-tight text-gray-900 dark:text-white"
+                >
+                    Perkenalkan
+                    <span
+                        class="bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent"
+                    >
+                        Fina AI
+                    </span>
+                </h2>
+                <p
+                    class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed"
+                >
+                    Asisten keuangan AI pertama Anda — dilatih khusus dengan
+                    knowledge base pajak UMKM Indonesia (Coretax, PPN, PPh) dan
+                    metode Unit Economics terbukti.
+                </p>
+            </div>
+
+            <!-- Screenshot Grid (sama seperti SeeInAction gallery) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Screenshot 1 -->
+                <div
+                    class="group flex flex-col p-3 rounded-xl bg-white/60 dark:bg-white/5 backdrop-blur-sm border border-gray-200 dark:border-white/10 hover:border-primary-500/30 dark:hover:border-primary-500/30 transition-all duration-300"
+                >
+                    <div class="relative overflow-hidden rounded-lg mb-4">
+                        <img
+                            src="https://placehold.co/600x400/1a1a2e/7c3aed?text=Fina+%E2%80%94+Analisis+Pajak+Coretax"
+                            alt="Fina menganalisis pajak Coretax"
+                            class="w-full h-48 md:h-56 object-cover rounded-lg transition-transform duration-500 group-hover:scale-[1.02]"
+                            loading="lazy"
+                        />
+                    </div>
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="w-2 h-2 rounded-full bg-primary-400"
+                        ></span>
+                        <span
+                            class="text-[10px] font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest"
+                            >Pajak UMKM</span
+                        >
+                    </div>
+                    <h3
+                        class="text-gray-900 dark:text-white text-lg font-bold leading-tight group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors"
+                    >
+                        Simulasi Lapor PPh & PPN Coretax
+                    </h3>
+                </div>
+
+                <!-- Screenshot 2 -->
+                <div
+                    class="group flex flex-col p-3 rounded-xl bg-white/60 dark:bg-white/5 backdrop-blur-sm border border-gray-200 dark:border-white/10 hover:border-primary-500/30 dark:hover:border-primary-500/30 transition-all duration-300"
+                >
+                    <div class="relative overflow-hidden rounded-lg mb-4">
+                        <img
+                            src="https://placehold.co/600x400/0f172a/7c3aed?text=Fina+%E2%80%94+Cash+Flow+Forecast"
+                            alt="Fina proyeksi cash flow"
+                            class="w-full h-48 md:h-56 object-cover rounded-lg transition-transform duration-500 group-hover:scale-[1.02]"
+                            loading="lazy"
+                        />
+                    </div>
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="w-2 h-2 rounded-full bg-green-400"></span>
+                        <span
+                            class="text-[10px] font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest"
+                            >Cash Flow</span
+                        >
+                    </div>
+                    <h3
+                        class="text-gray-900 dark:text-white text-lg font-bold leading-tight group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors"
+                    >
+                        Proyeksi Arus Kas 6 Bulan ke Depan
+                    </h3>
+                </div>
+
+                <!-- Screenshot 3 -->
+                <div
+                    class="group flex flex-col p-3 rounded-xl bg-white/60 dark:bg-white/5 backdrop-blur-sm border border-gray-200 dark:border-white/10 hover:border-primary-500/30 dark:hover:border-primary-500/30 transition-all duration-300"
+                >
+                    <div class="relative overflow-hidden rounded-lg mb-4">
+                        <img
+                            src="https://placehold.co/600x400/111827/7c3aed?text=Fina+%E2%80%94+Break+Even+Analysis"
+                            alt="Fina analisis BEP"
+                            class="w-full h-48 md:h-56 object-cover rounded-lg transition-transform duration-500 group-hover:scale-[1.02]"
+                            loading="lazy"
+                        />
+                    </div>
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="w-2 h-2 rounded-full bg-blue-400"></span>
+                        <span
+                            class="text-[10px] font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest"
+                            >Unit Economics</span
+                        >
+                    </div>
+                    <h3
+                        class="text-gray-900 dark:text-white text-lg font-bold leading-tight group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors"
+                    >
+                        Break-Even & Contribution Margin
+                    </h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- COMPARISON — Sebelum & Sesudah Fina         -->
+    <!-- (pattern dari Comparison.astro)             -->
+    <!-- ============================================ -->
+    <section
+        class="py-16 md:py-24 px-4 relative bg-gradient-to-br from-gray-50 via-white to-gray-50 dark:from-gray-900 dark:via-black dark:to-gray-900 overflow-hidden"
+    >
+        <div
+            class="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-gray-50 dark:from-gray-900 dark:via-black dark:to-gray-900"
+        >
+        </div>
+
+        <div class="relative z-10 max-w-5xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                    Tanpa Fina
+                    <span
+                        class="bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent"
+                        >vs Dengan Fina</span
+                    >
+                </h2>
+                <p
+                    class="text-base text-gray-600 dark:text-gray-400 max-w-3xl mx-auto"
+                >
+                    Lihat apa bedanya sebelum dan sesudah Anda memakai asisten
+                    analitik keuangan handal.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                <!-- Tanpa Fina -->
+                <div
+                    class="p-6 rounded-xl bg-red-50 dark:bg-red-500/5 backdrop-blur-sm border border-red-200 dark:border-red-500/20"
+                >
+                    <div class="flex items-center gap-3 mb-4">
+                        <div
+                            class="w-8 h-8 bg-red-500/20 rounded-lg flex items-center justify-center"
+                        >
+                            <svg
+                                class="w-4 h-4 text-red-400"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                        </div>
+                        <h3
+                            class="text-xl font-semibold text-red-700 dark:text-red-300"
+                        >
+                            Tanpa Asisten Keuangan
+                        </h3>
+                    </div>
+                    <div class="space-y-3 text-base">
+                        <div class="flex items-start gap-2">
+                            <span
+                                class="w-1 h-1 bg-red-400 rounded-full mt-2 flex-shrink-0"
+                            ></span>
+                            <span class="text-gray-600 dark:text-gray-400"
+                                >Bingung aturan Coretax baru, berpotensi terkena
+                                denda akibat salah lapor.</span
+                            >
+                        </div>
+                        <div class="flex items-start gap-2">
+                            <span
+                                class="w-1 h-1 bg-red-400 rounded-full mt-2 flex-shrink-0"
+                            ></span>
+                            <span class="text-gray-600 dark:text-gray-400"
+                                >Mengira profit besar padahal uang tidak ada
+                                (cash poor).</span
+                            >
+                        </div>
+                        <div class="flex items-start gap-2">
+                            <span
+                                class="w-1 h-1 bg-red-400 rounded-full mt-2 flex-shrink-0"
+                            ></span>
+                            <span class="text-gray-600 dark:text-gray-400"
+                                >Pakai ChatGPT general yang awam regulasi PTKP
+                                dan PPN Indonesia.</span
+                            >
+                        </div>
+                        <div class="flex items-start gap-2">
+                            <span
+                                class="w-1 h-1 bg-red-400 rounded-full mt-2 flex-shrink-0"
+                            ></span>
+                            <span class="text-gray-600 dark:text-gray-400"
+                                >Bayar konsultan finansial jutaan rupiah per
+                                bulan.</span
+                            >
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dengan Fina -->
+                <div
+                    class="p-6 rounded-xl bg-green-50 dark:bg-green-500/5 backdrop-blur-sm border border-green-200 dark:border-green-500/20"
+                >
+                    <div class="flex items-center gap-3 mb-4">
+                        <div
+                            class="w-8 h-8 bg-green-500/20 rounded-lg flex items-center justify-center"
+                        >
+                            <svg
+                                class="w-4 h-4 text-green-400"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg>
+                        </div>
+                        <h3
+                            class="text-xl font-semibold text-green-700 dark:text-green-300"
+                        >
+                            Menggunakan Fina AI
+                        </h3>
+                    </div>
+                    <div class="space-y-3 text-base">
+                        <div class="flex items-start gap-2">
+                            <span
+                                class="w-1 h-1 bg-green-400 rounded-full mt-2 flex-shrink-0"
+                            ></span>
+                            <span class="text-gray-600 dark:text-gray-300"
+                                >Siap hadapi Coretax. Pelaporan PPh/PPN
+                                terkontrol sesuai regulasi terbaru.</span
+                            >
+                        </div>
+                        <div class="flex items-start gap-2">
+                            <span
+                                class="w-1 h-1 bg-green-400 rounded-full mt-2 flex-shrink-0"
+                            ></span>
+                            <span class="text-gray-600 dark:text-gray-300"
+                                >Proyeksi arus kas jelas. Paham LTV:CAC dan
+                                Contribution Margin bisnis Anda.</span
+                            >
+                        </div>
+                        <div class="flex items-start gap-2">
+                            <span
+                                class="w-1 h-1 bg-green-400 rounded-full mt-2 flex-shrink-0"
+                            ></span>
+                            <span class="text-gray-600 dark:text-gray-300"
+                                >Actionable insight dengan angka konkrit — bukan
+                                jawaban samar-samar.</span
+                            >
+                        </div>
+                        <div class="flex items-start gap-2">
+                            <span
+                                class="w-1 h-1 bg-green-400 rounded-full mt-2 flex-shrink-0"
+                            ></span>
+                            <span class="text-gray-600 dark:text-gray-300"
+                                >CFO pribadi 24/7 — akses kapan pun bisnis Anda
+                                butuh.</span
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- CTA FINAL                                   -->
+    <!-- (pattern dari CTA.astro)                   -->
+    <!-- ============================================ -->
+    <section class="py-16 md:py-24 px-4 relative">
+        <div
+            class="absolute inset-0 bg-gradient-to-br from-indigo-50/50 via-white to-purple-50/50 dark:from-gray-900 dark:via-black dark:to-gray-900"
+        >
+        </div>
+
+        <div class="relative z-10 max-w-4xl mx-auto text-center">
+            <div
+                class="glassy-container relative max-w-3xl mx-auto mb-12 rounded-2xl p-8 bg-white/60 dark:bg-white/5 backdrop-blur-sm overflow-hidden"
+            >
+                <div class="glassy-border"></div>
+
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">
+                    Jangan Biarkan Bisnis Bangkrut
+                    <span
+                        class="bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent"
+                        >Karena Buta Finansial.</span
+                    >
+                </h2>
+
+                <p
+                    class="text-base text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto"
+                >
+                    Akses <strong>Fina</strong> dan <strong
+                        >11+ Asisten AI Profesional Spesialis</strong
+                    > lainnya di Aipedia Bundle. Jauh lebih hemat dibanding Konsultan
+                    Pajak & Admin Keuangan berbayar.
+                </p>
+
+                <div
+                    class="flex flex-col sm:flex-row gap-4 justify-center items-center"
+                >
+                    <a
+                        href="/#pricing"
+                        class="group inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-primary-400 to-primary-600 hover:from-primary-500 hover:to-primary-700 text-white font-semibold rounded-xl transition-all duration-200 hover:shadow-lg hover:shadow-primary-500/25 hover:scale-105"
+                    >
+                        Akses Fina Sekarang
+                        <svg
+                            class="w-5 h-5 group-hover:translate-x-1 transition-transform"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <div
+                class="flex flex-col sm:flex-row items-center justify-center gap-8 text-base text-gray-600 dark:text-gray-400"
+            >
+                <div class="flex items-center gap-2">
+                    <svg
+                        class="w-5 h-5 text-primary-400"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                        ></path>
+                    </svg>
+                    <span>Knowledge base pajak UMKM Indonesia</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <svg
+                        class="w-5 h-5 text-primary-400"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                        ></path>
+                    </svg>
+                    <span>Jawaban dalam hitungan detik</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <svg
+                        class="w-5 h-5 text-primary-400"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"
+                        ></path>
+                    </svg>
+                    <span>Termasuk 11+ Asisten AI lainnya</span>
+                </div>
+            </div>
+        </div>
+    </section>
+</Layout>
+
+<style>
+    .glassy-container {
+        position: relative;
+        z-index: 1;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .glassy-border {
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        padding: 2px;
+        background: linear-gradient(
+            var(--angle, 0deg),
+            rgba(255, 255, 255, 0.05),
+            rgba(139, 92, 246, 0.3),
+            rgba(255, 255, 255, 0.1),
+            rgba(139, 92, 246, 0.2)
+        );
+        -webkit-mask:
+            linear-gradient(#fff 0 0) content-box,
+            linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        pointer-events: none;
+        animation: rotate 8s linear infinite;
+    }
+
+    @keyframes rotate {
+        to {
+            --angle: 360deg;
+        }
+    }
+
+    @property --angle {
+        syntax: "<angle>";
+        initial-value: 0deg;
+        inherits: false;
+    }
+</style>
