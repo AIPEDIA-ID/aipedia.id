@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(wc:*)",
+      "Bash(cd:*)",
+      "Bash(pip3:*)",
+      "Bash(pyenv:*)",
+      "Write",
+      "Bash(find:*)",
+      "Edit",
+      "Bash(git:*)",
+      "Bash(git checkout:*)",
+      "mcp__acp__Edit"
+    ]
+  }
+}
