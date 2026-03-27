@@ -2,8 +2,8 @@
   "pricingTiers": [
     {
       "name": "All Assistants Bundle",
-      "price": "394k",
-      "originalPrice": "985k",
+      "price": "147k",
+      "originalPrice": "394k",
       "priceSubtext": "Hemat 60%",
       "description": "Akses seluruh asisten, ideal untuk tim dan bisnis",
       "features": [
@@ -21,8 +21,8 @@
     },
     {
       "name": "Marketing Bundle",
-      "price": "289k",
-      "originalPrice": "438k",
+      "price": "89k",
+      "originalPrice": "289k",
       "priceSubtext": "Hemat 34%",
       "description": "Cocok untuk marketer dan agency",
       "features": [

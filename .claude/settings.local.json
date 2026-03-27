@@ -9,8 +9,9 @@
       "Bash(find:*)",
       "Edit",
       "Bash(git:*)",
-      "Bash(git checkout:*)",
-      "mcp__acp__Edit"
+      "Bash(tree:*)",
+      "Bash(npx:*)",
+      "Bash(npx astro build:*)"
     ]
   }
 }

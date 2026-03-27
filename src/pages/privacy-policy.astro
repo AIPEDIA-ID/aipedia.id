@@ -1,0 +1,90 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const lastUpdated = "27 Maret 2025";
+
+const sections = [
+  {
+    title: "Informasi yang Kami Kumpulkan",
+    content: "Kami tidak mengumpulkan data pribadi secara langsung melalui website aipedia.id. Tidak ada formulir pendaftaran, input email, atau sistem akun yang memerlukan data pribadi Anda di website ini."
+  },
+  {
+    title: "Data yang Dikumpulkan secara Otomatis",
+    content: "Saat Anda mengunjungi website kami, layanan pihak ketiga berikut secara otomatis mengumpulkan data teknis untuk keperluan analitik:\n\n• Google Analytics (ID: G-GVV8KYYQFZ) — mengumpulkan data seperti alamat IP (anonim), jenis browser, perangkat, halaman yang dikunjungi, waktu kunjungan, dan sumber trafik. Data ini digunakan untuk memahami pengunjung dan meningkatkan pengalaman website.\n\n• Meta Pixel (jika diaktifkan) — mengumpulkan data seperti tindakan yang Anda lakukan di website (melihat halaman, mengklik link pembayaran) untuk keperluan optimasi iklan di platform Meta (Facebook/Instagram)."
+  },
+  {
+    title: "Cookie",
+    content: "Website kami menggunakan cookie yang ditempatkan oleh Google Analytics untuk menganalisis trafik. Cookie ini membantu kami memahami bagaimana pengunjung berinteraksi dengan website. Anda dapat menonaktifkan cookie melalui pengaturan browser Anda, namun hal ini dapat memengaruhi pengalaman penggunaan website."
+  },
+  {
+    title: "Layanan Pihak Ketiga",
+    content: "Website kami menggunakan layanan pihak ketiga berikut, yang masing-masing memiliki kebijakan privasi sendiri:\n\n• Google Analytics — kebijakan privasi: policies.google.com/privacy\n• Google Fonts — kebijakan privasi: policies.google.com/privacy\n• OpenAI (ChatGPT) — AIPEDIA beroperasi sebagai Custom GPT di platform OpenAI. Percakapan Anda dengan asisten AI kami tunduk pada kebijakan privasi OpenAI: openai.com/policies/privacy-policies\n• myr.id — digunakan sebagai prosesor pembayaran. Data transaksi yang Anda masukkan saat pembayaran ditangani oleh myr.id sesuai kebijakan privasi mereka.\n• Meta (Facebook/Instagram) — jika Meta Pixel aktif, data dikirim ke Meta sesuai kebijakan privasi mereka: facebook.com/privacy/policy"
+  },
+  {
+    title: "Pembayaran",
+    content: "Proses pembayaran ditangani oleh myr.id, sebuah layanan prosesor pembayaran pihak ketiga. Kami tidak menyimpan data kartu kredit, nomor rekening, atau informasi pembayaran lainnya secara langsung. Seluruh transaksi pembayaran tunduk pada kebijakan privasi dan keamanan myr.id."
+  },
+  {
+    title: "Percakapan dengan Asisten AI",
+    content: "Percakapan Anda dengan AIPEDIA Custom GPT Assistants berlangsung di platform ChatGPT milik OpenAI. Konten percakapan tersebut tunduk pada Ketentuan Layanan dan Kebijakan Privasi OpenAI, bukan kebijakan privasi kami. Kami tidak memiliki akses untuk menyimpan atau mengontrol data percakapan Anda di platform OpenAI."
+  },
+  {
+    title: "Penggunaan Data",
+    content: "Data teknis yang dikumpulkan melalui Google Analytics digunakan secara eksklusif untuk:\n\n• Menganalisis trafik website dan perilaku pengunjung\n• Meningkatkan kualitas dan konten website\n• Mengoptimasi kampanye iklan (melalui Meta Pixel jika aktif)\n\nKami tidak menjual, menyewakan, atau membagikan data Anda kepada pihak ketiga untuk tujuan pemasaran."
+  },
+  {
+    title: "Hak Pengguna",
+    content: "Anda memiliki hak untuk:\n\n• Menonaktifkan cookie melalui pengaturan browser\n• Menggunakan fitur opt-out yang disediakan oleh Google Analytics (tools.google.com/dlpage/gaoptout)\n• Mengelola preferensi iklan Anda melalui pengaturan Meta Ad Preferences\n• Menghapus percakapan Anda di platform ChatGPT kapan saja"
+  },
+  {
+    title: "Keamanan Data",
+    content: "Kami menerapkan langkah-langkah yang wajar untuk melindungi data yang dikumpulkan melalui website. Namun, tidak ada metode transmisi data melalui internet yang 100% aman. Kami tidak dapat menjamin keamanan mutlak atas data yang ditransmisikan melalui layanan pihak ketiga (Google, Meta, OpenAI, myr.id)."
+  },
+  {
+    title: "Perubahan Kebijakan",
+    content: "Kami dapat memperbarui kebijakan privasi ini dari waktu ke waktu. Perubahan akan berlaku segera setelah dipublikasikan di halaman ini. Penggunaan berkelanjutan Anda atas website kami setelah perubahan tersebut merupakan penerimaan Anda terhadap kebijakan yang diperbarui."
+  }
+];
+---
+
+<Layout title="Privacy Policy - AIPEDIA">
+  <section class="py-16 px-4 relative">
+    <!-- Background -->
+    <div class="absolute inset-0 bg-gradient-to-b from-black via-gray-900/20 to-black"></div>
+    
+    <div class="relative z-10 max-w-3xl mx-auto">
+      <!-- Section Header -->
+      <div class="text-center mb-10">
+        <h1 class="text-3xl md:text-4xl font-bold mb-4">
+          <span class="bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent">Privacy Policy</span>
+        </h1>
+        <p class="text-lg text-gray-400">
+          Kebijakan privasi penggunaan website AIPEDIA
+        </p>
+        <p class="text-sm text-gray-500 mt-2">Terakhir diperbarui: {lastUpdated}</p>
+      </div>
+      
+      <!-- Content -->
+      <div class="p-6 rounded-lg bg-white/5 backdrop-blur-sm border border-white/10">
+        <div class="prose prose-invert max-w-none">
+          {sections.map((section, index) => (
+            <div class="mb-8">
+              <h2 class="text-xl font-semibold text-primary-500 mb-4">{index + 1}. {section.title}</h2>
+              <div class="whitespace-pre-line mb-4">{section.content}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+      
+      <!-- Back Button -->
+      <div class="mt-16 text-center">
+        <a href="/" class="inline-flex items-center gap-2 px-6 py-3 bg-white/5 hover:bg-white/10 text-white font-semibold rounded-xl border border-white/20 hover:border-white/30 transition-all duration-200 backdrop-blur-sm">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+          </svg>
+          Kembali ke Beranda
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
