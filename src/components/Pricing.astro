@@ -100,7 +100,11 @@ const { pricingTiers, proStats, sectionHeader, proTagline, proFooter } =
 
             <div class="w-full flex justify-center">
               {tier.buttonLink.startsWith("http") ? (
-                <a href={tier.buttonLink} class={tier.buttonClass}>
+                <a
+                  href={tier.buttonLink}
+                  class={tier.buttonClass}
+                  onclick="fbq('track', 'InitiateCheckout')"
+                >
                   {tier.buttonText}
                 </a>
               ) : (
