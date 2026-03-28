@@ -108,7 +108,12 @@ const { pricingTiers, proStats, sectionHeader, proTagline, proFooter } =
                   {tier.buttonText}
                 </a>
               ) : (
-                <button class={tier.buttonClass}>{tier.buttonText}</button>
+                <button
+                  class={tier.buttonClass}
+                  onclick="fbq('track', 'InitiateCheckout')"
+                >
+                  {tier.buttonText}
+                </button>
               )}
             </div>
 
