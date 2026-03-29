@@ -2,17 +2,17 @@
 
 ## Prasyarat Website (Wajib Sebelum Iklan)
 - [x] **Privacy Policy**: Buat `src/pages/privacy-policy.astro` (wajib Meta Ads). Isi: data collection, third-party (Meta/Google), user rights. Link di footer.
-- [ ] **Meta Pixel**: Buat Pixel di Business Manager → install base code di `Layout.astro` `<head>`. GTM sudah ada (`G-GVV8KYYQFZ`).
-- [ ] **Event Tracking**: Setup ViewContent, InitiateCheckout, Purchase. Test di Events Manager → semua "Ready".
-- [ ] **Checkout Test**: Test `aipedia.myr.id/pl/business-pack` & `/marketing-pack` — flow benar, mobile responsive.
-- [ ] **Social Proof**: Verifikasi `public/screenshots/` (1-6.png) adalah screenshot asli Chat UI, bukan placeholder.
+- [x] **Meta Pixel**: Buat Pixel di Business Manager → install base code di `Layout.astro` `<head>`. GTM sudah ada (`G-GVV8KYYQFZ`).
+- [x] **Event Tracking**: Setup ViewContent, InitiateCheckout, Purchase. Test di Events Manager → semua "Ready".
+- [x] **Checkout Test**: Test `aipedia.myr.id/pl/business-pack` & `/marketing-pack` — flow benar, mobile responsive.
+- [] **Social Proof**: Verifikasi `public/screenshots/` (1-6.png) adalah screenshot asli Chat UI, bukan placeholder.
 
 ## Setup Pixel & Tracking
 - [x] Setup Ad Account
-- [ ] Install Pixel base code di Layout.astro
-- [ ] Test ViewContent: buka website → cek Events Manager
-- [ ] Test InitiateCheckout: klik pricing link → cek Events Manager
-- [ ] Verifikasi semua event status "Ready"
+- [x] Install Pixel base code di Layout.astro
+- [x] Test ViewContent: buka website → cek Events Manager
+- [x] Test InitiateCheckout: klik pricing link → cek Events Manager
+- [x] Verifikasi semua event status "Ready"
 
 ## Creative
 - [ ] **Video**: Script (hook 3s → problem → demo chat → CTA) → rekam screen → edit + text overlay + branding → export 9:16 & 1:1
