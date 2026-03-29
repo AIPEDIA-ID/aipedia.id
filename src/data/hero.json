@@ -6,22 +6,22 @@
   },
   "heading": {
     "main": "12+ AI untuk Bisnis",
-    "highlight": "Seperti Tim Ahli"
+    "highlight": "Langsung Siap Dipakai"
   },
-  "subheading1": "<strong>SEO, Meta Ads, Business Plan, Copywriting, Finance, Data, HR & CS</strong> — semua dalam <strong>1 bundle Asisten AI</strong>",
-  "subheading2": "STOP Nulis Prompt yang ribet, cukup sedikit chat dapat insight profesional",
+  "subheading1": "<strong>SEO, Meta Ads, Copywriting, Finance, Data, HR & CS</strong> — semua dalam <strong>1 bundle Asisten AI</strong> yang sudah disiapkan untuk kerjaan",
+  "subheading2": "Tanpa ChatGPT Plus. Gak perlu ribet nulis prompt. Tinggal pakai, langsung dapat insight.",
   "cta": [
     {
-      "text": "Akses Bundle Sekarang",
+      "text": "Akses Sekarang",
       "href": "#pricing",
       "isPrimary": true
     }
   ],
-  "socialProof": "61+ orang sudah pakai",
+  "socialProof": "",
   "avatars": [
     "/avatars/user-1.png",
     "/avatars/user-2.png",
     "/avatars/user-3.png"
   ],
-  "discountBanner": "⏳ Diskon 60% untuk waktu terbatas"
+  "discountBanner": "⏳ <strong>Diskon 60%</strong> untuk waktu terbatas"
 }
