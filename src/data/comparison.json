@@ -4,30 +4,31 @@
       "main": "Berbeda dari",
       "highlight": "AI Biasa"
     },
-    "description": "Mengapa pilih AIPEDIA dibandingkan AI generik?"
+    "description": "AI generik kasih jawaban umum. AIPEDIA kasih hasil yang udah dites dan dipakai langsung di kerjaan nyata."
   },
   "comparison": {
     "typical": {
       "title": "AI Generik",
       "items": [
-        "Jawaban umum, tidak spesialis",
-        "Tanpa framework atau template",
-        "Butuh prompt rumit untuk hasil konsisten",
-        "Kualitas sering tidak konsisten",
-        "Riset manual makan waktu",
-        "Workflow berantakan, tanpa best practice",
-        "Berjam-jam eksperimen dan setup prompt detail"
+        "Jawaban umum, gak spesialis domain",
+        "Kamu yang harus rancang framework sendiri",
+        "Butuh prompt panjang tiap kali biar hasilnya konsisten",
+        "Kualitas naik-turun tergantung mood prompt",
+        "Riset best practice manual, makan waktu",
+        "Coba-coba sendiri, gak ada validasi ahli",
+        "Berjam-jam eksperimen sebelum dapat hasil layak pakai"
       ]
     },
     "aipedia": {
       "title": "AIPEDIA",
       "items": [
-        "Asisten AI spesialis di 12+ domain",
-        "Langsung siap pakai sesuai kebutuhan",
-        "Prompt pre-built yang teroptimasi, hasil lebih konsisten",
-        "Akses sekali bayar, seumur hidup",
-        "Workflow jelas, cepat, terstruktur",
-        "Panduan lengkap: strategi → eksekusi"
+        "12+ Asisten spesialis, tiap satu fokus 1 domain",
+        "Framework & template sudah tertanam di asisten",
+        "Prompt pre-built teroptimasi, hasil konsisten tiap chat",
+        "Kualitas terjaga karena sistem sudah divalidasi",
+        "Best practice langsung terpakai, gak perlu riset ulang",
+        "Dirancang dari pengalaman 9+ tahun di industri digital",
+        "Sekali bayar, langsung pakai — gak ada setup"
       ]
     }
   },

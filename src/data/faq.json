@@ -2,27 +2,27 @@
   "faqItems": [
     {
       "question": "Apakah AIPEDIA perlu langganan bulanan?",
-      "answer": "Tidak. AIPEDIA adalah bundle custom GPT yg sudah dioptimasi, hanya perlu sekali bayar, akses seumur hidup. Tidak ada biaya bulanan atau biaya tersembunyi."
+      "answer": "Enggak. Sekali bayar, akses seumur hidup. Gak ada biaya bulanan, gak ada biaya tersembunyi — cocok kalau kamu capek subscription AI tool yang numpuk tiap bulan."
     },
     {
       "question": "AIPEDIA cocok untuk siapa?",
-      "answer": "Pebisnis, profesional, dan kreator yang ingin menghemat waktu sambil tetap mendapat output setara ahli di bidang marketing, sales, atau operasional."
+      "answer": "Pebisnis, freelancer, dan profesional yang butuh output setara ahli — marketing, finance, HR, sampai operasional — tapi gak punya waktu (atau tim) buat ngerjain semua dari nol."
     },
     {
       "question": "Apa bedanya AIPEDIA dengan AI tool generik?",
-      "answer": "AI tool generik memberikan respons umum tanpa keahlian domain. AIPEDIA menyediakan asisten spesialis dengan template dan framework terbukti di bidang seperti marketing, sales, dan operasional."
+      "answer": "AI generik jawab pertanyaan apa aja secara umum. AIPEDIA itu 12+ asisten yang masing-masing sudah dirancang khusus per domain, dengan framework dan template yang sudah terbukti dipakai di kerjaan nyata — bukan hasil coba-coba prompt sendiri."
     },
     {
       "question": "Bagaimana cara akses setelah pembelian?",
-      "answer": "Setelah pembayaran, Anda langsung mendapat link GPT yang siap digunakan tanpa setup tambahan."
+      "answer": "Langsung dapat link ke semua asisten yang kamu beli, siap dipakai saat itu juga — gak ada proses approval atau nunggu."
     },
     {
       "question": "Apakah bisa dipakai dengan akun ChatGPT gratis?",
-      "answer": "Bisa, tapi ChatGPT Plus (GPT-5) memberi hasil lebih baik untuk analisis kompleks."
+      "answer": "Bisa, dan memang dirancang optimal untuk itu. ChatGPT Plus bisa bantu untuk kasus analisis yang lebih berat (misal data besar), tapi buat mayoritas kebutuhan sehari-hari, versi gratis sudah cukup."
     },
     {
-      "question": "Apakah ada refund jika tidak puas?",
-      "answer": "Tidak ada refund. Karena setelah akses diberikan, asisten sudah menjadi milikmu selamanya."
+      "question": "Bagaimana kalau saya kurang cocok dengan asisten yang dibeli?",
+      "answer": "Karena akses diberikan langsung dan bersifat digital, kami belum bisa proses refund. Makanya kami sediakan contoh prompt & demo di halaman ini biar kamu bisa cek dulu kecocokannya sebelum beli. Ada pertanyaan spesifik sebelum memutuskan? Tanya dulu aja."
     }
   ]
 }

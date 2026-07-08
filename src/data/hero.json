@@ -1,18 +1,18 @@
 {
-  "badge": "Pre-trained AI",
+  "badge": "Dibangun dari Riset Mendalam",
   "logo": {
     "src": "/logo.png",
     "alt": "AIPEDIA Logo"
   },
   "heading": {
-    "main": "12+ AI untuk Bisnis",
-    "highlight": "Langsung Siap Dipakai"
+    "main": "12+ Asisten AI Spesialis",
+    "highlight": "Tinggal Pakai, Gak Perlu Ribet Prompt"
   },
-  "subheading1": "<strong>SEO, Meta Ads, Copywriting, Finance, Data, HR & CS</strong> — semua dalam <strong>1 bundle Asisten AI</strong> yang sudah disiapkan untuk kerjaan",
-  "subheading2": "Tanpa ChatGPT Plus. Gak perlu ribet nulis prompt. Tinggal pakai, langsung dapat insight.",
+  "subheading1": "Ahli <strong>SEO, Meta Ads, Copywriting, Finance, Data, HR & CS</strong> semua dalam <strong>1 bundle Asisten AI</strong> yang sudah disiapkan untuk kerjaan sehari-hari",
+  "subheading2": "Didesain buat ChatGPT gratis. Gak perlu Plus, gak perlu jago nulis prompt. Tinggal chat, langsung dapat hasil siap pakai.",
   "cta": [
     {
-      "text": "Akses Sekarang",
+      "text": "Akses Sekarang, Hemat 60%",
       "href": "#pricing",
       "isPrimary": true
     }
@@ -23,5 +23,5 @@
     "/avatars/user-2.png",
     "/avatars/user-3.png"
   ],
-  "discountBanner": "⏳ <strong>Diskon 60%</strong> untuk waktu terbatas"
+  "discountBanner": "⏳ <strong>Diskon 60%</strong> untuk early access — harga naik setelah kuota awal habis"
 }
