@@ -2,6 +2,7 @@
 
 import os
 import json
+import csv
 import argparse
 from PIL import Image
 
@@ -9,12 +10,14 @@ from PIL import Image
 # PATH CONFIGURATION
 # ==========================================
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-PROJECT_ROOT = os.path.dirname(SCRIPT_DIR)
+AGENTS_DIR = os.path.dirname(SCRIPT_DIR)
+PROJECT_ROOT = os.path.dirname(AGENTS_DIR)
 DATA_JSON_PATH = os.path.join(PROJECT_ROOT, "src", "data", "characters.json")
-RAW_ICONS_DIR = os.path.join(SCRIPT_DIR, "character_assets", "raw_icons")
+RAW_ICONS_DIR = os.path.join(AGENTS_DIR, "assets", "raw_icons")
 PUBLIC_ICONS_DIR = os.path.join(PROJECT_ROOT, "public", "character")
-SYSTEM_PROMPTS_DIR = os.path.join(SCRIPT_DIR, "system_prompts")
-MIDJOURNEY_PROMPTS_TXT = os.path.join(SCRIPT_DIR, "character_assets", "midjourney_prompts.txt")
+SYSTEM_PROMPTS_DIR = os.path.join(AGENTS_DIR, "prompts", "system")
+MIDJOURNEY_PROMPTS_TXT = os.path.join(AGENTS_DIR, "prompts", "midjourney_prompts.txt")
+CSV_PATH = os.path.join(AGENTS_DIR, "config", "variables.csv")
 
 # ==========================================
 # PROMPT TEMPLATE
@@ -171,9 +174,6 @@ def status():
         print("✅ ALL SYNCED: All characters in characters.json have full assets & prompts!")
     else:
         print("⚠️ ACTION REQUIRED: Some assets or prompts are missing.")
-import csv
-
-CSV_PATH = os.path.join(SCRIPT_DIR, "character_assets", "variables.csv")
 
 def sync_csv_to_json():
     """Reads variables.csv and updates characters.json"""
