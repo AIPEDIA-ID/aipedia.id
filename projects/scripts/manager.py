@@ -185,18 +185,16 @@ def sync_csv_to_json():
         reader = csv.DictReader(f)
         new_chars = []
         for row in reader:
-            char = {
-                "id": row.get('id', '').strip(),
-                "name": row.get('name', '').strip(),
-                "role": row.get('role', '').strip(),
-                "themeColor": row.get('themeColor', '').strip(),
-                "gender": row.get('gender', '').strip(),
-                "image": f"/character/{row.get('id', '').strip()}.png",
-                "description": row.get('description', '').strip(),
-                "examplePrompt": row.get('examplePrompt', '').strip(),
-                "category": row.get('category', '').strip(),
-                "price": row.get('price', '').strip()
-            }
+            char = {}
+            # Loop semua kolom secara dinamis (jadi kalau nambah variabel bebas!)
+            for key, value in row.items():
+                if key:
+                    char[key.strip()] = value.strip()
+            
+            # Khusus image path, kita autogenerate kalau belum ada
+            if 'image' not in char and 'id' in char:
+                char['image'] = f"/character/{char['id']}.png"
+                
             new_chars.append(char)
             
     if not os.path.exists(DATA_JSON_PATH):
