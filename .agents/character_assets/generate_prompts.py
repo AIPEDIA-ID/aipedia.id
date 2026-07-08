@@ -13,7 +13,7 @@ Style constraints: no weapons, no text, no letters, no background scenes; focus 
 """
 
 input_csv = './variables.csv'
-output_txt = './prompts.txt'
+output_txt = './midjourney_prompts.txt'
 
 with open(input_csv, mode='r', encoding='utf-8-sig') as infile, open(output_txt, mode='w', encoding='utf-8') as outfile:
     reader = csv.DictReader(infile)

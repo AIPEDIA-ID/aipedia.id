@@ -23,8 +23,8 @@ def compress_images(max_width=800, max_height=800, quality=85, target_size_kb=10
     """
     # Define source and destination directories relative to script location
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    project_root = os.path.dirname(script_dir)
-    source_dir = os.path.join(script_dir, "icon")
+    project_root = os.path.dirname(os.path.dirname(script_dir))
+    source_dir = os.path.join(script_dir, "raw_icons")
     dest_dir = os.path.join(project_root, "public", "character")
     
     # Create destination directory if it doesn't exist
