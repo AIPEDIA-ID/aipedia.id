@@ -1,13 +1,13 @@
-﻿name,Description,tema warna,gender
-Beny,Business Model Canvas - Assistant,#F97300,male
-Fina,Finance Assistant,#FFD400,female
-Cisa,CS Assistant,#FF003E,female
-Sora,Social Media Content Assistant,#580cfc,female
-Wita,CopyWriting Assistant,#8a6ef0,female
-Viko,Video Script Writer Assistant,#eb4ec3,male
-Milo,Email & Newsletter Assistant,#00FFA4,male
-Mita,Meta Ads Assistant,#0164e0,female
-Selo,SEO Assistant,#20a944,male
-Hima,HR, Learning & Development Assistant,#163b92,female
-Dany,Data Analyst Assistant,#FF4B00,male
-Prima,AI Prompt Assistant,#BB6653,male
+id,name,role,themeColor,gender,description,examplePrompt,category,price
+beny,Beny,Business Strategist,#F97300,Male,Mapping ide bisnis ke Business Model Canvas lengkap dengan analisis risiko dan strategi channel.,Map ide skincare DTC ke Business Model Canvas dengan risiko dan strategi channel.,business,86k
+fina,Fina,Finance Assistant,#FFD400,Female,"Analisis keuangan, cash flow forecast, dan break-even bisnis.","Buat cash flow forecast 3 bulan dan break-even analysis untuk café.",business,86k
+cisa,Cisa,Customer Relationship Assistant,#FF003E,Female,Sistem customer support dengan macro response dan escalation rules.,Rancang CS macro untuk inquiry Tier-1 dan escalation refund.,business,86k
+sora,Sora,Social Media Content Assistant,#580cfc,Female,Konten social media engaging untuk Instagram dan TikTok.,Buat kalender IG/TikTok 14 hari dengan hooks dan CTA.,marketing,86k
+viko,Viko,Video Script Writer Assistant,#E0BEFF,Male,Script video engaging untuk UGC dan ads.,Outline script UGC 60 detik dengan hooks dan CTA.,marketing,86k
+wita,Wita,Copywriting & Content Assistant,#8a6ef0,Male,Copy convert untuk landing page dan ads.,Tulis 5 varian hero landing page dan 3 angle short-form ads.,marketing,86k
+dany,Dany,Data Analyst Assistant,#FF4B00,Male,Analisis data dengan insight untuk keputusan bisnis.,Analisis CSV cohort retention dan churn drivers.,business,86k
+mita,Mita,Meta Ads Assistant,#0164e0,Female,Optimasi Meta Ads campaign dengan struktur TOFU/MOFU/BOFU.,Generate campaign structure dan targeting Meta Ads.,marketing,86k
+selo,Selo,SEO Assistant,#20a944,Male,Strategi SEO dengan topical mapping dan internal linking.,Buat topical map dan internal linking blog niche travel.,marketing,86k
+hima,Hima,HR Assistant,#163b92,Female,Sistem HR dengan performance review dan competency framework.,Buat rubrik performance review untuk junior marketer.,business,86k
+milo,Milo,Email & Newsletter Assistant,#00FFA4,Male,Rancang email marketing dan newsletter dengan engagement tinggi.,Draft newsletter mingguan dengan lead story dan curated links.,marketing,86k
+prima,Prima,Prompt Assistant,#BB6653,Female,Generate prompt efektif untuk task dan workflow optimasi.,Generate 20 prompt untuk product research dan competitor analysis.,business,86k
