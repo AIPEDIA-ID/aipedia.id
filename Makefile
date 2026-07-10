@@ -1,22 +1,22 @@
-.PHONY: help project-status project-sync project-prompt project-compress
+.PHONY: help project-status project-visual-prompt project-compress project-generate-all
 
 help:
 	@echo "Aipedia.id Makefile Commands:"
 	@echo "--------------------------------------------------------"
-	@echo "make project-status   : Cek kelengkapan aset & prompt asisten"
-	@echo "make project-sync     : Update characters.json dari variables.csv"
-	@echo "make project-prompt   : Generate prompt Midjourney untuk karakter"
-	@echo "make project-compress : Compress & pindahkan icon ke folder public"
+	@echo "make project-status        : Cek kelengkapan aset & prompt asisten"
+	@echo "make project-generate-all  : Generate & sync semua dokumen (Web, ASISTANT.md, Index)"
+	@echo "make project-visual-prompt : Generate visual prompt untuk karakter"
+	@echo "make project-compress      : Compress & pindahkan icon ke folder public"
 	@echo "--------------------------------------------------------"
 
-project-status:
-	@python3 projects/scripts/manager.py status
+status:
+	@python3 scripts/manager.py status
 
-project-sync:
-	@python3 projects/scripts/manager.py sync-csv
+generate-all:
+	@python3 scripts/manager.py generate-all
 
-project-prompt:
-	@python3 projects/scripts/manager.py generate-prompts
+visual-prompt:
+	@python3 scripts/manager.py generate-visual-prompts
 
-project-compress:
-	@python3 projects/scripts/manager.py compress-icons
+compress:
+	@python3 scripts/manager.py compress-icons
