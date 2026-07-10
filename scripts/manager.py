@@ -189,19 +189,10 @@ def generate_web():
     web_chars = []
     
     for char in web_data.get('characters', []):
-        web_char = {
-            "id": char.get("id"),
-            "name": char.get("name"),
-            "role": char.get("role"),
-            "themeColor": char.get("themeColor"),
-            "gender": char.get("gender"),
-            "image": char.get("image"),
-            "description": char.get("description"),
-            "examplePrompt": char.get("examplePrompt"),
-            "category": char.get("category"),
-            "price": char.get("price")
-        }
+        web_char = copy.deepcopy(char)
         # EXCLUDING link and conversationStarters for privacy
+        web_char.pop('link', None)
+        web_char.pop('conversationStarters', None)
         web_chars.append(web_char)
         
     web_data['characters'] = web_chars
