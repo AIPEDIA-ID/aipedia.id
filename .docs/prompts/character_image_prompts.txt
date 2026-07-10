@@ -34,8 +34,8 @@ If the model cannot output native transparency, generate on solid white or green
 Style constraints: no weapons, no text, no letters, no background scenes; focus on a reusable, modular mascot asset with consistent proportions for a design system.
 
 
---- Prompt for Sora ---
-Create a matte-glossy, chibi 3D robot mascot named "Sora", infer gender expression as "Female" and persona from the name; keep it friendly, competent, and trustworthy for an AI Employee Assistant brand used in tools like "Social Media Content Assistant".
+--- Prompt for Sona ---
+Create a matte-glossy, chibi 3D robot mascot named "Sona", infer gender expression as "Female" and persona from the name; keep it friendly, competent, and trustworthy for an AI Employee Assistant brand used in tools like "Social Media Content Assistant".
 Primary theme color = #580cfc (hex); apply as dominant body panels, trims, and accents with neutral complements (charcoal gray, slate, white) for contrast and accessibility.
 Design: rounded shapes, soft bevels, face as black matte frosted glass display with cyan glow eyes, welcoming open-arm pose, clean silhouette readable at small sizes (icon usage).
 Accessories driven by 'Konten social media engaging untuk Instagram dan TikTok.': but keep simple, add optional tools/props, UI glyphs, or wearables that communicate the role without text (e.g., analytics icons, dashboards, checklists), but keep minimalist and brand-safe.

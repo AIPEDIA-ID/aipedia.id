@@ -24,7 +24,7 @@
       "gender": "Female",
       "image": "/character/fina.png",
       "description": "Analisis keuangan, cash flow forecast, dan break-even bisnis.",
-      "examplePrompt": "Buat cash flow forecast 3 bulan dan break-even analysis untuk café.",
+      "examplePrompt": "Buat cash flow forecast 3 bulan dan break-even analysis untuk caf\u00e9.",
       "category": "business",
       "price": "86k"
     },
@@ -41,12 +41,12 @@
       "price": "86k"
     },
     {
-      "id": "sora",
-      "name": "Sora",
+      "id": "sona",
+      "name": "Sona",
       "role": "Social Media Content Assistant",
       "themeColor": "#580cfc",
       "gender": "Female",
-      "image": "/character/sora.png",
+      "image": "/character/sona.png",
       "description": "Konten social media engaging untuk Instagram dan TikTok.",
       "examplePrompt": "Buat kalender IG/TikTok 14 hari dengan hooks dan CTA.",
       "category": "marketing",

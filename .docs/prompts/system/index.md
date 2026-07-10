@@ -21,7 +21,7 @@ Sistem customer support dengan macro response dan escalation rules.
 
 ---
 
-# Sora - Social Media Content Assistant
+# Sona - Social Media Content Assistant
 Konten social media engaging untuk Instagram dan TikTok.
 
 ---
@@ -70,7 +70,7 @@ Setup CustomGPT
 [x] beny
 [x] fina
 [x] cisa
-[x] sora
+[x] sona
 [x] viko
 [x] wita
 [x] dany

@@ -41,12 +41,12 @@
       "price": "86k"
     },
     {
-      "id": "sora",
-      "name": "Sora",
+      "id": "sona",
+      "name": "Sona",
       "role": "Social Media Content Assistant",
       "themeColor": "#580cfc",
       "gender": "Female",
-      "image": "/character/sora.png",
+      "image": "/character/sona.png",
       "description": "Konten social media engaging untuk Instagram dan TikTok.",
       "examplePrompt": "Buat kalender IG/TikTok 14 hari dengan hooks dan CTA.",
       "category": "marketing",

@@ -28,11 +28,11 @@ Pilih asisten AI spesialis yang sesuai dengan kebutuhan bisnis dan marketing kam
 
 ---
 
-### Sora — Social Media Content Assistant
+### Sona — Social Media Content Assistant
 
 | | Informasi Asisten |
 |:---:|:---|
-| <img src="../public/character/sora.png" width="100"> | Konten social media engaging untuk Instagram dan TikTok.<br><br>**[🔗 Akses Asisten](#)** |
+| <img src="../public/character/sona.png" width="100"> | Konten social media engaging untuk Instagram dan TikTok.<br><br>**[🔗 Akses Asisten](#)** |
 
 ---
 
