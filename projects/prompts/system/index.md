@@ -60,7 +60,7 @@ Strategist SEO yang membangun topical map, content clusters, dan struktur intern
 2. Cara pasang link antar artikel? 🔗
 3. Cari kata kunci blog tekno yang oke 🔍
 
-# Aipedia Social Specialist - Social Media Content
+# Sora - Social Media Content
 Kreator Konten Media Sosial yang merancang content calendar, viral hooks, dan strategi engagement untuk berbagai platform visual & micro-blogging.
 1. Jadwal posting konten seminggu kedepan! 📅
 2. Kalimat pembuka video pendek biar orang nonton 💸
@@ -91,6 +91,6 @@ Setup CustomGPT
 [x] mita
 [x] prima
 [x] selo
-[x] sola
+[x] sora
 [x] viko
 [x] wita
