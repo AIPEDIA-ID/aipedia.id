@@ -74,9 +74,11 @@ aipedia.id/
 
 ### Key Rules
 - **Single source of truth** untuk konten ada di `src/data/*.json`
+- **Single source of truth** untuk tasks ada di `.docs/TASK.md`
 - Komponen Astro harus membaca data dari JSON files, bukan hardcoded
 - Gunakan Tailwind utility classes, bukan custom CSS
 - Bahasa default: Indonesia (Bahasa) untuk copy, English untuk code/comments
+- **Fokus Project:** Project ini utamanya adalah untuk CustomGPT (meliputi component system prompt, conversation starter, context yang perlu diketahui, dll).
 
 ---
 
@@ -84,7 +86,7 @@ aipedia.id/
 
 | Komponen | Detail |
 |---|---|
-| **Produk** | 12+ Custom GPT Spesialis |
+| **Produk** | 17+ Custom GPT Spesialis |
 | **Model** | One-time payment — Lifetime Access |
 | **Harga** | Rp 147.000 (All Bundle) / Rp 89.000 (Marketing Bundle) |
 | **Target** | UMKM, solopreneur, freelancer, pebisnis online Indonesia |

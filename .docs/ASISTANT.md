@@ -84,17 +84,58 @@ Pilih asisten AI spesialis yang sesuai dengan kebutuhan bisnis dan marketing kam
 
 ---
 
-### Milo — Email & Newsletter Assistant
+### Wilo — Website Assistant
 
 | | Informasi Asisten |
 |:---:|:---|
-| <img src="../public/character/milo.png" width="100"> | Rancang email marketing dan newsletter dengan engagement tinggi.<br><br>**[🔗 Akses Asisten](#)** |
+| <img src="../public/character/wilo.png" width="100"> | Bantu rancang struktur landing page dan website bisnis tanpa perlu skill teknis.<br><br>**[🔗 Akses Asisten](#)** |
 
 ---
 
-### Prima — Prompt Assistant
+### Prima — Operations & SOP Assistant
 
 | | Informasi Asisten |
 |:---:|:---|
-| <img src="../public/character/prima.png" width="100"> | Generate prompt efektif untuk task dan workflow optimasi.<br><br>**[🔗 Akses Asisten](#)** |
+| <img src="../public/character/prima.png" width="100"> | Susun SOP operasional dan workflow harian biar bisnis jalan konsisten tanpa kamu pantau terus.<br><br>**[🔗 Akses Asisten](#)** |
 
+---
+
+### Gita — Visual Ads & Design Assistant
+
+| | Informasi Asisten |
+|:---:|:---|
+| <img src="../public/character/gita.png" width="100"> | Bikin konsep visual iklan dan design brief untuk Meta Ads, TikTok, dan banner promosi.<br><br>**[🔗 Akses Asisten](#)** |
+
+---
+
+### Wanda — WhatsApp Business Assistant
+
+| | Informasi Asisten |
+|:---:|:---|
+| <img src="../public/character/wanda.png" width="100"> | Rancang broadcast, katalog, dan auto-reply WhatsApp Business biar closing lebih cepat.<br><br>**[🔗 Akses Asisten](#)** |
+
+---
+
+### Loka — Marketplace Assistant
+
+| | Informasi Asisten |
+|:---:|:---|
+| <img src="../public/character/loka.png" width="100"> | Optimasi listing produk di Shopee, Tokopedia, dan TikTok Shop biar lebih mudah ditemukan.<br><br>**[🔗 Akses Asisten](#)** |
+
+---
+
+### Lila — Live Selling Assistant
+
+| | Informasi Asisten |
+|:---:|:---|
+| <img src="../public/character/lila.png" width="100"> | Susun script host dan flow live selling untuk TikTok Live dan Shopee Live.<br><br>**[🔗 Akses Asisten](#)** |
+
+---
+
+### Tira — Pajak UMKM Assistant
+
+| | Informasi Asisten |
+|:---:|:---|
+| <img src="../public/character/tira.png" width="100"> | Bantu paham kewajiban pajak UMKM, PPh Final, dan cara lapor yang simpel.<br><br>**[🔗 Akses Asisten](#)** |
+
+---

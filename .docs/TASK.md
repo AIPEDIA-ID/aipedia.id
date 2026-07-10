@@ -8,23 +8,23 @@ Notes:
 
 ## General
 
-- [] Now, our source of truth task is `.docs/TASK.md`, please update in rules
-- [] We should make a clear that this project is mainly for CustomGPT, which is we have to think about component like: system prompt, conversation starter, context that need to know, etc
-- [] Add 1 field `.docs/database/assistants.json` in that will have array for 3 starter conversations for CustomGPT
-- [] Should we rename system prompt into CustomGPT?
+- [x] Now, our source of truth task is `.docs/TASK.md`, please update in rules
+- [x] We should make a clear that this project is mainly for CustomGPT, which is we have to think about component like: system prompt, conversation starter, context that need to know, etc
+- [x] Add 1 field `.docs/database/assistants.json` in that will have array for 3 starter conversations for CustomGPT
+- [x] Should we rename system prompt into CustomGPT?
 
 ## Change Assistant role 
 
-- [] Rename  Milo to Wilo and Change the role, from Email Marketing Asisten to Website Asisten
-    - [] Rename Milo to Wilo
-    - [] Create System Prompt
-    - [] What Context need for this? In the first Conversation?
+- [x] Rename  Milo to Wilo and Change the role, from Email Marketing Asisten to Website Asisten
+    - [x] Rename Milo to Wilo
+    - [x] Create System Prompt
+    - [x] What Context need for this? In the first Conversation?
     - [] Update CustomGPT (me)
 
-- [] Change Prima role from Prompt Generator to Operation SOP Asisten
-    - [] Define Role and scope for Indonesian Business
-    - [] What Context need for this? In the first Conversation?
-    - [] Create System Prompt
+- [x] Change Prima role from Prompt Generator to Operation SOP Asisten
+    - [x] Define Role and scope for Indonesian Business
+    - [x] What Context need for this? In the first Conversation?
+    - [x] Create System Prompt
     - [] Update CustomGPT (me)
 
 ---
@@ -34,9 +34,19 @@ The ideas is make this project from 12 asistant to 17 asistant, since Indonesian
 
 *Please Duplicate this based on newer 5 Asistants (gita, wanda, loka, lila, tira)
 - [x] Generate New Asistant Data (me)
-- [] Generate Prompt LLM: Define scope, define context needed for conversations, Follow other prompt structure in `.docs/prompts/system` just pick 1 or 2 and make sure it does follows
-- [] Prepare CustomGPT conversation starter (3) -- New field btw
-- [] Create Prompt Visual Character
+- [x] Generate Prompt LLM: Define scope, define context needed for conversations, Follow other prompt structure in `.docs/prompts/system` just pick 1 or 2 and make sure it does follows
+- [x] Prepare CustomGPT conversation starter (3) -- New field btw
+- [x] Create Prompt Visual Character
 - [] Generate Visual char (me)
+    - [] gita
+    - [] wanda
+    - [] loka
+    - [] lila
+    - [] tira
 - [] Create CustomGPT (me)
-- [] Add to ASISTANT.md
+    - [] gita
+    - [] wanda
+    - [] loka
+    - [] lila
+    - [] tira
+- [x] Add to ASISTANT.md
