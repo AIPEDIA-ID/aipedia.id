@@ -23,9 +23,16 @@ Produk ini terdiri dari dua bagian:
 1. Download dan install Codex CLI jika belum di https://learn.chatgpt.com/docs/codex/cli#getting-started
 2. Extract file bundle **aipedia-asistant_v1.1.zip** yang sudah Anda download.
 3. Buka folder hasil extract tersebut.
-4. Jalankan script instalasi sesuai OS Anda:
-   - **Mac/Linux**: Buka terminal, arahkan ke folder hasil extract, lalu jalankan `./install.sh` (atau double-klik jika pengaturan OS Anda mengizinkan eksekusi script).
-   - **Windows**: Double-klik file `install.bat`.
+4. Jalankan command:
+
+```bash
+codex plugin marketplace add <path/ke/folder/hasil/extract>/codex-plugin-marketplace
+```
+Contoh:
+```bash
+codex plugin marketplace add /Users/aipedia/Downloads/aipedia-asistant_v1.1/codex-plugin-marketplace
+```
+
 5. Buka project Anda di Codex, lalu buka task baru.
 6. Seluruh spesialis AIPEDIA kini otomatis terintegrasi dan siap bekerja sama dengan Anda.
 
