@@ -37,12 +37,12 @@ The ideas is make this project from 12 asistant to 17 asistant, since Indonesian
 - [x] Generate Prompt LLM: Define scope, define context needed for conversations, Follow other prompt structure in `.docs/prompts/system` just pick 1 or 2 and make sure it does follows
 - [x] Prepare CustomGPT conversation starter (3) -- New field btw
 - [x] Create Prompt Visual Character
-- [] Generate Visual char (me)
-    - [] gita
-    - [] wanda
-    - [] loka
-    - [] lila
-    - [] tira
+- [x] Generate Visual char (me)
+    - [x] gita
+    - [x] wanda
+    - [x] loka
+    - [x] lila
+    - [x] tira
 - [] Create CustomGPT (me)
     - [] gita
     - [] wanda

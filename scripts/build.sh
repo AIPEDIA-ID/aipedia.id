@@ -106,9 +106,8 @@ cp -R "$CODEX_MARKETPLACE_DIR" "$PRO_OUT/codex-plugin-marketplace"
 echo "=> Zipping Pro Package..."
 cd "$PRO_OUT"
 rm -f aipedia-asistant_v1.1.zip
-chmod +x install.sh
 zip -r aipedia-asistant_v1.1.zip GUIDE_Pro.pdf ASISTANT.pdf skills codex-plugin-marketplace install.sh install.bat
-rm -rf GUIDE_Pro.pdf ASISTANT.pdf skills codex-plugin-marketplace install.sh install.bat
+rm -rf GUIDE_Pro.pdf ASISTANT.pdf skills codex-plugin-marketplace
 cd "$PROJECT_ROOT"
 
 echo "=================================================="
