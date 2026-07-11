@@ -22,4 +22,4 @@ compress:
 	@python3 scripts/manager.py compress-icons
 
 build-products:
-	bash products/build.sh
+	bash scripts/build.sh

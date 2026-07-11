@@ -22,7 +22,7 @@ WEB_JSON_PATH = os.path.join(PROJECT_ROOT, "src", "data", "characters.json")
 RAW_ICONS_DIR = os.path.join(AGENTS_DIR, "assets", "raw_icons")
 PUBLIC_ICONS_DIR = os.path.join(PROJECT_ROOT, "public", "character")
 SYSTEM_PROMPTS_DIR = os.path.join(AGENTS_DIR, "prompts", "system")
-VISUAL_PROMPTS_TXT = os.path.join(AGENTS_DIR, "prompts", "character_image_prompts.txt")
+VISUAL_PROMPTS_TXT = os.path.join(AGENTS_DIR, "character_image_prompts.txt")
 
 # ==========================================
 # PROMPT TEMPLATE

@@ -8,6 +8,8 @@ This repository contains both the web frontend and the product delivery pipeline
 
 - `src/` & `public/` - The AstroJS frontend application (Landing Page).
 - `products/` - The generated deliverables (PDFs, ZIPs) and the build scripts.
+  - `products/delivery/` - **The final products ready to be distributed to customers.** This is where the generated `.zip` files (Basic and Pro bundles) are outputted.
+  - `products/skills/` - The raw markdown files and plugins for the Pro bundle.
 - `.docs/` - Internal knowledge base, detailed documentation, and system prompts.
 - `scripts/` - Python automation scripts for generating assets and configurations.
 
@@ -23,7 +25,8 @@ This JSON file drives the Astro UI, PDF generation, and internal prompts. **Do n
 ### Requirements
 - Node.js (v18+)
 - Python 3 (for automation scripts)
-- Make
+- Make (for running build pipelines)
+- Puppeteer (installed automatically via build scripts, used for PDF generation)
 
 ### Running Locally
 
@@ -35,14 +38,37 @@ yarn install
 yarn dev
 ```
 
-## Core Workflows
+## How to Use This Project
 
-We use `make` commands to automate the generation of products and assets.
+This project operates as an automated pipeline. Whenever you need to add a new AI Assistant or update an existing one, follow this workflow:
 
-- `make project-status` - Check the synchronization status of assets and prompts.
-- `make project-generate-all` - Sync the web data, markdown, and internal prompts based on the JSON database.
-- `make project-visual-prompt` - Generate text prompts for creating character images.
-- `make project-compress` - Compress raw icons and move them to the public web folder.
-- `make build-products` - Build the final PDF and ZIP deliverables for customers.
+### 1. Update the Database
+Always start by modifying `.docs/database/assistants.json`. This is the only place you should manually type out copy, roles, and pricing.
 
-For more detailed documentation on adding new assistants, product architecture, or business strategies, please refer to [`.docs/SUMMARY.md`](.docs/SUMMARY.md).
+### 2. Sync the System
+Run the synchronization command to push your JSON changes into the Astro frontend, product markdown files, and internal prompts.
+```bash
+make project-generate-all
+```
+
+### 3. Generate & Optimize Assets
+If you added a new assistant, you need a character image:
+1. Run `make project-visual-prompt` to get the Midjourney/DALL-E prompt.
+2. Generate the image and place the raw transparent PNG in `.docs/assets/raw_icons/`.
+3. Compress and move it to the public folder by running:
+```bash
+make project-compress
+```
+*(You can verify if all assets are present and synced by running `make project-status`)*
+
+### 4. Build the Deliverables
+Once the data and assets are synced, compile the final products for your customers.
+```bash
+make build-products
+```
+This script will use Puppeteer to convert the Markdown guides into PDFs and package them into ZIP files alongside the skills. 
+**You can find the ready-to-distribute `.zip` packages in `products/delivery/basic/` and `products/delivery/pro/`.**
+
+---
+
+For more detailed documentation on business strategies, prompt engineering, or architecture, please refer to [`.docs/SUMMARY.md`](.docs/SUMMARY.md).
