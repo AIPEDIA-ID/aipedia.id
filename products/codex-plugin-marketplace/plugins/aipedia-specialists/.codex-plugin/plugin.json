@@ -8,6 +8,8 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "AIPEDIA Specialists",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/logo.png",
     "shortDescription": "18 AI specialists for Indonesian businesses.",
     "longDescription": "AIPEDIA adds a router and 17 Bahasa Indonesia specialists for business strategy, finance, operations, tax, marketing, commerce, and growth.",
     "developerName": "AIPEDIA",
