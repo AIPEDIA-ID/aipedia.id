@@ -69,6 +69,19 @@ make build-products
 This script will use Puppeteer to convert the Markdown guides into PDFs and package them into ZIP files alongside the skills. 
 **You can find the ready-to-distribute `.zip` packages in `products/delivery/basic/` and `products/delivery/pro/`.**
 
+### Install the Codex Plugin Manually
+
+The Pro package also includes `codex-plugin-marketplace/`: a local Codex marketplace containing one `aipedia-specialists` plugin. It bundles the router and all AIPEDIA specialist skills, including their references and scripts.
+
+After extracting the Pro ZIP, run these commands from a terminal (replace the path with the extracted folder):
+
+```bash
+codex plugin marketplace add /absolute/path/to/codex-plugin-marketplace
+codex plugin add aipedia-specialists@aipedia
+```
+
+Start a new Codex task after installation so Codex loads the newly installed skills. To update an existing installation, rebuild/extract the package, then reinstall the same plugin command.
+
 ---
 
 For more detailed documentation on business strategies, prompt engineering, or architecture, please refer to [`.docs/SUMMARY.md`](.docs/SUMMARY.md).

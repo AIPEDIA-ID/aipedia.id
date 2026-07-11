@@ -5,18 +5,21 @@
 set -e
 
 # Base Directories
-PROJECT_ROOT="$(pwd)"
-PRODUCTS_DIR="products"
+PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+PRODUCTS_DIR="$PROJECT_ROOT/products"
 BASIC_OUT="$PRODUCTS_DIR/delivery/basic"
 PRO_OUT="$PRODUCTS_DIR/delivery/pro"
 SKILLS_DIR="$PRODUCTS_DIR/skills"
-PUBLIC_CHAR_DIR="public/character"
+PUBLIC_CHAR_DIR="$PROJECT_ROOT/public/character"
+CODEX_MARKETPLACE_DIR="$PRODUCTS_DIR/codex-plugin-marketplace"
+CODEX_PLUGIN_DIR="$CODEX_MARKETPLACE_DIR/plugins/aipedia-specialists"
 
 # Ensure output directories exist
 mkdir -p "$BASIC_OUT"
 mkdir -p "$PRO_OUT"
 mkdir -p "$PRO_OUT/skills"
 mkdir -p "$PRO_OUT/character"
+mkdir -p "$CODEX_PLUGIN_DIR/skills"
 
 echo "=================================================="
 echo "    Building Aipedia Products (Basic & Pro)       "
@@ -75,8 +78,8 @@ for skill_path in "$SKILLS_DIR"/*; do
     cp -r "$skill_path"/* "$tmp_skill_dir/"
     
     # Copy icon as icon.png so users can upload it to Custom GPT
-    if [ -f "$PROJECT_ROOT/$PUBLIC_CHAR_DIR/$skill_name.png" ]; then
-      cp "$PROJECT_ROOT/$PUBLIC_CHAR_DIR/$skill_name.png" "$tmp_skill_dir/icon.png"
+    if [ -f "$PUBLIC_CHAR_DIR/$skill_name.png" ]; then
+      cp "$PUBLIC_CHAR_DIR/$skill_name.png" "$tmp_skill_dir/icon.png"
     fi
     
     # Zip it
@@ -87,11 +90,29 @@ for skill_path in "$SKILLS_DIR"/*; do
   fi
 done
 
+echo "=> Assembling Codex plugin marketplace..."
+# The marketplace has a single plugin that contains the router and every specialist.
+# Rebuild this directory from products/skills so the installed plugin never contains stale skills.
+rm -rf "$CODEX_PLUGIN_DIR/skills"
+mkdir -p "$CODEX_PLUGIN_DIR/skills"
+cp -R "$SKILLS_DIR"/. "$CODEX_PLUGIN_DIR/skills/"
+# Keep this preflight portable: product customers should not need Codex's
+# internal plugin-creator files just to build the delivery package.
+python3 -m json.tool "$CODEX_PLUGIN_DIR/.codex-plugin/plugin.json" >/dev/null
+for skill_path in "$CODEX_PLUGIN_DIR/skills"/*; do
+  [ -f "$skill_path/SKILL.md" ] || {
+    echo "Error: missing SKILL.md in bundled skill: $skill_path" >&2
+    exit 1
+  }
+done
+rm -rf "$PRO_OUT/codex-plugin-marketplace"
+cp -R "$CODEX_MARKETPLACE_DIR" "$PRO_OUT/codex-plugin-marketplace"
+
 echo "=> Zipping Pro Package..."
 cd "$PRO_OUT"
 rm -f aipedia-asistant_v1.1.zip
-zip -r aipedia-asistant_v1.1.zip GUIDE_Pro.pdf ASISTANT.pdf skills
-rm -rf GUIDE_Pro.pdf ASISTANT.pdf skills
+zip -r aipedia-asistant_v1.1.zip GUIDE_Pro.pdf ASISTANT.pdf skills codex-plugin-marketplace
+rm -rf GUIDE_Pro.pdf ASISTANT.pdf skills codex-plugin-marketplace
 cd "$PROJECT_ROOT"
 
 echo "=================================================="

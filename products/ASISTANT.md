@@ -137,4 +137,3 @@ Pilih asisten AI spesialis yang sesuai dengan kebutuhan bisnis dan marketing kam
 | | Informasi Asisten |
 |:---:|:---|
 | <img src="../../../../../public/character/tira.png" width="100"> | Bantu paham kewajiban pajak UMKM, PPh Final, dan cara lapor yang simpel.<br><br>**[🔗 Akses Asisten](#)** |
-

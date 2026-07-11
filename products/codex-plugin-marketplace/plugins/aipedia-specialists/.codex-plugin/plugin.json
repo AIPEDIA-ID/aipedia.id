@@ -1,0 +1,22 @@
+{
+  "name": "aipedia-specialists",
+  "version": "1.2.0",
+  "description": "18 Bahasa Indonesia business specialists for strategy, operations, finance, marketing, and growth.",
+  "author": {
+    "name": "AIPEDIA"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "AIPEDIA Specialists",
+    "shortDescription": "18 AI specialists for Indonesian businesses.",
+    "longDescription": "AIPEDIA adds a router and 17 Bahasa Indonesia specialists for business strategy, finance, operations, tax, marketing, commerce, and growth.",
+    "developerName": "AIPEDIA",
+    "category": "Business",
+    "capabilities": ["Business strategy", "Marketing planning", "Operations guidance"],
+    "defaultPrompt": [
+      "Bantu saya memilih spesialis AIPEDIA untuk masalah bisnis saya.",
+      "Buat rencana pemasaran 30 hari untuk bisnis saya.",
+      "Analisis masalah operasional bisnis saya dan langkah pertama yang harus dilakukan."
+    ]
+  }
+}

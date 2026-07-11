@@ -1,0 +1,20 @@
+{
+  "name": "aipedia",
+  "interface": {
+    "displayName": "Aipedia"
+  },
+  "plugins": [
+    {
+      "name": "aipedia-specialists",
+      "source": {
+        "source": "local",
+        "path": "./plugins/aipedia-specialists"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Business"
+    }
+  ]
+}
