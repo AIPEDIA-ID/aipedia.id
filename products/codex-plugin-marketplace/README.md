@@ -4,7 +4,7 @@ This local marketplace contains the `aipedia-specialists` Codex plugin. The buil
 
 ## Manual installation
 
-From the folder that contains this `marketplace.json`, run:
+From the root of this folder (the directory containing the `.agents` folder), run:
 
 ```bash
 codex plugin marketplace add /absolute/path/to/codex-plugin-marketplace
