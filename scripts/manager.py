@@ -12,6 +12,7 @@ from PIL import Image
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.dirname(SCRIPT_DIR)
 AGENTS_DIR = os.path.join(PROJECT_ROOT, ".docs")
+PRODUCTS_DIR = os.path.join(PROJECT_ROOT, "products")
 
 # MASTER DATABASE (SSOT)
 DATA_JSON_PATH = os.path.join(AGENTS_DIR, "database", "assistants.json")
@@ -210,7 +211,8 @@ def generate_docs():
     os.makedirs(SYSTEM_PROMPTS_DIR, exist_ok=True)
     
     # Query B: Generate ASISTANT.md
-    assistant_md_path = os.path.join(AGENTS_DIR, "ASISTANT.md")
+    os.makedirs(PRODUCTS_DIR, exist_ok=True)
+    assistant_md_path = os.path.join(PRODUCTS_DIR, "ASISTANT.md")
     with open(assistant_md_path, 'w', encoding='utf-8') as f:
         f.write("# List of Assistant\n\n")
         f.write("Pilih asisten AI spesialis yang sesuai dengan kebutuhan bisnis dan marketing kamu.\n\n")

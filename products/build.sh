@@ -6,7 +6,7 @@ set -e
 
 # Base Directories
 PROJECT_ROOT="$(pwd)"
-PRODUCTS_DIR=".docs/products"
+PRODUCTS_DIR="products"
 BASIC_OUT="$PRODUCTS_DIR/delivery/basic"
 PRO_OUT="$PRODUCTS_DIR/delivery/pro"
 SKILLS_DIR="$PRODUCTS_DIR/skills"
