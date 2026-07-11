@@ -9,10 +9,10 @@ PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 PRODUCTS_DIR="$PROJECT_ROOT/products"
 BASIC_OUT="$PRODUCTS_DIR/delivery/basic"
 PRO_OUT="$PRODUCTS_DIR/delivery/pro"
-SKILLS_DIR="$PRODUCTS_DIR/skills"
 PUBLIC_CHAR_DIR="$PROJECT_ROOT/public/character"
 CODEX_MARKETPLACE_DIR="$PRODUCTS_DIR/codex-plugin-marketplace"
 CODEX_PLUGIN_DIR="$CODEX_MARKETPLACE_DIR/plugins/aipedia-specialists"
+SKILLS_DIR="$CODEX_PLUGIN_DIR/skills"
 
 # Ensure output directories exist
 mkdir -p "$BASIC_OUT"
@@ -84,18 +84,13 @@ for skill_path in "$SKILLS_DIR"/*; do
     
     # Zip it
     cd "$tmp_skill_dir"
-    zip -r "$PROJECT_ROOT/$PRO_OUT/skills/$skill_name.zip" ./*
+    zip -r "$PRO_OUT/skills/$skill_name.zip" ./*
     cd "$PROJECT_ROOT"
     rm -rf "$tmp_skill_dir"
   fi
 done
 
 echo "=> Assembling Codex plugin marketplace..."
-# The marketplace has a single plugin that contains the router and every specialist.
-# Rebuild this directory from products/skills so the installed plugin never contains stale skills.
-rm -rf "$CODEX_PLUGIN_DIR/skills"
-mkdir -p "$CODEX_PLUGIN_DIR/skills"
-cp -R "$SKILLS_DIR"/. "$CODEX_PLUGIN_DIR/skills/"
 # Keep this preflight portable: product customers should not need Codex's
 # internal plugin-creator files just to build the delivery package.
 python3 -m json.tool "$CODEX_PLUGIN_DIR/.codex-plugin/plugin.json" >/dev/null
@@ -111,8 +106,11 @@ cp -R "$CODEX_MARKETPLACE_DIR" "$PRO_OUT/codex-plugin-marketplace"
 echo "=> Zipping Pro Package..."
 cd "$PRO_OUT"
 rm -f aipedia-asistant_v1.1.zip
-zip -r aipedia-asistant_v1.1.zip GUIDE_Pro.pdf ASISTANT.pdf skills codex-plugin-marketplace
-rm -rf GUIDE_Pro.pdf ASISTANT.pdf skills codex-plugin-marketplace
+cp "$PRODUCTS_DIR/install.sh" .
+cp "$PRODUCTS_DIR/install.bat" .
+chmod +x install.sh
+zip -r aipedia-asistant_v1.1.zip GUIDE_Pro.pdf ASISTANT.pdf skills codex-plugin-marketplace install.sh install.bat
+rm -rf GUIDE_Pro.pdf ASISTANT.pdf skills codex-plugin-marketplace install.sh install.bat
 cd "$PROJECT_ROOT"
 
 echo "=================================================="
