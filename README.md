@@ -10,13 +10,13 @@ This repository contains both the web frontend and the product delivery pipeline
 - `products/` - The generated deliverables (PDFs, ZIPs) and the build scripts.
   - `products/delivery/` - **The final products ready to be distributed to customers.** This is where the generated `.zip` files (Basic and Pro bundles) are outputted.
   - `products/skills/` - The raw markdown files and plugins for the Pro bundle.
-- `.docs/` - Internal knowledge base, detailed documentation, and system prompts.
+- `_docs/` - Internal knowledge base, detailed documentation, and system prompts.
 - `scripts/` - Python automation scripts for generating assets and configurations.
 
 ## Single Source of Truth
 
 The core data for all AI assistants (names, roles, pricing, etc.) is centrally managed in:
-**`📍 .docs/database/assistants.json`**
+**`📍 _docs/database/assistants.json`**
 
 This JSON file drives the Astro UI, PDF generation, and internal prompts. **Do not hardcode character details in components.**
 
@@ -43,7 +43,7 @@ yarn dev
 This project operates as an automated pipeline. Whenever you need to add a new AI Assistant or update an existing one, follow this workflow:
 
 ### 1. Update the Database
-Always start by modifying `.docs/database/assistants.json`. This is the only place you should manually type out copy, roles, and pricing.
+Always start by modifying `_docs/database/assistants.json`. This is the only place you should manually type out copy, roles, and pricing.
 
 ### 2. Sync the System
 Run the synchronization command to push your JSON changes into the Astro frontend, product markdown files, and internal prompts.
@@ -54,7 +54,7 @@ make project-generate-all
 ### 3. Generate & Optimize Assets
 If you added a new assistant, you need a character image:
 1. Run `make project-visual-prompt` to get the Midjourney/DALL-E prompt.
-2. Generate the image and place the raw transparent PNG in `.docs/assets/raw_icons/`.
+2. Generate the image and place the raw transparent PNG in `_docs/assets/raw_icons/`.
 3. Compress and move it to the public folder by running:
 ```bash
 make project-compress
@@ -84,4 +84,4 @@ Start a new Codex task after installation so Codex loads the newly installed ski
 
 ---
 
-For more detailed documentation on business strategies, prompt engineering, or architecture, please refer to [`.docs/SUMMARY.md`](.docs/SUMMARY.md).
+For more detailed documentation on business strategies, prompt engineering, or architecture, please refer to [`_docs/SUMMARY.md`](_docs/SUMMARY.md).

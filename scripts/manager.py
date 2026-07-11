@@ -11,7 +11,7 @@ from PIL import Image
 # ==========================================
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.dirname(SCRIPT_DIR)
-AGENTS_DIR = os.path.join(PROJECT_ROOT, ".docs")
+AGENTS_DIR = os.path.join(PROJECT_ROOT, "_docs")
 PRODUCTS_DIR = os.path.join(PROJECT_ROOT, "products")
 
 # MASTER DATABASE (SSOT)
@@ -22,7 +22,7 @@ WEB_JSON_PATH = os.path.join(PROJECT_ROOT, "src", "data", "characters.json")
 RAW_ICONS_DIR = os.path.join(AGENTS_DIR, "assets", "raw_icons")
 PUBLIC_ICONS_DIR = os.path.join(PROJECT_ROOT, "public", "character")
 SYSTEM_PROMPTS_DIR = os.path.join(AGENTS_DIR, "prompts", "system")
-VISUAL_PROMPTS_TXT = os.path.join(AGENTS_DIR, "scripts", "character_image_prompts.txt")
+VISUAL_PROMPTS_TXT = os.path.join(SCRIPT_DIR, "character_image_prompts.txt")
 
 # ==========================================
 # PROMPT TEMPLATE

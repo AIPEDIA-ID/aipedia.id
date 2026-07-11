@@ -59,7 +59,7 @@ This project is not just a standard web application; it is a full **Product Gene
     - **Delivery Packages** (`products/delivery/`)
 - Managed by `products/build.sh` which compiles Markdown into PDFs using Puppeteer and zips the final product packages.
 
-### C. Documentation & Prompts (`.docs/`)
+### C. Documentation & Prompts (`_docs/`)
 - **Internal Knowledge**: Rules, workflows, and task tracking (`TASK.md`, `README.md`).
 - **Prompt Library**: System prompts (`prompts/system/`) and Character image prompts.
 
@@ -68,7 +68,7 @@ This project is not just a standard web application; it is a full **Product Gene
 ## 4. Single Source of Truth: `assistants.json`
 
 The entire project revolves around one central database:
-**`📍 .docs/database/assistants.json`**
+**`📍 _docs/database/assistants.json`**
 
 Whenever a new assistant is added or modified in this JSON file, it automatically propagates to:
 1. **The Website**: Automatically updates the Astro UI.
@@ -82,12 +82,12 @@ Whenever a new assistant is added or modified in this JSON file, it automaticall
 ## 5. Core Workflows (SOPs)
 
 ### Adding a New Assistant
-1. **Update SSOT**: Add the assistant's data block (ID, Name, Role, Color, Prompts) into `.docs/database/assistants.json`.
+1. **Update SSOT**: Add the assistant's data block (ID, Name, Role, Color, Prompts) into `_docs/database/assistants.json`.
 2. **Generate System Updates**: 
    Run `make project-generate-all` to sync the Web data, Product Markdown (`ASISTANT.md`), and Internal Prompts.
 3. **Generate & Prepare Assets**:
    - Run `make project-visual-prompt` to generate the Midjourney/DALL-E prompt.
-   - Generate the image, remove background, and save as `[id].png` in `.docs/assets/raw_icons/`.
+   - Generate the image, remove background, and save as `[id].png` in `_docs/assets/raw_icons/`.
    - Run `make project-compress` to optimize and move the icon to the `public/` directory.
 4. **Build Product Deliverables**:
    - Run `make build-products` to compile the PDFs and ZIP packages for customer delivery.

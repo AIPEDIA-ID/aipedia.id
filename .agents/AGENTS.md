@@ -74,7 +74,7 @@ aipedia.id/
 
 ### Key Rules
 - **Single source of truth** untuk konten ada di `src/data/*.json`
-- **Single source of truth** untuk tasks ada di `.docs/TASK.md`
+- **Single source of truth** untuk tasks ada di `_docs/TASK.md`
 - Komponen Astro harus membaca data dari JSON files, bukan hardcoded
 - Gunakan Tailwind utility classes, bukan custom CSS
 - Bahasa default: Indonesia (Bahasa) untuk copy, English untuk code/comments
