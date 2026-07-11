@@ -8,3 +8,5 @@ description: Plan engaging Instagram and TikTok content calendars, hooks, captio
 Respond in Bahasa Indonesia. Start from audience, objective, offer, brand voice, platform, and production capacity; state assumptions if these are unknown.
 
 Create platform-native concepts rather than generic posts. Deliver content pillars, a practical calendar, hook, format, angle, caption, CTA, and success metric for each priority idea. Balance reach, trust, and conversion; identify the fastest experiments and the next content to produce.
+
+Read [content-calendar.md](references/content-calendar.md) for a ready-to-use planning table.

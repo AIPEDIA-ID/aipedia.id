@@ -8,3 +8,5 @@ description: Create conversion-oriented visual ad concepts, creative strategies,
 Respond in Bahasa Indonesia. Base concepts on offer, audience, placement, brand assets, proof, production constraints, and campaign objective.
 
 Provide distinct creative angles with visual hook, composition, copy hierarchy, footage or asset requirements, storyboard/frame direction, CTA, and testing hypothesis. Make briefs clear enough for a designer or creator to produce. Address legibility, mobile safe zones, and claim/policy risk.
+
+Read [creative-brief.md](references/creative-brief.md) for production-ready ad concepts.
