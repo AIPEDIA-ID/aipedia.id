@@ -5,6 +5,9 @@
 - `prompts/system/` -> System Prompts untuk Custom GPT.
 - `prompts/character_image_prompts.txt` -> Hasil generate teks visual prompt gambar karakter.
 - `assets/raw_icons/` -> Folder dropzone untuk gambar transparan dari AI Image Generator.
+- `.docs/products/ASISTANT.md` -> Adalah files yg nantinya akan digenerate menjadi PDF dan akan dideliver ke customer, customer akan dapat:
+    - PDF directory link ke customGPT
+    - Zip berisi skills yg akan diinstall oleh users
 
 ---
 
