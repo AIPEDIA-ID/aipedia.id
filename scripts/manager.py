@@ -20,6 +20,7 @@ DATA_JSON_PATH = os.path.join(AGENTS_DIR, "database", "assistants.json")
 # TARGET OUTPUTS
 WEB_JSON_PATH = os.path.join(PROJECT_ROOT, "src", "data", "characters.json")
 RAW_ICONS_DIR = os.path.join(AGENTS_DIR, "assets", "raw_icons")
+VENDOR_ICONS_DIR = os.path.join(AGENTS_DIR, "assets", "vendor_icons")
 PUBLIC_ICONS_DIR = os.path.join(PROJECT_ROOT, "public", "character")
 SYSTEM_PROMPTS_DIR = os.path.join(AGENTS_DIR, "prompts", "system")
 VISUAL_PROMPTS_TXT = os.path.join(SCRIPT_DIR, "character_image_prompts.txt")
@@ -82,10 +83,18 @@ def compress_icons(max_width=800, max_height=800, quality=85, target_size_kb=100
     for char in characters:
         char_id = char.get('id')
         filename = f"{char_id}.png"
-        source_path = os.path.join(RAW_ICONS_DIR, filename)
         dest_path = os.path.join(PUBLIC_ICONS_DIR, filename)
         
-        if not os.path.exists(source_path):
+        # Check multiple source directories in order of priority
+        source_dirs = [VENDOR_ICONS_DIR, RAW_ICONS_DIR]
+        source_path = None
+        for s_dir in source_dirs:
+            p = os.path.join(s_dir, filename)
+            if os.path.exists(p):
+                source_path = p
+                break
+                
+        if not source_path:
             continue
             
         try:
@@ -153,12 +162,18 @@ def status():
         name = char.get('name')
         print(f"[{name}]")
         
-        # Check raw icon
-        raw_icon = os.path.join(RAW_ICONS_DIR, f"{char_id}.png")
-        if os.path.exists(raw_icon):
-            print("  ✓ Raw Icon found")
+        # Check source icon (from vendor or raw)
+        source_dirs = [VENDOR_ICONS_DIR, RAW_ICONS_DIR]
+        source_icon_found = False
+        for s_dir in source_dirs:
+            if os.path.exists(os.path.join(s_dir, f"{char_id}.png")):
+                source_icon_found = True
+                break
+                
+        if source_icon_found:
+            print("  ✓ Source Icon found")
         else:
-            print("  ✗ Raw Icon MISSING")
+            print("  ✗ Source Icon MISSING")
             all_good = False
             
         # Check public compressed icon
