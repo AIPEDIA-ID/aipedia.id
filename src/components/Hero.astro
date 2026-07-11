@@ -92,21 +92,6 @@ import heroData from "../data/hero.json";
             }
           >
             {button.text}
-            {button.isPrimary && (
-              <svg
-                class="w-4 h-4 group-hover:translate-x-1 transition-transform"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M13 7l5 5m0 0l-5 5m5-5H6"
-                />
-              </svg>
-            )}
           </a>
         ))
       }
@@ -115,7 +100,7 @@ import heroData from "../data/hero.json";
     <!-- Social Proof -->
     {
       heroData.socialProof && (
-        <div class="flex flex-col items-center gap-4">
+        <div class="flex flex-col items-center gap-4 mb-10">
           <div class="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
             <div class="flex -space-x-2">
               {heroData.avatars.map((avatar, index) => (
@@ -131,6 +116,20 @@ import heroData from "../data/hero.json";
         </div>
       )
     }
+
+    <!-- Trust Logos -->
+    <div class="flex items-center justify-center gap-6 md:gap-8 opacity-70">
+      <img
+        src="/vendors/chatgpt-white.png"
+        alt="ChatGPT"
+        class="h-14 md:h-16 object-contain invert dark:invert-0"
+      />
+      <img
+        src="/vendors/claude.png"
+        alt="Claude"
+        class="h-14 md:h-16 object-contain"
+      />
+    </div>
   </div>
 </section>
 
