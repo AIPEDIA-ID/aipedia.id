@@ -25,13 +25,14 @@ echo "=================================================="
 # Fix image paths in ASISTANT.md temporarily for PDF generation
 echo "=> Adjusting image paths in ASISTANT.md for PDF generation..."
 if grep -q '\.\./public' "$PRODUCTS_DIR/ASISTANT.md"; then
-  sed -i.bak 's|\.\./public|../../public|g' "$PRODUCTS_DIR/ASISTANT.md"
+  cp "$PRODUCTS_DIR/ASISTANT.md" /tmp/aipedia_asistant_backup.md
+  sed 's|\.\./public|../../public|g' /tmp/aipedia_asistant_backup.md > "$PRODUCTS_DIR/ASISTANT.md"
 fi
 
-# Ensure cleanup of .bak file happens even if the script fails
+# Ensure cleanup happens even if the script fails
 cleanup() {
-  if [ -f "$PRODUCTS_DIR/ASISTANT.md.bak" ]; then
-    mv "$PRODUCTS_DIR/ASISTANT.md.bak" "$PRODUCTS_DIR/ASISTANT.md"
+  if [ -f /tmp/aipedia_asistant_backup.md ]; then
+    mv /tmp/aipedia_asistant_backup.md "$PRODUCTS_DIR/ASISTANT.md"
   fi
 }
 trap cleanup EXIT
@@ -60,17 +61,37 @@ echo "=> Assembling Pro Package..."
 mv "$PRODUCTS_DIR/GUIDE_Pro.pdf" "$PRO_OUT/"
 mv "$PRODUCTS_DIR/ASISTANT.pdf" "$PRO_OUT/"
 
-# Copy skills folder
-cp -r "$SKILLS_DIR"/* "$PRO_OUT/skills/" || true
-
-# Copy character icons
-cp -r "$PUBLIC_CHAR_DIR"/* "$PRO_OUT/character/" || true
+# Prepare skills as individual zips
+mkdir -p "$PRO_OUT/skills"
+for skill_path in "$SKILLS_DIR"/*; do
+  if [ -d "$skill_path" ]; then
+    skill_name=$(basename "$skill_path")
+    # Create a temporary folder for the zip contents
+    tmp_skill_dir="/tmp/aipedia_skill_$skill_name"
+    rm -rf "$tmp_skill_dir"
+    mkdir -p "$tmp_skill_dir"
+    
+    # Copy skill contents
+    cp -r "$skill_path"/* "$tmp_skill_dir/"
+    
+    # Copy icon as icon.png so users can upload it to Custom GPT
+    if [ -f "$PROJECT_ROOT/$PUBLIC_CHAR_DIR/$skill_name.png" ]; then
+      cp "$PROJECT_ROOT/$PUBLIC_CHAR_DIR/$skill_name.png" "$tmp_skill_dir/icon.png"
+    fi
+    
+    # Zip it
+    cd "$tmp_skill_dir"
+    zip -r "$PROJECT_ROOT/$PRO_OUT/skills/$skill_name.zip" ./*
+    cd "$PROJECT_ROOT"
+    rm -rf "$tmp_skill_dir"
+  fi
+done
 
 echo "=> Zipping Pro Package..."
 cd "$PRO_OUT"
 rm -f aipedia-asistant_v1.1.zip
-zip -r aipedia-asistant_v1.1.zip GUIDE_Pro.pdf ASISTANT.pdf skills character
-rm -rf GUIDE_Pro.pdf ASISTANT.pdf skills character
+zip -r aipedia-asistant_v1.1.zip GUIDE_Pro.pdf ASISTANT.pdf skills
+rm -rf GUIDE_Pro.pdf ASISTANT.pdf skills
 cd "$PROJECT_ROOT"
 
 echo "=================================================="

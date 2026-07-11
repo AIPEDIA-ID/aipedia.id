@@ -20,3 +20,6 @@ visual-prompt:
 
 compress:
 	@python3 scripts/manager.py compress-icons
+
+build-products:
+	bash .docs/products/build.sh
