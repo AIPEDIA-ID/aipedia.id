@@ -52,324 +52,470 @@ const { sectionHeader, characters, categories } = charactersData;
 
     <!-- Mobile: Auto-scroll Carousel | Desktop: Grid -->
     <div class="relative">
-      <!-- Mobile Carousel -->
+      <!-- Mobile Marquee (Hidden on desktop) -->
       <div
-        class="md:hidden overflow-x-auto overflow-y-hidden pb-4 -mx-4 character-scroll"
-        style="scrollbar-width: none; -ms-overflow-style: none;"
+        class="md:hidden flex flex-col gap-4 w-full overflow-hidden mask-horizontal pb-4 pt-2 -mx-4 px-4"
       >
-        <div
-          class="grid grid-rows-2 grid-flow-col gap-3 px-4 character-scroll-content"
-          style="width: max-content;"
-        >
+        <!-- Mobile Row 1 (Left) -->
+        <div class="flex gap-3 w-max animate-marquee-left">
           {
-            characters.map((character, index) => (
-              <div
-                class="character-card floating-card group p-4 rounded-xl backdrop-blur-md transition-all duration-300 shadow-xl block"
-                data-category={character.category}
-                style={`--theme-color: ${character.themeColor};`}
-              >
-                <div class="flex flex-col items-center text-center">
-                  {/* Character Image */}
-                  <img
-                    src={character.image}
-                    alt={character.name}
-                    class="w-20 h-20 rounded-full mb-2 object-cover"
-                    style={`border: 2px solid ${character.themeColor}60;`}
-                  />
-                  <h3
-                    class="text-base font-semibold mb-1"
-                    style={`color: ${character.themeColor}`}
-                  >
-                    {character.name}
-                  </h3>
-                  <p class="text-xs text-gray-500 mb-1">{character.role}</p>
-                  <p class="text-xs text-gray-500 dark:text-gray-400 line-clamp-2">
-                    {character.description}
-                  </p>
+            [...characters.slice(0, 9), ...characters.slice(0, 9)].map(
+              (character) => (
+                <div
+                  class="character-card floating-card group p-2 rounded-xl backdrop-blur-md transition-all duration-300 shadow-xl block w-[160px] flex-shrink-0"
+                  data-category={character.category}
+                  style={`--theme-color: ${character.themeColor};`}
+                >
+                  <div class="flex flex-col items-center text-center">
+                    {/* Character Image */}
+                    <img
+                      src={character.image}
+                      alt={character.name}
+                      class="w-20 h-20 rounded-full mb-2 object-cover"
+                      style={`border: 2px solid ${character.themeColor}60;`}
+                      loading="lazy"
+                    />
+                    <h3
+                      class="text-base font-semibold mb-1"
+                      style={`color: ${character.themeColor}`}
+                    >
+                      {character.name}
+                    </h3>
+                    <p class="text-xs text-gray-500 mb-1">{character.role}</p>
+                    <p class="text-xs text-gray-500 dark:text-gray-400 line-clamp-2">
+                      {character.description}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            ))
+              ),
+            )
+          }
+        </div>
+
+        <!-- Mobile Row 2 (Right) -->
+        <div class="flex gap-3 w-max animate-marquee-right">
+          {
+            [...characters.slice(9, 17), ...characters.slice(9, 17)].map(
+              (character) => (
+                <div
+                  class="character-card floating-card group p-2 rounded-xl backdrop-blur-md transition-all duration-300 shadow-xl block w-[160px] flex-shrink-0"
+                  data-category={character.category}
+                  style={`--theme-color: ${character.themeColor};`}
+                >
+                  <div class="flex flex-col items-center text-center">
+                    {/* Character Image */}
+                    <img
+                      src={character.image}
+                      alt={character.name}
+                      class="w-20 h-20 rounded-full mb-2 object-cover"
+                      style={`border: 2px solid ${character.themeColor}60;`}
+                      loading="lazy"
+                    />
+                    <h3
+                      class="text-base font-semibold mb-1"
+                      style={`color: ${character.themeColor}`}
+                    >
+                      {character.name}
+                    </h3>
+                    <p class="text-xs text-gray-500 mb-1">{character.role}</p>
+                    <p class="text-xs text-gray-500 dark:text-gray-400 line-clamp-2">
+                      {character.description}
+                    </p>
+                  </div>
+                </div>
+              ),
+            )
           }
         </div>
       </div>
 
-      <!-- Desktop Grid (Static) -->
+      <!-- Desktop Marquee (Hidden on mobile) -->
       <div
-        class="hidden md:grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 md:gap-5"
+        class="hidden md:flex flex-col gap-5 w-full overflow-hidden mask-horizontal pb-4 pt-2 -mx-4 px-4 sm:-mx-8 sm:px-8"
       >
-        {
-          characters.map((character) => (
-            <div
-              class="character-card floating-card group p-4 rounded-xl backdrop-blur-md transition-all duration-300 shadow-xl"
-              data-category={character.category}
-              style={`--theme-color: ${character.themeColor};`}
-            >
-              <div class="text-center">
-                <a
-                  href={`/c/${character.id}`}
-                  class="text-2xl font-semibold mb-2 hover:opacity-80 transition-opacity"
-                  style={`color: ${character.themeColor}`}
-                >
-                  {character.name}
-                </a>
-              </div>
-              <div class="flex justify-center mb-2">
+        <!-- Row 1 (Right) -->
+        <div
+          class="flex gap-4 w-max animate-marquee-right hover:[animation-play-state:paused]"
+        >
+          {
+            [...characters.slice(0, 6), ...characters.slice(0, 6)].map(
+              (character) => (
                 <div
-                  class="w-36 h-36 rounded-full overflow-hidden border-3 transition-all duration-300"
-                  style={`border-color: ${character.themeColor}50;`}
+                  class="character-card floating-card group p-2 rounded-xl backdrop-blur-md transition-all duration-300 shadow-xl flex-shrink-0 w-[260px]"
+                  data-category={character.category}
+                  style={`--theme-color: ${character.themeColor};`}
                 >
-                  <img
-                    src={character.image}
-                    alt={character.name}
-                    class="w-full h-full object-contain"
-                    loading="lazy"
-                  />
+                  <div class="text-center">
+                    <a
+                      href={`/c/${character.id}`}
+                      class="text-xl font-semibold mb-2 hover:opacity-80 transition-opacity"
+                      style={`color: ${character.themeColor}`}
+                    >
+                      {character.name}
+                    </a>
+                  </div>
+                  <div class="flex justify-center mb-2 mt-2">
+                    <div
+                      class="w-28 h-28 rounded-full overflow-hidden border-3 transition-all duration-300"
+                      style={`border-color: ${character.themeColor}50;`}
+                    >
+                      <img
+                        src={character.image}
+                        alt={character.name}
+                        class="w-full h-full object-contain"
+                        loading="lazy"
+                      />
+                    </div>
+                  </div>
+                  <div class="text-center">
+                    <p class="text-sm font-medium mb-2 text-gray-800 dark:text-white">
+                      {character.role}
+                    </p>
+                    <p class="text-xs text-gray-500 dark:text-gray-400 line-clamp-3">
+                      {character.description}
+                    </p>
+                  </div>
                 </div>
-              </div>
-              <div class="text-center">
-                <p class="text-base font-medium mb-3 text-gray-800 dark:text-white">
-                  {character.role}
-                </p>
-                <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">
-                  {character.description}
-                </p>
-              </div>
-            </div>
-          ))
-        }
+              ),
+            )
+          }
+        </div>
+
+        <!-- Row 2 (Left) -->
+        <div
+          class="flex gap-4 w-max animate-marquee-left hover:[animation-play-state:paused]"
+        >
+          {
+            [...characters.slice(6, 12), ...characters.slice(6, 12)].map(
+              (character) => (
+                <div
+                  class="character-card floating-card group p-2 rounded-xl backdrop-blur-md transition-all duration-300 shadow-xl flex-shrink-0 w-[260px]"
+                  data-category={character.category}
+                  style={`--theme-color: ${character.themeColor};`}
+                >
+                  <div class="text-center">
+                    <a
+                      href={`/c/${character.id}`}
+                      class="text-xl font-semibold mb-2 hover:opacity-80 transition-opacity"
+                      style={`color: ${character.themeColor}`}
+                    >
+                      {character.name}
+                    </a>
+                  </div>
+                  <div class="flex justify-center mb-2 mt-2">
+                    <div
+                      class="w-28 h-28 rounded-full overflow-hidden border-3 transition-all duration-300"
+                      style={`border-color: ${character.themeColor}50;`}
+                    >
+                      <img
+                        src={character.image}
+                        alt={character.name}
+                        class="w-full h-full object-contain"
+                        loading="lazy"
+                      />
+                    </div>
+                  </div>
+                  <div class="text-center">
+                    <p class="text-sm font-medium mb-2 text-gray-800 dark:text-white">
+                      {character.role}
+                    </p>
+                    <p class="text-xs text-gray-500 dark:text-gray-400 line-clamp-3">
+                      {character.description}
+                    </p>
+                  </div>
+                </div>
+              ),
+            )
+          }
+        </div>
+
+        <!-- Row 3 (Right) -->
+        <div
+          class="flex gap-4 w-max animate-marquee-right hover:[animation-play-state:paused]"
+        >
+          {
+            [...characters.slice(12, 17), ...characters.slice(12, 17)].map(
+              (character) => (
+                <div
+                  class="character-card floating-card group p-2 rounded-xl backdrop-blur-md transition-all duration-300 shadow-xl flex-shrink-0 w-[260px]"
+                  data-category={character.category}
+                  style={`--theme-color: ${character.themeColor};`}
+                >
+                  <div class="text-center">
+                    <a
+                      href={`/c/${character.id}`}
+                      class="text-xl font-semibold mb-2 hover:opacity-80 transition-opacity"
+                      style={`color: ${character.themeColor}`}
+                    >
+                      {character.name}
+                    </a>
+                  </div>
+                  <div class="flex justify-center mb-2 mt-2">
+                    <div
+                      class="w-28 h-28 rounded-full overflow-hidden border-3 transition-all duration-300"
+                      style={`border-color: ${character.themeColor}50;`}
+                    >
+                      <img
+                        src={character.image}
+                        alt={character.name}
+                        class="w-full h-full object-contain"
+                        loading="lazy"
+                      />
+                    </div>
+                  </div>
+                  <div class="text-center">
+                    <p class="text-sm font-medium mb-2 text-gray-800 dark:text-white">
+                      {character.role}
+                    </p>
+                    <p class="text-xs text-gray-500 dark:text-gray-400 line-clamp-3">
+                      {character.description}
+                    </p>
+                  </div>
+                </div>
+              ),
+            )
+          }
+        </div>
+      </div>
+
+      <!-- Bottom CTA -->
+      <div class="text-center mt-12">
+        <!-- <p class="text-gray-300 mb-4">Tidak yakin mau pilih yang mana?</p> -->
+        <a
+          href="#pricing"
+          class="inline-flex items-center gap-2 px-6 py-3 bg-white/50 hover:bg-white/80 dark:bg-white/5 dark:hover:bg-white/10 text-gray-900 dark:text-white font-medium rounded-lg border border-gray-200 hover:border-gray-300 dark:border-white/20 dark:hover:border-white/30 transition-all duration-200 backdrop-blur-sm"
+        >
+          Lihat Paket
+          <svg
+            class="w-4 h-4"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+          </svg>
+        </a>
       </div>
     </div>
 
-    <!-- Bottom CTA -->
-    <div class="text-center mt-12">
-      <!-- <p class="text-gray-300 mb-4">Tidak yakin mau pilih yang mana?</p> -->
-      <a
-        href="#pricing"
-        class="inline-flex items-center gap-2 px-6 py-3 bg-white/50 hover:bg-white/80 dark:bg-white/5 dark:hover:bg-white/10 text-gray-900 dark:text-white font-medium rounded-lg border border-gray-200 hover:border-gray-300 dark:border-white/20 dark:hover:border-white/30 transition-all duration-200 backdrop-blur-sm"
-      >
-        Lihat Paket
-        <svg
-          class="w-4 h-4"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
-        </svg>
-      </a>
-    </div>
-  </div>
+    <script>
+      // Category filtering functionality
+      document.addEventListener("DOMContentLoaded", function () {
+        const filterButtons = document.querySelectorAll(".category-filter");
+        // ONLY select desktop grid cards, NOT mobile carousel
+        const desktopGrid = document.querySelector(".hidden.md\\:grid");
+        const characterCards = desktopGrid
+          ? desktopGrid.querySelectorAll(".character-card")
+          : [];
 
-  <script>
-    // Auto-scroll mobile carousel with smooth loop
-    document.addEventListener("DOMContentLoaded", () => {
-      const scrollContainer = document.querySelector(".character-scroll");
-      const scrollContent = document.querySelector(".character-scroll-content");
+        filterButtons.forEach((button) => {
+          button.addEventListener("click", function (this: HTMLElement) {
+            const category = this.getAttribute("data-category");
 
-      if (!scrollContainer || !scrollContent) return;
-
-      // Clone items for seamless infinite scroll
-      const items = scrollContent.innerHTML;
-      scrollContent.innerHTML = items + items; // Duplicate for infinite effect
-
-      let paused = false;
-      let timeout: any;
-      const scrollSpeed = 1;
-
-      // Auto-scroll
-      setInterval(() => {
-        if (paused) return;
-
-        scrollContainer.scrollLeft += scrollSpeed;
-
-        // Seamless loop: jump back invisibly
-        const maxScroll = scrollContainer.scrollWidth / 2;
-        if (scrollContainer.scrollLeft >= maxScroll) {
-          scrollContainer.scrollLeft = 0;
-        }
-      }, 30);
-
-      // Pause on touch
-      scrollContainer.addEventListener("touchstart", () => {
-        paused = true;
-        clearTimeout(timeout);
-      });
-
-      scrollContainer.addEventListener("touchend", () => {
-        timeout = setTimeout(() => (paused = false), 2000);
-      });
-    });
-
-    // Category filtering functionality
-    document.addEventListener("DOMContentLoaded", function () {
-      const filterButtons = document.querySelectorAll(".category-filter");
-      // ONLY select desktop grid cards, NOT mobile carousel
-      const desktopGrid = document.querySelector(".hidden.md\\:grid");
-      const characterCards = desktopGrid
-        ? desktopGrid.querySelectorAll(".character-card")
-        : [];
-
-      filterButtons.forEach((button) => {
-        button.addEventListener("click", function (this: HTMLElement) {
-          const category = this.getAttribute("data-category");
-
-          // Update active button
-          filterButtons.forEach((btn) => {
-            btn.classList.remove("active", "bg-primary-500", "text-white");
-            btn.classList.add(
+            // Update active button
+            filterButtons.forEach((btn) => {
+              btn.classList.remove("active", "bg-primary-500", "text-white");
+              btn.classList.add(
+                "bg-white/50",
+                "dark:bg-white/10",
+                "text-gray-600",
+                "dark:text-gray-300",
+              );
+            });
+            this.classList.add("active", "bg-primary-500", "text-white");
+            this.classList.remove(
               "bg-white/50",
               "dark:bg-white/10",
               "text-gray-600",
               "dark:text-gray-300",
             );
-          });
-          this.classList.add("active", "bg-primary-500", "text-white");
-          this.classList.remove(
-            "bg-white/50",
-            "dark:bg-white/10",
-            "text-gray-600",
-            "dark:text-gray-300",
-          );
 
-          // Filter characters (desktop grid only)
-          characterCards.forEach((card) => {
-            const htmlCard = card as HTMLElement;
-            if (
-              category === "all" ||
-              card.getAttribute("data-category") === category
-            ) {
-              htmlCard.style.display = "block";
-              htmlCard.style.animation = "fadeIn 0.3s ease-in-out";
-            } else {
-              htmlCard.style.display = "none";
-            }
+            // Filter characters (desktop grid only)
+            characterCards.forEach((card) => {
+              const htmlCard = card as HTMLElement;
+              if (
+                category === "all" ||
+                card.getAttribute("data-category") === category
+              ) {
+                htmlCard.style.display = "block";
+                htmlCard.style.animation = "fadeIn 0.3s ease-in-out";
+              } else {
+                htmlCard.style.display = "none";
+              }
+            });
           });
         });
-      });
 
-      // Dynamic hover effects based on themeColor (REPLACED by CSS)
-      /*
+        // Dynamic hover effects based on themeColor (REPLACED by CSS)
+        /*
       Deleted duplicated JS logic for hover effects.
       Now handled purely by CSS .character-card:hover for better performance and consistency.
     */
-    });
-  </script>
+      });
+    </script>
 
-  <style>
-    /* Card Styles with Theme Support */
-    .character-card {
-      /* Dynamic properties */
-      border: 1px solid color-mix(in srgb, var(--theme-color), transparent 70%);
-      box-shadow: 0 4px 20px
-        color-mix(in srgb, var(--theme-color), transparent 90%);
-
-      /* Light mode background: Clean white with subtle theme tint */
-      background: linear-gradient(
-        135deg,
-        rgba(255, 255, 255, 0.9) 0%,
-        color-mix(in srgb, var(--theme-color), white 90%) 100%
-      );
-    }
-
-    /* Mobile specific width */
-    @media (max-width: 768px) {
+    <style>
+      /* Card Styles with Theme Support */
       .character-card {
-        width: 160px;
+        /* Dynamic properties */
+        border: 1px solid
+          color-mix(in srgb, var(--theme-color), transparent 70%);
+        box-shadow: 0 4px 20px
+          color-mix(in srgb, var(--theme-color), transparent 90%);
+
+        /* Light mode background: Clean white with subtle theme tint */
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.9) 0%,
+          color-mix(in srgb, var(--theme-color), white 90%) 100%
+        );
       }
-    }
 
-    /* Dark Mode Overrides */
-    :global(.dark) .character-card {
-      border: 1px solid color-mix(in srgb, var(--theme-color), transparent 60%);
-      box-shadow: 0 4px 20px
-        color-mix(in srgb, var(--theme-color), transparent 80%);
-
-      /* Dark mode background: Glassy streak effect */
-      background: linear-gradient(
-        90deg,
-        rgba(255, 255, 255, 0.15) 0%,
-        color-mix(in srgb, var(--theme-color), transparent 80%) 50%,
-        rgba(255, 255, 255, 0.15) 100%
-      );
-    }
-
-    /* Hover Effects */
-    .character-card:hover {
-      transform: translateY(-5px);
-      filter: brightness(1.02);
-      border-color: color-mix(in srgb, var(--theme-color), transparent 40%);
-      box-shadow: 0 10px 30px
-        color-mix(in srgb, var(--theme-color), transparent 85%);
-    }
-
-    :global(.dark) .character-card:hover {
-      box-shadow: 0 8px 30px
-        color-mix(in srgb, var(--theme-color), transparent 80%);
-    }
-
-    .character-card:hover .w-36 {
-      transform: scale(1.05);
-    }
-
-    /* Hide scrollbar for mobile carousel - WebKit browsers */
-    .overflow-x-auto::-webkit-scrollbar {
-      display: none;
-    }
-
-    /* Character cards floating animation */
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(10px);
+      /* Mobile specific width */
+      @media (max-width: 768px) {
+        .character-card {
+          width: 160px;
+        }
       }
-      to {
-        opacity: 1;
-        transform: translateY(0);
+
+      /* Dark Mode Overrides */
+      :global(.dark) .character-card {
+        border: 1px solid
+          color-mix(in srgb, var(--theme-color), transparent 60%);
+        box-shadow: 0 4px 20px
+          color-mix(in srgb, var(--theme-color), transparent 80%);
+
+        /* Dark mode background: Glassy streak effect */
+        background: linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0.15) 0%,
+          color-mix(in srgb, var(--theme-color), transparent 80%) 50%,
+          rgba(255, 255, 255, 0.15) 100%
+        );
       }
-    }
 
-    @keyframes simpleGlass {
-      0%,
-      100% {
-        background-position: 0% 50%;
+      /* Hover Effects */
+      .character-card:hover {
+        transform: translateY(-5px);
+        filter: brightness(1.02);
+        border-color: color-mix(in srgb, var(--theme-color), transparent 40%);
+        box-shadow: 0 10px 30px
+          color-mix(in srgb, var(--theme-color), transparent 85%);
       }
-      50% {
-        background-position: 100% 50%;
+
+      :global(.dark) .character-card:hover {
+        box-shadow: 0 8px 30px
+          color-mix(in srgb, var(--theme-color), transparent 80%);
       }
-    }
 
-    .floating-card {
-      background-size: 200% 100%;
-      animation: simpleGlass 4s ease-in-out infinite;
-    }
+      .character-card:hover .w-36 {
+        transform: scale(1.05);
+      }
 
-    .floating-card:nth-child(2n) {
-      animation: simpleGlass 5s ease-in-out infinite reverse;
-    }
+      /* Hide scrollbar for mobile carousel - WebKit browsers */
+      .overflow-x-auto::-webkit-scrollbar {
+        display: none;
+      }
 
-    .floating-card:nth-child(3n) {
-      animation: simpleGlass 6s ease-in-out infinite;
-    }
+      /* Character cards floating animation */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
 
-    .floating-card:nth-child(4n) {
-      animation: simpleGlass 4.5s ease-in-out infinite reverse;
-    }
+      @keyframes simpleGlass {
+        0%,
+        100% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+      }
 
-    .floating-card:hover {
-      transform: translateY(-3px);
-    }
+      .floating-card {
+        background-size: 200% 100%;
+        animation: simpleGlass 4s ease-in-out infinite;
+      }
 
-    /* Hover effects akan menggunakan CSS variables yang diset dari themeColor */
-    .floating-card:hover {
-      filter: brightness(1.1);
-    }
+      .floating-card:nth-child(2n) {
+        animation: simpleGlass 5s ease-in-out infinite reverse;
+      }
 
-    .floating-card:hover .w-36 {
-      transform: scale(1.05);
-    }
-  </style>
+      .floating-card:nth-child(3n) {
+        animation: simpleGlass 6s ease-in-out infinite;
+      }
+
+      .floating-card:nth-child(4n) {
+        animation: simpleGlass 4.5s ease-in-out infinite reverse;
+      }
+
+      .floating-card:hover {
+        transform: translateY(-3px);
+      }
+
+      /* Hover effects akan menggunakan CSS variables yang diset dari themeColor */
+      .floating-card:hover {
+        filter: brightness(1.1);
+      }
+
+      .floating-card:hover .w-36 {
+        transform: scale(1.05);
+      }
+
+      /* Marquee Animations */
+      .animate-marquee-right {
+        animation: marquee-right 40s linear infinite;
+      }
+      .animate-marquee-left {
+        animation: marquee-left 40s linear infinite;
+      }
+
+      @keyframes marquee-right {
+        from {
+          transform: translateX(-50%);
+        }
+        to {
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes marquee-left {
+        from {
+          transform: translateX(0);
+        }
+        to {
+          transform: translateX(-50%);
+        }
+      }
+
+      /* Mask to fade edges of marquee */
+      .mask-horizontal {
+        mask-image: linear-gradient(
+          to right,
+          transparent,
+          black 10%,
+          black 90%,
+          transparent
+        );
+        -webkit-mask-image: linear-gradient(
+          to right,
+          transparent,
+          black 10%,
+          black 90%,
+          transparent
+        );
+      }
+    </style>
+  </div>
 </section>
