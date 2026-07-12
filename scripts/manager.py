@@ -29,7 +29,7 @@ VISUAL_PROMPTS_TXT = os.path.join(SCRIPT_DIR, "character_image_prompts.txt")
 # PROMPT TEMPLATE
 # ==========================================
 PROMPT_GENERATOR = """
-Create a matte-glossy, chibi 3D robot mascot named "{name}", infer gender expression as "{gender}" and persona from the name; keep it friendly, competent, and trustworthy for an AI Employee Assistant brand used in tools like "{role}".
+Create a matte-glossy, chibi 3D robot mascot named "{name}", infer gender expression as "{gender}" and persona from the name; keep it friendly, competent, and trustworthy for an AI Employee Specialist brand used in tools like "{role}".
 Primary theme color = {themeColor} (hex); apply as dominant body panels, trims, and accents with neutral complements (charcoal gray, slate, white) for contrast and accessibility.
 Design: rounded shapes, soft bevels, face as black matte frosted glass display with cyan glow eyes, welcoming open-arm pose, clean silhouette readable at small sizes (icon usage).
 Accessories driven by '{description}': but keep simple, add optional tools/props, UI glyphs, or wearables that communicate the role without text (e.g., analytics icons, dashboards, checklists), but keep minimalist and brand-safe.
@@ -229,7 +229,7 @@ def generate_docs():
     os.makedirs(PRODUCTS_DIR, exist_ok=True)
     assistant_md_path = os.path.join(PRODUCTS_DIR, "ASISTANT.md")
     with open(assistant_md_path, 'w', encoding='utf-8') as f:
-        f.write("# List of Assistant\n\n")
+        f.write("# List of Specialist\n\n")
         f.write("Pilih asisten AI spesialis yang sesuai dengan kebutuhan bisnis dan marketing kamu.\n\n")
         for char in characters:
             name = char.get("name", "")
@@ -282,7 +282,7 @@ def generate_all():
     print("✅ All artifacts generated successfully from SSOT!")
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Aipedia Assistant Manager")
+    parser = argparse.ArgumentParser(description="Aipedia Specialist Manager")
     subparsers = parser.add_subparsers(dest='command', help='Available commands')
     
     subparsers.add_parser('status', help='Check sync status between SSOT and files')

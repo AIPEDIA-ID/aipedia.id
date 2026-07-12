@@ -1,7 +1,7 @@
 {
   "sectionHeader": {
-    "title": "Pilih AI Spesialis Sesuai Kebutuhan",
-    "subtitle": "17 AI Spesialis GPT Masing-masing"
+    "title": "Pilih Asisten AI Sesuai Kebutuhan",
+    "subtitle": "12 Asisten GPT Spesialisasi Masing-masing"
   },
   "characters": [
     {
@@ -19,7 +19,7 @@
     {
       "id": "fina",
       "name": "Fina",
-      "role": "Finance Assistant",
+      "role": "Finance Specialist",
       "themeColor": "#FFD400",
       "gender": "Female",
       "image": "/character/fina.png",
@@ -31,7 +31,7 @@
     {
       "id": "cisa",
       "name": "Cisa",
-      "role": "Customer Relationship Assistant",
+      "role": "Customer Relationship Specialist",
       "themeColor": "#FF003E",
       "gender": "Female",
       "image": "/character/cisa.png",
@@ -43,7 +43,7 @@
     {
       "id": "sona",
       "name": "Sona",
-      "role": "Social Media Content Assistant",
+      "role": "Social Media Content Specialist",
       "themeColor": "#580cfc",
       "gender": "Female",
       "image": "/character/sona.png",
@@ -55,7 +55,7 @@
     {
       "id": "viko",
       "name": "Viko",
-      "role": "Video Script Writer Assistant",
+      "role": "Video Script Writer Specialist",
       "themeColor": "#eb4ec3",
       "gender": "Male",
       "image": "/character/viko.png",
@@ -67,7 +67,7 @@
     {
       "id": "wita",
       "name": "Wita",
-      "role": "Copywriting & Content Assistant",
+      "role": "Copywriting & Content Specialist",
       "themeColor": "#8a6ef0",
       "gender": "Female",
       "image": "/character/wita.png",
@@ -79,7 +79,7 @@
     {
       "id": "dany",
       "name": "Dany",
-      "role": "Data Analyst Assistant",
+      "role": "Data Analyst Specialist",
       "themeColor": "#FF4B00",
       "gender": "Male",
       "image": "/character/dany.png",
@@ -91,7 +91,7 @@
     {
       "id": "mita",
       "name": "Mita",
-      "role": "Meta Ads Assistant",
+      "role": "Meta Ads Specialist",
       "themeColor": "#0164e0",
       "gender": "Female",
       "image": "/character/mita.png",
@@ -103,7 +103,7 @@
     {
       "id": "selo",
       "name": "Selo",
-      "role": "SEO Assistant",
+      "role": "SEO Specialist",
       "themeColor": "#20a944",
       "gender": "Male",
       "image": "/character/selo.png",
@@ -115,7 +115,7 @@
     {
       "id": "hima",
       "name": "Hima",
-      "role": "HR Assistant",
+      "role": "HR Specialist",
       "themeColor": "#163b92",
       "gender": "Female",
       "image": "/character/hima.png",
@@ -127,7 +127,7 @@
     {
       "id": "wilo",
       "name": "Wilo",
-      "role": "Website Assistant",
+      "role": "Website Specialist",
       "themeColor": "#00FFA4",
       "gender": "Male",
       "image": "/character/wilo.png",
@@ -139,7 +139,7 @@
     {
       "id": "prima",
       "name": "Prima",
-      "role": "Operations & SOP Assistant",
+      "role": "Operations & SOP Specialist",
       "themeColor": "#BB6653",
       "gender": "Female",
       "image": "/character/prima.png",
@@ -151,7 +151,7 @@
     {
       "id": "gita",
       "name": "Gita",
-      "role": "Visual Ads & Design Assistant",
+      "role": "Visual Ads & Design Specialist",
       "themeColor": "#29B6F6",
       "gender": "Female",
       "image": "/character/gita.png",
@@ -163,7 +163,7 @@
     {
       "id": "wanda",
       "name": "Wanda",
-      "role": "WhatsApp Business Assistant",
+      "role": "WhatsApp Business Specialist",
       "themeColor": "#00ACC1",
       "gender": "Female",
       "image": "/character/wanda.png",
@@ -175,7 +175,7 @@
     {
       "id": "loka",
       "name": "Loka",
-      "role": "Marketplace Assistant",
+      "role": "Marketplace Specialist",
       "themeColor": "#7CB342",
       "gender": "Male",
       "image": "/character/loka.png",
@@ -187,7 +187,7 @@
     {
       "id": "lila",
       "name": "Lila",
-      "role": "Live Selling Assistant",
+      "role": "Live Selling Specialist",
       "themeColor": "#8E24AA",
       "gender": "Female",
       "image": "/character/lila.png",
@@ -199,7 +199,7 @@
     {
       "id": "tira",
       "name": "Tira",
-      "role": "Pajak UMKM Assistant",
+      "role": "Pajak UMKM Specialist",
       "themeColor": "#E53935",
       "gender": "Female",
       "image": "/character/tira.png",

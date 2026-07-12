@@ -40,7 +40,7 @@ yarn dev
 
 ## How to Use This Project
 
-This project operates as an automated pipeline. Whenever you need to add a new AI Assistant or update an existing one, follow this workflow:
+This project operates as an automated pipeline. Whenever you need to add a new AI Specialist or update an existing one, follow this workflow:
 
 ### 1. Update the Database
 Always start by modifying `_docs/database/assistants.json`. This is the only place you should manually type out copy, roles, and pricing.

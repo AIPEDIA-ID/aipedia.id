@@ -1,20 +1,20 @@
-# AIPEDIA Assistant Pro
+# AIPEDIA Specialist Pro
 
 Selamat datang di AIPEDIA Pro 👋
 
 Produk ini terdiri dari dua bagian:
 
-- AIPEDIA Assistant
+- AIPEDIA Specialist
 - AI Skills
 
 ---
 
-# 1. Menggunakan Assistant
+# 1. Menggunakan Specialist
 
 1. Pastikan sudah mendaftar dan punya akun ChatGPT.com
-2. Buka link Assistant yang tersedia di **ASSISTANT.pdf**.
-3. Klik **Pin** agar Assistant selalu muncul di sidebar.
-4. Assistant siap digunakan.
+2. Buka link Specialist yang tersedia di **ASSISTANT.pdf**.
+3. Klik **Pin** agar Specialist selalu muncul di sidebar.
+4. Specialist siap digunakan.
 
 ---
 

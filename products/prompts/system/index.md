@@ -14,7 +14,7 @@ Mapping ide bisnis ke Business Model Canvas lengkap dengan analisis risiko dan s
 
 ---
 
-# Fina - Finance Assistant
+# Fina - Finance Specialist
 Analisis keuangan, cash flow forecast, dan break-even bisnis.
 1. Buatkan saya template cash flow forecast untuk 3 bulan ke depan.
 2. Bantu hitung break-even point (BEP) untuk bisnis kopi susu.
@@ -22,7 +22,7 @@ Analisis keuangan, cash flow forecast, dan break-even bisnis.
 
 ---
 
-# Cisa - Customer Relationship Assistant
+# Cisa - Customer Relationship Specialist
 Sistem customer support dengan macro response dan escalation rules.
 1. Bantu saya merancang macro response untuk keluhan pengiriman telat.
 2. Buatkan aturan eskalasi refund untuk tim customer service.
@@ -30,7 +30,7 @@ Sistem customer support dengan macro response dan escalation rules.
 
 ---
 
-# Sona - Social Media Content Assistant
+# Sona - Social Media Content Specialist
 Konten social media engaging untuk Instagram dan TikTok.
 1. Buatkan ide konten Instagram Reels selama seminggu untuk klinik kecantikan.
 2. Tuliskan hook dan CTA yang menarik untuk postingan TikTok tentang promo sepatu.
@@ -38,7 +38,7 @@ Konten social media engaging untuk Instagram dan TikTok.
 
 ---
 
-# Viko - Video Script Writer Assistant
+# Viko - Video Script Writer Specialist
 Script video engaging untuk UGC dan ads.
 1. Buatkan outline script video UGC berdurasi 60 detik untuk produk skincare.
 2. Tuliskan naskah video YouTube Shorts tentang tips produktivitas kerja.
@@ -46,7 +46,7 @@ Script video engaging untuk UGC dan ads.
 
 ---
 
-# Wita - Copywriting & Content Assistant
+# Wita - Copywriting & Content Specialist
 Copy convert untuk landing page dan ads.
 1. Tulis 3 variasi headline landing page untuk kelas online marketing.
 2. Bantu saya menulis copy email promosi diskon akhir tahun.
@@ -54,7 +54,7 @@ Copy convert untuk landing page dan ads.
 
 ---
 
-# Dany - Data Analyst Assistant
+# Dany - Data Analyst Specialist
 Analisis data dengan insight untuk keputusan bisnis.
 1. Bantu saya menganalisis data cohort retention ini dan temukan insight-nya.
 2. Apa faktor utama penyebab churn rate yang tinggi bulan lalu?
@@ -62,7 +62,7 @@ Analisis data dengan insight untuk keputusan bisnis.
 
 ---
 
-# Mita - Meta Ads Assistant
+# Mita - Meta Ads Specialist
 Optimasi Meta Ads campaign dengan struktur TOFU/MOFU/BOFU.
 1. Buatkan struktur campaign Meta Ads untuk audiens TOFU, MOFU, dan BOFU.
 2. Bantu saya menentukan targeting audiens untuk produk tas wanita premium.
@@ -70,7 +70,7 @@ Optimasi Meta Ads campaign dengan struktur TOFU/MOFU/BOFU.
 
 ---
 
-# Selo - SEO Assistant
+# Selo - SEO Specialist
 Strategi SEO dengan topical mapping dan internal linking.
 1. Buatkan topical map untuk blog bertema investasi saham pemula.
 2. Bantu rancang strategi internal linking untuk artikel-artikel SEO saya.
@@ -78,7 +78,7 @@ Strategi SEO dengan topical mapping dan internal linking.
 
 ---
 
-# Hima - HR Assistant
+# Hima - HR Specialist
 Sistem HR dengan performance review dan competency framework.
 1. Buatkan rubrik performance review untuk tim sales.
 2. Bantu saya menyusun competency framework untuk posisi digital marketing.
@@ -86,7 +86,7 @@ Sistem HR dengan performance review dan competency framework.
 
 ---
 
-# Wilo - Website Assistant
+# Wilo - Website Specialist
 Bantu rancang struktur landing page dan website bisnis tanpa perlu skill teknis.
 1. Bantu saya merancang struktur landing page untuk jasa desain interior.
 2. Apa saja section yang wajib ada di halaman 'About Us' perusahaan?
@@ -94,7 +94,7 @@ Bantu rancang struktur landing page dan website bisnis tanpa perlu skill teknis.
 
 ---
 
-# Prima - Operations & SOP Assistant
+# Prima - Operations & SOP Specialist
 Susun SOP operasional dan workflow harian biar bisnis jalan konsisten tanpa kamu pantau terus.
 1. Buatkan SOP standar untuk alur penerimaan pesanan di restoran.
 2. Bantu saya menyusun workflow harian yang efisien untuk admin gudang.
@@ -102,7 +102,7 @@ Susun SOP operasional dan workflow harian biar bisnis jalan konsisten tanpa kamu
 
 ---
 
-# Gita - Visual Ads & Design Assistant
+# Gita - Visual Ads & Design Specialist
 Bikin konsep visual iklan dan design brief untuk Meta Ads, TikTok, dan banner promosi.
 1. Buatkan konsep visual ads yang menarik untuk promo hari kemerdekaan.
 2. Bantu saya menulis design brief untuk banner website promo Ramadhan.
@@ -110,7 +110,7 @@ Bikin konsep visual iklan dan design brief untuk Meta Ads, TikTok, dan banner pr
 
 ---
 
-# Wanda - WhatsApp Business Assistant
+# Wanda - WhatsApp Business Specialist
 Rancang broadcast, katalog, dan auto-reply WhatsApp Business biar closing lebih cepat.
 1. Buatkan template broadcast WhatsApp untuk menyapa pelanggan lama.
 2. Bantu merancang alur auto-reply WhatsApp Business untuk pertanyaan FAQ.
@@ -118,7 +118,7 @@ Rancang broadcast, katalog, dan auto-reply WhatsApp Business biar closing lebih 
 
 ---
 
-# Loka - Marketplace Assistant
+# Loka - Marketplace Specialist
 Optimasi listing produk di Shopee, Tokopedia, dan TikTok Shop biar lebih mudah ditemukan.
 1. Bantu optimasi judul dan deskripsi produk agar mudah dicari di Shopee.
 2. Strategi apa yang efektif untuk ikut campaign tanggal kembar di Tokopedia?
@@ -126,7 +126,7 @@ Optimasi listing produk di Shopee, Tokopedia, dan TikTok Shop biar lebih mudah d
 
 ---
 
-# Lila - Live Selling Assistant
+# Lila - Live Selling Specialist
 Susun script host dan flow live selling untuk TikTok Live dan Shopee Live.
 1. Buatkan script live selling berdurasi 1 jam untuk jualan baju anak.
 2. Bantu saya menyusun flow interaksi host agar penonton tidak bosan saat live.
@@ -134,7 +134,7 @@ Susun script host dan flow live selling untuk TikTok Live dan Shopee Live.
 
 ---
 
-# Tira - Pajak UMKM Assistant
+# Tira - Pajak UMKM Specialist
 Bantu paham kewajiban pajak UMKM, PPh Final, dan cara lapor yang simpel.
 1. Bantu saya menghitung PPh Final 0.5% untuk UMKM bulan ini.
 2. Apa saja syarat dan cara lapor pajak tahunan untuk badan usaha CV?

@@ -15,7 +15,7 @@ Notes:
 - [x] Add 1 field `_docs/database/assistants.json` in that will have array for 3 starter conversations for CustomGPT
 - [x] Should we rename system prompt into CustomGPT?
 
-## Change Assistant role 
+## Change Specialist role 
 
 - [x] Rename  Milo to Wilo and Change the role, from Email Marketing Asisten to Website Asisten
     - [x] Rename Milo to Wilo

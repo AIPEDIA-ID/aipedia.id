@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Build script for Aipedia Assistant (Basic & Pro)
+# Build script for Aipedia Specialist (Basic & Pro)
 
 set -e
 
