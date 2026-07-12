@@ -120,3 +120,22 @@ Whenever a new specialist is added or modified in this JSON file, it automatical
    - Run `make project-compress` to optimize and move the icon to the `public/` directory.
 4. **Build Product Deliverables**:
    - Run `make build-products` to compile the PDFs and ZIP packages for customer delivery.
+
+---
+
+## 6. Task Management (Source of Truth for Agents)
+
+All operational tasks for AI Agents and human developers are modularized inside the `_docs/task/` directory. This acts as the *Source of Truth* for what needs to be done.
+
+### Task Format
+We use Markdown checkboxes to track progress:
+- `- [ ]` Uncompleted tasks.
+- `- [/]` In progress tasks (Agent or Me is currently working on this).
+- `- [x]` Completed tasks.
+
+*Agents SHOULD update these checkboxes whenever they start or finish a task.*
+
+### Task Categories
+1. **`_docs/task/product.md`**: Tasks related to AI Specialists, Codex/Claude Plugins, Prompt engineering, and PDF/ZIP generation.
+2. **`_docs/task/website.md`**: Tasks related to AstroJS frontend, UI/UX changes, components, and SEO optimizations.
+3. **`_docs/task/marketing.md`**: Tasks related to Meta Ads, analytics, copywriting strategies, and ad creatives.

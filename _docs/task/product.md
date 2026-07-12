@@ -52,3 +52,10 @@ The ideas is make this project from 12 asistant to 17 asistant, since Indonesian
     - [] lila
     - [] tira
 - [x] Add to ASISTANT.md
+
+
+---
+## Create Claude Plugin
+- [] Create Claude Plugin
+- [] Testing
+
