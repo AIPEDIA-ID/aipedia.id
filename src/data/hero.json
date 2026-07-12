@@ -9,10 +9,10 @@
     "highlight": "Tinggal Pakai, Gak Perlu Ribet Prompt"
   },
   "subheading1": "Ahli <strong>SEO, Meta Ads, Copywriting, Finance, Data, HR & CS</strong> semua dalam <strong>1 bundle AI Spesialis</strong> + <strong>Ekosistem Skills</strong> yang siap bantu kerjaanmu",
-  "subheading2": "*Berjalan di ChatGPT, Codex Plugin, dan Claude",
+  "subheading2": "*Compatible dengan ChatGPT, Codex Plugin, dan Claude",
   "cta": [
     {
-      "text": "Akses Sekarang, Hemat 60%",
+      "text": "Akses Sekarang, Hemat 30%",
       "href": "#pricing",
       "isPrimary": true
     }
@@ -23,5 +23,5 @@
     "/avatars/user-2.png",
     "/avatars/user-3.png"
   ],
-  "discountBanner": "⏳ <strong>Diskon 60%</strong> untuk early access — harga naik setelah kuota awal habis"
+  "discountBanner": "⏳ <strong>Diskon 30%</strong> untuk early access - harga naik setelah kuota awal habis"
 }
