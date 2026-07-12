@@ -139,3 +139,11 @@ We use Markdown checkboxes to track progress:
 1. **`_docs/task/product.md`**: Tasks related to AI Specialists, Codex/Claude Plugins, Prompt engineering, and PDF/ZIP generation.
 2. **`_docs/task/website.md`**: Tasks related to AstroJS frontend, UI/UX changes, components, and SEO optimizations.
 3. **`_docs/task/marketing.md`**: Tasks related to Meta Ads, analytics, copywriting strategies, and ad creatives.
+
+---
+
+## 7. Marketing Strategy
+
+**Meta Ads** is the primary and main marketing channel for AIPEDIA. 
+All frontend development, copywriting, and creative assets must be aggressively optimized for Meta Ads conversion (Purchase objective). 
+- Refer to `_docs/learn/meta_ads.md` and `_docs/task/marketing.md` for campaigns, budget tracking, and creative testing setups.
