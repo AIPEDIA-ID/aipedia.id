@@ -6,7 +6,7 @@
 
 ## 1. Executive Summary
 
-**AIPEDIA** is a digital product business offering a bundle of specialized AI Assistants (CustomGPTs). Instead of selling a generic ChatGPT subscription, AIPEDIA provides pre-trained, ready-to-use AI specialists focused on solving specific business and marketing problems for Indonesian MSMEs, Solopreneurs, and Creators.
+**AIPEDIA** is a digital product business offering a bundle of specialized AI Specialists (CustomGPTs). Instead of selling a generic ChatGPT subscription, AIPEDIA provides pre-trained, ready-to-use AI specialists focused on solving specific business and marketing problems for Indonesian MSMEs, Solopreneurs, and Creators.
 
 Website: https://aipedia.id
 
@@ -42,28 +42,28 @@ aipedia.id/
 
 ## 2. Product Ecosystem
 
-The core value lies in the **17 AI Assistants**, categorized into two main domains:
+The core value lies in the **17 AI Specialists**, categorized into two main domains:
 
 ### 🏢 Business & Operations
 - **Beny** — Business Strategist
-- **Fina** — Finance Assistant
-- **Cisa** — Customer Relationship Assistant
-- **Dany** — Data Analyst Assistant
-- **Hima** — HR Assistant
-- **Wilo** — Website Assistant
-- **Prima** — Operations & SOP Assistant
-- **Tira** — Pajak UMKM Assistant
+- **Fina** — Finance Specialist
+- **Cisa** — Customer Relationship Specialist
+- **Dany** — Data Analyst Specialist
+- **Hima** — HR Specialist
+- **Wilo** — Website Specialist
+- **Prima** — Operations & SOP Specialist
+- **Tira** — Pajak UMKM Specialist
 
 ### 📈 Marketing
-- **Sona** — Social Media Content Assistant
-- **Viko** — Video Script Writer Assistant
-- **Wita** — Copywriting & Content Assistant
-- **Mita** — Meta Ads Assistant
-- **Selo** — SEO Assistant
-- **Gita** — Visual Ads & Design Assistant
-- **Wanda** — WhatsApp Business Assistant
-- **Loka** — Marketplace Assistant
-- **Lila** — Live Selling Assistant
+- **Sona** — Social Media Content Specialist
+- **Viko** — Video Script Writer Specialist
+- **Wita** — Copywriting & Content Specialist
+- **Mita** — Meta Ads Specialist
+- **Selo** — SEO Specialist
+- **Gita** — Visual Ads & Design Specialist
+- **Wanda** — WhatsApp Business Specialist
+- **Loka** — Marketplace Specialist
+- **Lila** — Live Selling Specialist
 
 ---
 
@@ -95,7 +95,7 @@ This project is not just a standard web application; it is a full **Product Gene
 The entire project revolves around one central database:
 **`📍 _docs/database/assistants.json`**
 
-Whenever a new assistant is added or modified in this JSON file, it automatically propagates to:
+Whenever a new specialist is added or modified in this JSON file, it automatically propagates to:
 1. **The Website**: Automatically updates the Astro UI.
 2. **The Deliverables**: Automatically injects into the PDF generation (`products/ASISTANT.md`).
 3. **Internal Tools**: Updates system prompts and image generation prompts.
@@ -106,8 +106,8 @@ Whenever a new assistant is added or modified in this JSON file, it automaticall
 
 ## 5. Core Workflows (SOPs)
 
-### Adding a New Assistant
-1. **Update SSOT**: Add the assistant's data block (ID, Name, Role, Color, Prompts) into `_docs/database/assistants.json`.
+### Adding a New Specialist
+1. **Update SSOT**: Add the specialist's data block (ID, Name, Role, Color, Prompts) into `_docs/database/assistants.json`.
 2. **Generate System Updates**: 
    Run `make project-generate-all` to sync the Web data, Product Markdown (`ASISTANT.md`), and Internal Prompts.
 3. **Generate & Prepare Assets**:
