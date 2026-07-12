@@ -2,27 +2,31 @@
   "faqItems": [
     {
       "question": "Apakah AIPEDIA perlu langganan bulanan?",
-      "answer": "Enggak. Sekali bayar, akses seumur hidup. Gak ada biaya bulanan, gak ada biaya tersembunyi - cocok kalau kamu capek subscription AI tool yang numpuk tiap bulan."
+      "answer": "Enggak. Sekali bayar, akses seumur hidup*. Gak ada biaya bulanan, gak ada biaya tersembunyi - cocok kalau kamu capek bayar subscription AI tiap bulan."
     },
     {
-      "question": "AIPEDIA cocok untuk siapa?",
-      "answer": "Pebisnis, freelancer, dan profesional yang butuh output setara ahli - marketing, finance, HR, sampai operasional - tapi gak punya waktu (atau tim) buat ngerjain semua dari nol."
+      "question": "Apa bedanya AIPEDIA dengan AI tool biasa?",
+      "answer": "AI biasa kasih jawaban umum. AIPEDIA berisi 17+ AI Spesialis yang masing-masing sudah diprogram khusus per bidang (SEO, Ads, Finance, dll) dengan template dan prompt rahasia yang sudah terbukti di dunia nyata."
     },
     {
-      "question": "Apa bedanya AIPEDIA dengan AI tool generik?",
-      "answer": "AI generik jawab pertanyaan apa aja secara umum. AIPEDIA itu 17+ AI Spesialis yang masing-masing sudah dirancang khusus per domain, dengan framework dan template yang sudah terbukti dipakai di kerjaan nyata - bukan hasil coba-coba prompt sendiri."
+      "question": "Apa bedanya Bundle Custom GPT dan Bundle Skill?",
+      "answer": "Bundle Custom GPT memberikan akses ke 17+ AI Spesialis langsung di platform ChatGPT. Sedangkan Bundle Skill memberikan semuanya PLUS file Plugins & Skills mentah yang bisa kamu instal ke AI Agent lokal (seperti Codex) atau dipakai di platform lain seperti Claude."
     },
     {
       "question": "Bagaimana cara akses setelah pembelian?",
-      "answer": "Langsung dapat link ke semua AI Spesialis yang kamu beli, siap dipakai saat itu juga - gak ada proses approval atau nunggu."
+      "answer": "Begitu pembayaran selesai, kamu akan langsung mendapat akses instan untuk mengunduh file panduan (PDF) dan file ZIP berisi ekosistem AI Spesialis yang siap digunakan."
     },
     {
-      "question": "Apakah bisa dipakai dengan akun ChatGPT gratis?",
-      "answer": "Bisa, dan memang dirancang optimal untuk itu. ChatGPT Plus bisa bantu untuk kasus analisis yang lebih berat (misal data besar), tapi buat mayoritas kebutuhan sehari-hari, versi gratis sudah cukup."
+      "question": "Apakah harus pakai akun ChatGPT Plus yang berbayar?",
+      "answer": "Tidak harus! Versi Custom GPT kami dirancang agar tetap bisa berjalan di ChatGPT versi gratis. Khusus pengguna Bundle Skill, file plugin bahkan bisa dijalankan di ekosistem lain seperti Claude atau Codex tanpa bergantung pada langganan ChatGPT."
     },
     {
-      "question": "Bagaimana kalau saya kurang cocok dengan AI Spesialis yang dibeli?",
-      "answer": "Karena akses diberikan langsung dan bersifat digital, kami belum bisa proses refund. Makanya kami sediakan contoh prompt & demo di halaman ini biar kamu bisa cek dulu kecocokannya sebelum beli. Ada pertanyaan spesifik sebelum memutuskan? Tanya dulu aja."
+      "question": "Bagaimana kalau saya kurang cocok dengan hasilnya?",
+      "answer": "Karena produk ini berbentuk file digital (Plugins/Skills & Panduan) yang langsung diunduh, kami tidak bisa memproses refund. Silakan lihat bagian demo hasil kerja (See in Action) di halaman ini untuk melihat kualitas output sebelum membeli."
+    },
+    {
+      "question": "*Syarat & Ketentuan Akses Seumur Hidup",
+      "answer": "Akses ke link Custom GPT di platform ChatGPT bergantung sepenuhnya pada kebijakan OpenAI. Jika suatu saat OpenAI mengubah aturan atau mematikan fitur Custom GPT, maka link tersebut bisa tidak berfungsi. Inilah mengapa kami sangat menyarankan Bundle Skill - kamu akan mendapatkan kepemilikan penuh atas file mentahnya (Skills/Plugins) sehingga kerjamu tetap 100% aman dan tidak bergantung pada satu platform saja."
     }
   ]
 }
