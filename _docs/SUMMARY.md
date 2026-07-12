@@ -8,6 +8,8 @@
 
 **AIPEDIA** is a digital product business offering a bundle of specialized AI Assistants (CustomGPTs). Instead of selling a generic ChatGPT subscription, AIPEDIA provides pre-trained, ready-to-use AI specialists focused on solving specific business and marketing problems for Indonesian MSMEs, Solopreneurs, and Creators.
 
+Website: https://aipedia.id
+
 **Business Model:**
 - **Basic Offer**: CustomGPT access.
 - **Pro Offer**: CustomGPT access + AI Agents Plugins/Skills.
