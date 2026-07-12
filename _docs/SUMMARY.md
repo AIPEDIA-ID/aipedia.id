@@ -39,7 +39,7 @@ aipedia.id/
 └── scripts/                      # ⚙️ Business Logic Automation
     ├── manager.py                # SSOT parser, generator, & icon compressor
     └── character_image_prompts.txt # Auto-generated visual prompts for Midjourney/DALL-E
-
+```
 ---
 
 ## 2. Product Ecosystem
