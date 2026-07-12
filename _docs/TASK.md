@@ -6,6 +6,8 @@ Notes:
 - generate -> need AI
 - create -> just run script or manual create
 
+# Product
+
 ## General
 
 - [x] Now, our source of truth task is `_docs/TASK.md`, please update in rules
@@ -50,3 +52,18 @@ The ideas is make this project from 12 asistant to 17 asistant, since Indonesian
     - [] lila
     - [] tira
 - [x] Add to ASISTANT.md
+
+---
+
+# Marketing
+
+## Landing Page
+- [] SS for hero
+- [] SS for demo
+- [] Panduan penggunaan
+- [] Demo youtube
+
+## Meta Ads
+- [] 
+- [] 
+- [] 
