@@ -22,8 +22,8 @@
     "aipedia": {
       "title": "AIPEDIA",
       "items": [
-        "17+ Asisten spesialis, tiap satu fokus 1 domain",
-        "Framework & template sudah tertanam di asisten",
+        "17+ AI Spesialis, tiap satu fokus 1 domain",
+        "Framework & template sudah tertanam di AI Spesialis",
         "Prompt pre-built teroptimasi, hasil konsisten tiap chat",
         "Kualitas terjaga karena sistem sudah divalidasi",
         "Best practice langsung terpakai, gak perlu riset ulang",
@@ -34,7 +34,7 @@
   },
   "cta": {
     "button": {
-      "text": "Akses Asisten",
+      "text": "Akses AI Spesialis",
       "link": "#pricing"
     }
   }

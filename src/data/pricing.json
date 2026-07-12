@@ -1,38 +1,38 @@
 {
   "pricingTiers": [
     {
-      "name": "All Assistants Bundle",
+      "name": "Bundle Skill",
       "price": "147k",
       "originalPrice": "394k",
       "priceSubtext": "Hemat 60%",
-      "description": "Akses seluruh asisten, ideal untuk tim dan bisnis",
+      "description": "Paket paling lengkap: Custom GPT + Ekosistem Skills & Plugins",
       "features": [
-        "17+ Custom GPT Assistants lengkap, dan akan terus bertambah",
-        "Marketing, HR, Finance, Analytics, Business Planning & Operations",
-        "Social Media, Copywriting, SEO, Ads",
-        "Panduan penggunaan",
+        "Akses ke seluruh 17+ Custom GPT Assistants",
+        "Ekstra: Akses AI Agents Plugins & Skills",
+        "Template & Framework Spesifik Industri",
+        "Panduan penggunaan lengkap",
         "Prioritas support dan update"
       ],
-      "buttonText": "Akses Semua",
+      "buttonText": "Akses Semua + Skills",
       "buttonLink": "https://aipedia.myr.id/pl/business-pack",
       "isPopular": true,
       "buttonClass": "block w-full py-3 px-4 bg-gradient-to-r from-primary-500 to-primary-700 dark:from-primary-400 dark:to-primary-600 hover:from-primary-600 hover:to-primary-800 dark:hover:from-primary-500 dark:hover:to-primary-700 text-white font-medium rounded-lg transition-all duration-200 hover:shadow-lg hover:shadow-primary-500/25 text-center",
       "cardClass": "group p-6 rounded-xl bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-white/10 dark:to-primary-500/10 backdrop-blur-sm border-2 border-primary-500/60 hover:border-primary-400 transition-all duration-300 shadow-xl dark:shadow-[0_0_30px_rgba(139,92,246,0.3)] hover:shadow-2xl dark:hover:shadow-[0_0_40px_rgba(139,92,246,0.5)] hover:scale-105 relative"
     },
     {
-      "name": "Marketing Bundle",
+      "name": "Bundle Custom GPT",
       "price": "89k",
       "originalPrice": "289k",
       "priceSubtext": "Hemat 34%",
-      "description": "Cocok untuk marketer dan agency",
+      "description": "Akses dasar ke seluruh 17+ koleksi AI Spesialis",
       "features": [
-        "6 Marketing Assistants lengkap",
-        "Social Media, Copywriting, SEO, Ads",
-        "Content Repurpose & Video Scripts",
-        "Email Marketing & Outreach",
-        "Panduan penggunaan"
+        "Akses ke seluruh 17+ Custom GPT Assistants",
+        "Marketing, Finance, HR, Data & Operations",
+        "Template & Framework Spesifik Industri",
+        "Panduan penggunaan lengkap",
+        "(Tanpa akses Plugin/Skills)"
       ],
-      "buttonText": "Ambil Bundle",
+      "buttonText": "Ambil Custom GPT",
       "buttonLink": "https://aipedia.myr.id/pl/marketing-pack",
       "isPopular": false,
       "buttonClass": "w-full py-3 px-4 bg-white hover:bg-gray-50 dark:bg-white/5 dark:hover:bg-white/10 text-gray-900 dark:text-white font-medium rounded-lg border border-gray-200 dark:border-white/20 hover:border-primary-500/30 dark:hover:border-primary-500/30 transition-all duration-200 text-center shadow-sm dark:shadow-none",
@@ -42,7 +42,7 @@
   "proStats": [
     {
       "value": "17",
-      "label": "Asisten AI Spesialis"
+      "label": "AI Spesialis"
     },
     {
       "value": "2 Bundle",
@@ -57,6 +57,6 @@
     "title": "Beli Sekali, Akses Seterusnya",
     "subtitle": "Pilih paket bundle untuk lebih lengkap dan hemat"
   },
-  "proTagline": "Bundle Terpopuler: All Assistants Bundle (437k)",
+  "proTagline": "Bundle Terpopuler: Bundle Skill (147k)",
   "proFooter": "Bayar sekali, akses lifetime."
 }

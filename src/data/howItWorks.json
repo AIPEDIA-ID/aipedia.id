@@ -1,13 +1,13 @@
 {
   "sectionHeader": {
     "title": "Cara Kerja AIPEDIA",
-    "description": "Mulai dari pilih asisten sampai dapat hasil ahli. Simpel, terstruktur, efektif."
+    "description": "Mulai dari pilih AI Spesialis sampai dapat hasil ahli. Simpel, terstruktur, efektif."
   },
   "steps": [
     {
       "number": 1,
-      "title": "Pilih Asisten AI",
-      "description": "Pilih dari 12 Asisten spesialis sesuai kebutuhan: marketing, finance, HR, analytics, atau operations.",
+      "title": "Pilih AI Spesialis",
+      "description": "Pilih dari 17 AI Spesialis sesuai kebutuhan: marketing, finance, HR, analytics, atau operations.",
       "features": [
         "Keahlian domain-spesifik terintegrasi",
         "Prompt dan framework teroptimasi",
