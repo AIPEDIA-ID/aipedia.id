@@ -23,8 +23,10 @@ aipedia.id/
 │   ├── database/               
 │   │   └── assistants.json       # 📍 Single Source of Truth (SSOT)
 │   ├── assets/                   # Raw assets & vendor icons
+│   ├── task/                     # Live operational tasks (product, marketing, website)
+│   ├── evaluation/               # Quality acceptance scenarios & testing
+│   ├── REFERENCES.md             # External references & learning materials
 │   ├── SUMMARY.md                # Business executive summary & ecosystem
-│   └── TASK.md                   # Live operational tasks & checklists
 │
 ├── products/                     # 📦 Customer Deliverables & Packaging
 │   ├── codex-plugin-marketplace/ # Plugin registry & skills (Pro tier)
@@ -85,7 +87,9 @@ This project is not just a standard web application; it is a full **Product Gene
 - Managed by `products/build.sh` which compiles Markdown into PDFs using Puppeteer and zips the final product packages.
 
 ### C. Documentation & Prompts (`_docs/`)
-- **Internal Knowledge**: Rules, workflows, and task tracking (`TASK.md`, `README.md`).
+- **Internal Knowledge**: Business summary (`SUMMARY.md`) and external references (`REFERENCES.md`).
+- **Task Management**: Modular task tracking for product, marketing, and website (`tasks/`).
+- **Evaluations**: Acceptance scenarios and quality testing guidelines (`evaluations/`).
 - **Prompt Library**: System prompts (`prompts/system/`) and Character image prompts.
 
 ---

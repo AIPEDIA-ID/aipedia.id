@@ -1,4 +1,4 @@
-# AIPEDIA Task Management
+# Product
 
 Notes:
 - (me) -> Means me (Aji) who will works on, other than that, it's you AI Agents
@@ -52,18 +52,3 @@ The ideas is make this project from 12 asistant to 17 asistant, since Indonesian
     - [] lila
     - [] tira
 - [x] Add to ASISTANT.md
-
----
-
-# Marketing
-
-## Landing Page
-- [] SS for hero
-- [] SS for demo
-- [] Panduan penggunaan
-- [] Demo youtube
-
-## Meta Ads
-- [] 
-- [] 
-- [] 
