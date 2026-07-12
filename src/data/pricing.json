@@ -2,16 +2,15 @@
   "pricingTiers": [
     {
       "name": "Bundle Skill",
-      "price": "147k",
-      "originalPrice": "394k",
-      "priceSubtext": "Hemat 60%",
-      "description": "Paket paling lengkap: Custom GPT + Ekosistem Skills & Plugins",
+      "price": "177k",
+      "originalPrice": "247k",
+      "priceSubtext": "Hemat 30%",
+      "description": "17+ Custom GPT + Ekosistem Skills & Plugins",
       "features": [
         "Akses ke seluruh 17+ Custom GPT Specialists",
-        "Ekstra: Akses AI Agents Plugins & Skills",
+        "Akses AI Agents Plugins & Skills",
         "Template & Framework Spesifik Industri",
-        "Panduan penggunaan lengkap",
-        "Prioritas support dan update"
+        "Panduan penggunaan lengkap"
       ],
       "buttonText": "Akses Semua + Skills",
       "buttonLink": "https://aipedia.myr.id/pl/business-pack",
@@ -21,13 +20,12 @@
     },
     {
       "name": "Bundle Custom GPT",
-      "price": "89k",
-      "originalPrice": "289k",
-      "priceSubtext": "Hemat 34%",
-      "description": "Akses dasar ke seluruh 17+ koleksi AI Spesialis",
+      "price": "108k",
+      "originalPrice": "147k",
+      "priceSubtext": "Hemat 30%",
+      "description": "17+ CustomGPT AI Spesialis",
       "features": [
         "Akses ke seluruh 17+ Custom GPT Specialists",
-        "Marketing, Finance, HR, Data & Operations",
         "Template & Framework Spesifik Industri",
         "Panduan penggunaan lengkap",
         "(Tanpa akses Plugin/Skills)"
@@ -55,7 +53,7 @@
   ],
   "sectionHeader": {
     "title": "Beli Sekali, Akses Seterusnya",
-    "subtitle": "Pilih paket bundle untuk lebih lengkap dan hemat"
+    "subtitle": ""
   },
   "proTagline": "Bundle Terpopuler: Bundle Skill (147k)",
   "proFooter": "Bayar sekali, akses lifetime."

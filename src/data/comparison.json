@@ -1,21 +1,20 @@
 {
   "header": {
     "title": {
-      "main": "Berbeda dari",
-      "highlight": "AI Biasa"
+      "main": "Bedanya dengan",
+      "highlight": "AI Biasa?"
     },
-    "description": "AI generik kasih jawaban umum. AIPEDIA kasih hasil yang udah dites dan dipakai langsung di kerjaan nyata."
+    "description": "AI biasa kasih jawaban umum. AIPEDIA kasih hasil yang sudah dirancang khusus."
   },
   "comparison": {
     "typical": {
-      "title": "AI Generik",
+      "title": "AI Biasa",
       "items": [
-        "Jawaban umum, gak spesialis domain",
-        "Kamu yang harus rancang framework sendiri",
-        "Butuh prompt panjang tiap kali biar hasilnya konsisten",
+        "Jawaban umum",
+        "Harus rancang framework sendiri",
+        "Butuh setup skills & prompt panjang tiap kali biar hasilnya konsisten",
         "Kualitas naik-turun tergantung mood prompt",
         "Riset best practice manual, makan waktu",
-        "Coba-coba sendiri, gak ada validasi ahli",
         "Berjam-jam eksperimen sebelum dapat hasil layak pakai"
       ]
     },
