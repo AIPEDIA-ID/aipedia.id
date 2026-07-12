@@ -15,6 +15,29 @@ Website: https://aipedia.id
 - **Pro Offer**: CustomGPT access + AI Agents Plugins/Skills.
 - **Goal**: Fast profit generation, optimized for Meta Ads conversion.
 
+### Directory Structure (Business & Product Context)
+
+```text
+aipedia.id/
+├── _docs/                        # 🧠 Business & Operations Brain
+│   ├── database/               
+│   │   └── assistants.json       # 📍 Single Source of Truth (SSOT)
+│   ├── assets/                   # Raw assets & vendor icons
+│   ├── SUMMARY.md                # Business executive summary & ecosystem
+│   └── TASK.md                   # Live operational tasks & checklists
+│
+├── products/                     # 📦 Customer Deliverables & Packaging
+│   ├── codex-plugin-marketplace/ # Plugin registry & skills (Pro tier)
+│   ├── delivery/                 # Final ZIP packages ready for distribution
+│   ├── ASISTANT.md               # Auto-generated product catalog
+│   ├── GUIDE_Basic.md            # Customer onboarding guide (Basic)
+│   ├── GUIDE_Pro.md              # Customer onboarding guide (Pro)
+│   └── build.sh                  # PDF compilation & packaging automation
+│
+└── scripts/                      # ⚙️ Business Logic Automation
+    ├── manager.py                # SSOT parser, generator, & icon compressor
+    └── character_image_prompts.txt # Auto-generated visual prompts for Midjourney/DALL-E
+
 ---
 
 ## 2. Product Ecosystem
