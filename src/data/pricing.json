@@ -15,7 +15,7 @@
       "buttonText": "Akses Semua + Skills",
       "buttonLink": "https://aipedia.myr.id/pl/business-pack",
       "isPopular": true,
-      "buttonClass": "block w-full py-3 px-4 bg-gradient-to-r from-primary-500 to-primary-700 dark:from-primary-400 dark:to-primary-600 hover:from-primary-600 hover:to-primary-800 dark:hover:from-primary-500 dark:hover:to-primary-700 text-white font-medium rounded-lg transition-all duration-200 hover:shadow-lg hover:shadow-primary-500/25 text-center",
+      "buttonClass": "btn-cta block w-full py-3 px-4 font-medium rounded-xl text-center",
       "cardClass": "group p-6 rounded-xl bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-white/10 dark:to-primary-500/10 backdrop-blur-sm border-2 border-primary-500/60 hover:border-primary-400 transition-all duration-300 shadow-xl dark:shadow-[0_0_30px_rgba(139,92,246,0.3)] hover:shadow-2xl dark:hover:shadow-[0_0_40px_rgba(139,92,246,0.5)] hover:scale-105 relative"
     },
     {

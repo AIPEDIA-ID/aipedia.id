@@ -176,4 +176,10 @@ const appTheme = "dark";
 	@tailwind base;
 	@tailwind components;
 	@tailwind utilities;
+
+	@layer components {
+		.btn-cta {
+			@apply bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-400 hover:to-red-400 text-white shadow-[0_4px_0_rgb(185,28,28),0_10px_15px_rgba(239,68,68,0.3)] active:shadow-[0_0px_0_rgb(185,28,28),0_0px_0px_rgba(239,68,68,0)] active:translate-y-[4px] transition-all duration-150;
+		}
+	}
 </style>
