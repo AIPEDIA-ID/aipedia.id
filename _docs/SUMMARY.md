@@ -153,22 +153,21 @@ All frontend development, copywriting, and creative assets must be aggressively 
 
 ## 8. Brand & Design Guidelines (Global)
 
-Since AIPEDIA is a premium digital product, the visual identity across **all touchpoints** (Website, Meta Ads creatives, Social Media, and PDF Deliverables) must convey trust, modern technology, and high value. We use a **Dark Mode First** approach with glassmorphism aesthetics.
+Since AIPEDIA is a premium digital product, the visual identity across **all touchpoints** (Website, Meta Ads creatives, Social Media, and PDF Deliverables) must convey trust, modern technology, and high value. We use a **Dark Mode First** approach, relying strictly on our core brand colors: **Purple (Ungu)** and **Black (Hitam)**.
 
 ### Color Palette
-- **Primary / Brand Color**: **Electric Indigo (`#6366f1` / Tailwind `indigo-500`)** — Represents AI, intelligence, and premium tech. Use for primary branding elements.
-- **Accent Color**: **Neon Cyan (`#22d3ee` / Tailwind `cyan-400`)** — Used for glowing effects, active states, and Call-to-Action (CTA) elements. Creates a futuristic, "alive" feel in both web UI and ad creatives.
-- **Backgrounds**: **Deep Zinc (`#09090b` / Tailwind `zinc-950`)** — Provides a sleek, immersive dark canvas that makes the primary and accent colors pop. Use as the base background for ads and web pages.
-- **Surface / Cards**: **Glassmorphism** — Frosted glass effect (e.g. semi-transparent white over dark backgrounds with blur). In Tailwind: `bg-white/5 backdrop-blur-md border border-white/10`.
+- **Primary / Brand Color**: **Premium Purple / Violet (`#8b5cf6` / Tailwind `primary-500`)** — Represents AI intelligence, premium quality, and authority. This is our core brand color used for accents, text highlights, and brand identity.
+- **Background**: **Deep Black / Dark Neutral (`#000000` / `#020617` / Tailwind `neutral-950`)** — A clean, sleek, and high-contrast backdrop that keeps the user focused and makes our purple brand elements pop.
+- **Surface / Cards**: **Glassmorphism** — Frosted glass effect on dark backgrounds. In Tailwind: `bg-white/5 backdrop-blur-md border border-white/10`.
 - **Text Colors**: 
   - **Headings**: Crisp White (`#fafafa` / `text-zinc-50`).
-  - **Body Text**: High-contrast light gray (`#d4d4d8` / `text-zinc-300`). *Crucial Rule: Avoid using text that is too dark/faded to ensure high readability across screens and print.*
+  - **Body Text**: High-contrast light gray (`#d4d4d8` / `text-zinc-300`). *Crucial Rule: Avoid using text that is too dark/faded to ensure readability across all screens.*
 
 ### Typography
 - Use modern, clean sans-serif fonts like **Inter**, **Plus Jakarta Sans**, or **Outfit** to give it a tech startup vibe.
 - Maintain strong hierarchy: Bold/ExtraBold for headings (to grab attention in ads and web), Regular/Medium for highly readable body paragraphs.
 
 ### UI & Visual Effects (Web & Ads)
-- **Gradients**: Use subtle gradients for text highlights or background accents (e.g., Indigo to Cyan transitions).
-- **Glow Effects**: Utilize soft cyan glow shadows to emphasize key elements (like product mockups in ads or CTA buttons on the web).
+- **Gradients**: Use subtle purple gradients for text highlights or background accents (e.g., Purple-400 to Purple-600 gradients).
+- **Glow Effects**: Utilize soft purple glow shadows to emphasize key elements (like product mockups in ads or active states).
 - **Interactions (Web)**: Smooth micro-animations (`hover:scale-105`, `transition-all duration-300`) to make the interface feel responsive and alive.
