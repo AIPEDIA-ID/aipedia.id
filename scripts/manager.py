@@ -22,7 +22,7 @@ WEB_JSON_PATH = os.path.join(PROJECT_ROOT, "src", "data", "characters.json")
 RAW_ICONS_DIR = os.path.join(AGENTS_DIR, "assets", "raw_icons")
 VENDOR_ICONS_DIR = os.path.join(AGENTS_DIR, "assets", "vendor_icons")
 PUBLIC_ICONS_DIR = os.path.join(PROJECT_ROOT, "public", "character")
-SYSTEM_PROMPTS_DIR = os.path.join(AGENTS_DIR, "prompts", "system")
+PROMPTS_OUTPUT_DIR = os.path.join(PRODUCTS_DIR, "prompts")
 VISUAL_PROMPTS_TXT = os.path.join(SCRIPT_DIR, "character_image_prompts.txt")
 
 # ==========================================
@@ -185,9 +185,7 @@ def status():
             all_good = False
             
         # Check system prompt
-        sys_prompt = os.path.join(SYSTEM_PROMPTS_DIR, f"{char_id}.txt")
-        # Just check index.md instead since we moved to 1 file, or keep it if individual files exist
-        # We'll skip individual txt check for now since we use index.md
+        # We'll skip individual txt check for now since we use custom_gpt_settings.md
             
         print("")
         
@@ -220,10 +218,10 @@ def generate_web():
     print(f"✓ Generated Web Compiled Output (Filtered): {WEB_JSON_PATH}")
 
 def generate_docs():
-    """Query B & C: Generates ASISTANT.md and prompts/system/index.md"""
+    """Query B & C: Generates ASISTANT.md and products/prompts/custom_gpt_settings.md"""
     characters = load_characters()
     os.makedirs(AGENTS_DIR, exist_ok=True)
-    os.makedirs(SYSTEM_PROMPTS_DIR, exist_ok=True)
+    os.makedirs(PROMPTS_OUTPUT_DIR, exist_ok=True)
     
     # Query B: Generate ASISTANT.md
     os.makedirs(PRODUCTS_DIR, exist_ok=True)
@@ -246,8 +244,8 @@ def generate_docs():
             
     print(f"✓ Generated Product Markdown: {assistant_md_path}")
     
-    # Query C: Generate prompts/system/index.md
-    prompts_index_path = os.path.join(SYSTEM_PROMPTS_DIR, "index.md")
+    # Query C: Generate products/prompts/custom_gpt_settings.md
+    prompts_index_path = os.path.join(PROMPTS_OUTPUT_DIR, "custom_gpt_settings.md")
     with open(prompts_index_path, 'w', encoding='utf-8') as f:
         f.write("# Conversation Starter in Custom GPT\n\n")
         f.write("Usually, there are 3 conversation related with Custom GPT:\n")
@@ -273,7 +271,7 @@ def generate_docs():
         for char in characters:
             f.write(f"[x] {char.get('id', '')}\n")
             
-    print(f"✓ Generated Prompt Index: {prompts_index_path}")
+    print(f"✓ Generated Custom GPT Settings: {prompts_index_path}")
 
 def generate_all():
     generate_web()
@@ -288,7 +286,7 @@ if __name__ == "__main__":
     subparsers.add_parser('status', help='Check sync status between SSOT and files')
     subparsers.add_parser('generate-visual-prompts', help='Generate visual prompts based on SSOT')
     subparsers.add_parser('compress-icons', help='Compress raw icons to web public folder')
-    subparsers.add_parser('generate-docs', help='Generate ASISTANT.md and index.md from SSOT')
+    subparsers.add_parser('generate-docs', help='Generate ASISTANT.md and custom_gpt_settings.md from SSOT')
     subparsers.add_parser('generate-web', help='Generate characters.json for Astro Website')
     subparsers.add_parser('generate-all', help='Generate ALL outputs (web, docs, prompts)')
     

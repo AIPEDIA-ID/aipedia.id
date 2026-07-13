@@ -26,6 +26,7 @@ aipedia.id/
 │   ├── task/                     # Live operational tasks (product, marketing, website)
 │   ├── evaluation/               # Quality acceptance scenarios & testing
 │   ├── REFERENCES.md             # External references & learning materials
+│   ├── strategy.md               # Business strategy & decision logs
 │   ├── SUMMARY.md                # Business executive summary & ecosystem
 │
 ├── products/                     # 📦 Customer Deliverables & Packaging
