@@ -1,15 +1,15 @@
 {
   "header": {
     "title": {
-      "main": "Siapa yang Paling Terbantu dengan",
-      "highlight": "AIPEDIA?"
+      "main": "Cocok Untuk",
+      "highlight": "Siapa Saja"
     },
-    "description": "AIPEDIA didesain untuk Anda yang butuh high-quality output tanpa harus spend berjam-jam untuk riset atau hiring tim tambahan."
+    "description": ""
   },
   "targetGroups": [
     {
       "title": "Business Owners",
-      "description": "Nggak perlu buru-buru hire tim full-time. Beresin urusan operasional, HR, finance, sampai pajak bisnis Anda dengan cepat dan presisi.",
+      "description": "Kelola HR, operasional, hingga urusan keuangan dan pajak tanpa perlu hire karyawan full-time.",
       "icon": "M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0H8m8 0v2a2 2 0 01-2 2H10a2 2 0 01-2-2V6m8 0H8",
       "benefits": [
         "Business strategy instan",
@@ -21,7 +21,7 @@
     },
     {
       "title": "Solopreneur & Creators",
-      "description": "Fokus saja ke growth & eksekusi. Biar AI yang handle riset konten, bikin copywriting yang convert, sampai eksekusi social media strategy.",
+      "description": "Fokus saja pada growth. Biar AI yang beresin riset ide, copywriting, hingga kalender konten.",
       "icon": "M13 7L9 12H15L11 17M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z",
       "benefits": [
         "Endless content ideas",
@@ -33,19 +33,31 @@
     },
     {
       "title": "Agency & Marketing Team",
-      "description": "Scale output agency Anda untuk handle lebih banyak klien. Jaga standar kualitas tetap konsisten, mulai dari campaign Meta Ads sampai Marketplace.",
-      "icon": "M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253",
+      "description": "Handle lebih banyak klien dengan konsisten. Eksekusi brief & campaign Meta Ads jauh lebih cepat.",
+      "icon": "M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477-4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253",
       "benefits": [
         "Scale Meta Ads campaign",
         "Konsistensi brand voice",
-        "Creative brief lebih cepat"
+        "Creative brief instan"
+      ],
+      "bgColor": "from-primary-500/10 to-primary-600/5",
+      "borderColor": "border-primary-500/30"
+    },
+    {
+      "title": "Siapapun Anda...",
+      "description": "Apapun industrinya, dapatkan partner diskusi dan eksekusi level ahli yang stand by 24/7.",
+      "icon": "M13 10V3L4 14h7v7l9-11h-7z",
+      "benefits": [
+        "Partner diskusi 24/7",
+        "Solusi instan level ahli",
+        "Hemat waktu riset"
       ],
       "bgColor": "from-primary-500/10 to-primary-600/5",
       "borderColor": "border-primary-500/30"
     }
   ],
   "bottomNote": {
-    "text": "Bukan sekadar kumpulan prompt ChatGPT biasa",
-    "subtext": "AIPEDIA adalah framework expertise yang di-train khusus untuk solve problem spesifik bisnis Anda."
+    "text": "Bukan sekadar prompt biasa",
+    "subtext": "AIPEDIA adalah framework spesialis yang di-train khusus."
   }
 }
