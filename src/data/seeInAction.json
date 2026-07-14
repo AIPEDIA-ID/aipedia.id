@@ -11,7 +11,7 @@
       "src": "/screenshots/2.png",
       "alt": "Social Media Demo",
       "capability": "Marketing & Social",
-      "role": "Content Calendar 14 Hari",
+      "role": "Content Calendar",
       "color": "#580cfc"
     },
     {
@@ -41,6 +41,13 @@
       "capability": "Copywriting & Ads",
       "role": "High-Convert Landing Page",
       "color": "#8a6ef0"
+    },
+    {
+      "src": "/screenshots/1.png",
+      "alt": "HR Specialist Demo",
+      "capability": "HR & Rekrutmen",
+      "role": "SOP Onboarding Tim Baru",
+      "color": "#0ea5e9"
     }
   ],
   "content": {
