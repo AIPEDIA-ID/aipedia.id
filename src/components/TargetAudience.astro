@@ -2,70 +2,72 @@
 import content from "../data/targetAudience.json";
 ---
 
-<section
-  class="py-16 px-6 bg-gradient-to-br from-gray-900 via-black to-gray-900 overflow-hidden"
->
+<section id="target-audience" class="py-12 md:py-16 px-6 relative overflow-hidden">
   <!-- Background -->
-  <div
-    class="absolute inset-0 bg-gradient-to-br from-indigo-50/50 via-white to-purple-50/50 dark:from-gray-900 dark:via-black dark:to-gray-900"
-  >
-  </div>
-  <div class="relative z-10 max-w-6xl mx-auto">
+  <div class="absolute inset-0 bg-gradient-to-br from-indigo-50/50 via-white to-purple-50/50 dark:from-gray-900 dark:via-black dark:to-gray-900"></div>
+
+  <div class="relative z-10 max-w-5xl mx-auto">
     <!-- Section Header -->
     <div class="text-center mb-12">
-      <h2
-        class="text-3xl md:text-4xl font-bold mb-4 text-gray-900 dark:text-white"
-      >
+      <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gray-900 dark:text-white">
         {content.header.title.main}
-        <span
-          class="bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent"
-          >{content.header.title.highlight}</span
-        >
+        <span class="bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent">
+          {content.header.title.highlight}
+        </span>
       </h2>
-      <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+      <p class="text-base text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
         {content.header.description}
       </p>
     </div>
 
-    <!-- Target Groups – 1 Row, Simple Layout -->
-    <div class="flex flex-wrap justify-center gap-4 mb-12">
+    <!-- Target Groups Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
       {
         content.targetGroups.map((group) => (
-          <div class="flex items-center gap-3 px-4 py-3 bg-white/60 dark:bg-white/5 backdrop-blur-sm border border-gray-200 dark:border-white/10 rounded-md">
-            <div
-              class={`w-8 h-8 bg-gradient-to-br ${group.bgColor} rounded flex items-center justify-center border ${group.borderColor}`}
-            >
-              <svg
-                class="w-4 h-4 text-white"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d={group.icon}
-                />
+          <div class="group p-6 rounded-xl bg-white/60 dark:bg-white/5 backdrop-blur-sm border border-gray-200 dark:border-white/10 hover:border-primary-500/30 dark:hover:border-primary-500/30 hover:bg-white/80 dark:hover:bg-white/10 transition-all duration-300 flex flex-col h-full">
+            <div class={`w-12 h-12 rounded-lg flex items-center justify-center mb-6 border ${group.borderColor} bg-gradient-to-br ${group.bgColor}`}>
+              <svg class="w-6 h-6 text-primary-600 dark:text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={group.icon} />
               </svg>
             </div>
-            <span class="text-gray-900 dark:text-white text-sm font-medium">
+            
+            <h3 class="text-xl font-semibold mb-3 text-gray-900 dark:text-white">
               {group.title}
-            </span>
+            </h3>
+            
+            <p class="text-gray-600 dark:text-gray-400 mb-6 flex-grow text-sm">
+              {group.description}
+            </p>
+            
+            <ul class="space-y-2 mt-auto">
+              {group.benefits.map((benefit) => (
+                <li class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
+                  <svg class="w-4 h-4 text-primary-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  {benefit}
+                </li>
+              ))}
+            </ul>
           </div>
         ))
       }
     </div>
 
     <!-- Bottom Note -->
-    <div class="text-center max-w-2xl mx-auto">
-      <div class="p-4 rounded-lg bg-red-900/20 border border-red-800/30">
-        <p class="text-red-300 font-medium mb-1">
-          ⚠️ {content.bottomNote.text}
-        </p>
-        <p class="text-red-400 text-sm">
-          {content.bottomNote.subtext}
-        </p>
+    <div class="text-center max-w-3xl mx-auto">
+      <div class="p-4 rounded-xl bg-white/60 dark:bg-white/5 backdrop-blur-sm border border-gray-200 dark:border-white/10 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <div class="w-10 h-10 rounded-full bg-red-100 dark:bg-red-500/20 border border-red-200 dark:border-red-500/30 flex items-center justify-center shrink-0">
+          <span class="text-xl">⚠️</span>
+        </div>
+        <div class="text-left">
+          <p class="text-gray-900 dark:text-white font-semibold text-sm">
+            {content.bottomNote.text}
+          </p>
+          <p class="text-gray-600 dark:text-gray-400 text-sm">
+            {content.bottomNote.subtext}
+          </p>
+        </div>
       </div>
     </div>
   </div>

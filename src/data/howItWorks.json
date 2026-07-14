@@ -1,37 +1,37 @@
 {
   "sectionHeader": {
     "title": "Cara Kerja dengan AIPEDIA",
-    "description": ""
+    "description": "3 langkah mudah mengintegrasikan expertise kelas atas ke dalam workflow harian Anda."
   },
   "steps": [
     {
       "number": 1,
       "title": "Pilih AI Spesialis",
-      "description": "Pilih dari 17 AI Spesialis sesuai kebutuhan: marketing, finance, HR, analytics, atau operations.",
+      "description": "Pilih dari 17 spesialis (Marketing, Finance, Operasional, dll) yang paling relevan dengan problem Anda saat ini.",
       "features": [
-        "Keahlian domain-spesifik terintegrasi",
-        "Prompt dan framework teroptimasi",
-        "Akses instan melalui ChatGPT"
+        "Domain-expertise terintegrasi",
+        "Prompt & knowledge base teroptimasi",
+        "Support ChatGPT, Claude & Cursor IDE"
       ]
     },
     {
       "number": 2,
-      "title": "Eksplorasi & Bertanya",
-      "description": "Chat interaktif, dapatkan panduan ahli, framework, dan insight secara 2 arah",
+      "title": "Berikan Konteks",
+      "description": "Ajak chat, berikan brief, atau jadikan rules di IDE Anda. AI akan bekerja menggunakan framework yang sudah kami latih.",
       "features": [
-        "Konsultasi ahli secara conversational",
-        "Panduan langkah demi langkah",
-        "Contoh nyata dan template siap pakai"
+        "Tanya-jawab interaktif",
+        "Analisis data & pembuatan dokumen",
+        "Auto-generate code & copy yang relevan"
       ]
     },
     {
       "number": 3,
-      "title": "Terapkan di Workflow",
-      "description": "Gunakan output terstruktur dan rekomendasi untuk pekerjaan agar eksekusi cepat dan tepat.",
+      "title": "Eksekusi Lebih Cepat",
+      "description": "Terapkan output terstruktur, template siap pakai, dan rekomendasi strategis langsung ke dalam pekerjaan Anda.",
       "features": [
-        "Deliverable siap pakai",
-        "Proses dan sistem yang scalable",
-        "Pembelajaran dan iterasi berkelanjutan"
+        "Output siap pakai & minim revisi",
+        "Hemat waktu riset berjam-jam",
+        "Kualitas setara profesional"
       ]
     }
   ],
