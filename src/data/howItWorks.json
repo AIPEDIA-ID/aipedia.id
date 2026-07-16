@@ -10,7 +10,7 @@
       "description": "Pilih dari 17 spesialis (Marketing, Finance, Operasional, dll) yang paling relevan dengan problem Anda saat ini.",
       "features": [
         "Domain-expertise terintegrasi",
-        "Prompt & knowledge base teroptimasi",
+        "Instruction & knowledge base teroptimasi",
         "Support ChatGPT, Claude & Cursor IDE"
       ]
     },
