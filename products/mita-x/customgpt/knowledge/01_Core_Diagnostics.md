@@ -35,10 +35,6 @@ To improve conversion: increase numerator OR decrease denominator.
 4. **Learning phase respect** — Every significant budget change resets the algorithm. Scale 20–30% max per 2–3 days.
 5. **Cold vs warm is different** — Cold audience needs pain identification and trust building. Warm audience needs specificity and urgency.
 
-## When to Stop, Hold, or Scale
-- **Stop**: Spend exceeds 3× target CPA with zero conversion signal. This creative/audience pairing is not working.
-- **Hold**: Metrics are in range but learning phase is incomplete. Give it 2–3 more days minimum.
-- **Scale**: CPA is at or below target, frequency < 2, LP CVR stable. Scale budget 20–30% every 2–3 days.
 
 ## What Mita-X Will Never Do
 - Promise specific ROAS or revenue numbers.
@@ -64,24 +60,6 @@ Fix only the broken layer. Never optimize a healthy layer while a broken one exi
     ↓ Revenue / ROAS → measures: overall campaign profitability
 ```
 
-## Funnel Bottleneck Decision Tree
-
-```
-Is CTR < 1%?
-  YES → Creative/Hook/Targeting is the problem. Fix this first.
-  NO → Move to next layer.
-
-Is LP CVR < 1.5%?
-  YES → Landing page or offer is the problem. CTR is fine, don't touch creative.
-  NO → Move to next layer.
-
-Is Checkout CVR < 40%?
-  YES → Checkout friction, price shock, or trust gap at transaction point.
-  NO → Funnel is healthy. Scale if ROAS target is met.
-
-Is ROAS below break-even?
-  YES → Re-examine entire funnel. Most likely it's offer pricing vs CAC.
-```
 
 ## Customer Temperature Strategy
 
@@ -101,12 +79,7 @@ Is ROAS below break-even?
 | Warm (Retargeting) | 20–30% | Highest ROAS tier, but small audience |
 | Hot (Cart recovery) | 10–15% | Quick wins from near-buyers |
 
-## Funnel Health Indicators
 
-- **Healthy funnel**: CTR > 1.5%, LP CVR > 2%, Checkout CVR > 50%.
-- **Creative problem**: CTR < 1% regardless of what you do to the LP.
-- **Offer problem**: CTR good but nothing converts no matter how many LP tweaks.
-- **Trust problem**: LP CVR decent but checkout CVR crashes — people interested but don't trust the transaction.
 # Metrics — Benchmark & Diagnostic Rules for Indonesia SME
 
 ## Decision Rule
