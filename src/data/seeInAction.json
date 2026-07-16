@@ -2,52 +2,52 @@
   "galleryImages": [
     {
       "src": "/screenshots/1.png",
-      "alt": "Business Strategy Demo",
-      "capability": "Business Strategy",
-      "role": "Mapping Ide ke BMC",
-      "color": "#F97300"
+      "alt": "Meta Ads & Funnel Demo",
+      "capability": "Mita - Meta Ads & Funnel Specialist",
+      "role": "Evaluasi Funnel & Campaign",
+      "color": "#0164e0"
     },
     {
       "src": "/screenshots/2.png",
-      "alt": "Social Media Demo",
-      "capability": "Marketing & Social",
-      "role": "Content Calendar",
-      "color": "#580cfc"
+      "alt": "Copywriting Demo",
+      "capability": "Wita - Copywriting & Content Specialist",
+      "role": "High-Convert Landing Page",
+      "color": "#8a6ef0"
     },
     {
       "src": "/screenshots/3.png",
-      "alt": "Data Analysis Demo",
-      "capability": "Data Analysis",
-      "role": "Cohort & Churn Drivers",
-      "color": "#FF4B00"
+      "alt": "Visual Ads Demo",
+      "capability": "Gita - Visual Ads & Design Specialist",
+      "role": "Konsep Visual Promo",
+      "color": "#29B6F6"
     },
     {
       "src": "/screenshots/4.png",
-      "alt": "SEO Strategy Demo",
-      "capability": "SEO Optimization",
-      "role": "Topical Map & Linking",
-      "color": "#20a944"
+      "alt": "Website Specialist Demo",
+      "capability": "Wilo - Website Specialist",
+      "role": "Struktur Landing Page",
+      "color": "#00FFA4"
     },
     {
       "src": "/screenshots/5.png",
       "alt": "Finance Demo",
-      "capability": "Finance Specialist",
+      "capability": "Fina - Finance Specialist",
       "role": "Cash Flow Forecast",
       "color": "#FFD400"
     },
     {
       "src": "/screenshots/6.png",
-      "alt": "Copywriting Demo",
-      "capability": "Copywriting & Ads",
-      "role": "High-Convert Landing Page",
-      "color": "#8a6ef0"
+      "alt": "WhatsApp Business Demo",
+      "capability": "Wanda - WhatsApp Business Specialist",
+      "role": "Alur Broadcast Promo",
+      "color": "#00ACC1"
     },
     {
       "src": "/screenshots/1.png",
-      "alt": "HR Specialist Demo",
-      "capability": "HR & Rekrutmen",
-      "role": "SOP Onboarding Tim Baru",
-      "color": "#0ea5e9"
+      "alt": "Pajak UMKM Demo",
+      "capability": "Tira - Pajak UMKM Specialist",
+      "role": "Simulasi PPh Final",
+      "color": "#E53935"
     }
   ],
   "content": {

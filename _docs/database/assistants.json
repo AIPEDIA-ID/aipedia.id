@@ -5,88 +5,20 @@
   },
   "characters": [
     {
-      "id": "beny",
-      "name": "Beny",
-      "role": "Business Strategist",
-      "themeColor": "#F97300",
-      "gender": "Male",
-      "image": "/character/beny.png",
-      "description": "Mapping ide bisnis ke Business Model Canvas lengkap dengan analisis risiko dan strategi channel.",
-      "examplePrompt": "Map ide skincare DTC ke Business Model Canvas dengan risiko dan strategi channel.",
-      "category": "business",
-      "price": "86k",
-      "conversationStarters": [
-        "Bantu saya membuat Business Model Canvas untuk ide bisnis baru.",
-        "Bagaimana cara memetakan risiko untuk peluncuran produk SaaS?",
-        "Saran strategi channel distribusi untuk brand clothing lokal?"
-      ]
-    },
-    {
-      "id": "fina",
-      "name": "Fina",
-      "role": "Finance Specialist",
-      "themeColor": "#FFD400",
+      "id": "mita",
+      "name": "Mita",
+      "role": "Meta Ads & Funnel Specialist",
+      "themeColor": "#0164e0",
       "gender": "Female",
-      "image": "/character/fina.png",
-      "description": "Analisis keuangan, cash flow forecast, dan break-even bisnis.",
-      "examplePrompt": "Buat cash flow forecast 3 bulan dan break-even analysis untuk café.",
-      "category": "business",
-      "price": "86k",
-      "conversationStarters": [
-        "Buatkan saya template cash flow forecast untuk 3 bulan ke depan.",
-        "Bantu hitung break-even point (BEP) untuk bisnis kopi susu.",
-        "Apa metrik keuangan utama yang perlu saya pantau bulan ini?"
-      ]
-    },
-    {
-      "id": "cisa",
-      "name": "Cisa",
-      "role": "Customer Relationship Specialist",
-      "themeColor": "#FF003E",
-      "gender": "Female",
-      "image": "/character/cisa.png",
-      "description": "Sistem customer support dengan macro response dan escalation rules.",
-      "examplePrompt": "Rancang CS macro untuk inquiry Tier-1 dan escalation refund.",
-      "category": "business",
-      "price": "86k",
-      "conversationStarters": [
-        "Bantu saya merancang macro response untuk keluhan pengiriman telat.",
-        "Buatkan aturan eskalasi refund untuk tim customer service.",
-        "Bagaimana cara merespons review negatif di Google Maps dengan baik?"
-      ]
-    },
-    {
-      "id": "sona",
-      "name": "Sona",
-      "role": "Social Media Content Specialist",
-      "themeColor": "#580cfc",
-      "gender": "Female",
-      "image": "/character/sona.png",
-      "description": "Konten social media engaging untuk Instagram dan TikTok.",
-      "examplePrompt": "Buat kalender IG/TikTok 14 hari dengan hooks dan CTA.",
+      "image": "/character/mita.png",
+      "description": "Evaluasi funnel (Ads -> Landing Page -> Offer) dan optimasi Meta Ads untuk konversi maksimal.",
+      "examplePrompt": "Kenapa CTR iklanku tinggi tapi konversi rendah? Bantu evaluasi offer-nya.",
       "category": "marketing",
       "price": "86k",
       "conversationStarters": [
-        "Buatkan ide konten Instagram Reels selama seminggu untuk klinik kecantikan.",
-        "Tuliskan hook dan CTA yang menarik untuk postingan TikTok tentang promo sepatu.",
-        "Bantu saya merancang kalender konten sosial media bulan depan."
-      ]
-    },
-    {
-      "id": "viko",
-      "name": "Viko",
-      "role": "Video Script Writer Specialist",
-      "themeColor": "#eb4ec3",
-      "gender": "Male",
-      "image": "/character/viko.png",
-      "description": "Script video engaging untuk UGC dan ads.",
-      "examplePrompt": "Outline script UGC 60 detik dengan hooks dan CTA.",
-      "category": "marketing",
-      "price": "86k",
-      "conversationStarters": [
-        "Buatkan outline script video UGC berdurasi 60 detik untuk produk skincare.",
-        "Tuliskan naskah video YouTube Shorts tentang tips produktivitas kerja.",
-        "Bantu buat script iklan Meta Ads dengan format hook-story-offer."
+        "CTR iklan saya bagus tapi sales sepi, apa yang salah di funnel saya?",
+        "Bantu evaluasi angle creative dan penawaran (offer) untuk produk skincare.",
+        "Buatkan struktur campaign Meta Ads lengkap dengan budget dan targeting."
       ]
     },
     {
@@ -107,6 +39,125 @@
       ]
     },
     {
+      "id": "gita",
+      "name": "Gita",
+      "role": "Visual Ads & Design Specialist",
+      "themeColor": "#29B6F6",
+      "gender": "Female",
+      "image": "/character/gita.png",
+      "description": "Bikin konsep visual iklan dan design brief untuk Meta Ads, TikTok, dan banner promosi.",
+      "examplePrompt": "Buat konsep visual ads untuk promo diskon akhir tahun produk skincare.",
+      "category": "marketing",
+      "price": "86k",
+      "conversationStarters": [
+        "Buatkan konsep visual ads yang menarik untuk promo hari kemerdekaan.",
+        "Bantu saya menulis design brief untuk banner website promo Ramadhan.",
+        "Ide visual kreatif apa yang cocok untuk iklan TikTok produk makanan?"
+      ]
+    },
+    {
+      "id": "wilo",
+      "name": "Wilo",
+      "role": "Website Specialist",
+      "themeColor": "#00FFA4",
+      "gender": "Male",
+      "image": "/character/wilo.png",
+      "description": "Bantu rancang struktur landing page dan website bisnis tanpa perlu skill teknis.",
+      "examplePrompt": "Rancang struktur halaman landing page untuk jasa katering, lengkap dengan section dan copy placeholder.",
+      "category": "business",
+      "price": "86k",
+      "conversationStarters": [
+        "Bantu saya merancang struktur landing page untuk jasa desain interior.",
+        "Apa saja section yang wajib ada di halaman 'About Us' perusahaan?",
+        "Buatkan struktur website e-commerce yang SEO-friendly."
+      ]
+    },
+    {
+      "id": "fina",
+      "name": "Fina",
+      "role": "Finance Specialist",
+      "themeColor": "#FFD400",
+      "gender": "Female",
+      "image": "/character/fina.png",
+      "description": "Analisis keuangan, cash flow forecast, dan break-even bisnis.",
+      "examplePrompt": "Buat cash flow forecast 3 bulan dan break-even analysis untuk caf\u00e9.",
+      "category": "business",
+      "price": "86k",
+      "conversationStarters": [
+        "Buatkan saya template cash flow forecast untuk 3 bulan ke depan.",
+        "Bantu hitung break-even point (BEP) untuk bisnis kopi susu.",
+        "Apa metrik keuangan utama yang perlu saya pantau bulan ini?"
+      ]
+    },
+    {
+      "id": "wanda",
+      "name": "Wanda",
+      "role": "WhatsApp Business Specialist",
+      "themeColor": "#00ACC1",
+      "gender": "Female",
+      "image": "/character/wanda.png",
+      "description": "Rancang broadcast, katalog, dan auto-reply WhatsApp Business biar closing lebih cepat.",
+      "examplePrompt": "Buat template broadcast promo baru dan alur auto-reply untuk FAQ pelanggan.",
+      "category": "marketing",
+      "price": "86k",
+      "conversationStarters": [
+        "Buatkan template broadcast WhatsApp untuk menyapa pelanggan lama.",
+        "Bantu merancang alur auto-reply WhatsApp Business untuk pertanyaan FAQ.",
+        "Bagaimana cara membuat katalog WhatsApp yang menarik pembeli?"
+      ]
+    },
+    {
+      "id": "tira",
+      "name": "Tira",
+      "role": "Pajak UMKM Specialist",
+      "themeColor": "#E53935",
+      "gender": "Female",
+      "image": "/character/tira.png",
+      "description": "Bantu paham kewajiban pajak UMKM, PPh Final, dan cara lapor yang simpel.",
+      "examplePrompt": "Jelaskan cara hitung PPh Final 0.5% untuk usaha katering dengan omzet 300 juta/tahun.",
+      "category": "business",
+      "price": "86k",
+      "conversationStarters": [
+        "Bantu saya menghitung PPh Final 0.5% untuk UMKM bulan ini.",
+        "Apa saja syarat dan cara lapor pajak tahunan untuk badan usaha CV?",
+        "Jelaskan peraturan pajak terbaru yang perlu diketahui oleh pengusaha online."
+      ]
+    },
+    {
+      "id": "sona",
+      "name": "Sona",
+      "role": "Social Media Content Specialist",
+      "themeColor": "#580cfc",
+      "gender": "Female",
+      "image": "/character/sona.png",
+      "description": "Konten social media engaging untuk Instagram dan TikTok.",
+      "examplePrompt": "Buat kalender IG/TikTok 14 hari dengan hooks dan CTA.",
+      "category": "marketing",
+      "price": "86k",
+      "conversationStarters": [
+        "Buatkan ide konten Instagram Reels selama seminggu untuk klinik kecantikan.",
+        "Tuliskan hook dan CTA yang menarik untuk postingan TikTok tentang promo sepatu.",
+        "Bantu saya merancang kalender konten sosial media bulan depan."
+      ]
+    },
+    {
+      "id": "loka",
+      "name": "Loka",
+      "role": "Marketplace Specialist",
+      "themeColor": "#7CB342",
+      "gender": "Male",
+      "image": "/character/loka.png",
+      "description": "Optimasi listing produk di Shopee, Tokopedia, dan TikTok Shop biar lebih mudah ditemukan.",
+      "examplePrompt": "Optimasi judul dan deskripsi produk tas kulit untuk marketplace Shopee.",
+      "category": "marketing",
+      "price": "86k",
+      "conversationStarters": [
+        "Bantu optimasi judul dan deskripsi produk agar mudah dicari di Shopee.",
+        "Strategi apa yang efektif untuk ikut campaign tanggal kembar di Tokopedia?",
+        "Bagaimana cara meningkatkan conversion rate toko di TikTok Shop?"
+      ]
+    },
+    {
       "id": "dany",
       "name": "Dany",
       "role": "Data Analyst Specialist",
@@ -124,20 +175,20 @@
       ]
     },
     {
-      "id": "mita",
-      "name": "Mita",
-      "role": "Meta Ads & Funnel Specialist",
-      "themeColor": "#0164e0",
-      "gender": "Female",
-      "image": "/character/mita.png",
-      "description": "Evaluasi funnel (Ads -> Landing Page -> Offer) dan optimasi Meta Ads untuk konversi maksimal.",
-      "examplePrompt": "Kenapa CTR iklanku tinggi tapi konversi rendah? Bantu evaluasi offer-nya.",
-      "category": "marketing",
+      "id": "beny",
+      "name": "Beny",
+      "role": "Business Strategist",
+      "themeColor": "#F97300",
+      "gender": "Male",
+      "image": "/character/beny.png",
+      "description": "Mapping ide bisnis ke Business Model Canvas lengkap dengan analisis risiko dan strategi channel.",
+      "examplePrompt": "Map ide skincare DTC ke Business Model Canvas dengan risiko dan strategi channel.",
+      "category": "business",
       "price": "86k",
       "conversationStarters": [
-        "CTR iklan saya bagus tapi sales sepi, apa yang salah di funnel saya?",
-        "Bantu evaluasi angle creative dan penawaran (offer) untuk produk skincare.",
-        "Buatkan struktur campaign Meta Ads lengkap dengan budget dan targeting."
+        "Bantu saya membuat Business Model Canvas untuk ide bisnis baru.",
+        "Bagaimana cara memetakan risiko untuk peluncuran produk SaaS?",
+        "Saran strategi channel distribusi untuk brand clothing lokal?"
       ]
     },
     {
@@ -175,88 +226,37 @@
       ]
     },
     {
-      "id": "wilo",
-      "name": "Wilo",
-      "role": "Website Specialist",
-      "themeColor": "#00FFA4",
-      "gender": "Male",
-      "image": "/character/wilo.png",
-      "description": "Bantu rancang struktur landing page dan website bisnis tanpa perlu skill teknis.",
-      "examplePrompt": "Rancang struktur halaman landing page untuk jasa katering, lengkap dengan section dan copy placeholder.",
+      "id": "cisa",
+      "name": "Cisa",
+      "role": "Customer Relationship Specialist",
+      "themeColor": "#FF003E",
+      "gender": "Female",
+      "image": "/character/cisa.png",
+      "description": "Sistem customer support dengan macro response dan escalation rules.",
+      "examplePrompt": "Rancang CS macro untuk inquiry Tier-1 dan escalation refund.",
       "category": "business",
       "price": "86k",
       "conversationStarters": [
-        "Bantu saya merancang struktur landing page untuk jasa desain interior.",
-        "Apa saja section yang wajib ada di halaman 'About Us' perusahaan?",
-        "Buatkan struktur website e-commerce yang SEO-friendly."
+        "Bantu saya merancang macro response untuk keluhan pengiriman telat.",
+        "Buatkan aturan eskalasi refund untuk tim customer service.",
+        "Bagaimana cara merespons review negatif di Google Maps dengan baik?"
       ]
     },
     {
-      "id": "prima",
-      "name": "Prima",
-      "role": "Operations & SOP Specialist",
-      "themeColor": "#BB6653",
-      "gender": "Female",
-      "image": "/character/prima.png",
-      "description": "Susun SOP operasional dan workflow harian biar bisnis jalan konsisten tanpa kamu pantau terus.",
-      "examplePrompt": "Buat SOP alur pesanan online dari order masuk sampai pengiriman untuk bisnis F&B.",
-      "category": "business",
-      "price": "86k",
-      "conversationStarters": [
-        "Buatkan SOP standar untuk alur penerimaan pesanan di restoran.",
-        "Bantu saya menyusun workflow harian yang efisien untuk admin gudang.",
-        "Bagaimana cara membuat SOP yang mudah dipahami oleh karyawan baru?"
-      ]
-    },
-    {
-      "id": "gita",
-      "name": "Gita",
-      "role": "Visual Ads & Design Specialist",
-      "themeColor": "#29B6F6",
-      "gender": "Female",
-      "image": "/character/gita.png",
-      "description": "Bikin konsep visual iklan dan design brief untuk Meta Ads, TikTok, dan banner promosi.",
-      "examplePrompt": "Buat konsep visual ads untuk promo diskon akhir tahun produk skincare.",
-      "category": "marketing",
-      "price": "86k",
-      "conversationStarters": [
-        "Buatkan konsep visual ads yang menarik untuk promo hari kemerdekaan.",
-        "Bantu saya menulis design brief untuk banner website promo Ramadhan.",
-        "Ide visual kreatif apa yang cocok untuk iklan TikTok produk makanan?"
-      ]
-    },
-    {
-      "id": "wanda",
-      "name": "Wanda",
-      "role": "WhatsApp Business Specialist",
-      "themeColor": "#00ACC1",
-      "gender": "Female",
-      "image": "/character/wanda.png",
-      "description": "Rancang broadcast, katalog, dan auto-reply WhatsApp Business biar closing lebih cepat.",
-      "examplePrompt": "Buat template broadcast promo baru dan alur auto-reply untuk FAQ pelanggan.",
-      "category": "marketing",
-      "price": "86k",
-      "conversationStarters": [
-        "Buatkan template broadcast WhatsApp untuk menyapa pelanggan lama.",
-        "Bantu merancang alur auto-reply WhatsApp Business untuk pertanyaan FAQ.",
-        "Bagaimana cara membuat katalog WhatsApp yang menarik pembeli?"
-      ]
-    },
-    {
-      "id": "loka",
-      "name": "Loka",
-      "role": "Marketplace Specialist",
-      "themeColor": "#7CB342",
+      "id": "viko",
+      "name": "Viko",
+      "role": "Video Script Writer Specialist",
+      "themeColor": "#eb4ec3",
       "gender": "Male",
-      "image": "/character/loka.png",
-      "description": "Optimasi listing produk di Shopee, Tokopedia, dan TikTok Shop biar lebih mudah ditemukan.",
-      "examplePrompt": "Optimasi judul dan deskripsi produk tas kulit untuk marketplace Shopee.",
+      "image": "/character/viko.png",
+      "description": "Script video engaging untuk UGC dan ads.",
+      "examplePrompt": "Outline script UGC 60 detik dengan hooks dan CTA.",
       "category": "marketing",
       "price": "86k",
       "conversationStarters": [
-        "Bantu optimasi judul dan deskripsi produk agar mudah dicari di Shopee.",
-        "Strategi apa yang efektif untuk ikut campaign tanggal kembar di Tokopedia?",
-        "Bagaimana cara meningkatkan conversion rate toko di TikTok Shop?"
+        "Buatkan outline script video UGC berdurasi 60 detik untuk produk skincare.",
+        "Tuliskan naskah video YouTube Shorts tentang tips produktivitas kerja.",
+        "Bantu buat script iklan Meta Ads dengan format hook-story-offer."
       ]
     },
     {
@@ -277,20 +277,20 @@
       ]
     },
     {
-      "id": "tira",
-      "name": "Tira",
-      "role": "Pajak UMKM Specialist",
-      "themeColor": "#E53935",
+      "id": "prima",
+      "name": "Prima",
+      "role": "Operations & SOP Specialist",
+      "themeColor": "#BB6653",
       "gender": "Female",
-      "image": "/character/tira.png",
-      "description": "Bantu paham kewajiban pajak UMKM, PPh Final, dan cara lapor yang simpel.",
-      "examplePrompt": "Jelaskan cara hitung PPh Final 0.5% untuk usaha katering dengan omzet 300 juta/tahun.",
+      "image": "/character/prima.png",
+      "description": "Susun SOP operasional dan workflow harian biar bisnis jalan konsisten tanpa kamu pantau terus.",
+      "examplePrompt": "Buat SOP alur pesanan online dari order masuk sampai pengiriman untuk bisnis F&B.",
       "category": "business",
       "price": "86k",
       "conversationStarters": [
-        "Bantu saya menghitung PPh Final 0.5% untuk UMKM bulan ini.",
-        "Apa saja syarat dan cara lapor pajak tahunan untuk badan usaha CV?",
-        "Jelaskan peraturan pajak terbaru yang perlu diketahui oleh pengusaha online."
+        "Buatkan SOP standar untuk alur penerimaan pesanan di restoran.",
+        "Bantu saya menyusun workflow harian yang efisien untuk admin gudang.",
+        "Bagaimana cara membuat SOP yang mudah dipahami oleh karyawan baru?"
       ]
     }
   ],

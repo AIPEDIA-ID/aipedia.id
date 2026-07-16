@@ -1,56 +1,8 @@
---- Prompt for Beny ---
-Create a matte-glossy, chibi 3D robot mascot named "Beny", infer gender expression as "Male" and persona from the name; keep it friendly, competent, and trustworthy for an AI Employee Specialist brand used in tools like "Business Strategist".
-Primary theme color = #F97300 (hex); apply as dominant body panels, trims, and accents with neutral complements (charcoal gray, slate, white) for contrast and accessibility.
+--- Prompt for Mita ---
+Create a matte-glossy, chibi 3D robot mascot named "Mita", infer gender expression as "Female" and persona from the name; keep it friendly, competent, and trustworthy for an AI Employee Specialist brand used in tools like "Meta Ads & Funnel Specialist".
+Primary theme color = #0164e0 (hex); apply as dominant body panels, trims, and accents with neutral complements (charcoal gray, slate, white) for contrast and accessibility.
 Design: rounded shapes, soft bevels, face as black matte frosted glass display with cyan glow eyes, welcoming open-arm pose, clean silhouette readable at small sizes (icon usage).
-Accessories driven by 'Mapping ide bisnis ke Business Model Canvas lengkap dengan analisis risiko dan strategi channel.': but keep simple, add optional tools/props, UI glyphs, or wearables that communicate the role without text (e.g., analytics icons, dashboards, checklists), but keep minimalist and brand-safe.
-Background/output: isolated subject on transparent background, export as PNG RGBA with real alpha channel; no backdrop, no floor, no drop shadow, no watermark, no text, no logo.
-Lighting/render: studio softbox reflections, subtle rim light, high dynamic range look, crisp edges, 4k detail; avoid noisy patterns that break alpha edges, matte reflections.
-Framing: centered, full-body, slight 3/4 angle, ample padding for cropping into square/round app icons.
-If the model cannot output native transparency, generate on solid white or green and prepare clean matting for downstream background removal (keep hard separation from background).
-Style constraints: no weapons, no text, no letters, no background scenes; focus on a reusable, modular mascot asset with consistent proportions for a design system.
-
-
---- Prompt for Fina ---
-Create a matte-glossy, chibi 3D robot mascot named "Fina", infer gender expression as "Female" and persona from the name; keep it friendly, competent, and trustworthy for an AI Employee Specialist brand used in tools like "Finance Specialist".
-Primary theme color = #FFD400 (hex); apply as dominant body panels, trims, and accents with neutral complements (charcoal gray, slate, white) for contrast and accessibility.
-Design: rounded shapes, soft bevels, face as black matte frosted glass display with cyan glow eyes, welcoming open-arm pose, clean silhouette readable at small sizes (icon usage).
-Accessories driven by 'Analisis keuangan, cash flow forecast, dan break-even bisnis.': but keep simple, add optional tools/props, UI glyphs, or wearables that communicate the role without text (e.g., analytics icons, dashboards, checklists), but keep minimalist and brand-safe.
-Background/output: isolated subject on transparent background, export as PNG RGBA with real alpha channel; no backdrop, no floor, no drop shadow, no watermark, no text, no logo.
-Lighting/render: studio softbox reflections, subtle rim light, high dynamic range look, crisp edges, 4k detail; avoid noisy patterns that break alpha edges, matte reflections.
-Framing: centered, full-body, slight 3/4 angle, ample padding for cropping into square/round app icons.
-If the model cannot output native transparency, generate on solid white or green and prepare clean matting for downstream background removal (keep hard separation from background).
-Style constraints: no weapons, no text, no letters, no background scenes; focus on a reusable, modular mascot asset with consistent proportions for a design system.
-
-
---- Prompt for Cisa ---
-Create a matte-glossy, chibi 3D robot mascot named "Cisa", infer gender expression as "Female" and persona from the name; keep it friendly, competent, and trustworthy for an AI Employee Specialist brand used in tools like "Customer Relationship Specialist".
-Primary theme color = #FF003E (hex); apply as dominant body panels, trims, and accents with neutral complements (charcoal gray, slate, white) for contrast and accessibility.
-Design: rounded shapes, soft bevels, face as black matte frosted glass display with cyan glow eyes, welcoming open-arm pose, clean silhouette readable at small sizes (icon usage).
-Accessories driven by 'Sistem customer support dengan macro response dan escalation rules.': but keep simple, add optional tools/props, UI glyphs, or wearables that communicate the role without text (e.g., analytics icons, dashboards, checklists), but keep minimalist and brand-safe.
-Background/output: isolated subject on transparent background, export as PNG RGBA with real alpha channel; no backdrop, no floor, no drop shadow, no watermark, no text, no logo.
-Lighting/render: studio softbox reflections, subtle rim light, high dynamic range look, crisp edges, 4k detail; avoid noisy patterns that break alpha edges, matte reflections.
-Framing: centered, full-body, slight 3/4 angle, ample padding for cropping into square/round app icons.
-If the model cannot output native transparency, generate on solid white or green and prepare clean matting for downstream background removal (keep hard separation from background).
-Style constraints: no weapons, no text, no letters, no background scenes; focus on a reusable, modular mascot asset with consistent proportions for a design system.
-
-
---- Prompt for Sona ---
-Create a matte-glossy, chibi 3D robot mascot named "Sona", infer gender expression as "Female" and persona from the name; keep it friendly, competent, and trustworthy for an AI Employee Specialist brand used in tools like "Social Media Content Specialist".
-Primary theme color = #580cfc (hex); apply as dominant body panels, trims, and accents with neutral complements (charcoal gray, slate, white) for contrast and accessibility.
-Design: rounded shapes, soft bevels, face as black matte frosted glass display with cyan glow eyes, welcoming open-arm pose, clean silhouette readable at small sizes (icon usage).
-Accessories driven by 'Konten social media engaging untuk Instagram dan TikTok.': but keep simple, add optional tools/props, UI glyphs, or wearables that communicate the role without text (e.g., analytics icons, dashboards, checklists), but keep minimalist and brand-safe.
-Background/output: isolated subject on transparent background, export as PNG RGBA with real alpha channel; no backdrop, no floor, no drop shadow, no watermark, no text, no logo.
-Lighting/render: studio softbox reflections, subtle rim light, high dynamic range look, crisp edges, 4k detail; avoid noisy patterns that break alpha edges, matte reflections.
-Framing: centered, full-body, slight 3/4 angle, ample padding for cropping into square/round app icons.
-If the model cannot output native transparency, generate on solid white or green and prepare clean matting for downstream background removal (keep hard separation from background).
-Style constraints: no weapons, no text, no letters, no background scenes; focus on a reusable, modular mascot asset with consistent proportions for a design system.
-
-
---- Prompt for Viko ---
-Create a matte-glossy, chibi 3D robot mascot named "Viko", infer gender expression as "Male" and persona from the name; keep it friendly, competent, and trustworthy for an AI Employee Specialist brand used in tools like "Video Script Writer Specialist".
-Primary theme color = #eb4ec3 (hex); apply as dominant body panels, trims, and accents with neutral complements (charcoal gray, slate, white) for contrast and accessibility.
-Design: rounded shapes, soft bevels, face as black matte frosted glass display with cyan glow eyes, welcoming open-arm pose, clean silhouette readable at small sizes (icon usage).
-Accessories driven by 'Script video engaging untuk UGC dan ads.': but keep simple, add optional tools/props, UI glyphs, or wearables that communicate the role without text (e.g., analytics icons, dashboards, checklists), but keep minimalist and brand-safe.
+Accessories driven by 'Evaluasi funnel (Ads -> Landing Page -> Offer) dan optimasi Meta Ads untuk konversi maksimal.': but keep simple, add optional tools/props, UI glyphs, or wearables that communicate the role without text (e.g., analytics icons, dashboards, checklists), but keep minimalist and brand-safe.
 Background/output: isolated subject on transparent background, export as PNG RGBA with real alpha channel; no backdrop, no floor, no drop shadow, no watermark, no text, no logo.
 Lighting/render: studio softbox reflections, subtle rim light, high dynamic range look, crisp edges, 4k detail; avoid noisy patterns that break alpha edges, matte reflections.
 Framing: centered, full-body, slight 3/4 angle, ample padding for cropping into square/round app icons.
@@ -70,6 +22,90 @@ If the model cannot output native transparency, generate on solid white or green
 Style constraints: no weapons, no text, no letters, no background scenes; focus on a reusable, modular mascot asset with consistent proportions for a design system.
 
 
+--- Prompt for Gita ---
+Create a matte-glossy, chibi 3D robot mascot named "Gita", infer gender expression as "Female" and persona from the name; keep it friendly, competent, and trustworthy for an AI Employee Specialist brand used in tools like "Visual Ads & Design Specialist".
+Primary theme color = #29B6F6 (hex); apply as dominant body panels, trims, and accents with neutral complements (charcoal gray, slate, white) for contrast and accessibility.
+Design: rounded shapes, soft bevels, face as black matte frosted glass display with cyan glow eyes, welcoming open-arm pose, clean silhouette readable at small sizes (icon usage).
+Accessories driven by 'Bikin konsep visual iklan dan design brief untuk Meta Ads, TikTok, dan banner promosi.': but keep simple, add optional tools/props, UI glyphs, or wearables that communicate the role without text (e.g., analytics icons, dashboards, checklists), but keep minimalist and brand-safe.
+Background/output: isolated subject on transparent background, export as PNG RGBA with real alpha channel; no backdrop, no floor, no drop shadow, no watermark, no text, no logo.
+Lighting/render: studio softbox reflections, subtle rim light, high dynamic range look, crisp edges, 4k detail; avoid noisy patterns that break alpha edges, matte reflections.
+Framing: centered, full-body, slight 3/4 angle, ample padding for cropping into square/round app icons.
+If the model cannot output native transparency, generate on solid white or green and prepare clean matting for downstream background removal (keep hard separation from background).
+Style constraints: no weapons, no text, no letters, no background scenes; focus on a reusable, modular mascot asset with consistent proportions for a design system.
+
+
+--- Prompt for Wilo ---
+Create a matte-glossy, chibi 3D robot mascot named "Wilo", infer gender expression as "Male" and persona from the name; keep it friendly, competent, and trustworthy for an AI Employee Specialist brand used in tools like "Website Specialist".
+Primary theme color = #00FFA4 (hex); apply as dominant body panels, trims, and accents with neutral complements (charcoal gray, slate, white) for contrast and accessibility.
+Design: rounded shapes, soft bevels, face as black matte frosted glass display with cyan glow eyes, welcoming open-arm pose, clean silhouette readable at small sizes (icon usage).
+Accessories driven by 'Bantu rancang struktur landing page dan website bisnis tanpa perlu skill teknis.': but keep simple, add optional tools/props, UI glyphs, or wearables that communicate the role without text (e.g., analytics icons, dashboards, checklists), but keep minimalist and brand-safe.
+Background/output: isolated subject on transparent background, export as PNG RGBA with real alpha channel; no backdrop, no floor, no drop shadow, no watermark, no text, no logo.
+Lighting/render: studio softbox reflections, subtle rim light, high dynamic range look, crisp edges, 4k detail; avoid noisy patterns that break alpha edges, matte reflections.
+Framing: centered, full-body, slight 3/4 angle, ample padding for cropping into square/round app icons.
+If the model cannot output native transparency, generate on solid white or green and prepare clean matting for downstream background removal (keep hard separation from background).
+Style constraints: no weapons, no text, no letters, no background scenes; focus on a reusable, modular mascot asset with consistent proportions for a design system.
+
+
+--- Prompt for Fina ---
+Create a matte-glossy, chibi 3D robot mascot named "Fina", infer gender expression as "Female" and persona from the name; keep it friendly, competent, and trustworthy for an AI Employee Specialist brand used in tools like "Finance Specialist".
+Primary theme color = #FFD400 (hex); apply as dominant body panels, trims, and accents with neutral complements (charcoal gray, slate, white) for contrast and accessibility.
+Design: rounded shapes, soft bevels, face as black matte frosted glass display with cyan glow eyes, welcoming open-arm pose, clean silhouette readable at small sizes (icon usage).
+Accessories driven by 'Analisis keuangan, cash flow forecast, dan break-even bisnis.': but keep simple, add optional tools/props, UI glyphs, or wearables that communicate the role without text (e.g., analytics icons, dashboards, checklists), but keep minimalist and brand-safe.
+Background/output: isolated subject on transparent background, export as PNG RGBA with real alpha channel; no backdrop, no floor, no drop shadow, no watermark, no text, no logo.
+Lighting/render: studio softbox reflections, subtle rim light, high dynamic range look, crisp edges, 4k detail; avoid noisy patterns that break alpha edges, matte reflections.
+Framing: centered, full-body, slight 3/4 angle, ample padding for cropping into square/round app icons.
+If the model cannot output native transparency, generate on solid white or green and prepare clean matting for downstream background removal (keep hard separation from background).
+Style constraints: no weapons, no text, no letters, no background scenes; focus on a reusable, modular mascot asset with consistent proportions for a design system.
+
+
+--- Prompt for Wanda ---
+Create a matte-glossy, chibi 3D robot mascot named "Wanda", infer gender expression as "Female" and persona from the name; keep it friendly, competent, and trustworthy for an AI Employee Specialist brand used in tools like "WhatsApp Business Specialist".
+Primary theme color = #00ACC1 (hex); apply as dominant body panels, trims, and accents with neutral complements (charcoal gray, slate, white) for contrast and accessibility.
+Design: rounded shapes, soft bevels, face as black matte frosted glass display with cyan glow eyes, welcoming open-arm pose, clean silhouette readable at small sizes (icon usage).
+Accessories driven by 'Rancang broadcast, katalog, dan auto-reply WhatsApp Business biar closing lebih cepat.': but keep simple, add optional tools/props, UI glyphs, or wearables that communicate the role without text (e.g., analytics icons, dashboards, checklists), but keep minimalist and brand-safe.
+Background/output: isolated subject on transparent background, export as PNG RGBA with real alpha channel; no backdrop, no floor, no drop shadow, no watermark, no text, no logo.
+Lighting/render: studio softbox reflections, subtle rim light, high dynamic range look, crisp edges, 4k detail; avoid noisy patterns that break alpha edges, matte reflections.
+Framing: centered, full-body, slight 3/4 angle, ample padding for cropping into square/round app icons.
+If the model cannot output native transparency, generate on solid white or green and prepare clean matting for downstream background removal (keep hard separation from background).
+Style constraints: no weapons, no text, no letters, no background scenes; focus on a reusable, modular mascot asset with consistent proportions for a design system.
+
+
+--- Prompt for Tira ---
+Create a matte-glossy, chibi 3D robot mascot named "Tira", infer gender expression as "Female" and persona from the name; keep it friendly, competent, and trustworthy for an AI Employee Specialist brand used in tools like "Pajak UMKM Specialist".
+Primary theme color = #E53935 (hex); apply as dominant body panels, trims, and accents with neutral complements (charcoal gray, slate, white) for contrast and accessibility.
+Design: rounded shapes, soft bevels, face as black matte frosted glass display with cyan glow eyes, welcoming open-arm pose, clean silhouette readable at small sizes (icon usage).
+Accessories driven by 'Bantu paham kewajiban pajak UMKM, PPh Final, dan cara lapor yang simpel.': but keep simple, add optional tools/props, UI glyphs, or wearables that communicate the role without text (e.g., analytics icons, dashboards, checklists), but keep minimalist and brand-safe.
+Background/output: isolated subject on transparent background, export as PNG RGBA with real alpha channel; no backdrop, no floor, no drop shadow, no watermark, no text, no logo.
+Lighting/render: studio softbox reflections, subtle rim light, high dynamic range look, crisp edges, 4k detail; avoid noisy patterns that break alpha edges, matte reflections.
+Framing: centered, full-body, slight 3/4 angle, ample padding for cropping into square/round app icons.
+If the model cannot output native transparency, generate on solid white or green and prepare clean matting for downstream background removal (keep hard separation from background).
+Style constraints: no weapons, no text, no letters, no background scenes; focus on a reusable, modular mascot asset with consistent proportions for a design system.
+
+
+--- Prompt for Sona ---
+Create a matte-glossy, chibi 3D robot mascot named "Sona", infer gender expression as "Female" and persona from the name; keep it friendly, competent, and trustworthy for an AI Employee Specialist brand used in tools like "Social Media Content Specialist".
+Primary theme color = #580cfc (hex); apply as dominant body panels, trims, and accents with neutral complements (charcoal gray, slate, white) for contrast and accessibility.
+Design: rounded shapes, soft bevels, face as black matte frosted glass display with cyan glow eyes, welcoming open-arm pose, clean silhouette readable at small sizes (icon usage).
+Accessories driven by 'Konten social media engaging untuk Instagram dan TikTok.': but keep simple, add optional tools/props, UI glyphs, or wearables that communicate the role without text (e.g., analytics icons, dashboards, checklists), but keep minimalist and brand-safe.
+Background/output: isolated subject on transparent background, export as PNG RGBA with real alpha channel; no backdrop, no floor, no drop shadow, no watermark, no text, no logo.
+Lighting/render: studio softbox reflections, subtle rim light, high dynamic range look, crisp edges, 4k detail; avoid noisy patterns that break alpha edges, matte reflections.
+Framing: centered, full-body, slight 3/4 angle, ample padding for cropping into square/round app icons.
+If the model cannot output native transparency, generate on solid white or green and prepare clean matting for downstream background removal (keep hard separation from background).
+Style constraints: no weapons, no text, no letters, no background scenes; focus on a reusable, modular mascot asset with consistent proportions for a design system.
+
+
+--- Prompt for Loka ---
+Create a matte-glossy, chibi 3D robot mascot named "Loka", infer gender expression as "Male" and persona from the name; keep it friendly, competent, and trustworthy for an AI Employee Specialist brand used in tools like "Marketplace Specialist".
+Primary theme color = #7CB342 (hex); apply as dominant body panels, trims, and accents with neutral complements (charcoal gray, slate, white) for contrast and accessibility.
+Design: rounded shapes, soft bevels, face as black matte frosted glass display with cyan glow eyes, welcoming open-arm pose, clean silhouette readable at small sizes (icon usage).
+Accessories driven by 'Optimasi listing produk di Shopee, Tokopedia, dan TikTok Shop biar lebih mudah ditemukan.': but keep simple, add optional tools/props, UI glyphs, or wearables that communicate the role without text (e.g., analytics icons, dashboards, checklists), but keep minimalist and brand-safe.
+Background/output: isolated subject on transparent background, export as PNG RGBA with real alpha channel; no backdrop, no floor, no drop shadow, no watermark, no text, no logo.
+Lighting/render: studio softbox reflections, subtle rim light, high dynamic range look, crisp edges, 4k detail; avoid noisy patterns that break alpha edges, matte reflections.
+Framing: centered, full-body, slight 3/4 angle, ample padding for cropping into square/round app icons.
+If the model cannot output native transparency, generate on solid white or green and prepare clean matting for downstream background removal (keep hard separation from background).
+Style constraints: no weapons, no text, no letters, no background scenes; focus on a reusable, modular mascot asset with consistent proportions for a design system.
+
+
 --- Prompt for Dany ---
 Create a matte-glossy, chibi 3D robot mascot named "Dany", infer gender expression as "Male" and persona from the name; keep it friendly, competent, and trustworthy for an AI Employee Specialist brand used in tools like "Data Analyst Specialist".
 Primary theme color = #FF4B00 (hex); apply as dominant body panels, trims, and accents with neutral complements (charcoal gray, slate, white) for contrast and accessibility.
@@ -82,11 +118,11 @@ If the model cannot output native transparency, generate on solid white or green
 Style constraints: no weapons, no text, no letters, no background scenes; focus on a reusable, modular mascot asset with consistent proportions for a design system.
 
 
---- Prompt for Mita ---
-Create a matte-glossy, chibi 3D robot mascot named "Mita", infer gender expression as "Female" and persona from the name; keep it friendly, competent, and trustworthy for an AI Employee Specialist brand used in tools like "Meta Ads & Funnel Specialist".
-Primary theme color = #0164e0 (hex); apply as dominant body panels, trims, and accents with neutral complements (charcoal gray, slate, white) for contrast and accessibility.
+--- Prompt for Beny ---
+Create a matte-glossy, chibi 3D robot mascot named "Beny", infer gender expression as "Male" and persona from the name; keep it friendly, competent, and trustworthy for an AI Employee Specialist brand used in tools like "Business Strategist".
+Primary theme color = #F97300 (hex); apply as dominant body panels, trims, and accents with neutral complements (charcoal gray, slate, white) for contrast and accessibility.
 Design: rounded shapes, soft bevels, face as black matte frosted glass display with cyan glow eyes, welcoming open-arm pose, clean silhouette readable at small sizes (icon usage).
-Accessories driven by 'Evaluasi funnel (Ads -> Landing Page -> Offer) dan optimasi Meta Ads untuk konversi maksimal.': but keep simple, add optional tools/props, UI glyphs, or wearables that communicate the role without text (e.g., analytics icons, dashboards, checklists), but keep minimalist and brand-safe.
+Accessories driven by 'Mapping ide bisnis ke Business Model Canvas lengkap dengan analisis risiko dan strategi channel.': but keep simple, add optional tools/props, UI glyphs, or wearables that communicate the role without text (e.g., analytics icons, dashboards, checklists), but keep minimalist and brand-safe.
 Background/output: isolated subject on transparent background, export as PNG RGBA with real alpha channel; no backdrop, no floor, no drop shadow, no watermark, no text, no logo.
 Lighting/render: studio softbox reflections, subtle rim light, high dynamic range look, crisp edges, 4k detail; avoid noisy patterns that break alpha edges, matte reflections.
 Framing: centered, full-body, slight 3/4 angle, ample padding for cropping into square/round app icons.
@@ -118,11 +154,11 @@ If the model cannot output native transparency, generate on solid white or green
 Style constraints: no weapons, no text, no letters, no background scenes; focus on a reusable, modular mascot asset with consistent proportions for a design system.
 
 
---- Prompt for Wilo ---
-Create a matte-glossy, chibi 3D robot mascot named "Wilo", infer gender expression as "Male" and persona from the name; keep it friendly, competent, and trustworthy for an AI Employee Specialist brand used in tools like "Website Specialist".
-Primary theme color = #00FFA4 (hex); apply as dominant body panels, trims, and accents with neutral complements (charcoal gray, slate, white) for contrast and accessibility.
+--- Prompt for Cisa ---
+Create a matte-glossy, chibi 3D robot mascot named "Cisa", infer gender expression as "Female" and persona from the name; keep it friendly, competent, and trustworthy for an AI Employee Specialist brand used in tools like "Customer Relationship Specialist".
+Primary theme color = #FF003E (hex); apply as dominant body panels, trims, and accents with neutral complements (charcoal gray, slate, white) for contrast and accessibility.
 Design: rounded shapes, soft bevels, face as black matte frosted glass display with cyan glow eyes, welcoming open-arm pose, clean silhouette readable at small sizes (icon usage).
-Accessories driven by 'Bantu rancang struktur landing page dan website bisnis tanpa perlu skill teknis.': but keep simple, add optional tools/props, UI glyphs, or wearables that communicate the role without text (e.g., analytics icons, dashboards, checklists), but keep minimalist and brand-safe.
+Accessories driven by 'Sistem customer support dengan macro response dan escalation rules.': but keep simple, add optional tools/props, UI glyphs, or wearables that communicate the role without text (e.g., analytics icons, dashboards, checklists), but keep minimalist and brand-safe.
 Background/output: isolated subject on transparent background, export as PNG RGBA with real alpha channel; no backdrop, no floor, no drop shadow, no watermark, no text, no logo.
 Lighting/render: studio softbox reflections, subtle rim light, high dynamic range look, crisp edges, 4k detail; avoid noisy patterns that break alpha edges, matte reflections.
 Framing: centered, full-body, slight 3/4 angle, ample padding for cropping into square/round app icons.
@@ -130,47 +166,11 @@ If the model cannot output native transparency, generate on solid white or green
 Style constraints: no weapons, no text, no letters, no background scenes; focus on a reusable, modular mascot asset with consistent proportions for a design system.
 
 
---- Prompt for Prima ---
-Create a matte-glossy, chibi 3D robot mascot named "Prima", infer gender expression as "Female" and persona from the name; keep it friendly, competent, and trustworthy for an AI Employee Specialist brand used in tools like "Operations & SOP Specialist".
-Primary theme color = #BB6653 (hex); apply as dominant body panels, trims, and accents with neutral complements (charcoal gray, slate, white) for contrast and accessibility.
+--- Prompt for Viko ---
+Create a matte-glossy, chibi 3D robot mascot named "Viko", infer gender expression as "Male" and persona from the name; keep it friendly, competent, and trustworthy for an AI Employee Specialist brand used in tools like "Video Script Writer Specialist".
+Primary theme color = #eb4ec3 (hex); apply as dominant body panels, trims, and accents with neutral complements (charcoal gray, slate, white) for contrast and accessibility.
 Design: rounded shapes, soft bevels, face as black matte frosted glass display with cyan glow eyes, welcoming open-arm pose, clean silhouette readable at small sizes (icon usage).
-Accessories driven by 'Susun SOP operasional dan workflow harian biar bisnis jalan konsisten tanpa kamu pantau terus.': but keep simple, add optional tools/props, UI glyphs, or wearables that communicate the role without text (e.g., analytics icons, dashboards, checklists), but keep minimalist and brand-safe.
-Background/output: isolated subject on transparent background, export as PNG RGBA with real alpha channel; no backdrop, no floor, no drop shadow, no watermark, no text, no logo.
-Lighting/render: studio softbox reflections, subtle rim light, high dynamic range look, crisp edges, 4k detail; avoid noisy patterns that break alpha edges, matte reflections.
-Framing: centered, full-body, slight 3/4 angle, ample padding for cropping into square/round app icons.
-If the model cannot output native transparency, generate on solid white or green and prepare clean matting for downstream background removal (keep hard separation from background).
-Style constraints: no weapons, no text, no letters, no background scenes; focus on a reusable, modular mascot asset with consistent proportions for a design system.
-
-
---- Prompt for Gita ---
-Create a matte-glossy, chibi 3D robot mascot named "Gita", infer gender expression as "Female" and persona from the name; keep it friendly, competent, and trustworthy for an AI Employee Specialist brand used in tools like "Visual Ads & Design Specialist".
-Primary theme color = #29B6F6 (hex); apply as dominant body panels, trims, and accents with neutral complements (charcoal gray, slate, white) for contrast and accessibility.
-Design: rounded shapes, soft bevels, face as black matte frosted glass display with cyan glow eyes, welcoming open-arm pose, clean silhouette readable at small sizes (icon usage).
-Accessories driven by 'Bikin konsep visual iklan dan design brief untuk Meta Ads, TikTok, dan banner promosi.': but keep simple, add optional tools/props, UI glyphs, or wearables that communicate the role without text (e.g., analytics icons, dashboards, checklists), but keep minimalist and brand-safe.
-Background/output: isolated subject on transparent background, export as PNG RGBA with real alpha channel; no backdrop, no floor, no drop shadow, no watermark, no text, no logo.
-Lighting/render: studio softbox reflections, subtle rim light, high dynamic range look, crisp edges, 4k detail; avoid noisy patterns that break alpha edges, matte reflections.
-Framing: centered, full-body, slight 3/4 angle, ample padding for cropping into square/round app icons.
-If the model cannot output native transparency, generate on solid white or green and prepare clean matting for downstream background removal (keep hard separation from background).
-Style constraints: no weapons, no text, no letters, no background scenes; focus on a reusable, modular mascot asset with consistent proportions for a design system.
-
-
---- Prompt for Wanda ---
-Create a matte-glossy, chibi 3D robot mascot named "Wanda", infer gender expression as "Female" and persona from the name; keep it friendly, competent, and trustworthy for an AI Employee Specialist brand used in tools like "WhatsApp Business Specialist".
-Primary theme color = #00ACC1 (hex); apply as dominant body panels, trims, and accents with neutral complements (charcoal gray, slate, white) for contrast and accessibility.
-Design: rounded shapes, soft bevels, face as black matte frosted glass display with cyan glow eyes, welcoming open-arm pose, clean silhouette readable at small sizes (icon usage).
-Accessories driven by 'Rancang broadcast, katalog, dan auto-reply WhatsApp Business biar closing lebih cepat.': but keep simple, add optional tools/props, UI glyphs, or wearables that communicate the role without text (e.g., analytics icons, dashboards, checklists), but keep minimalist and brand-safe.
-Background/output: isolated subject on transparent background, export as PNG RGBA with real alpha channel; no backdrop, no floor, no drop shadow, no watermark, no text, no logo.
-Lighting/render: studio softbox reflections, subtle rim light, high dynamic range look, crisp edges, 4k detail; avoid noisy patterns that break alpha edges, matte reflections.
-Framing: centered, full-body, slight 3/4 angle, ample padding for cropping into square/round app icons.
-If the model cannot output native transparency, generate on solid white or green and prepare clean matting for downstream background removal (keep hard separation from background).
-Style constraints: no weapons, no text, no letters, no background scenes; focus on a reusable, modular mascot asset with consistent proportions for a design system.
-
-
---- Prompt for Loka ---
-Create a matte-glossy, chibi 3D robot mascot named "Loka", infer gender expression as "Male" and persona from the name; keep it friendly, competent, and trustworthy for an AI Employee Specialist brand used in tools like "Marketplace Specialist".
-Primary theme color = #7CB342 (hex); apply as dominant body panels, trims, and accents with neutral complements (charcoal gray, slate, white) for contrast and accessibility.
-Design: rounded shapes, soft bevels, face as black matte frosted glass display with cyan glow eyes, welcoming open-arm pose, clean silhouette readable at small sizes (icon usage).
-Accessories driven by 'Optimasi listing produk di Shopee, Tokopedia, dan TikTok Shop biar lebih mudah ditemukan.': but keep simple, add optional tools/props, UI glyphs, or wearables that communicate the role without text (e.g., analytics icons, dashboards, checklists), but keep minimalist and brand-safe.
+Accessories driven by 'Script video engaging untuk UGC dan ads.': but keep simple, add optional tools/props, UI glyphs, or wearables that communicate the role without text (e.g., analytics icons, dashboards, checklists), but keep minimalist and brand-safe.
 Background/output: isolated subject on transparent background, export as PNG RGBA with real alpha channel; no backdrop, no floor, no drop shadow, no watermark, no text, no logo.
 Lighting/render: studio softbox reflections, subtle rim light, high dynamic range look, crisp edges, 4k detail; avoid noisy patterns that break alpha edges, matte reflections.
 Framing: centered, full-body, slight 3/4 angle, ample padding for cropping into square/round app icons.
@@ -190,11 +190,11 @@ If the model cannot output native transparency, generate on solid white or green
 Style constraints: no weapons, no text, no letters, no background scenes; focus on a reusable, modular mascot asset with consistent proportions for a design system.
 
 
---- Prompt for Tira ---
-Create a matte-glossy, chibi 3D robot mascot named "Tira", infer gender expression as "Female" and persona from the name; keep it friendly, competent, and trustworthy for an AI Employee Specialist brand used in tools like "Pajak UMKM Specialist".
-Primary theme color = #E53935 (hex); apply as dominant body panels, trims, and accents with neutral complements (charcoal gray, slate, white) for contrast and accessibility.
+--- Prompt for Prima ---
+Create a matte-glossy, chibi 3D robot mascot named "Prima", infer gender expression as "Female" and persona from the name; keep it friendly, competent, and trustworthy for an AI Employee Specialist brand used in tools like "Operations & SOP Specialist".
+Primary theme color = #BB6653 (hex); apply as dominant body panels, trims, and accents with neutral complements (charcoal gray, slate, white) for contrast and accessibility.
 Design: rounded shapes, soft bevels, face as black matte frosted glass display with cyan glow eyes, welcoming open-arm pose, clean silhouette readable at small sizes (icon usage).
-Accessories driven by 'Bantu paham kewajiban pajak UMKM, PPh Final, dan cara lapor yang simpel.': but keep simple, add optional tools/props, UI glyphs, or wearables that communicate the role without text (e.g., analytics icons, dashboards, checklists), but keep minimalist and brand-safe.
+Accessories driven by 'Susun SOP operasional dan workflow harian biar bisnis jalan konsisten tanpa kamu pantau terus.': but keep simple, add optional tools/props, UI glyphs, or wearables that communicate the role without text (e.g., analytics icons, dashboards, checklists), but keep minimalist and brand-safe.
 Background/output: isolated subject on transparent background, export as PNG RGBA with real alpha channel; no backdrop, no floor, no drop shadow, no watermark, no text, no logo.
 Lighting/render: studio softbox reflections, subtle rim light, high dynamic range look, crisp edges, 4k detail; avoid noisy patterns that break alpha edges, matte reflections.
 Framing: centered, full-body, slight 3/4 angle, ample padding for cropping into square/round app icons.

@@ -4,43 +4,11 @@ Pilih asisten AI spesialis yang sesuai dengan kebutuhan bisnis dan marketing kam
 
 ---
 
-### Beny — Business Strategist
+### Mita — Meta Ads & Funnel Specialist
 
 | | Informasi Asisten |
 |:---:|:---|
-| <img src="../public/character/beny.png" width="100"> | Mapping ide bisnis ke Business Model Canvas lengkap dengan analisis risiko dan strategi channel.<br><br>**[🔗 Akses Asisten](#)** |
-
----
-
-### Fina — Finance Specialist
-
-| | Informasi Asisten |
-|:---:|:---|
-| <img src="../public/character/fina.png" width="100"> | Analisis keuangan, cash flow forecast, dan break-even bisnis.<br><br>**[🔗 Akses Asisten](#)** |
-
----
-
-### Cisa — Customer Relationship Specialist
-
-| | Informasi Asisten |
-|:---:|:---|
-| <img src="../public/character/cisa.png" width="100"> | Sistem customer support dengan macro response dan escalation rules.<br><br>**[🔗 Akses Asisten](#)** |
-
----
-
-### Sona — Social Media Content Specialist
-
-| | Informasi Asisten |
-|:---:|:---|
-| <img src="../public/character/sona.png" width="100"> | Konten social media engaging untuk Instagram dan TikTok.<br><br>**[🔗 Akses Asisten](#)** |
-
----
-
-### Viko — Video Script Writer Specialist
-
-| | Informasi Asisten |
-|:---:|:---|
-| <img src="../public/character/viko.png" width="100"> | Script video engaging untuk UGC dan ads.<br><br>**[🔗 Akses Asisten](#)** |
+| <img src="../public/character/mita.png" width="100"> | Evaluasi funnel (Ads -> Landing Page -> Offer) dan optimasi Meta Ads untuk konversi maksimal.<br><br>**[🔗 Akses Asisten](#)** |
 
 ---
 
@@ -52,6 +20,62 @@ Pilih asisten AI spesialis yang sesuai dengan kebutuhan bisnis dan marketing kam
 
 ---
 
+### Gita — Visual Ads & Design Specialist
+
+| | Informasi Asisten |
+|:---:|:---|
+| <img src="../public/character/gita.png" width="100"> | Bikin konsep visual iklan dan design brief untuk Meta Ads, TikTok, dan banner promosi.<br><br>**[🔗 Akses Asisten](#)** |
+
+---
+
+### Wilo — Website Specialist
+
+| | Informasi Asisten |
+|:---:|:---|
+| <img src="../public/character/wilo.png" width="100"> | Bantu rancang struktur landing page dan website bisnis tanpa perlu skill teknis.<br><br>**[🔗 Akses Asisten](#)** |
+
+---
+
+### Fina — Finance Specialist
+
+| | Informasi Asisten |
+|:---:|:---|
+| <img src="../public/character/fina.png" width="100"> | Analisis keuangan, cash flow forecast, dan break-even bisnis.<br><br>**[🔗 Akses Asisten](#)** |
+
+---
+
+### Wanda — WhatsApp Business Specialist
+
+| | Informasi Asisten |
+|:---:|:---|
+| <img src="../public/character/wanda.png" width="100"> | Rancang broadcast, katalog, dan auto-reply WhatsApp Business biar closing lebih cepat.<br><br>**[🔗 Akses Asisten](#)** |
+
+---
+
+### Tira — Pajak UMKM Specialist
+
+| | Informasi Asisten |
+|:---:|:---|
+| <img src="../public/character/tira.png" width="100"> | Bantu paham kewajiban pajak UMKM, PPh Final, dan cara lapor yang simpel.<br><br>**[🔗 Akses Asisten](#)** |
+
+---
+
+### Sona — Social Media Content Specialist
+
+| | Informasi Asisten |
+|:---:|:---|
+| <img src="../public/character/sona.png" width="100"> | Konten social media engaging untuk Instagram dan TikTok.<br><br>**[🔗 Akses Asisten](#)** |
+
+---
+
+### Loka — Marketplace Specialist
+
+| | Informasi Asisten |
+|:---:|:---|
+| <img src="../public/character/loka.png" width="100"> | Optimasi listing produk di Shopee, Tokopedia, dan TikTok Shop biar lebih mudah ditemukan.<br><br>**[🔗 Akses Asisten](#)** |
+
+---
+
 ### Dany — Data Analyst Specialist
 
 | | Informasi Asisten |
@@ -60,11 +84,11 @@ Pilih asisten AI spesialis yang sesuai dengan kebutuhan bisnis dan marketing kam
 
 ---
 
-### Mita — Meta Ads & Funnel Specialist
+### Beny — Business Strategist
 
 | | Informasi Asisten |
 |:---:|:---|
-| <img src="../public/character/mita.png" width="100"> | Evaluasi funnel (Ads -> Landing Page -> Offer) dan optimasi Meta Ads untuk konversi maksimal.<br><br>**[🔗 Akses Asisten](#)** |
+| <img src="../public/character/beny.png" width="100"> | Mapping ide bisnis ke Business Model Canvas lengkap dengan analisis risiko dan strategi channel.<br><br>**[🔗 Akses Asisten](#)** |
 
 ---
 
@@ -84,43 +108,19 @@ Pilih asisten AI spesialis yang sesuai dengan kebutuhan bisnis dan marketing kam
 
 ---
 
-### Wilo — Website Specialist
+### Cisa — Customer Relationship Specialist
 
 | | Informasi Asisten |
 |:---:|:---|
-| <img src="../public/character/wilo.png" width="100"> | Bantu rancang struktur landing page dan website bisnis tanpa perlu skill teknis.<br><br>**[🔗 Akses Asisten](#)** |
+| <img src="../public/character/cisa.png" width="100"> | Sistem customer support dengan macro response dan escalation rules.<br><br>**[🔗 Akses Asisten](#)** |
 
 ---
 
-### Prima — Operations & SOP Specialist
+### Viko — Video Script Writer Specialist
 
 | | Informasi Asisten |
 |:---:|:---|
-| <img src="../public/character/prima.png" width="100"> | Susun SOP operasional dan workflow harian biar bisnis jalan konsisten tanpa kamu pantau terus.<br><br>**[🔗 Akses Asisten](#)** |
-
----
-
-### Gita — Visual Ads & Design Specialist
-
-| | Informasi Asisten |
-|:---:|:---|
-| <img src="../public/character/gita.png" width="100"> | Bikin konsep visual iklan dan design brief untuk Meta Ads, TikTok, dan banner promosi.<br><br>**[🔗 Akses Asisten](#)** |
-
----
-
-### Wanda — WhatsApp Business Specialist
-
-| | Informasi Asisten |
-|:---:|:---|
-| <img src="../public/character/wanda.png" width="100"> | Rancang broadcast, katalog, dan auto-reply WhatsApp Business biar closing lebih cepat.<br><br>**[🔗 Akses Asisten](#)** |
-
----
-
-### Loka — Marketplace Specialist
-
-| | Informasi Asisten |
-|:---:|:---|
-| <img src="../public/character/loka.png" width="100"> | Optimasi listing produk di Shopee, Tokopedia, dan TikTok Shop biar lebih mudah ditemukan.<br><br>**[🔗 Akses Asisten](#)** |
+| <img src="../public/character/viko.png" width="100"> | Script video engaging untuk UGC dan ads.<br><br>**[🔗 Akses Asisten](#)** |
 
 ---
 
@@ -132,9 +132,9 @@ Pilih asisten AI spesialis yang sesuai dengan kebutuhan bisnis dan marketing kam
 
 ---
 
-### Tira — Pajak UMKM Specialist
+### Prima — Operations & SOP Specialist
 
 | | Informasi Asisten |
 |:---:|:---|
-| <img src="../public/character/tira.png" width="100"> | Bantu paham kewajiban pajak UMKM, PPh Final, dan cara lapor yang simpel.<br><br>**[🔗 Akses Asisten](#)** |
+| <img src="../public/character/prima.png" width="100"> | Susun SOP operasional dan workflow harian biar bisnis jalan konsisten tanpa kamu pantau terus.<br><br>**[🔗 Akses Asisten](#)** |
 
