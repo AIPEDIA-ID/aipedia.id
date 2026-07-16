@@ -42,14 +42,18 @@ Current hypothesis: if the generic 17-specialist bundle underperforms, narrow in
 
 ## 4. Pivot Criteria (Objective, Not Emotional)
 
-Before declaring a product/offer "failed" and pivoting, define measurable thresholds up front:
+| Metric | Threshold | Rationale |
+|---|---|---|
+| Max CAC (Basic, Rp118rb) | ≤ Rp50rb | Biar margin masih sehat setelah fee myr.id + residual cost |
+| Max CAC (Pro, Rp239rb) | ≤ Rp90rb | Sama, proporsional ke harga |
+| Min Landing Page Conversion | ≥ 1.5% (visitor→checkout) | Standar kasar cold traffic Meta Ads produk digital SEA |
+| Min ROAS (breakeven) | ≥ 1.3x | HPP digital nyaris 0, tapi ads spend + fee harus balik dulu |
+| Evaluation period | Rp1.5jt spend PER pairing, min 7 hari | Biar bukan noise dari sample kecil |
+| Total test budget sebelum keputusan | Rp2jt (sesuai capital lo) | Kalau abis dan belum ada satupun pairing nembus threshold → itu sinyal pivot ke vertical baru |
 
-- [ ] Target CAC (Meta Ads) — define threshold
-- [ ] Target ROAS — define threshold
-- [ ] Target conversion rate (landing page) — define threshold
-- [ ] Evaluation period (e.g. minimum X weeks of consistent ad spend before judging)
-
-**Guardrail:** A pivot decision must be backed by these numbers, not by fatigue or boredom with the current offer. If the reasoning for a pivot is "I'm tired of this," that's a signal to pause and re-check the data — not a valid pivot trigger on its own.
+**Keputusan otomatis:**
+- Kalau ada 1 pairing yang tembus semua threshold → scale itu, matikan yang lain.
+- Kalau Rp2jt habis dan TIDAK ADA yang tembus → itu bukan "gagal", itu sinyal pivot ke 1 vertical test (sesuai section 3), bukan ganti brand.
 
 ---
 
