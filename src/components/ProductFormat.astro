@@ -1,73 +1,83 @@
 ---
+const formats = [
+  {
+    title: "Custom GPTs",
+    altText: "Screenshot Custom GPT",
+    image: "/screenshots/1.png",
+  },
+  {
+    title: "Claude Projects",
+    altText: "Screenshot Claude",
+    image: "/screenshots/2.png",
+  },
+  {
+    title: "Codex (Cursor)",
+    altText: "Screenshot Codex",
+    image: "/screenshots/3.png",
+  },
+];
 ---
 
-<section id="product-format" class="py-12 md:py-16 px-6 relative overflow-hidden">
+<section
+  id="product-format"
+  class="py-12 md:py-16 px-6 relative overflow-hidden"
+>
   <!-- Background -->
-  <div class="absolute inset-0 bg-gradient-to-br from-indigo-50/50 via-white to-purple-50/50 dark:from-gray-900 dark:via-black dark:to-gray-900"></div>
+  <div
+    class="absolute inset-0 bg-gradient-to-br from-indigo-50/50 via-white to-purple-50/50 dark:from-gray-900 dark:via-black dark:to-gray-900"
+  >
+  </div>
 
   <div class="relative z-10 max-w-5xl mx-auto">
     <!-- Section Header -->
     <div class="text-center mb-12">
       <h2 class="text-3xl md:text-4xl font-bold mb-6">
-        Tersedia dalam <span class="bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent">Berbagai Format</span>
+        Tersedia dalam <span
+          class="bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent"
+          >Berbagai Format</span
+        >
       </h2>
-      <p class="text-base text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-        AIPEDIA didesain agar bisa langsung digunakan di platform AI favorit Anda, tanpa setup yang ribet.
-      </p>
     </div>
 
     <!-- Format Grid -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 justify-items-center">
-      <!-- Custom GPT -->
-      <div class="group p-5 rounded-xl bg-white/60 dark:bg-white/5 backdrop-blur-sm border border-gray-200 dark:border-white/10 hover:border-primary-500/30 dark:hover:border-primary-500/30 hover:bg-white/80 dark:hover:bg-white/10 transition-all duration-300 w-full">
-        <h3 class="text-xl font-semibold mb-3 text-gray-900 dark:text-white">Custom GPTs</h3>
-        <p class="text-gray-600 dark:text-gray-400 mb-4 text-sm">
-          Klik link, dan AI spesialis langsung terpasang di akun ChatGPT Plus Anda.
-        </p>
-        <div class="bg-gray-200/50 dark:bg-gray-800/50 rounded-lg aspect-[4/3] flex items-center justify-center border border-dashed border-gray-300 dark:border-gray-600 overflow-hidden relative">
-          <!-- TODO: Replace with actual Custom GPT screenshot -->
-          <div class="text-center p-4">
-            <svg class="w-8 h-8 mx-auto text-gray-400 dark:text-gray-500 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-            </svg>
-            <span class="text-xs font-medium text-gray-500 dark:text-gray-400">Screenshot Custom GPT</span>
+      {
+        formats.map((format) => (
+          <div class="group p-2 rounded-xl bg-white/60 dark:bg-white/5 backdrop-blur-sm border border-gray-200 dark:border-white/10 hover:border-primary-500/30 dark:hover:border-primary-500/30 hover:bg-white/80 dark:hover:bg-white/10 transition-all duration-300 w-full">
+            <h3 class="text-lg font-semibold mb-3 text-gray-900 dark:text-white">
+              {format.title}
+            </h3>
+            <div class="bg-gray-200/50 dark:bg-gray-800/50 rounded-lg aspect-[4/3] flex items-center justify-center border border-dashed border-gray-300 dark:border-gray-600 overflow-hidden relative">
+              {format.image ? (
+                <img
+                  src={format.image}
+                  alt={format.altText}
+                  class="w-full h-full object-cover object-top"
+                />
+              ) : (
+                <div class="text-center p-4">
+                  <svg
+                    class="w-8 h-8 mx-auto text-gray-400 dark:text-gray-500 mb-2"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+                    />
+                  </svg>
+                  <span class="text-xs font-medium text-gray-500 dark:text-gray-400">
+                    {format.altText}
+                  </span>
+                </div>
+              )}
+            </div>
           </div>
-        </div>
-      </div>
-
-      <!-- Claude -->
-      <div class="group p-5 rounded-xl bg-white/60 dark:bg-white/5 backdrop-blur-sm border border-gray-200 dark:border-white/10 hover:border-primary-500/30 dark:hover:border-primary-500/30 hover:bg-white/80 dark:hover:bg-white/10 transition-all duration-300 w-full">
-        <h3 class="text-xl font-semibold mb-3 text-gray-900 dark:text-white">Claude Projects</h3>
-        <p class="text-gray-600 dark:text-gray-400 mb-4 text-sm">
-          Copy-paste instruksi ke Claude untuk hasil yang lebih natural dan mendalam.
-        </p>
-        <div class="bg-gray-200/50 dark:bg-gray-800/50 rounded-lg aspect-[4/3] flex items-center justify-center border border-dashed border-gray-300 dark:border-gray-600 overflow-hidden relative">
-          <!-- TODO: Replace with actual Claude screenshot -->
-          <div class="text-center p-4">
-            <svg class="w-8 h-8 mx-auto text-gray-400 dark:text-gray-500 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-            </svg>
-            <span class="text-xs font-medium text-gray-500 dark:text-gray-400">Screenshot Claude</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Codex/Cursor -->
-      <div class="group p-5 rounded-xl bg-white/60 dark:bg-white/5 backdrop-blur-sm border border-gray-200 dark:border-white/10 hover:border-primary-500/30 dark:hover:border-primary-500/30 hover:bg-white/80 dark:hover:bg-white/10 transition-all duration-300 w-full">
-        <h3 class="text-xl font-semibold mb-3 text-gray-900 dark:text-white">Codex (Cursor)</h3>
-        <p class="text-gray-600 dark:text-gray-400 mb-4 text-sm">
-          Gunakan file instruksi langsung di dalam IDE Anda seperti Cursor AI.
-        </p>
-        <div class="bg-gray-200/50 dark:bg-gray-800/50 rounded-lg aspect-[4/3] flex items-center justify-center border border-dashed border-gray-300 dark:border-gray-600 overflow-hidden relative">
-          <!-- TODO: Replace with actual Codex screenshot -->
-          <div class="text-center p-4">
-            <svg class="w-8 h-8 mx-auto text-gray-400 dark:text-gray-500 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-            </svg>
-            <span class="text-xs font-medium text-gray-500 dark:text-gray-400">Screenshot Codex</span>
-          </div>
-        </div>
-      </div>
+        ))
+      }
     </div>
   </div>
 </section>
