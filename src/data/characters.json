@@ -91,12 +91,12 @@
     {
       "id": "mita",
       "name": "Mita",
-      "role": "Meta Ads Specialist",
+      "role": "Meta Ads & Funnel Specialist",
       "themeColor": "#0164e0",
       "gender": "Female",
       "image": "/character/mita.png",
-      "description": "Optimasi Meta Ads campaign dengan struktur TOFU/MOFU/BOFU.",
-      "examplePrompt": "Generate campaign structure dan targeting Meta Ads.",
+      "description": "Evaluasi funnel (Ads -> Landing Page -> Offer) dan optimasi Meta Ads untuk konversi maksimal.",
+      "examplePrompt": "Kenapa CTR iklanku tinggi tapi konversi rendah? Bantu evaluasi offer-nya.",
       "category": "marketing",
       "price": "86k"
     },

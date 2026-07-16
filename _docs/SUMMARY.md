@@ -52,7 +52,6 @@ The core value lies in the **17 AI Specialists**, categorized into two main doma
 - **Fina** — Finance Specialist
 - **Cisa** — Customer Relationship Specialist
 - **Dany** — Data Analyst Specialist
-- **Hima** — HR Specialist
 - **Wilo** — Website Specialist
 - **Prima** — Operations & SOP Specialist
 - **Tira** — Pajak UMKM Specialist
@@ -61,8 +60,9 @@ The core value lies in the **17 AI Specialists**, categorized into two main doma
 - **Sona** — Social Media Content Specialist
 - **Viko** — Video Script Writer Specialist
 - **Wita** — Copywriting & Content Specialist
-- **Mita** — Meta Ads Specialist
+- **Mita** — Meta Ads & Funnel Specialist
 - **Selo** — SEO Specialist
+- **Hima** — Local SEO Specialist
 - **Gita** — Visual Ads & Design Specialist
 - **Wanda** — WhatsApp Business Specialist
 - **Loka** — Marketplace Specialist

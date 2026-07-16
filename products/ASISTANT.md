@@ -60,11 +60,11 @@ Pilih asisten AI spesialis yang sesuai dengan kebutuhan bisnis dan marketing kam
 
 ---
 
-### Mita — Meta Ads Specialist
+### Mita — Meta Ads & Funnel Specialist
 
 | | Informasi Asisten |
 |:---:|:---|
-| <img src="../public/character/mita.png" width="100"> | Optimasi Meta Ads campaign dengan struktur TOFU/MOFU/BOFU.<br><br>**[🔗 Akses Asisten](#)** |
+| <img src="../public/character/mita.png" width="100"> | Evaluasi funnel (Ads -> Landing Page -> Offer) dan optimasi Meta Ads untuk konversi maksimal.<br><br>**[🔗 Akses Asisten](#)** |
 
 ---
 

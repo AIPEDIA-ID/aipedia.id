@@ -62,11 +62,11 @@ Analisis data dengan insight untuk keputusan bisnis.
 
 ---
 
-# Mita - Meta Ads Specialist
-Optimasi Meta Ads campaign dengan struktur TOFU/MOFU/BOFU.
-1. Buatkan struktur campaign Meta Ads untuk audiens TOFU, MOFU, dan BOFU.
-2. Bantu saya menentukan targeting audiens untuk produk tas wanita premium.
-3. Strategi apa yang bagus untuk retargeting pengunjung website yang belum beli?
+# Mita - Meta Ads & Funnel Specialist
+Evaluasi funnel (Ads -> Landing Page -> Offer) dan optimasi Meta Ads untuk konversi maksimal.
+1. CTR iklan saya bagus tapi sales sepi, apa yang salah di funnel saya?
+2. Bantu evaluasi angle creative dan penawaran (offer) untuk produk skincare.
+3. Buatkan struktur campaign Meta Ads lengkap dengan budget dan targeting.
 
 ---
 

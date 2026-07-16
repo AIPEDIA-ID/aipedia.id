@@ -83,10 +83,10 @@ Style constraints: no weapons, no text, no letters, no background scenes; focus 
 
 
 --- Prompt for Mita ---
-Create a matte-glossy, chibi 3D robot mascot named "Mita", infer gender expression as "Female" and persona from the name; keep it friendly, competent, and trustworthy for an AI Employee Specialist brand used in tools like "Meta Ads Specialist".
+Create a matte-glossy, chibi 3D robot mascot named "Mita", infer gender expression as "Female" and persona from the name; keep it friendly, competent, and trustworthy for an AI Employee Specialist brand used in tools like "Meta Ads & Funnel Specialist".
 Primary theme color = #0164e0 (hex); apply as dominant body panels, trims, and accents with neutral complements (charcoal gray, slate, white) for contrast and accessibility.
 Design: rounded shapes, soft bevels, face as black matte frosted glass display with cyan glow eyes, welcoming open-arm pose, clean silhouette readable at small sizes (icon usage).
-Accessories driven by 'Optimasi Meta Ads campaign dengan struktur TOFU/MOFU/BOFU.': but keep simple, add optional tools/props, UI glyphs, or wearables that communicate the role without text (e.g., analytics icons, dashboards, checklists), but keep minimalist and brand-safe.
+Accessories driven by 'Evaluasi funnel (Ads -> Landing Page -> Offer) dan optimasi Meta Ads untuk konversi maksimal.': but keep simple, add optional tools/props, UI glyphs, or wearables that communicate the role without text (e.g., analytics icons, dashboards, checklists), but keep minimalist and brand-safe.
 Background/output: isolated subject on transparent background, export as PNG RGBA with real alpha channel; no backdrop, no floor, no drop shadow, no watermark, no text, no logo.
 Lighting/render: studio softbox reflections, subtle rim light, high dynamic range look, crisp edges, 4k detail; avoid noisy patterns that break alpha edges, matte reflections.
 Framing: centered, full-body, slight 3/4 angle, ample padding for cropping into square/round app icons.
