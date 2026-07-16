@@ -160,18 +160,18 @@
     {
       "id": "hima",
       "name": "Hima",
-      "role": "HR Specialist",
+      "role": "Local SEO Specialist",
       "themeColor": "#163b92",
       "gender": "Female",
       "image": "/character/hima.png",
-      "description": "Sistem HR dengan performance review dan competency framework.",
-      "examplePrompt": "Buat rubrik performance review untuk junior marketer.",
-      "category": "business",
+      "description": "Optimasi Google Profil Bisnis (Google Maps) agar bisnis lokalmu tampil nomor 1 di pencarian sekitar.",
+      "examplePrompt": "Buat strategi optimasi Google Maps untuk klinik gigi agar masuk 3 besar di Jakarta Selatan.",
+      "category": "marketing",
       "price": "86k",
       "conversationStarters": [
-        "Buatkan rubrik performance review untuk tim sales.",
-        "Bantu saya menyusun competency framework untuk posisi digital marketing.",
-        "Bagaimana cara memberikan feedback konstruktif saat appraisal karyawan?"
+        "Bagaimana cara agar toko saya muncul nomor 1 di pencarian Google Maps terdekat?",
+        "Bantu optimasi profil Google My Business untuk bisnis coffee shop.",
+        "Apa saja strategi mendapatkan review positif di Google Maps secara organik?"
       ]
     },
     {

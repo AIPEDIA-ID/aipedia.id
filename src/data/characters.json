@@ -1,7 +1,7 @@
 {
   "sectionHeader": {
-    "title": "Pilih Asisten AI Sesuai Kebutuhan",
-    "subtitle": "17 AI dengan Spesialisasi Masing-masing"
+    "title": "Pilih Spesialis AI Sesuai Kebutuhan",
+    "subtitle": "17+ AI Spesialisasi Masing-masing"
   },
   "characters": [
     {
@@ -115,13 +115,13 @@
     {
       "id": "hima",
       "name": "Hima",
-      "role": "HR Specialist",
+      "role": "Local SEO Specialist",
       "themeColor": "#163b92",
       "gender": "Female",
       "image": "/character/hima.png",
-      "description": "Sistem HR dengan performance review dan competency framework.",
-      "examplePrompt": "Buat rubrik performance review untuk junior marketer.",
-      "category": "business",
+      "description": "Optimasi Google Profil Bisnis (Google Maps) agar bisnis lokalmu tampil nomor 1 di pencarian sekitar.",
+      "examplePrompt": "Buat strategi optimasi Google Maps untuk klinik gigi agar masuk 3 besar di Jakarta Selatan.",
+      "category": "marketing",
       "price": "86k"
     },
     {
