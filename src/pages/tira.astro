@@ -18,16 +18,16 @@ const pricing = [
     },
     {
         id: "bundle_tira_fina",
-        name: "TIRA + FINA BUNDLE",
+        name: "Bundle TIRA (+ Bonus FINA)",
         price: "128.000",
         original_price: "348.000",
         badge: "Best Value",
         is_hero: true,
-        cta: "Ambil Bundle TIRA x FINA",
+        cta: "Ambil Bundle (Lebih Hemat)",
         url: "https://myr.id/tira-fina-bundle-128k",
         features: [
             "Semua fitur TIRA Only",
-            "+ FINA CustomGPT (Laporan keuangan, HPP, Cashflow)",
+            "+ BONUS AI FINA (Finance Specialist)",
             "+ 15 Spesialis lain (CustomGPT Only)",
             "Bonus SOP Keuangan Warung",
         ],
@@ -37,13 +37,13 @@ const pricing = [
 const features = [
     {
         title: "Konsultasi Pajak UMKM",
-        desc: "Tanya apa saja seputar pajak UMKM, TIRA bantu jelaskan aturan PPh Final dengan bahasa yang mudah dipahami.",
+        desc: "Tanya apa saja seputar pajak UMKM, TIRA bantu jelaskan dengan bahasa yang mudah dipahami (bukan bahasa undang-undang).",
         image: "/screenshots/1.png",
         specialist: "TIRA",
     },
     {
-        title: "Cara Lapor Pajak Simpel",
-        desc: "TIRA kasih panduan step-by-step lapor pajak tahunan atau bulanan tanpa pusing.",
+        title: "Panduan Lapor Pajak",
+        desc: "Dapatkan panduan step-by-step cara lapor SPT Tahunan dan Masa secara online tanpa pusing.",
         image: "/screenshots/2.png",
         specialist: "TIRA",
     },
@@ -54,22 +54,22 @@ const features = [
         specialist: "TIRA",
     },
     {
-        title: "Hitung HPP & Margin",
-        desc: "FINA bantu hitung detail HPP agar harga jual tidak kemurahan dan margin sehat.",
+        title: "Simulasi Denda Pajak",
+        desc: "Telat bayar atau lapor? TIRA bisa bantu simulasikan potensi denda administrasi biar kamu bisa antisipasi.",
         image: "/screenshots/4.png",
-        specialist: "FINA",
+        specialist: "TIRA",
     },
     {
-        title: "Laporan Laba Rugi Otomatis",
-        desc: "Tinggal setorkan omset & biaya iklan, FINA buatkan laporannya secara instan.",
+        title: "Panduan Coretax DJP",
+        desc: "Bingung sistem pajak baru? TIRA pandu step-by-step cara pakai Coretax: dari aktivasi akun sampai lapor SPT online.",
         image: "/screenshots/5.png",
-        specialist: "FINA",
+        specialist: "TIRA",
     },
     {
-        title: "Jaga Cashflow Bisnis",
-        desc: "FINA kasih alert cashflow agar keuntungan iklan tidak habis dipakai hal lain.",
+        title: "Siap 24 Jam Kapan Saja",
+        desc: "Konsultasi pajak kapanpun kamu butuh, bahkan di malam hari saat sedang rekap pembukuan bisnis.",
         image: "/screenshots/6.png",
-        specialist: "FINA",
+        specialist: "TIRA",
     },
 ];
 
@@ -103,7 +103,7 @@ const platforms = [
 ];
 ---
 
-<Layout title="TIRA x FINA | Iklan Cuan, Keuangan Beres by AIPEDIA">
+<Layout title="TIRA | Spesialis Pajak UMKM by AIPEDIA">
     <style>
         @keyframes rotate {
             to {
@@ -168,66 +168,46 @@ const platforms = [
                 <span class="w-2 h-2 bg-red-500 rounded-full animate-pulse"
                 ></span>
                 <span class="text-sm text-gray-600 dark:text-gray-300"
-                    >TIRA x FINA by AIPEDIA</span
+                    >TIRA by AIPEDIA</span
                 >
             </div>
 
             <h1
                 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
             >
-                Omset Naik, <br />
+                Pusing Urusan Pajak UMKM? <br />
                 <span
-                    class="bg-gradient-to-r from-red-500 to-orange-500 bg-clip-text text-transparent"
-                    >Cuan Gak Bocor.</span
+                    class="bg-gradient-to-r from-red-500 to-orange-400 bg-clip-text text-transparent"
+                    >Biar TIRA yang Beresin.</span
                 >
             </h1>
 
             <p
-                class="text-base md:text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto"
+                class="text-base md:text-lg text-gray-600 dark:text-gray-300 mb-4 max-w-2xl mx-auto"
             >
-                Pusing Urusan Pajak & Keuangan? Biar <strong>TIRA</strong> yang Beresin
-                Pajaknya, <strong>FINA</strong> yang Jaga Cashflow.
+                AI Spesialis Pajak UMKM yang siap bantu hitung, lapor, dan jawab
+                semua kebingungan pajak bisnismu 24/7.
             </p>
+            <div class="flex flex-wrap justify-center gap-2 md:gap-4 mb-8 text-xs md:text-sm font-medium text-gray-600 dark:text-gray-400">
+                <span class="flex items-center gap-1"><span class="text-green-500 text-base">✓</span> Update Aturan 2025-2026</span>
+                <span class="flex items-center gap-1"><span class="text-green-500 text-base">✓</span> Paham Coretax DJP</span>
+                <span class="flex items-center gap-1"><span class="text-green-500 text-base">✓</span> Bahasa Warung, Bukan Bahasa UU</span>
+            </div>
 
             <div class="max-w-xl w-full mx-auto mb-8 relative">
                 <div
                     class="tira-glassy-border p-[2px] rounded-xl bg-gradient-to-r from-black/10 via-black/5 to-red-500/30 dark:from-white/30 dark:via-white/10 dark:to-red-500/30"
                 >
                     <div
-                        class="w-full rounded-xl bg-gradient-to-b from-white/50 to-white/10 dark:from-black/50 dark:to-black/10 backdrop-blur-sm p-8 flex justify-center items-center gap-4"
+                        class="w-full rounded-xl bg-gradient-to-b from-white/50 to-white/10 dark:from-black/50 dark:to-black/10 backdrop-blur-sm p-8 flex justify-center items-center"
                     >
                         <div class="relative">
                             <img
                                 src="/character/tira.png"
                                 alt="Tira - Spesialis Pajak UMKM"
-                                class="h-48 md:h-64 object-contain drop-shadow-2xl z-10 relative hover:scale-105 transition-transform"
+                                class="h-48 md:h-80 object-contain drop-shadow-2xl z-10 relative hover:scale-105 transition-transform"
                                 loading="lazy"
                             />
-                            <div
-                                class="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap shadow-md"
-                            >
-                                TIRA (Pajak)
-                            </div>
-                        </div>
-
-                        <div
-                            class="text-3xl font-black text-gray-300 dark:text-gray-600"
-                        >
-                            x
-                        </div>
-
-                        <div class="relative">
-                            <img
-                                src="/character/fina.png"
-                                alt="Fina - Spesialis Keuangan"
-                                class="h-48 md:h-64 object-contain drop-shadow-2xl z-10 relative hover:scale-105 transition-transform"
-                                loading="lazy"
-                            />
-                            <div
-                                class="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-yellow-500 text-black text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap shadow-md"
-                            >
-                                FINA (Finance)
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -241,7 +221,7 @@ const platforms = [
                     class="btn-cta group inline-flex items-center gap-2 px-6 py-3 font-medium rounded-xl"
                     onclick="if(typeof fbq !== 'undefined') fbq('track', 'ViewContent');"
                 >
-                    Dapatkan Bundle Sekarang
+                    Dapatkan TIRA Sekarang
                 </a>
                 <a
                     href="#demo"
@@ -262,10 +242,10 @@ const platforms = [
         <div class="relative z-10 max-w-5xl mx-auto">
             <div class="text-center mb-12">
                 <h2 class="text-3xl md:text-4xl font-bold mb-6">
-                    Beresin Pajak + Keuangan <br />
+                    Urusan Pajak Bisnis <br />
                     <span
-                        class="bg-gradient-to-r from-red-500 to-orange-500 bg-clip-text text-transparent"
-                        >Dalam Satu Solusi</span
+                        class="bg-gradient-to-r from-red-500 to-red-700 bg-clip-text text-transparent"
+                        >Bikin Pusing?</span
                     >
                 </h2>
             </div>
@@ -299,15 +279,15 @@ const platforms = [
                         Pusing Lapor Pajak
                     </h3>
                     <p class="text-sm text-gray-600 dark:text-gray-400">
-                        Masih bingung cara lapor PPh Final UMKM? TIRA bantu
-                        jelaskan aturannya step-by-step tanpa ribet.
+                        Masih bingung cara lapor PPh Final UMKM dan SPT Tahunan?
+                        TIRA bantu jelaskan aturannya step-by-step tanpa ribet.
                     </p>
                 </div>
                 <div
-                    class="group p-6 rounded-xl bg-white/60 dark:bg-white/5 backdrop-blur-sm border border-orange-200 dark:border-orange-900/30 transition-all duration-300"
+                    class="group p-6 rounded-xl bg-white/60 dark:bg-white/5 backdrop-blur-sm border border-red-200 dark:border-red-900/30 transition-all duration-300"
                 >
                     <div
-                        class="mb-3 p-2 bg-orange-100 dark:bg-orange-900/30 text-orange-600 rounded-lg inline-block"
+                        class="mb-3 p-2 bg-red-100 dark:bg-red-900/30 text-red-600 rounded-lg inline-block"
                     >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -327,18 +307,19 @@ const platforms = [
                     <h3
                         class="text-xl font-bold mb-3 text-gray-900 dark:text-white"
                     >
-                        Omset Gede, Cuan Tipis
+                        Takut Kena Denda
                     </h3>
                     <p class="text-sm text-gray-600 dark:text-gray-400">
-                        Banyak owner fokus di ROAS, tapi lupa HPP dan cashflow.
-                        FINA bantu hitung biar margin gak bocor.
+                        Sering was-was dapet surat cinta dari kantor pajak
+                        karena telat bayar atau salah hitung kewajiban pajak
+                        bulanan?
                     </p>
                 </div>
                 <div
-                    class="group p-6 rounded-xl bg-white/60 dark:bg-white/5 backdrop-blur-sm border border-yellow-200 dark:border-yellow-900/30 transition-all duration-300"
+                    class="group p-6 rounded-xl bg-white/60 dark:bg-white/5 backdrop-blur-sm border border-red-200 dark:border-red-900/30 transition-all duration-300"
                 >
                     <div
-                        class="mb-3 p-2 bg-yellow-100 dark:bg-yellow-900/30 text-yellow-600 rounded-lg inline-block"
+                        class="mb-3 p-2 bg-red-100 dark:bg-red-900/30 text-red-600 rounded-lg inline-block"
                     >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -358,13 +339,162 @@ const platforms = [
                     <h3
                         class="text-xl font-bold mb-3 text-gray-900 dark:text-white"
                     >
-                        Masih Manual di Excel
+                        Konsultan Pajak Mahal
                     </h3>
                     <p class="text-sm text-gray-600 dark:text-gray-400">
-                        Gak cuma pakai AI buat nulis caption, tapi juga buat
-                        urus pajak dan laba rugi. TIRA dan FINA kerjakan
-                        semuanya otomatis.
+                        Mau tanya-tanya soal pajak bisnis tapi budget belum
+                        cukup buat sewa jasa konsultan pajak profesional?
                     </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section
+        class="py-12 md:py-16 px-6 bg-gray-50 dark:bg-gray-800/30 relative overflow-hidden"
+    >
+        <div class="relative z-10 max-w-5xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                    Kenapa Tanya Pajak ke ChatGPT Biasa Itu <span
+                        class="text-red-500">Berbahaya?</span
+                    >
+                </h2>
+                <p
+                    class="text-base text-gray-600 dark:text-gray-400 max-w-2xl mx-auto"
+                >
+                    AI generic dilatih pakai data lama. TIRA sudah di-training
+                    khusus pakai peraturan pajak Indonesia terbaru.
+                </p>
+            </div>
+
+            <div
+                class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto"
+            >
+                <!-- Bad Column -->
+                <div
+                    class="bg-white/80 dark:bg-gray-800/50 backdrop-blur-sm p-8 rounded-2xl border border-red-200 dark:border-red-900/30 shadow-lg shadow-red-500/5"
+                >
+                    <div class="flex items-center gap-4 mb-6">
+                        <div
+                            class="w-12 h-12 bg-red-100 dark:bg-red-900/30 text-red-500 rounded-full flex items-center justify-center font-bold text-2xl"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                ><path d="M18 6 6 18"></path><path
+                                    d="m6 6 12 12"></path></svg
+                            >
+                        </div>
+                        <h3 class="text-2xl font-bold">
+                            ChatGPT / Gemini Generic
+                        </h3>
+                    </div>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <span class="text-red-500 font-bold mt-0.5">✗</span>
+                            <span class="text-gray-700 dark:text-gray-300"
+                                >Jawaban pakai aturan pajak lama 2022</span
+                            >
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-red-500 font-bold mt-0.5">✗</span>
+                            <span class="text-gray-700 dark:text-gray-300"
+                                >Tidak paham sistem Coretax DJP yang baru</span
+                            >
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-red-500 font-bold mt-0.5">✗</span>
+                            <span class="text-gray-700 dark:text-gray-300"
+                                >Jawab pakai bahasa undang-undang yang ribet</span
+                            >
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-red-500 font-bold mt-0.5">✗</span>
+                            <span class="text-gray-700 dark:text-gray-300"
+                                >Hitungan denda sering ngawur</span
+                            >
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Good Column -->
+                <div
+                    class="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm p-8 rounded-2xl border-2 border-green-500 shadow-xl shadow-green-500/10 relative transform md:-translate-y-2"
+                >
+                    <div
+                        class="absolute -top-4 left-1/2 -translate-x-1/2 bg-green-500 text-white px-4 py-1 rounded-full text-sm font-bold shadow-lg whitespace-nowrap"
+                    >
+                        Pilihan Tepat
+                    </div>
+                    <div class="flex items-center gap-4 mb-6">
+                        <div
+                            class="w-12 h-12 bg-green-100 dark:bg-green-900/30 text-green-500 rounded-full flex items-center justify-center font-bold text-2xl"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                ><path d="M20 6 9 17l-5-5"></path></svg
+                            >
+                        </div>
+                        <h3 class="text-2xl font-bold">TIRA by AIPEDIA</h3>
+                    </div>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <span class="text-green-500 font-bold mt-0.5"
+                                >✓</span
+                            >
+                            <span
+                                class="text-gray-700 dark:text-gray-300 font-medium"
+                                >Sudah training Peraturan DJP Terbaru 2025-2026
+                                & PPh Final UMKM 0.5%</span
+                            >
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-green-500 font-bold mt-0.5"
+                                >✓</span
+                            >
+                            <span
+                                class="text-gray-700 dark:text-gray-300 font-medium"
+                                >Paham alur Coretax - Panduan aktivasi, billing,
+                                lapor SPT di Coretax</span
+                            >
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-green-500 font-bold mt-0.5"
+                                >✓</span
+                            >
+                            <span
+                                class="text-gray-700 dark:text-gray-300 font-medium"
+                                >Jawab pakai bahasa warung + contoh angka omzet
+                                kamu</span
+                            >
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-green-500 font-bold mt-0.5"
+                                >✓</span
+                            >
+                            <span
+                                class="text-gray-700 dark:text-gray-300 font-medium"
+                                >Simulasi denda Pasal 7 KUP akurat</span
+                            >
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -381,8 +511,8 @@ const platforms = [
                 <h2 class="text-3xl md:text-4xl font-bold mb-6">
                     Kemampuan
                     <span
-                        class="bg-gradient-to-r from-red-500 to-orange-500 bg-clip-text text-transparent"
-                        >TIRA & FINA</span
+                        class="bg-gradient-to-r from-red-500 to-red-700 bg-clip-text text-transparent"
+                        >Spesialis TIRA</span
                     >
                 </h2>
             </div>
@@ -545,7 +675,7 @@ const platforms = [
                     </div>
                     <h3 class="text-2xl font-bold mb-2">{pricing[1].name}</h3>
                     <p class="text-sm text-gray-500 mb-1">
-                        Termasuk TIRA, FINA & 15 AI Lainnya
+                        Termasuk TIRA & BONUS FINA (+15 AI Lainnya)
                     </p>
                     <p class="text-sm text-gray-400 mb-4">
                         Total Eceran: <span class="line-through"
