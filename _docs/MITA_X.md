@@ -80,9 +80,7 @@ products/mita-x/
 │   ├── PROMPT.md
 │   └── knowledge/*
 │
-├── claude-plugin/ # Please follow format Claude plugin which have several Skills?
-│
-└── codex-plugin/ # Please follow format Claude plugin which have several Skills?
+├── mita-skills/ # Contains 6 modular skills (Campaign Audit, LP Review, dll)
 
 ==================================================
 CUSTOM GPT
@@ -136,62 +134,40 @@ instead of
 "What information does this file contain?"
 
 ==================================================
-CLAUDE SKILLS
+MITA SKILLS
 ==================================================
 
 Purpose
 
-Task-specific workflows.
+Task-specific modular workflows.
+Each Skill solves ONE problem only without bloated context.
 
-Each Skill solves ONE problem only.
+Example Skills (6 Total):
 
-Example
-
-Audit Campaign
-
-Landing Page Review
-
-Offer Evaluation
-
-Creative Evaluation
-
-Scaling Decision
-
-Weekly Performance Review
+1. Campaign Audit
+2. Landing Page Review
+3. Budget & ROAS Calculator
+4. Creative Evaluation
+5. Scaling Decision
+6. Weekly Performance Review
 
 ==================================================
-GEMINI GEM
+PRICING & PACKAGING
 ==================================================
 
-Purpose
+1. Mita Only (Rp 87.000)
+   - Mita CustomGPT (11 Meta Ads Knowledge Bases)
+   - 6 Mita Skills (Campaign Audit, LP Review, Budget Calculator, dll)
+   - Ready to use on ChatGPT Free/Plus
 
-Generate high-converting visual concepts.
+2. Bundle 17 Spesialis (Rp 128.000) - Best Value
+   - Semua fitur paket Mita Only
+   - Akses 16 AI Spesialis lainnya (CustomGPT Only, tanpa Skills)
+   - Bonus Prompt Library & SOP Operasional
+   - Lifetime Update
 
-Output
-
-- Design Brief
-- Image Prompt
-- Visual Direction
-- Layout
-- CTA Placement
-
-==================================================
-CODEX PLUGIN
-==================================================
-
-Purpose
-
-Developer workflow.
-
-Generate
-
-- Markdown Audit Report
-
-- Campaign Checklist
-
-- Landing Page Report
-
-- Creative Report
+3. Bump Offer (Rp 288.000 total / +Rp 160.000 at checkout)
+   - Full 17 Agent Skills (Modular Skills untuk semua 17 AI Specialist)
 
 ==================================================
 WEBSITE
