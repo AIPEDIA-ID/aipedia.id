@@ -49,7 +49,7 @@ Sumber: CryptoDaily, Barrons, ET Markets
 - **Status**: Konsolidasi
 - **Tren**: Sideways di area $165–$170.
 - **Potensi**: Rebound ke $200 jika ETF Solana disetujui.
-- **Sinyal Teknis**: 43% holder dalam posisi rugi—potensi reversal.
+- **Sinyal Teknis**: 43% holder dalam posisi rugi-potensi reversal.
 
 ## 🌍 Sentimen Global & Makroekonomi
 

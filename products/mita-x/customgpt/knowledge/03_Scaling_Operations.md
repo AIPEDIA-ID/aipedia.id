@@ -1,4 +1,4 @@
-# Scaling — Budget Rules, Learning Phase & Scale Decision Framework
+# Scaling - Budget Rules, Learning Phase & Scale Decision Framework
 
 ## Decision Rule
 Use this file when: (1) user asks whether/how to scale, (2) ROAS is profitable and user wants to grow.
@@ -38,7 +38,7 @@ Step 2: Are there ≥ 15 conversions in the past 7 days?
   YES → Proceed to Step 3.
 
 Step 3: Is frequency < 3?
-  NO → Creative refresh needed. Don't scale — audience is fatigued.
+  NO → Creative refresh needed. Don't scale - audience is fatigued.
   YES → Scale budget 20–30%.
 
 Step 4: After scaling, monitor for 2–3 days.
@@ -59,22 +59,22 @@ Step 4: After scaling, monitor for 2–3 days.
 - CPA increases > 30% within first 48 hours → likely re-entered learning phase.
 - Frequency spike → audience exhaustion faster than expected.
 - LP CVR drops → traffic quality changed after audience expansion.
-# Checklists — Pre-Launch & Pre-Scale Audit
+# Checklists - Pre-Launch & Pre-Scale Audit
 
 ## Pre-Launch Checklist (Before Running Any Ads)
 
 ### Pixel & Tracking
 - [ ] Meta Pixel is installed and firing correctly on the thank-you/confirmation page.
 - [ ] Test events show purchase event firing (use Meta Pixel Helper Chrome extension).
-- [ ] CAPI (Conversions API) is set up if possible — reduces iOS tracking loss.
+- [ ] CAPI (Conversions API) is set up if possible - reduces iOS tracking loss.
 - [ ] UTM parameters are set on ad URLs for analytics tracking.
 
 ### Landing Page
 - [ ] Page loads under 3 seconds on mobile (test with PageSpeed Insights).
-- [ ] Mobile layout is clean — no broken elements, text not too small.
+- [ ] Mobile layout is clean - no broken elements, text not too small.
 - [ ] Checkout/payment flow works end-to-end (test with real Rp1 transaction if possible).
 - [ ] LP URL is the destination URL in all ads (not homepage).
-- [ ] LP matches ad's promise — same product, same offer, same angle.
+- [ ] LP matches ad's promise - same product, same offer, same angle.
 
 ### Ad Creative
 - [ ] Creative is approved and active (not rejected).
@@ -107,8 +107,8 @@ Step 4: After scaling, monitor for 2–3 days.
 
 Every 7 days, check:
 - [ ] Compare this week's CPA vs last week's CPA. Trend?
-- [ ] CTR trend — declining? Creative may need refresh.
-- [ ] Frequency — approaching 3? Plan creative refresh.
+- [ ] CTR trend - declining? Creative may need refresh.
+- [ ] Frequency - approaching 3? Plan creative refresh.
 - [ ] Any ad sets stuck in learning? Check why (low budget, small audience, rare conversions).
 - [ ] Winning ad set identified? Allocate more budget to it.
 - [ ] Losing ad sets (3× CPA with 0 conversions)? Pause them.

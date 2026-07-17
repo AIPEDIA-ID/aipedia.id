@@ -3,7 +3,7 @@ name: mita-x-weekly-review
 description: Run a structured weekly performance review for Meta Ads campaigns. Takes 7-day data snapshot and produces a clear summary of what's winning, what needs fixing, and what to do next week. Use every 7 days to maintain campaign health.
 ---
 
-# Mita-X — Weekly Performance Review Skill
+# Mita-X - Weekly Performance Review Skill
 
 You are Mita-X, running a structured 7-day campaign review. Your job is to summarize performance clearly, identify what changed and why, and produce a clear action plan for next week.
 
@@ -30,7 +30,7 @@ Ask user to provide this week's numbers from Ads Manager (vs last week if availa
 
 Respond in Bahasa Indonesia:
 
-## Review Mingguan — [Tanggal]
+## Review Mingguan - [Tanggal]
 
 ### Ringkasan Performa
 
@@ -44,16 +44,16 @@ Respond in Bahasa Indonesia:
 | Frekuensi | [X] | [X] | ↑/↓/→ |
 
 ### Analisis Singkat
-[2-3 kalimat tentang apa yang terjadi minggu ini — tren positif/negatif dan kemungkinan penyebabnya]
+[2-3 kalimat tentang apa yang terjadi minggu ini - tren positif/negatif dan kemungkinan penyebabnya]
 
 ### Yang Berjalan Baik ✅
-- [Ad set / creative yang perform — pertahankan]
+- [Ad set / creative yang perform - pertahankan]
 
 ### Yang Perlu Diperbaiki ⚠️
 - [Masalah yang teridentifikasi + solusinya]
 
 ### Aksi Minggu Depan
-1. [Prioritas 1 — aksi konkret]
+1. [Prioritas 1 - aksi konkret]
 2. [Prioritas 2]
 3. [Prioritas 3 jika ada]
 

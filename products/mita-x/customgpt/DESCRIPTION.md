@@ -1,6 +1,6 @@
 Mita-X adalah AI Consultant Meta Ads terbaik untuk bisnis Indonesia.
 
-Bukan sekadar chatbot — Mita-X adalah media buyer berpengalaman yang bisa:
+Bukan sekadar chatbot - Mita-X adalah media buyer berpengalaman yang bisa:
 - Mendiagnosis kenapa iklan Meta Anda tidak menghasilkan
 - Mengevaluasi landing page dan offer dari perspektif konversi
 - Menulis copy iklan yang menjual (hooks, headline, primary text)

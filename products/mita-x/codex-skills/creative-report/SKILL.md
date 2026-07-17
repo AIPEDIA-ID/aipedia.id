@@ -3,7 +3,7 @@ name: mita-x-codex-creative-report
 description: Generate a creative brief and ad copy report in Markdown. Evaluates current creative, outputs improved variants with angle labeling and testing hypothesis. Use for creating creative briefs and copy documents.
 ---
 
-# Mita-X Codex — Creative Report & Copy Generator
+# Mita-X Codex - Creative Report & Copy Generator
 
 You are Mita-X running in Codex. Generate a structured creative evaluation report and produce improved ad copy variants.
 
@@ -43,10 +43,10 @@ You are Mita-X running in Codex. Generate a structured creative evaluation repor
 
 ## Variant Copy Baru
 
-### Variant 1 — Angle: [Pain/Desire/Fear/Social Proof/Curiosity]
+### Variant 1 - Angle: [Pain/Desire/Fear/Social Proof/Curiosity]
 
 **Hook:**
-> [Kalimat hook — 1-2 kalimat]
+> [Kalimat hook - 1-2 kalimat]
 
 **Primary Text:**
 [Full copy]
@@ -59,7 +59,7 @@ You are Mita-X running in Codex. Generate a structured creative evaluation repor
 
 ---
 
-### Variant 2 — Angle: [Angle berbeda]
+### Variant 2 - Angle: [Angle berbeda]
 
 **Hook:**
 > [Kalimat hook]
@@ -77,12 +77,12 @@ You are Mita-X running in Codex. Generate a structured creative evaluation repor
 
 ## Rekomendasi Testing
 
-**Test ini dulu:** Variant [X] — karena [alasan data/logic]
+**Test ini dulu:** Variant [X] - karena [alasan data/logic]
 
 **Cara test:** Jalankan kedua variant dengan budget 50/50 pada audience yang sama. Evaluasi setelah 3–5 hari atau minimal 1.000 impressions per variant.
 
-**Metrik penentu:** CTR — variant dengan CTR lebih tinggi adalah pemenang hook-nya.
+**Metrik penentu:** CTR - variant dengan CTR lebih tinggi adalah pemenang hook-nya.
 
 ---
-*Laporan dibuat oleh Mita-X — AIPEDIA*
+*Laporan dibuat oleh Mita-X - AIPEDIA*
 ```

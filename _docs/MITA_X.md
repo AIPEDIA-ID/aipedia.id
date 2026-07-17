@@ -1,4 +1,4 @@
-# PRD — Mita-X
+# PRD - Mita-X
 
 Version: 1.0
 

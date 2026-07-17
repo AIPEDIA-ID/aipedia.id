@@ -1,6 +1,6 @@
 # AIPEDIA Project Summary
 
-> **Single Source of Truth (SSOT)** for AIPEDIA — a business focused on delivering productized AI CustomGPTs to Indonesian businesses.
+> **Single Source of Truth (SSOT)** for AIPEDIA - a business focused on delivering productized AI CustomGPTs to Indonesian businesses.
 
 ---
 
@@ -47,37 +47,37 @@ aipedia.id/
 
 The core value lies in the **17 AI Specialists**, categorized into two main domains:
 
-### 🥇 Tier 1 — Core Engine (Acquisition & Conversion)
+### 🥇 Tier 1 - Core Engine (Acquisition & Conversion)
 *Directly impacts CAC and conversion. This is the lifeblood of the business.*
-- **Mita** — Meta Ads & Funnel Specialist (Single acquisition channel)
-- **Wita** — Copywriting & Content Specialist (Angles/hooks for ads & LP)
-- **Gita** — Visual Ads & Design Specialist (Combats creative fatigue)
-- **Wilo** — Website Specialist (Landing page technical execution)
-- **Sona** — Social Media Content Specialist
+- **Mita** - Meta Ads & Funnel Specialist (Single acquisition channel)
+- **Wita** - Copywriting & Content Specialist (Angles/hooks for ads & LP)
+- **Gita** - Visual Ads & Design Specialist (Combats creative fatigue)
+- **Wilo** - Website Specialist (Landing page technical execution)
+- **Sona** - Social Media Content Specialist
 
-### 🥈 Tier 2 — Universal Pain Points (Easy to Sell)
+### 🥈 Tier 2 - Universal Pain Points (Easy to Sell)
 *Clear, concrete value for the majority of MSMEs.*
-- **Fina** — Finance Specialist (Cash flow is the #1 pain point)
-- **Wanda** — WhatsApp Business Specialist (Majority of sales close via WA)
-- **Tira** — Pajak UMKM Specialist (Real seasonal pain point)
+- **Fina** - Finance Specialist (Cash flow is the #1 pain point)
+- **Wanda** - WhatsApp Business Specialist (Majority of sales close via WA)
+- **Tira** - Pajak UMKM Specialist (Real seasonal pain point)
 
-### 🥉 Tier 3 — Supporting/Niche (Still Sells)
+### 🥉 Tier 3 - Supporting/Niche (Still Sells)
 *Relevant but requires clear differentiation or targets specific verticals.*
-- **Loka** — Marketplace Specialist (Relevant for E-commerce vertical)
-- **Dany** — Data Analyst Specialist (Abstract value for MSMEs)
-- **Hima** — Local SEO Specialist (Too niche, overlaps with Selo)
+- **Loka** - Marketplace Specialist (Relevant for E-commerce vertical)
+- **Dany** - Data Analyst Specialist (Abstract value for MSMEs)
+- **Hima** - Local SEO Specialist (Too niche, overlaps with Selo)
 
-### ⚠️ Tier 4 — Hard to Demonstrate (Abstract Value)
+### ⚠️ Tier 4 - Hard to Demonstrate (Abstract Value)
 *Value proposition is abstract or takes too long to show results.*
-- **Beny** — Business Strategist (Abstract strategy, hard to prove in ads)
-- **Selo** — SEO Specialist (Slow results, clashes with instant buyers)
-- **Cisa** — Customer Relationship Specialist (Abstract value)
+- **Beny** - Business Strategist (Abstract strategy, hard to prove in ads)
+- **Selo** - SEO Specialist (Slow results, clashes with instant buyers)
+- **Cisa** - Customer Relationship Specialist (Abstract value)
 
-### ⬇️ Tier 5 — Low Priority (Narrow Audience)
+### ⬇️ Tier 5 - Low Priority (Narrow Audience)
 *Very specific niches, not the majority of the target market.*
-- **Viko** — Video Script Writer Specialist (Content creators only)
-- **Lila** — Live Selling Specialist (Live commerce only)
-- **Prima** — Operations & SOP Specialist (Corporate-sounding)
+- **Viko** - Video Script Writer Specialist (Content creators only)
+- **Lila** - Live Selling Specialist (Live commerce only)
+- **Prima** - Operations & SOP Specialist (Corporate-sounding)
 
 ---
 
@@ -167,9 +167,9 @@ All frontend development, copywriting, and creative assets must be aggressively 
 Since AIPEDIA is a premium digital product, the visual identity across **all touchpoints** (Website, Meta Ads creatives, Social Media, and PDF Deliverables) must convey trust, modern technology, and high value. We use a **Dark Mode First** approach, relying strictly on our core brand colors: **Purple (Ungu)** and **Black (Hitam)**.
 
 ### Color Palette
-- **Primary / Brand Color**: **Premium Purple / Violet (`#8b5cf6` / Tailwind `primary-500`)** — Represents AI intelligence, premium quality, and authority. This is our core brand color used for accents, text highlights, and brand identity.
-- **Background**: **Deep Black / Dark Neutral (`#000000` / `#020617` / Tailwind `neutral-950`)** — A clean, sleek, and high-contrast backdrop that keeps the user focused and makes our purple brand elements pop.
-- **Surface / Cards**: **Glassmorphism** — Frosted glass effect on dark backgrounds. In Tailwind: `bg-white/5 backdrop-blur-md border border-white/10`.
+- **Primary / Brand Color**: **Premium Purple / Violet (`#8b5cf6` / Tailwind `primary-500`)** - Represents AI intelligence, premium quality, and authority. This is our core brand color used for accents, text highlights, and brand identity.
+- **Background**: **Deep Black / Dark Neutral (`#000000` / `#020617` / Tailwind `neutral-950`)** - A clean, sleek, and high-contrast backdrop that keeps the user focused and makes our purple brand elements pop.
+- **Surface / Cards**: **Glassmorphism** - Frosted glass effect on dark backgrounds. In Tailwind: `bg-white/5 backdrop-blur-md border border-white/10`.
 - **Text Colors**: 
   - **Headings**: Crisp White (`#fafafa` / `text-zinc-50`).
   - **Body Text**: High-contrast light gray (`#d4d4d8` / `text-zinc-300`). *Crucial Rule: Avoid using text that is too dark/faded to ensure readability across all screens.*

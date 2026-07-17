@@ -237,7 +237,7 @@ def generate_docs():
             char_id = char.get("id", "")
             
             f.write("---\n\n")
-            f.write(f"### {name} — {role}\n\n")
+            f.write(f"### {name} - {role}\n\n")
             f.write("| | Informasi Asisten |\n")
             f.write("|:---:|:---|\n")
             f.write(f'| <img src="../public/character/{char_id}.png" width="100"> | {desc}<br><br>**[🔗 Akses Asisten]({link})** |\n\n')

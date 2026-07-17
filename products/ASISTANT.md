@@ -4,7 +4,7 @@ Pilih asisten AI spesialis yang sesuai dengan kebutuhan bisnis dan marketing kam
 
 ---
 
-### Mita — Meta Ads & Funnel Specialist
+### Mita - Meta Ads & Funnel Specialist
 
 | | Informasi Asisten |
 |:---:|:---|
@@ -12,7 +12,7 @@ Pilih asisten AI spesialis yang sesuai dengan kebutuhan bisnis dan marketing kam
 
 ---
 
-### Wita — Copywriting & Content Specialist
+### Wita - Copywriting & Content Specialist
 
 | | Informasi Asisten |
 |:---:|:---|
@@ -20,7 +20,7 @@ Pilih asisten AI spesialis yang sesuai dengan kebutuhan bisnis dan marketing kam
 
 ---
 
-### Gita — Visual Ads & Design Specialist
+### Gita - Visual Ads & Design Specialist
 
 | | Informasi Asisten |
 |:---:|:---|
@@ -28,7 +28,7 @@ Pilih asisten AI spesialis yang sesuai dengan kebutuhan bisnis dan marketing kam
 
 ---
 
-### Wilo — Website Specialist
+### Wilo - Website Specialist
 
 | | Informasi Asisten |
 |:---:|:---|
@@ -36,7 +36,7 @@ Pilih asisten AI spesialis yang sesuai dengan kebutuhan bisnis dan marketing kam
 
 ---
 
-### Fina — Finance Specialist
+### Fina - Finance Specialist
 
 | | Informasi Asisten |
 |:---:|:---|
@@ -44,7 +44,7 @@ Pilih asisten AI spesialis yang sesuai dengan kebutuhan bisnis dan marketing kam
 
 ---
 
-### Wanda — WhatsApp Business Specialist
+### Wanda - WhatsApp Business Specialist
 
 | | Informasi Asisten |
 |:---:|:---|
@@ -52,7 +52,7 @@ Pilih asisten AI spesialis yang sesuai dengan kebutuhan bisnis dan marketing kam
 
 ---
 
-### Tira — Pajak UMKM Specialist
+### Tira - Pajak UMKM Specialist
 
 | | Informasi Asisten |
 |:---:|:---|
@@ -60,7 +60,7 @@ Pilih asisten AI spesialis yang sesuai dengan kebutuhan bisnis dan marketing kam
 
 ---
 
-### Sona — Social Media Content Specialist
+### Sona - Social Media Content Specialist
 
 | | Informasi Asisten |
 |:---:|:---|
@@ -68,7 +68,7 @@ Pilih asisten AI spesialis yang sesuai dengan kebutuhan bisnis dan marketing kam
 
 ---
 
-### Loka — Marketplace Specialist
+### Loka - Marketplace Specialist
 
 | | Informasi Asisten |
 |:---:|:---|
@@ -76,7 +76,7 @@ Pilih asisten AI spesialis yang sesuai dengan kebutuhan bisnis dan marketing kam
 
 ---
 
-### Dany — Data Analyst Specialist
+### Dany - Data Analyst Specialist
 
 | | Informasi Asisten |
 |:---:|:---|
@@ -84,7 +84,7 @@ Pilih asisten AI spesialis yang sesuai dengan kebutuhan bisnis dan marketing kam
 
 ---
 
-### Beny — Business Strategist
+### Beny - Business Strategist
 
 | | Informasi Asisten |
 |:---:|:---|
@@ -92,7 +92,7 @@ Pilih asisten AI spesialis yang sesuai dengan kebutuhan bisnis dan marketing kam
 
 ---
 
-### Selo — SEO Specialist
+### Selo - SEO Specialist
 
 | | Informasi Asisten |
 |:---:|:---|
@@ -100,7 +100,7 @@ Pilih asisten AI spesialis yang sesuai dengan kebutuhan bisnis dan marketing kam
 
 ---
 
-### Hima — Local SEO Specialist
+### Hima - Local SEO Specialist
 
 | | Informasi Asisten |
 |:---:|:---|
@@ -108,7 +108,7 @@ Pilih asisten AI spesialis yang sesuai dengan kebutuhan bisnis dan marketing kam
 
 ---
 
-### Cisa — Customer Relationship Specialist
+### Cisa - Customer Relationship Specialist
 
 | | Informasi Asisten |
 |:---:|:---|
@@ -116,7 +116,7 @@ Pilih asisten AI spesialis yang sesuai dengan kebutuhan bisnis dan marketing kam
 
 ---
 
-### Viko — Video Script Writer Specialist
+### Viko - Video Script Writer Specialist
 
 | | Informasi Asisten |
 |:---:|:---|
@@ -124,7 +124,7 @@ Pilih asisten AI spesialis yang sesuai dengan kebutuhan bisnis dan marketing kam
 
 ---
 
-### Lila — Live Selling Specialist
+### Lila - Live Selling Specialist
 
 | | Informasi Asisten |
 |:---:|:---|
@@ -132,7 +132,7 @@ Pilih asisten AI spesialis yang sesuai dengan kebutuhan bisnis dan marketing kam
 
 ---
 
-### Prima — Operations & SOP Specialist
+### Prima - Operations & SOP Specialist
 
 | | Informasi Asisten |
 |:---:|:---|

@@ -6,7 +6,7 @@
 
 ## 1. Core Commitment
 
-- The domain **aipedia.id** and the mission — "AI solutions for Indonesian businesses" — is a **long-term commitment (5-year horizon)**. This does not change.
+- The domain **aipedia.id** and the mission - "AI solutions for Indonesian businesses" - is a **long-term commitment (5-year horizon)**. This does not change.
 - What *can* change: the product form, the target vertical, the packaging. We are stubborn on the mission, flexible on execution.
 - Reason: avoid shiny object syndrome from repeatedly switching to entirely new domains/ideas. Instead, iterate within one durable brand.
 
@@ -33,10 +33,10 @@ Current hypothesis: if the generic 17-specialist bundle underperforms, narrow in
 |---|---|---|---|
 | Generic Bundle (Basic/Pro, 17 specialists) | Active / Testing | Original offer, optimized for Meta Ads conversion | - |
 | AIPEDIA for Creator | Not started | Candidate for next test if generic bundle underperforms | - |
-| AIPEDIA for F&B | Not started | Candidate — recommended to test ONE vertical at a time before expanding | - |
+| AIPEDIA for F&B | Not started | Candidate - recommended to test ONE vertical at a time before expanding | - |
 | AIPEDIA for E-commerce | Not started | Candidate | - |
 
-**Rule:** Only one new vertical is tested at a time. Do not run multiple vertical experiments in parallel — this creates the same focus-diluting effect as switching entire products.
+**Rule:** Only one new vertical is tested at a time. Do not run multiple vertical experiments in parallel - this creates the same focus-diluting effect as switching entire products.
 
 ---
 
@@ -73,5 +73,5 @@ Current hypothesis: if the generic 17-specialist bundle underperforms, narrow in
 
 > Add a new entry every time a significant strategic call is made.
 
-- **[Date]** — Decided to simplify business model to 2 pillars (Product R&D + Ads & Campaign), removing ambiguity around other operational activities.
-- **[Date]** — Committed to long-term (5-year) ownership of aipedia.id domain regardless of individual product outcomes.
+- **[Date]** - Decided to simplify business model to 2 pillars (Product R&D + Ads & Campaign), removing ambiguity around other operational activities.
+- **[Date]** - Committed to long-term (5-year) ownership of aipedia.id domain regardless of individual product outcomes.

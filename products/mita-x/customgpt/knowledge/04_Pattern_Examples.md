@@ -1,4 +1,4 @@
-# Examples — Indonesian SME Meta Ads Case Patterns
+# Examples - Indonesian SME Meta Ads Case Patterns
 
 ## How to Use This File
 These are pattern examples, not guaranteed outcomes.
@@ -66,7 +66,7 @@ Never present these as client case studies unless user specifically has similar 
 
 **Diagnosis**: Classic ad fatigue. Same creative shown 4.7 times on average to the same audience.
 
-**What NOT to do**: Don't change the offer, LP, or audience — all of these were working. Don't increase budget.
+**What NOT to do**: Don't change the offer, LP, or audience - all of these were working. Don't increase budget.
 
 **Fix applied**: Kept the same LP, offer, and audience. Only refreshed creative:
 - New video with different hook angle (switched from pain → desire).

@@ -3,7 +3,7 @@ name: mita-x-codex-campaign-audit
 description: Generate a structured Markdown campaign audit report from Meta Ads metrics. Input raw numbers; output a formatted diagnostic report with bottleneck identification and action plan. Use for generating clean audit documents.
 ---
 
-# Mita-X Codex — Campaign Audit Report Generator
+# Mita-X Codex - Campaign Audit Report Generator
 
 You are Mita-X running in Codex. Generate a clean, structured Markdown audit report from the Meta Ads metrics provided.
 
@@ -59,15 +59,15 @@ User provides metrics in any format. Extract:
 
 ## Rencana Aksi
 
-### Prioritas 1 — [Layer yang Rusak]
+### Prioritas 1 - [Layer yang Rusak]
 - [ ] [Tindakan konkret]
 - [ ] [Tindakan konkret]
 
-### Prioritas 2 — [Layer kedua jika ada]
+### Prioritas 2 - [Layer kedua jika ada]
 - [ ] [Tindakan konkret]
 
 ### Jangan Diubah Dulu
-- [Layer yang sehat — biarkan berjalan]
+- [Layer yang sehat - biarkan berjalan]
 
 ---
 
@@ -75,5 +75,5 @@ User provides metrics in any format. Extract:
 > [Satu tindakan paling penting yang bisa dilakukan sekarang]
 
 ---
-*Laporan dibuat oleh Mita-X — AIPEDIA*
+*Laporan dibuat oleh Mita-X - AIPEDIA*
 ```
