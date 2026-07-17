@@ -4,16 +4,19 @@ const formats = [
     title: "Custom GPTs",
     altText: "Screenshot Custom GPT",
     image: "/screenshots/1.png",
+    icon: "/vendors/chatgpt-white.png",
   },
   {
-    title: "Claude Projects",
+    title: "Claude",
     altText: "Screenshot Claude",
     image: "/screenshots/2.png",
+    icon: "/vendors/claude.png",
   },
   {
-    title: "Codex (Cursor)",
+    title: "Codex",
     altText: "Screenshot Codex",
     image: "/screenshots/3.png",
+    icon: "/vendors/codex.png",
   },
 ];
 ---
@@ -43,11 +46,18 @@ const formats = [
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 justify-items-center">
       {
         formats.map((format) => (
-          <div class="group p-2 rounded-xl bg-white/60 dark:bg-white/5 backdrop-blur-sm border border-gray-200 dark:border-white/10 hover:border-primary-500/30 dark:hover:border-primary-500/30 hover:bg-white/80 dark:hover:bg-white/10 transition-all duration-300 w-full">
-            <h3 class="text-lg font-semibold mb-3 text-gray-900 dark:text-white">
-              {format.title}
-            </h3>
-            <div class="bg-gray-200/50 dark:bg-gray-800/50 rounded-lg aspect-[4/3] flex items-center justify-center border border-dashed border-gray-300 dark:border-gray-600 overflow-hidden relative">
+          <div class="group p-3 rounded-2xl bg-white/60 dark:bg-white/5 backdrop-blur-sm border border-gray-200 dark:border-white/10 hover:border-primary-500/30 dark:hover:border-primary-500/30 hover:bg-white/80 dark:hover:bg-white/10 transition-all duration-300 w-full">
+            <div class="flex items-center gap-3 px-2 pt-1 pb-3">
+              <img
+                src={format.icon}
+                alt={format.title}
+                class="w-7 h-7 object-contain"
+              />
+              <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
+                {format.title}
+              </h3>
+            </div>
+            <div class="bg-gray-200/50 dark:bg-gray-800/50 rounded-xl aspect-[4/3] flex items-center justify-center border border-gray-200 dark:border-gray-700 overflow-hidden relative">
               {format.image ? (
                 <img
                   src={format.image}

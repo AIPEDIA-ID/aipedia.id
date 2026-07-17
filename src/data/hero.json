@@ -1,27 +1,23 @@
 {
-  "badge": "Latest update: July 2026",
+  "badge": "AI Spesialis untuk Bisnis Indonesia",
   "logo": {
     "src": "/logo.png",
     "alt": "AIPEDIA Logo"
   },
   "heading": {
-    "main": "17+ AI Spesialis",
-    "highlight": "Untuk Bisnis Indonesia"
+    "main": "Belum Sanggup Gaji Tim?",
+    "highlight": "Coba 17+ AI Spesialis"
   },
-  "subheading1": "<strong>SEO, Meta Ads, Pajak, TikTok/Shopee Live, Finance & CS</strong> semua dalam <strong>1 bundle AI Spesialis</strong> + <strong>Ekosistem Skills AI Agent</strong> yang siap bantu",
+  "subheading1": "<strong>Meta Ads, Marketing, SEO, Konten, Finance & Operasional</strong>. 17 AI Spesialis yang sudah dilatih khusus per bidang, bukan chatbot generik",
   "subheading2": "*Compatible dengan ChatGPT, Codex Plugin, dan Claude",
   "cta": [
     {
-      "text": "Akses Sekarang, Hemat 30%",
+      "text": "Akses AI Spesialis",
       "href": "#pricing",
       "isPrimary": true
     }
   ],
   "socialProof": "",
-  "avatars": [
-    "/avatars/user-1.png",
-    "/avatars/user-2.png",
-    "/avatars/user-3.png"
-  ],
-  "discountBanner": "⏳ <strong>Diskon 30%</strong> untuk early access - harga naik setelah kuota awal habis"
+  "avatars": [],
+  "discountBanner": ""
 }
