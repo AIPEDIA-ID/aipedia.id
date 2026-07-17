@@ -9,7 +9,7 @@ const pricing = [
     price: "87.000",
     type: "custom_gpt",
     cta: "Ambil Mita",
-    url: "#",
+    url: "https://myr.id/mita-only-87k",
     features: [
       "Mita CustomGPT (11 Meta Ads Knowledge Bases)",
       "6 Mita Skills: Campaign Audit, LP Review, Budget Calculator",
@@ -143,7 +143,7 @@ const platforms = [
       </div>
 
       <div class="flex flex-col sm:flex-row gap-3 justify-center items-center mb-12">
-        <a href="#pricing" class="btn-cta group inline-flex items-center gap-2 px-6 py-3 font-medium rounded-xl">
+        <a href="#pricing" class="btn-cta group inline-flex items-center gap-2 px-6 py-3 font-medium rounded-xl" onclick="if(typeof fbq !== 'undefined') fbq('track', 'ViewContent');">
           Dapatkan Mita Sekarang
         </a>
         <a href="#demo" class="inline-flex items-center gap-2 px-6 py-3 bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 text-gray-900 dark:text-white font-medium rounded-lg border border-black/10 dark:border-white/20 hover:border-black/20 dark:hover:border-white/30 transition-all duration-200 backdrop-blur-sm hover:border-blue-500/30">
@@ -293,8 +293,9 @@ const platforms = [
         <!-- Mita Only -->
         <div class="p-8 rounded-2xl bg-white/60 dark:bg-white/5 backdrop-blur-sm border border-gray-200 dark:border-white/10 flex flex-col">
           <h3 class="text-2xl font-bold mb-2">{pricing[0].name}</h3>
-          <p class="text-sm text-gray-500 mb-6">Akses AI CustomGPT Mita</p>
-          <div class="text-5xl font-bold mb-8">Rp {pricing[0].price}</div>
+          <p class="text-sm text-gray-500 mb-1">Hanya akses AI CustomGPT Mita</p>
+          <p class="text-sm text-gray-400 mb-4">Tanpa akses 16 specialist lain.</p>
+          <div class="text-5xl font-bold mb-8 text-gray-900 dark:text-white">Rp {pricing[0].price}</div>
           
           <ul class="text-left space-y-4 mb-8 flex-1">
             {pricing[0].features.map(f => (
@@ -305,7 +306,7 @@ const platforms = [
             ))}
           </ul>
 
-          <a href={pricing[0].url} class="inline-flex items-center justify-center w-full px-6 py-4 bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 text-gray-900 dark:text-white font-medium rounded-xl border border-black/10 dark:border-white/20 transition-all duration-200 text-lg">
+          <a href={pricing[0].url} class="inline-flex items-center justify-center w-full px-6 py-4 bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 text-gray-900 dark:text-white font-medium rounded-xl border border-black/10 dark:border-white/20 transition-all duration-200 text-lg" onclick="if(typeof fbq !== 'undefined') fbq('track', 'InitiateCheckout', {content_name: 'Mita Only', value: 67000, currency: 'IDR'});">
             {pricing[0].cta}
           </a>
         </div>
@@ -316,8 +317,8 @@ const platforms = [
             {pricing[1].badge}
           </div>
           <h3 class="text-2xl font-bold mb-2">{pricing[1].name}</h3>
-          <p class="text-sm text-gray-500 mb-2">Termasuk Mita & 16 AI Lainnya</p>
-          <div class="text-lg text-gray-400 line-through mb-1">Rp {pricing[1].original_price}</div>
+          <p class="text-sm text-gray-500 mb-1">Termasuk Mita & 16 AI Lainnya</p>
+          <p class="text-sm text-gray-400 mb-4">Total Eceran: <span class="line-through">Rp {pricing[1].original_price}</span></p>
           <div class="text-5xl font-bold text-gray-900 dark:text-white mb-8">Rp {pricing[1].price}</div>
           
           <ul class="text-left space-y-4 mb-8 flex-1">
@@ -329,7 +330,7 @@ const platforms = [
             ))}
           </ul>
 
-          <a href={pricing[1].url} class="btn-cta inline-flex items-center justify-center w-full px-6 py-4 font-bold rounded-xl text-lg">
+          <a href={pricing[1].url} class="btn-cta inline-flex items-center justify-center w-full px-6 py-4 font-bold rounded-xl text-lg" onclick="if(typeof fbq !== 'undefined') fbq('track', 'InitiateCheckout', {content_name: 'Bundle 17 Spesialis', value: 128000, currency: 'IDR'});">
             {pricing[1].cta}
           </a>
           
