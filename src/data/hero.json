@@ -6,13 +6,13 @@
   },
   "heading": {
     "main": "Belum Sanggup Gaji Tim?",
-    "highlight": "Coba 17+ AI Spesialis"
+    "highlight": "Coba 17 AI Spesialis Ini"
   },
-  "subheading1": "<strong>Meta Ads, Marketing, SEO, Konten, Finance & Operasional</strong>. 17 AI Spesialis yang sudah dilatih khusus per bidang, bukan chatbot generik",
-  "subheading2": "*Compatible dengan ChatGPT, Codex Plugin, dan Claude",
+  "subheading1": "Ada <strong>Mita (Iklan), Wilo (Konten), Fina (Keuangan)</strong> + 14 spesialis lain. Bukan chatbot generik, sudah dilatih khusus per bidang. Kerja 24 jam, bayar sekali.",
+  "subheading2": "*Langsung pakai di ChatGPT atau Claude. Gak perlu install aplikasi lain",
   "cta": [
     {
-      "text": "Akses AI Spesialis",
+      "text": "Coba 17 AI Spesialis Ini →",
       "href": "#pricing",
       "isPrimary": true
     }
