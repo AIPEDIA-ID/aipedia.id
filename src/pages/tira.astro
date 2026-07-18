@@ -188,10 +188,21 @@ const platforms = [
                 AI Spesialis Pajak UMKM yang siap bantu hitung, lapor, dan jawab
                 semua kebingungan pajak bisnismu 24/7.
             </p>
-            <div class="flex flex-wrap justify-center gap-2 md:gap-4 mb-8 text-xs md:text-sm font-medium text-gray-600 dark:text-gray-400">
-                <span class="flex items-center gap-1"><span class="text-green-500 text-base">✓</span> Update Aturan 2025-2026</span>
-                <span class="flex items-center gap-1"><span class="text-green-500 text-base">✓</span> Paham Coretax DJP</span>
-                <span class="flex items-center gap-1"><span class="text-green-500 text-base">✓</span> Bahasa Warung, Bukan Bahasa UU</span>
+            <div
+                class="flex flex-wrap justify-center gap-2 md:gap-4 mb-8 text-xs md:text-sm font-medium text-gray-600 dark:text-gray-400"
+            >
+                <span class="flex items-center gap-1"
+                    ><span class="text-green-500 text-base">✓</span> Update Aturan
+                    2025-2026</span
+                >
+                <span class="flex items-center gap-1"
+                    ><span class="text-green-500 text-base">✓</span> Paham Coretax
+                    DJP</span
+                >
+                <span class="flex items-center gap-1"
+                    ><span class="text-green-500 text-base">✓</span> Bahasa Warung,
+                    Bukan Bahasa UU</span
+                >
             </div>
 
             <div class="max-w-xl w-full mx-auto mb-8 relative">
@@ -523,13 +534,6 @@ const platforms = [
                         <div
                             class={`group p-6 rounded-xl bg-white/60 dark:bg-white/5 backdrop-blur-sm border transition-all duration-300 ${feat.specialist === "TIRA" ? "border-red-200 dark:border-red-900/30 hover:border-red-500/50" : "border-yellow-200 dark:border-yellow-900/30 hover:border-yellow-500/50"}`}
                         >
-                            <div class="flex items-center gap-3 mb-3">
-                                <div
-                                    class={`px-3 py-1 rounded-full text-xs font-bold ${feat.specialist === "TIRA" ? "bg-red-100 text-red-600 dark:bg-red-900/30 dark:text-red-400" : "bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-400"}`}
-                                >
-                                    {feat.specialist}
-                                </div>
-                            </div>
                             <h3 class="text-xl font-bold mb-2">{feat.title}</h3>
                             <p class="text-sm text-gray-600 dark:text-gray-400">
                                 {feat.desc}
