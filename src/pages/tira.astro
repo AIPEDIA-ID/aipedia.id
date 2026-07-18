@@ -95,11 +95,6 @@ const platforms = [
         desc: "Cocok untuk membaca report data Meta Ads (CSV) atau laporan laba-rugi keuangan dengan akurasi dan logika tinggi.",
         img: "/vendors/claude.png",
     },
-    {
-        name: "IDE (Codex Plugin)",
-        desc: "Cocok untuk eksekusi workflow kompleks secara otomatis (Auto-generate Laporan) langsung di dalam workspace Anda.",
-        img: "/vendors/codex.png",
-    },
 ];
 ---
 
@@ -590,11 +585,11 @@ const platforms = [
             </div>
 
             <div
-                class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto"
+                class="flex flex-wrap justify-center gap-6 max-w-6xl mx-auto"
             >
                 {
                     platforms.map((platform) => (
-                        <div class="p-8 rounded-2xl bg-white/80 dark:bg-white/5 backdrop-blur-sm border border-gray-200 dark:border-white/10 hover:border-orange-500/30 transition-all duration-300 group">
+                        <div class="flex-1 basis-[300px] max-w-[420px] p-8 rounded-2xl bg-white/80 dark:bg-white/5 backdrop-blur-sm border border-gray-200 dark:border-white/10 hover:border-orange-500/30 transition-all duration-300 group">
                             <div class="flex items-center gap-4 mb-4">
                                 <img
                                     src={platform.img}
