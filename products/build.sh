@@ -27,15 +27,15 @@ echo "=================================================="
 
 # Fix image paths in ASISTANT.md temporarily for PDF generation
 echo "=> Adjusting image paths in ASISTANT.md for PDF generation..."
-if grep -q '\.\./public' "$PRODUCTS_DIR/ASISTANT.md"; then
-  cp "$PRODUCTS_DIR/ASISTANT.md" /tmp/aipedia_asistant_backup.md
-  sed 's|\.\./public|../../public|g' /tmp/aipedia_asistant_backup.md > "$PRODUCTS_DIR/ASISTANT.md"
+if grep -q '\.\./public' "$PRODUCTS_DIR/guide/ASISTANT.md"; then
+  cp "$PRODUCTS_DIR/guide/ASISTANT.md" /tmp/aipedia_asistant_backup.md
+  sed 's|\.\./public|../../../public|g' /tmp/aipedia_asistant_backup.md > "$PRODUCTS_DIR/guide/ASISTANT.md"
 fi
 
 # Ensure cleanup happens even if the script fails
 cleanup() {
   if [ -f /tmp/aipedia_asistant_backup.md ]; then
-    mv /tmp/aipedia_asistant_backup.md "$PRODUCTS_DIR/ASISTANT.md"
+    mv /tmp/aipedia_asistant_backup.md "$PRODUCTS_DIR/guide/ASISTANT.md"
   fi
 }
 trap cleanup EXIT
@@ -44,15 +44,15 @@ echo "=> Installing Chrome for Puppeteer if needed..."
 npx -y puppeteer browsers install chrome
 
 echo "=> Generating PDFs (This might take a while on first run due to Puppeteer)..."
-npx -y md-to-pdf "$PRODUCTS_DIR/GUIDE_Basic.md"
-npx -y md-to-pdf "$PRODUCTS_DIR/ASISTANT.md"
-npx -y md-to-pdf "$PRODUCTS_DIR/GUIDE_Pro.md"
+npx -y md-to-pdf "$PRODUCTS_DIR/guide/GUIDE_Basic.md"
+npx -y md-to-pdf "$PRODUCTS_DIR/guide/ASISTANT.md"
+npx -y md-to-pdf "$PRODUCTS_DIR/guide/GUIDE_Pro.md"
 
 
 
 echo "=> Assembling Basic Package..."
-mv "$PRODUCTS_DIR/GUIDE_Basic.pdf" "$BASIC_OUT/"
-cp "$PRODUCTS_DIR/ASISTANT.pdf" "$BASIC_OUT/"
+mv "$PRODUCTS_DIR/guide/GUIDE_Basic.pdf" "$BASIC_OUT/"
+cp "$PRODUCTS_DIR/guide/ASISTANT.pdf" "$BASIC_OUT/"
 
 cd "$BASIC_OUT"
 rm -f aipedia-basic_v1.1.zip
@@ -61,8 +61,8 @@ rm -f ./*.pdf
 cd "$PROJECT_ROOT"
 
 echo "=> Assembling Pro Package..."
-mv "$PRODUCTS_DIR/GUIDE_Pro.pdf" "$PRO_OUT/"
-mv "$PRODUCTS_DIR/ASISTANT.pdf" "$PRO_OUT/"
+mv "$PRODUCTS_DIR/guide/GUIDE_Pro.pdf" "$PRO_OUT/"
+mv "$PRODUCTS_DIR/guide/ASISTANT.pdf" "$PRO_OUT/"
 
 # Prepare skills as individual zips
 mkdir -p "$PRO_OUT/skills"

@@ -224,8 +224,8 @@ def generate_docs():
     os.makedirs(PROMPTS_OUTPUT_DIR, exist_ok=True)
     
     # Query B: Generate ASISTANT.md
-    os.makedirs(PRODUCTS_DIR, exist_ok=True)
-    assistant_md_path = os.path.join(PRODUCTS_DIR, "ASISTANT.md")
+    print("Generating ASISTANT.md...")
+    assistant_md_path = os.path.join(PRODUCTS_DIR, "guide", "ASISTANT.md")
     with open(assistant_md_path, 'w', encoding='utf-8') as f:
         f.write("# List of Specialist\n\n")
         f.write("Pilih asisten AI spesialis yang sesuai dengan kebutuhan bisnis dan marketing kamu.\n\n")

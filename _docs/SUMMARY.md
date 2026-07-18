@@ -30,15 +30,17 @@ aipedia.id/
 │   ├── SUMMARY.md                # Business executive summary & ecosystem
 │
 ├── products/                     # 📦 Customer Deliverables & Packaging
+│   ├── mita-x/                   # Mita specific extended skills and prompts (-x means special)
 │   ├── codex-plugin-marketplace/ # Plugin registry & skills (Pro tier)
+│   ├── customgpt/                # Generated CustomGPT Instructions
 │   ├── delivery/                 # Final ZIP packages ready for distribution
-│   ├── ASISTANT.md               # Auto-generated product catalog
-│   ├── GUIDE_Basic.md            # Customer onboarding guide (Basic)
-│   ├── GUIDE_Pro.md              # Customer onboarding guide (Pro)
+│   ├── guide/                    # PDF markdown sources (ASISTANT, GUIDE_Basic, GUIDE_Pro)
+│   ├── prompts/                  # Generated system prompts & settings
 │   └── build.sh                  # PDF compilation & packaging automation
 │
 └── scripts/                      # ⚙️ Business Logic Automation
     ├── manager.py                # SSOT parser, generator, & icon compressor
+    ├── reorder_assistants.py     # Utility to reorder assistants in JSON
     └── character_image_prompts.txt # Auto-generated visual prompts for Midjourney/DALL-E
 ```
 ---
@@ -93,8 +95,8 @@ This project is not just a standard web application; it is a full **Product Gene
 
 ### B. Product Deliverables (`products/`)
 - Contains the final assets delivered to customers:
-    - **PDF Guides** (`ASISTANT.md`, `GUIDE_Basic.md`, `GUIDE_Pro.md`)
-    - **Skills** (`products/skills/`)
+    - **PDF Guides** (`products/guide/ASISTANT.md`, `GUIDE_Basic.md`, `GUIDE_Pro.md`)
+    - **Skills** (`products/codex-plugin-marketplace/`, `products/mita-x/`)
     - **Delivery Packages** (`products/delivery/`)
 - Managed by `products/build.sh` which compiles Markdown into PDFs using Puppeteer and zips the final product packages.
 
@@ -113,7 +115,7 @@ The entire project revolves around one central database:
 
 Whenever a new specialist is added or modified in this JSON file, it automatically propagates to:
 1. **The Website**: Automatically updates the Astro UI.
-2. **The Deliverables**: Automatically injects into the PDF generation (`products/ASISTANT.md`).
+2. **The Deliverables**: Automatically injects into the PDF generation (`products/guide/ASISTANT.md`) and settings in `products/customgpt/` & `products/prompts/`.
 3. **Internal Tools**: Updates system prompts and image generation prompts.
 
 *Never hardcode character details in the Astro components or Markdown files. Always update the JSON.*
@@ -125,7 +127,7 @@ Whenever a new specialist is added or modified in this JSON file, it automatical
 ### Adding a New Specialist
 1. **Update SSOT**: Add the specialist's data block (ID, Name, Role, Color, Prompts) into `_docs/database/assistants.json`.
 2. **Generate System Updates**: 
-   Run `make project-generate-all` to sync the Web data, Product Markdown (`ASISTANT.md`), and Internal Prompts.
+   Run `make project-generate-all` to sync the Web data, Product Markdown (`products/guide/ASISTANT.md`), and Internal Prompts.
 3. **Generate & Prepare Assets**:
    - Run `make project-visual-prompt` to generate the Midjourney/DALL-E prompt.
    - Generate the image, remove background, and save as `[id].png` in `_docs/assets/raw_icons/`.
