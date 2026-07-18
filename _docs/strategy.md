@@ -25,35 +25,45 @@ Distribution channel: **Meta Ads only**. Product type: **digital products only**
 
 ---
 
-## 3. Vertical Validation Log
+## 3. AIPEDIA Factory Loop v2.0 (The Strategy)
 
-Current hypothesis: if the generic 17-specialist bundle underperforms, narrow into vertical-specific packs instead of abandoning the domain.
+We have pivoted from running Meta Ads for the generic bundle to a **Single Product Launch & Backend Bundle Strategy**.
 
-| Vertical | Status | Notes | Date |
-|---|---|---|---|
-| Generic Bundle (Basic/Pro, 17 specialists) | Active / Testing | Original offer, optimized for Meta Ads conversion | - |
-| AIPEDIA for Creator | Not started | Candidate for next test if generic bundle underperforms | - |
-| AIPEDIA for F&B | Not started | Candidate - recommended to test ONE vertical at a time before expanding | - |
-| AIPEDIA for E-commerce | Not started | Candidate | - |
+### The Pipeline (Risk Managed, High Reward)
 
-**Rule:** Only one new vertical is tested at a time. Do not run multiple vertical experiments in parallel - this creates the same focus-diluting effect as switching entire products.
+**1. [IDEATION 30m]**
+- Filter criteria: Is there a generic enemy? Is there a panic keyword (e.g., Coretax/Denda)? Is it a 1-hour recurring problem?
+- **FAIL** -> [TRASH] -> Back to IDEATION
+- **PASS** -> Move to BUILD
+
+**2. [BUILD 60m] - Factory**
+- **Template Setup**: e.g., Hero > Problem > Comparison WAJIB > Capability > Pricing (e.g. 87k vs 128k)
+- **Output**: Update `assistants.json` + Landing page
+- Move to LAUNCH
+
+**3. [LAUNCH 15m] - Sniper**
+- 1 Campaign per product / 1 Adset Broad / 2 Videos (testing angles like Denda vs Coretax)
+- Budget: Rp50k/day
+
+**4. [MONITOR 72 Jam]**
+- **CTR < 0.8%** = Change Hook
+- **CPA > 95k** = KILL (Max Loss Rp200k)
+- **CPA < 65k** = SCALE
+- **KILL** -> [BANK SAMPAH] -> Back to IDEATION
+- **SCALE** -> Move to BANK
+
+**5. [BANK] - Vault Assets & Backend**
+- Every buyer -> Track with Pixel + Google Sheet + Email
+- **Friday Email Blast**: "You have [Specialist], here is the rest of the gang (Bundle Offer)"
+- **Goal**: Frontend profit (Sniper) + Backend profit (Bank) = Maximum LTV.
 
 ---
 
-## 4. Pivot Criteria (Objective, Not Emotional)
+## 4. Pivot & Optimization Criteria
 
-| Metric | Threshold | Rationale |
-|---|---|---|
-| Max CAC (Basic, Rp118rb) | ≤ Rp50rb | Biar margin masih sehat setelah fee myr.id + residual cost |
-| Max CAC (Pro, Rp239rb) | ≤ Rp90rb | Sama, proporsional ke harga |
-| Min Landing Page Conversion | ≥ 1.5% (visitor→checkout) | Standar kasar cold traffic Meta Ads produk digital SEA |
-| Min ROAS (breakeven) | ≥ 1.3x | HPP digital nyaris 0, tapi ads spend + fee harus balik dulu |
-| Evaluation period | Rp1.5jt spend PER pairing, min 7 hari | Biar bukan noise dari sample kecil |
-| Total test budget sebelum keputusan | Rp2jt (sesuai capital lo) | Kalau abis dan belum ada satupun pairing nembus threshold → itu sinyal pivot ke vertical baru |
-
-**Keputusan otomatis:**
-- Kalau ada 1 pairing yang tembus semua threshold → scale itu, matikan yang lain.
-- Kalau Rp2jt habis dan TIDAK ADA yang tembus → itu bukan "gagal", itu sinyal pivot ke 1 vertical test (sesuai section 3), bukan ganti brand.
+- **Frontend Strategy**: Meta Ads are now optimized for single, highly specific specialist products.
+- **Backend Strategy**: The 17-specialist generic bundle is primarily sold via email marketing as a follow-up offer to individual buyers.
+- **Max Loss**: Strictly limit loss to Rp200k per product launch. Kill fast, scale fast.
 
 ---
 

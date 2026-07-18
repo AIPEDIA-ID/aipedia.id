@@ -156,9 +156,15 @@ We use Markdown checkboxes to track progress:
 
 ## 7. Marketing Strategy
 
-**Meta Ads** is the primary and main marketing channel for AIPEDIA. 
-All frontend development, copywriting, and creative assets must be aggressively optimized for Meta Ads conversion (Purchase objective). 
-- Refer to `_docs/learn/meta_ads.md` and `_docs/task/marketing.md` for campaigns, budget tracking, and creative testing setups.
+**1. Frontend Acquisition (Sniper)**
+- **Meta Ads** is the primary acquisition channel. 
+- Campaigns are run **per single product** (e.g., one campaign for TIRA) using a broad adset to test specific hooks (e.g., Coretax vs Denda).
+- All frontend development and creatives must be aggressively optimized for single-product Meta Ads conversion. 
+
+**2. Backend Monetization (Bank)**
+- After acquiring a buyer for a single product, we capture their Pixel, Google Sheet record, and Email.
+- **Email Marketing** is used to follow up and sell the full **AIPEDIA Bundle**.
+- Refer to `_docs/strategy.md` for the detailed "Factory Loop v2.0" metrics and pipeline.
 
 ---
 
