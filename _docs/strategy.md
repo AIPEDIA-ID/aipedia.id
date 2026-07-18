@@ -57,6 +57,41 @@ We have pivoted from running Meta Ads for the generic bundle to a **Single Produ
 - **Friday Email Blast**: "You have [Specialist], here is the rest of the gang (Bundle Offer)"
 - **Goal**: Frontend profit (Sniper) + Backend profit (Bank) = Maximum LTV.
 
+AIPEDIA FACTORY LOOP v2.0
+Measured Risk, Unlimited Reward
+
+[IDEATION 30m]
+  Check: 1. Generic Enemy exists? 2. Panic Keyword? 3. 1-Hour Knowledge Base?
+    |
+ FAIL -> [TRASH] -> back to IDEATION
+    |
+ PASS
+    v
+[BUILD 60m]
+  Clone Winning Template (/tira)
+  Must have: Comparison Table (Generic AI vs Specialist)
+  Output: assistants.json + landing
+    |
+    v
+[LAUNCH 15m]
+  1 Campaign / 1 Adset / 2 Videos (Angle: Fine vs Coretax)
+  Budget: $3/day
+    |
+    v
+[MONITOR 72h]
+    - CTR <0.8% = Kill Creative
+    - CPA > $6 = KILL (Max Loss $12)
+    - CPA < $4 = SCALE
+    |
+  KILL -> Idea Bank -> loop
+    |
+  SCALE
+    v
+[BANK]
+  Buyer -> Pixel + Sheet + Email
+  Weekly Blast: Bundle Offer (CPA = $0)
+  => Profit = Sniper Sales + Bank Sales
+
 ---
 
 ## 4. Pivot & Optimization Criteria
