@@ -11,9 +11,9 @@ const pricing = [
         cta: "Ambil TIRA",
         url: "https://myr.id/tira-only-87k",
         features: [
-            "TIRA CustomGPT (11 Knowledge Bases)",
-            "6 TIRA Skills",
-            "Cocok buat yang cuma butuh beresin urusan pajak",
+            "Tanya jawab pajak unlimited via ChatGPT",
+            "Hitung PPh Final 0.5% otomatis dari omzet",
+            "Panduan Coretax sampai lapor beres",
         ],
     },
     {
@@ -54,8 +54,8 @@ const features = [
         specialist: "TIRA",
     },
     {
-        title: "Simulasi Denda Pajak",
-        desc: "Telat bayar atau lapor? TIRA bisa bantu simulasikan potensi denda administrasi biar kamu bisa antisipasi.",
+        title: "Simulasi Estimasi Denda Pajak",
+        desc: "Telat bayar atau lapor? TIRA bantu hitung estimasi potensi denda sesuai Pasal 7 KUP biar bisa antisipasi.",
         image: "/screenshots/4.png",
         specialist: "TIRA",
     },
@@ -181,18 +181,18 @@ const platforms = [
                 class="text-base md:text-lg text-gray-600 dark:text-gray-300 mb-4 max-w-2xl mx-auto"
             >
                 AI Spesialis Pajak UMKM yang siap bantu hitung, lapor, dan jawab
-                semua kebingungan pajak bisnismu 24/7.
+                kebingungan harian seputar pajak bisnismu 24/7
             </p>
             <div
                 class="flex flex-wrap justify-center gap-2 md:gap-4 mb-8 text-xs md:text-sm font-medium text-gray-600 dark:text-gray-400"
             >
                 <span class="flex items-center gap-1"
                     ><span class="text-green-500 text-base">✓</span> Update Aturan
-                    2025-2026</span
+                    Juli 2026</span
                 >
                 <span class="flex items-center gap-1"
-                    ><span class="text-green-500 text-base">✓</span> Paham Coretax
-                    DJP</span
+                    ><span class="text-green-500 text-base">✓</span> Panduan Coretax
+                    Step-by-Step</span
                 >
                 <span class="flex items-center gap-1"
                     ><span class="text-green-500 text-base">✓</span> Bahasa Warung,
@@ -220,7 +220,7 @@ const platforms = [
             </div>
 
             <div
-                class="flex flex-col sm:flex-row gap-3 justify-center items-center mb-12"
+                class="flex flex-col sm:flex-row gap-3 justify-center items-center mb-6"
             >
                 <a
                     href="#pricing"
@@ -236,6 +236,13 @@ const platforms = [
                     Lihat Demo
                 </a>
             </div>
+
+            <p
+                class="text-[11px] md:text-xs text-gray-500 dark:text-gray-400 max-w-xl mx-auto opacity-80 pb-8 px-4 text-center"
+            >
+                *Disclaimer: TIRA adalah AI asisten edukasi pajak, bukan
+                konsultan pajak resmi.
+            </p>
         </div>
     </section>
 
@@ -408,14 +415,14 @@ const platforms = [
                         <li class="flex items-start gap-3">
                             <span class="text-red-500 font-bold mt-0.5">✗</span>
                             <span class="text-gray-700 dark:text-gray-300"
-                                >Jawaban pakai aturan pajak lama 2022</span
+                                >Jawaban sering pakai aturan pajak lama 2024</span
                             >
                         </li>
                         <li class="flex items-start gap-3">
                             <span class="text-red-500 font-bold mt-0.5">✗</span>
                             <span class="text-gray-700 dark:text-gray-300"
-                                >Tidak paham sistem Coretax DJP yang baru</span
-                            >
+                                >Belum update sistem Coretax DJP yang baru
+                            </span>
                         </li>
                         <li class="flex items-start gap-3">
                             <span class="text-red-500 font-bold mt-0.5">✗</span>
@@ -467,18 +474,8 @@ const platforms = [
                             >
                             <span
                                 class="text-gray-700 dark:text-gray-300 font-medium"
-                                >Sudah training Peraturan DJP Terbaru 2025-2026
-                                & PPh Final UMKM 0.5%</span
-                            >
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="text-green-500 font-bold mt-0.5"
-                                >✓</span
-                            >
-                            <span
-                                class="text-gray-700 dark:text-gray-300 font-medium"
-                                >Paham alur Coretax - Panduan aktivasi, billing,
-                                lapor SPT di Coretax</span
+                                >Knowledge base update Juli 2026 - include PMK
+                                PPh Final 0.5% & alur Coretax terbaru</span
                             >
                         </li>
                         <li class="flex items-start gap-3">
@@ -497,7 +494,7 @@ const platforms = [
                             >
                             <span
                                 class="text-gray-700 dark:text-gray-300 font-medium"
-                                >Simulasi denda Pasal 7 KUP akurat</span
+                                >Simulasi estimasi denda sesuai Pasal 7 KUP</span
                             >
                         </li>
                     </ul>
