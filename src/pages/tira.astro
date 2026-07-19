@@ -27,9 +27,9 @@ const pricing = [
         url: "https://myr.id/tira-fina-bundle-128k",
         features: [
             "Semua fitur TIRA Only",
-            "+ BONUS AI FINA (Finance Specialist)",
+            "+ AI FINA (Finance Specialist)",
             "+ 15 Spesialis lain (CustomGPT Only)",
-            "Bonus SOP Keuangan Warung",
+            "Template Excel SOP Keuangan",
         ],
     },
 ];
@@ -173,7 +173,7 @@ const platforms = [
                 Pusing Urusan Pajak UMKM? <br />
                 <span
                     class="bg-gradient-to-r from-red-500 to-orange-400 bg-clip-text text-transparent"
-                    >Biar TIRA yang Beresin.</span
+                    >Biar TIRA yang Bantuin</span
                 >
             </h1>
 
@@ -250,7 +250,7 @@ const platforms = [
                 <h2 class="text-3xl md:text-4xl font-bold mb-6">
                     Urusan Pajak Bisnis <br />
                     <span
-                        class="bg-gradient-to-r from-red-500 to-red-700 bg-clip-text text-transparent"
+                        class="bg-gradient-to-r from-red-500 to-orange-400 bg-clip-text text-transparent"
                         >Bikin Pusing?</span
                     >
                 </h2>
@@ -517,31 +517,29 @@ const platforms = [
                 <h2 class="text-3xl md:text-4xl font-bold mb-6">
                     Kemampuan
                     <span
-                        class="bg-gradient-to-r from-red-500 to-red-700 bg-clip-text text-transparent"
+                        class="bg-gradient-to-r from-red-500 to-orange-400 bg-clip-text text-transparent"
                         >Spesialis TIRA</span
                     >
                 </h2>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                 {
                     features.map((feat, i) => (
-                        <div
-                            class={`group p-6 rounded-xl bg-white/60 dark:bg-white/5 backdrop-blur-sm border transition-all duration-300 ${feat.specialist === "TIRA" ? "border-red-200 dark:border-red-900/30 hover:border-red-500/50" : "border-yellow-200 dark:border-yellow-900/30 hover:border-yellow-500/50"}`}
-                        >
+                        <div class="group p-4 rounded-xl bg-white/60 dark:bg-white/5 backdrop-blur-sm border border-red-200 dark:border-red-900/30 hover:border-red-500/50 transition-all duration-300">
                             <h3 class="text-xl font-bold mb-2">{feat.title}</h3>
                             <p class="text-sm text-gray-600 dark:text-gray-400">
                                 {feat.desc}
                             </p>
                             {feat.image && (
                                 <details class="mt-4 group/accordion">
-                                    <summary
-                                        class={`cursor-pointer text-xs font-semibold select-none list-none flex items-center gap-1 ${feat.specialist === "TIRA" ? "text-red-600 hover:text-red-700" : "text-yellow-600 hover:text-yellow-700"}`}
-                                    >
-                                        <span class="group-open/accordion:rotate-90 transition-transform">
+                                    <summary class="cursor-pointer text-sm font-semibold select-none list-none flex items-center gap-1 hover:opacity-80 transition-opacity w-fit">
+                                        <span class="group-open/accordion:rotate-90 transition-transform bg-gradient-to-r from-red-500 to-orange-400 bg-clip-text text-transparent">
                                             ▶
-                                        </span>{" "}
-                                        Lihat Contoh
+                                        </span>
+                                        <span class="bg-gradient-to-r from-red-500 to-orange-400 bg-clip-text text-transparent">
+                                            Lihat Contoh
+                                        </span>
                                     </summary>
                                     <div class="mt-3 rounded-lg overflow-hidden border border-gray-200 dark:border-white/10 shadow-sm">
                                         <img
@@ -571,7 +569,7 @@ const platforms = [
                 <h2 class="text-3xl md:text-4xl font-bold mb-4">
                     Tersedia di
                     <span
-                        class="bg-gradient-to-r from-red-500 to-orange-500 bg-clip-text text-transparent"
+                        class="bg-gradient-to-r from-red-500 to-orange-400 bg-clip-text text-transparent"
                         >Platform Favorit Anda</span
                     >
                 </h2>
@@ -584,9 +582,7 @@ const platforms = [
                 </p>
             </div>
 
-            <div
-                class="flex flex-wrap justify-center gap-6 max-w-6xl mx-auto"
-            >
+            <div class="flex flex-wrap justify-center gap-6 max-w-6xl mx-auto">
                 {
                     platforms.map((platform) => (
                         <div class="flex-1 basis-[300px] max-w-[420px] p-8 rounded-2xl bg-white/80 dark:bg-white/5 backdrop-blur-sm border border-gray-200 dark:border-white/10 hover:border-orange-500/30 transition-all duration-300 group">
