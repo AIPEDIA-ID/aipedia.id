@@ -33,35 +33,54 @@ const filteredPosts = searchQuery
   : currentPosts;
 ---
 
-<Layout title="Blog - aipedia AI Trading Specialist">
-  <div class="min-h-screen bg-black text-white py-16">
-    <div class="max-w-7xl mx-auto px-4">
+<Layout title="Blog & Insight - AIPEDIA">
+  <div class="relative min-h-screen py-12 md:py-16 px-4 md:px-6 overflow-hidden">
+    <!-- Background Gradient & Glow Orbs -->
+    <div
+      class="absolute inset-0 bg-gradient-to-br from-indigo-50/50 via-white to-purple-50/50 dark:from-gray-900 dark:via-black dark:to-gray-900"
+    >
+    </div>
+    <div
+      class="absolute top-20 left-10 w-64 h-64 bg-primary-500/10 rounded-full blur-[100px] animate-pulse-slow"
+    >
+    </div>
+    <div
+      class="absolute bottom-20 right-10 w-80 h-80 bg-primary-400/5 rounded-full blur-[120px] animate-float"
+    >
+    </div>
+
+    <div class="relative z-10 max-w-6xl mx-auto">
       <!-- Header -->
       <div class="text-center mb-12">
         <h1
-          class="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent"
+          class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight tracking-tight"
         >
-          Blog
+          Blog & <span
+            class="bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent"
+            >Insight</span
+          >
         </h1>
-        <p class="text-xl text-gray-300 max-w-2xl mx-auto">
-          Insights, strategi, dan analisis terbaru dari dunia trading crypto
+        <p
+          class="text-base md:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto"
+        >
+          Insight, strategi, dan panduan terbaru untuk optimasi bisnis dengan 17+ AI Spesialis AIPEDIA.
         </p>
       </div>
 
       <!-- Search Form -->
-      <div class="mb-8">
-        <form method="GET" class="max-w-md mx-auto">
-          <div class="relative">
+      <div class="mb-10 max-w-md mx-auto">
+        <form method="GET">
+          <div class="relative flex items-center">
             <input
               type="text"
               name="search"
               value={searchQuery}
               placeholder="Cari artikel..."
-              class="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-primary-400"
+              class="w-full pl-4 pr-24 py-3 bg-white/60 dark:bg-white/5 backdrop-blur-sm border border-gray-200 dark:border-white/10 rounded-xl text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:border-primary-500/50 transition-colors"
             />
             <button
               type="submit"
-              class="absolute right-2 top-1/2 transform -translate-y-1/2 px-4 py-1 bg-primary-500 hover:bg-primary-600 rounded text-sm font-medium transition-colors"
+              class="absolute right-2 px-4 py-2 bg-gradient-to-r from-primary-400 to-primary-600 hover:from-primary-500 hover:to-primary-700 text-white rounded-lg text-sm font-semibold transition-all duration-200 shadow-md shadow-primary-500/20"
             >
               Cari
             </button>
@@ -70,52 +89,55 @@ const filteredPosts = searchQuery
       </div>
 
       <!-- Blog Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
         {
           filteredPosts.map((post) => (
-            <article class="bg-white/5 backdrop-blur-sm border border-white/10 hover:border-white/20 rounded-lg overflow-hidden hover:shadow-xl hover:shadow-primary-500/10 transition-all duration-300 group">
-              <div class="aspect-video bg-gray-800 relative overflow-hidden">
+            <article class="group flex flex-col p-4 rounded-xl bg-white/60 dark:bg-white/5 backdrop-blur-sm border border-gray-200 dark:border-white/10 hover:border-primary-500/30 dark:hover:border-primary-500/30 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-primary-500/10 overflow-hidden">
+              <div class="aspect-video w-full rounded-lg bg-gray-800 relative overflow-hidden mb-4">
                 <img
                   src={post.image}
                   alt={post.title}
                   class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
                 />
                 <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent group-hover:from-black/40 transition-all duration-300" />
               </div>
 
-              <div class="p-6">
+              <div class="flex flex-col flex-1">
                 <div class="flex flex-wrap gap-2 mb-3">
                   {post.tags.slice(0, 2).map((tag) => (
-                    <span class="px-2 py-1 bg-primary-500/20 text-primary-400 text-xs rounded-full group-hover:bg-primary-500/30 transition-colors">
+                    <span class="px-2.5 py-1 bg-primary-500/10 dark:bg-primary-500/20 text-primary-600 dark:text-primary-400 text-xs font-semibold rounded-full border border-primary-500/20">
                       {tag}
                     </span>
                   ))}
                 </div>
 
-                <h2 class="text-xl font-bold mb-3 line-clamp-2 group-hover:text-primary-400 transition-colors">
+                <h2 class="text-xl font-bold mb-2 leading-snug text-gray-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors line-clamp-2">
                   <a href={post.url}>{post.title}</a>
                 </h2>
 
-                <p class="text-gray-400 text-sm mb-4 line-clamp-3 group-hover:text-gray-300 transition-colors">
+                <p class="text-sm text-gray-600 dark:text-gray-300 mb-4 line-clamp-3 flex-1">
                   {post.description}
                 </p>
 
-                <div class="flex items-center justify-between text-sm text-gray-500 mb-4">
-                  <span class="group-hover:text-gray-400 transition-colors">
-                    {post.author}
-                  </span>
-                  <time class="group-hover:text-gray-400 transition-colors">
-                    {new Date(post.date).toLocaleDateString("id-ID")}
+                <div class="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400 pt-3 border-t border-gray-200/50 dark:border-white/5 mt-auto mb-3">
+                  <span>{post.author}</span>
+                  <time>
+                    {new Date(post.date).toLocaleDateString("id-ID", {
+                      day: "numeric",
+                      month: "short",
+                      year: "numeric",
+                    })}
                   </time>
                 </div>
 
                 <a
                   href={post.url}
-                  class="inline-flex items-center px-4 py-2 bg-primary-500 hover:bg-primary-600 rounded text-sm font-medium transition-all duration-300 group-hover:shadow-lg group-hover:shadow-primary-500/25"
+                  class="inline-flex items-center gap-1.5 text-sm font-semibold text-primary-600 dark:text-primary-400 group-hover:translate-x-1 transition-transform"
                 >
                   Baca Selengkapnya
                   <svg
-                    class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"
+                    class="w-4 h-4"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -137,11 +159,11 @@ const filteredPosts = searchQuery
       <!-- Pagination -->
       {
         !searchQuery && totalPages > 1 && (
-          <div class="flex justify-center items-center space-x-2">
+          <div class="flex justify-center items-center gap-2">
             {currentPage > 1 && (
               <a
                 href={`/blog?page=${currentPage - 1}`}
-                class="px-4 py-2 bg-gray-800 hover:bg-gray-700 rounded transition-colors"
+                class="px-4 py-2 bg-white/5 hover:bg-white/10 text-gray-900 dark:text-white text-sm font-medium rounded-lg border border-black/10 dark:border-white/20 transition-all backdrop-blur-sm"
               >
                 ← Previous
               </a>
@@ -150,10 +172,10 @@ const filteredPosts = searchQuery
             {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
               <a
                 href={`/blog?page=${page}`}
-                class={`px-4 py-2 rounded transition-colors ${
+                class={`px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
                   page === currentPage
-                    ? "bg-primary-500 text-white"
-                    : "bg-gray-800 hover:bg-gray-700"
+                    ? "bg-gradient-to-r from-primary-400 to-primary-600 text-white shadow-md shadow-primary-500/25"
+                    : "bg-white/5 hover:bg-white/10 text-gray-900 dark:text-white border border-black/10 dark:border-white/20 backdrop-blur-sm"
                 }`}
               >
                 {page}
@@ -163,7 +185,7 @@ const filteredPosts = searchQuery
             {currentPage < totalPages && (
               <a
                 href={`/blog?page=${currentPage + 1}`}
-                class="px-4 py-2 bg-gray-800 hover:bg-gray-700 rounded transition-colors"
+                class="px-4 py-2 bg-white/5 hover:bg-white/10 text-gray-900 dark:text-white text-sm font-medium rounded-lg border border-black/10 dark:border-white/20 transition-all backdrop-blur-sm"
               >
                 Next →
               </a>
@@ -175,13 +197,13 @@ const filteredPosts = searchQuery
       <!-- No Results -->
       {
         searchQuery && filteredPosts.length === 0 && (
-          <div class="text-center py-12">
-            <p class="text-gray-400 text-lg">
+          <div class="text-center py-12 p-8 rounded-xl bg-white/60 dark:bg-white/5 backdrop-blur-sm border border-gray-200 dark:border-white/10 max-w-lg mx-auto">
+            <p class="text-gray-600 dark:text-gray-300 text-base mb-4">
               Tidak ada artikel yang ditemukan untuk "{searchQuery}"
             </p>
             <a
               href="/blog"
-              class="inline-block mt-4 px-6 py-3 bg-primary-500 hover:bg-primary-600 rounded font-medium transition-colors"
+              class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-primary-400 to-primary-600 hover:from-primary-500 hover:to-primary-700 text-white text-sm font-semibold rounded-xl transition-all shadow-md shadow-primary-500/25"
             >
               Lihat Semua Artikel
             </a>
