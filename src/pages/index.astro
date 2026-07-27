@@ -1,29 +1,276 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Hero from "../components/Hero.astro";
-import Comparison from "../components/Comparison.astro";
-import Features from "../components/Features.astro";
-import SeeInAction from "../components/SeeInAction.astro";
-import ProductFormat from "../components/ProductFormat.astro";
-import Pricing from "../components/Pricing.astro";
-import Characters from "../components/Characters.astro";
-import TargetAudience from "../components/TargetAudience.astro";
-import FAQ from "../components/FAQ.astro";
-import CTA from "../components/CTA.astro";
-import HowItWorks from "../components/HowItWorks.astro";
+import charactersData from "../data/characters.json";
+
+const { characters } = charactersData;
+
+// Highlighted specialist pages
+const featuredSpecialists = characters.filter((c) =>
+  ["tira", "fina", "mita"].includes(c.id)
+);
 ---
 
-<Layout title="AIPEDIA - Bantu Bisnis Anda dengan 17+ AI Spesialis">
-	<Hero />
-	<Characters />
-	<Comparison />
-	<Features />
-	<SeeInAction />
-	<ProductFormat />
-	<HowItWorks />
-	<!-- <TargetAudience /> -->
-	<!-- <SocialProof /> -->
-	<Pricing />
-	<FAQ />
-	<CTA />
+<Layout title="AIPEDIA.ID - Utilize AI that matters">
+  <div class="relative min-h-screen py-10 md:py-16 px-4 md:px-8 overflow-hidden">
+    <!-- Background Gradient & Ambient Blobs -->
+    <div
+      class="absolute inset-0 bg-gradient-to-br from-indigo-50/50 via-white to-purple-50/50 dark:from-gray-900 dark:via-black dark:to-gray-900 -z-10"
+    >
+    </div>
+    <div
+      class="absolute top-20 left-10 w-64 h-64 md:w-96 md:h-96 bg-primary-500/10 rounded-full blur-[100px] md:blur-[140px] animate-pulse-slow -z-10"
+    >
+    </div>
+    <div
+      class="absolute bottom-20 right-10 w-80 h-80 md:w-[450px] md:h-[450px] bg-primary-400/5 rounded-full blur-[120px] md:blur-[160px] animate-float -z-10"
+    >
+    </div>
+
+    <div class="max-w-md md:max-w-4xl lg:max-w-5xl mx-auto relative z-10">
+      <!-- Profile Header -->
+      <div class="text-center mb-8 md:mb-12">
+        <div
+          class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/5 dark:bg-white/5 backdrop-blur-sm border border-black/10 dark:border-white/10 mb-4"
+        >
+          <span class="w-2 h-2 bg-primary-400 rounded-full animate-pulse"
+          ></span>
+          <span class="text-xs md:text-sm font-medium text-gray-600 dark:text-gray-300"
+            >17+ AI Specialists for Business</span
+          >
+        </div>
+
+        <div class="relative w-24 h-24 md:w-32 md:h-32 mx-auto mb-4 group">
+          <div
+            class="absolute inset-0 rounded-full bg-gradient-to-r from-primary-400 via-accent-400 to-primary-600 blur-md opacity-70 group-hover:opacity-100 transition-opacity"
+          >
+          </div>
+          <img
+            src="/logo.png"
+            alt="AIPEDIA.ID Logo"
+            class="relative w-full h-full object-contain rounded-full bg-black p-3 border-2 border-white/20 shadow-2xl"
+          />
+        </div>
+
+        <h1 class="text-3xl md:text-5xl font-extrabold text-gray-900 dark:text-white mb-2 md:mb-3 tracking-tight">
+          <span
+            class="bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent"
+            >AIPEDIA.ID</span
+          >
+        </h1>
+        <p
+          class="text-base md:text-xl text-gray-600 dark:text-gray-300 max-w-sm md:max-w-lg mx-auto leading-relaxed font-medium"
+        >
+          Utilize AI that matters
+        </p>
+      </div>
+
+      <!-- Main Action Stack & Grid -->
+      <div class="space-y-4 md:space-y-6 mb-10 md:mb-14">
+        <!-- Hero Primary Action Button (Full Width Banner) -->
+        <a
+          href="https://aipedia.myr.id/pl/business-pack"
+          target="_blank"
+          class="btn-cta group flex items-center justify-between p-4 md:p-6 rounded-2xl text-white shadow-xl hover:shadow-2xl transition-all"
+        >
+          <div class="flex items-center gap-4 text-left">
+            <span
+              class="w-12 h-12 md:w-14 md:h-14 rounded-xl bg-white/20 backdrop-blur-md flex items-center justify-center text-2xl md:text-3xl flex-shrink-0"
+              >🚀</span
+            >
+            <div>
+              <div class="font-bold text-base md:text-xl leading-tight">
+                Bundle Complete (17+ AI + Skills)
+              </div>
+              <div class="text-xs md:text-sm text-white/80 font-normal mt-0.5">
+                Pay once • Lifetime access to 17+ Specialists & Agents
+              </div>
+            </div>
+          </div>
+          <svg
+            class="w-6 h-6 flex-shrink-0 group-hover:translate-x-1.5 transition-transform"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2.5"
+              d="M9 5l7 7-7 7"></path>
+          </svg>
+        </a>
+
+        <!-- Responsive 2-Column Grid for Links -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3.5 md:gap-5">
+          <!-- Featured Specialist Pages -->
+          {
+            featuredSpecialists.map((specialist) => (
+              <a
+                href={`/${specialist.id}`}
+                class="group flex items-center justify-between p-4 md:p-5 rounded-2xl bg-white/60 dark:bg-white/5 backdrop-blur-sm border border-gray-200 dark:border-white/10 hover:border-primary-500/40 dark:hover:border-primary-500/40 transition-all duration-200 shadow-sm hover:shadow-xl hover:-translate-y-0.5"
+              >
+                <div class="flex items-center gap-3.5 text-left min-w-0">
+                  <img
+                    src={specialist.image}
+                    alt={specialist.name}
+                    class="w-11 h-11 md:w-14 md:h-14 rounded-full object-cover flex-shrink-0 shadow-md"
+                    style={`border: 2px solid ${specialist.themeColor}80;`}
+                  />
+                  <div class="min-w-0">
+                    <div
+                      class="font-bold text-sm md:text-base truncate"
+                      style={`color: ${specialist.themeColor};`}
+                    >
+                      {specialist.name} — {specialist.role}
+                    </div>
+                    <div class="text-xs md:text-sm text-gray-500 dark:text-gray-400 line-clamp-1">
+                      {specialist.description}
+                    </div>
+                  </div>
+                </div>
+                <svg
+                  class="w-5 h-5 text-gray-400 group-hover:text-primary-400 group-hover:translate-x-1 transition-all flex-shrink-0 ml-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </a>
+            ))
+          }
+
+          <!-- GPT Specialist Pack -->
+          <a
+            href="https://aipedia.myr.id/pl/marketing-pack"
+            target="_blank"
+            class="group flex items-center justify-between p-4 md:p-5 rounded-2xl bg-white/60 dark:bg-white/5 backdrop-blur-sm border border-gray-200 dark:border-white/10 hover:border-primary-500/40 dark:hover:border-primary-500/40 transition-all duration-200 shadow-sm hover:shadow-xl hover:-translate-y-0.5"
+          >
+            <div class="flex items-center gap-3.5 text-left min-w-0">
+              <span
+                class="w-11 h-11 md:w-14 md:h-14 rounded-full bg-primary-500/10 dark:bg-primary-500/20 text-primary-500 flex items-center justify-center text-xl md:text-2xl flex-shrink-0"
+                >✨</span
+              >
+              <div class="min-w-0">
+                <div class="font-bold text-sm md:text-base text-gray-900 dark:text-white truncate">
+                  Bundle GPT Only
+                </div>
+                <div class="text-xs md:text-sm text-gray-500 dark:text-gray-400 truncate">
+                  17+ Custom GPT Specialists untuk ChatGPT
+                </div>
+              </div>
+            </div>
+            <svg
+              class="w-5 h-5 text-gray-400 group-hover:text-primary-400 group-hover:translate-x-1 transition-all flex-shrink-0 ml-2"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 5l7 7-7 7"></path>
+            </svg>
+          </a>
+
+          <!-- Blog & Insight -->
+          <a
+            href="/blog"
+            class="group flex items-center justify-between p-4 md:p-5 rounded-2xl bg-white/60 dark:bg-white/5 backdrop-blur-sm border border-gray-200 dark:border-white/10 hover:border-primary-500/40 dark:hover:border-primary-500/40 transition-all duration-200 shadow-sm hover:shadow-xl hover:-translate-y-0.5"
+          >
+            <div class="flex items-center gap-3.5 text-left min-w-0">
+              <span
+                class="w-11 h-11 md:w-14 md:h-14 rounded-full bg-accent-500/10 dark:bg-accent-500/20 text-accent-500 flex items-center justify-center text-xl md:text-2xl flex-shrink-0"
+                >📚</span
+              >
+              <div class="min-w-0">
+                <div class="font-bold text-sm md:text-base text-gray-900 dark:text-white truncate">
+                  Blog & Insight Bisnis
+                </div>
+                <div class="text-xs md:text-sm text-gray-500 dark:text-gray-400 truncate">
+                  Panduan, strategi, & tips optimasi AI
+                </div>
+              </div>
+            </div>
+            <svg
+              class="w-5 h-5 text-gray-400 group-hover:text-primary-400 group-hover:translate-x-1 transition-all flex-shrink-0 ml-2"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 5l7 7-7 7"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- All 17 Specialists Showcase Grid -->
+      <div
+        class="p-6 md:p-8 rounded-3xl bg-white/60 dark:bg-white/5 backdrop-blur-sm border border-gray-200 dark:border-white/10 shadow-xl mb-10"
+      >
+        <div class="text-center mb-6">
+          <h2
+            class="text-sm md:text-base font-bold text-gray-900 dark:text-white uppercase tracking-wider opacity-90"
+          >
+            Explore 17+ AI Specialists
+          </h2>
+          <p class="text-xs md:text-sm text-gray-500 dark:text-gray-400 mt-1">
+            Pilih spesialis sesuai kebutuhan bidang bisnis Anda
+          </p>
+        </div>
+
+        <div class="grid grid-cols-4 sm:grid-cols-6 lg:grid-cols-9 gap-3 md:gap-4 text-center">
+          {
+            characters.map((c) => (
+              <a
+                href={["tira", "fina", "mita"].includes(c.id) ? `/${c.id}` : `/c/${c.id}`}
+                class="group flex flex-col items-center p-2 md:p-3 rounded-2xl hover:bg-white/80 dark:hover:bg-white/10 transition-all hover:scale-105"
+              >
+                <img
+                  src={c.image}
+                  alt={c.name}
+                  class="w-12 h-12 md:w-16 md:h-16 rounded-full object-cover mb-2 border-2 shadow-md group-hover:shadow-lg transition-all"
+                  style={`border-color: ${c.themeColor}80;`}
+                  loading="lazy"
+                />
+                <span
+                  class="text-xs md:text-sm font-bold truncate w-full"
+                  style={`color: ${c.themeColor};`}
+                >
+                  {c.name}
+                </span>
+                <span class="text-[10px] md:text-xs text-gray-500 dark:text-gray-400 truncate w-full">
+                  {c.role.split(" ")[0]}
+                </span>
+              </a>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- Trust Vendors -->
+      <div class="flex items-center justify-center gap-8 md:gap-12 opacity-60 py-4">
+        <img
+          src="/vendors/chatgpt-white.png"
+          alt="ChatGPT"
+          class="h-7 md:h-9 object-contain invert dark:invert-0"
+        />
+        <img
+          src="/vendors/claude.png"
+          alt="Claude"
+          class="h-7 md:h-9 object-contain"
+        />
+      </div>
+    </div>
+  </div>
 </Layout>
