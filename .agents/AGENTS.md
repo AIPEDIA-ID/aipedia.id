@@ -7,32 +7,34 @@
 
 ## 1. IDENTITY & CONTEXT
 - You are working on **AIPEDIA.id** (A bundle of 17+ AI Specialists for Indonesian Businesses).
-- **Core Architecture**:
+- **Core Architecture** (Lean Structure):
   - `src/` & `public/`: AstroJS Landing Page (Frontend).
-  - `products/`: Final PDF & ZIP deliverables + Codex Plugins/Skills.
-  - `_docs/`: Internal knowledge (`SUMMARY.md`), Prompts, Task management (`tasks/`), SSOT Database.
-  - `scripts/`: Python automation & generators.
+  - `products/`: Source code factory for CustomGPT Prompts & AI Skills.
+  - `delivery/`: Final PDF & ZIP deliverables (Ready for customers).
+  - `_docs/`: Internal knowledge (`SUMMARY.md`), Task management (`task/`), SSOT Database.
+  - `scripts/`: Python automation & build generators (`manager.py`, `build.sh`).
+  - `.agents/`: AI configuration and specialized Skills.
 
 ## 2. THE GOLDEN RULES (SINGLE SOURCE OF TRUTH)
 - ALL AI Specialist data (name, role, description, price, theme color, prompt, id) MUST **ONLY** be modified in `_docs/database/assistants.json`.
-- **STRICTLY PROHIBITED**: Do not hardcode data (copy) inside Astro components (`src/components/`) or product Markdown files (`products/ASISTANT.md`).
+- **STRICTLY PROHIBITED**: Do not hardcode data (copy) inside Astro components (`src/components/`) or product Markdown files (`products/guide/ASISTANT.md`).
 - The Astro Frontend UI is *data-driven*, so Astro components must consume data directly from the generated JSON files.
 
 ## 3. CORE WORKFLOW (PIPELINE)
-Whenever there is a task to add or modify an AI Specialist, you **MUST** follow this automation pipeline (Makefile) via the terminal:
+Whenever there is a task to add or modify an AI Specialist, you **MUST** follow this automation pipeline:
 
 1. **Update SSOT**: Modify `_docs/database/assistants.json`.
-2. **Sync Data**: Run `make project-generate-all` to resolve and distribute the SSOT JSON into web JSON files (`src/data/*.json`), Product Markdown, and Internal Prompts.
+2. **Sync Data**: Run `make generate-all` via terminal to resolve and distribute the SSOT JSON into web JSON files and Internal Prompts.
 3. **Generate Assets (If adding a New AI)**:
    - Run `make project-visual-prompt` to generate the Midjourney/DALL-E prompt.
    - Place the raw image (transparent PNG) into `_docs/assets/raw_icons/[id].png`.
    - Run `make project-compress` to optimize the icon and move it to `public/`.
-4. **Build Deliverables**: Run `make build-products` (requires Puppeteer) to build the final PDF Guides and package them into ZIP files in `products/delivery/`.
+4. **Build Deliverables**: Run `bash products/build.sh` or `make build-products` to package them into ZIP files in the `delivery/` folder.
 
 ## 4. TASK MANAGEMENT & EVALUATIONS
-- To check pending work, read the modular TODOs in `_docs/tasks/` (`product.md`, `marketing.md`, `website.md`).
-- Ensure any feature/skill modifications meet the quality criteria defined in the *acceptance scenarios* within `_docs/evaluations/aipedia-scenarios.md`.
-- Read external business references and context in `_docs/REFERENCES.md` and `_docs/SUMMARY.md`.
+- To check pending work, read the `_docs/task/ACTIVE.md` file.
+- Ensure any feature/skill modifications meet quality criteria. If evaluating an AI, trigger the **"Evaluate AIPEDIA Specialist"** agent skill.
+- Specialized workflows (Building Campaign Pages, Generating Prompts, creating Codex Skills) are managed via **Agent Skills**. They will be triggered automatically when you ask the AI to perform these specific tasks.
 
 ## 5. UI/UX & STYLING RULES (SALES PAGE)
 - Use Tailwind CSS (avoid custom CSS/style tags whenever possible).
