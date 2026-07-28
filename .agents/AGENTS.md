@@ -38,3 +38,6 @@ Whenever there is a task to add or modify an AI Specialist, you **MUST** follow 
 - Use Tailwind CSS (avoid custom CSS/style tags whenever possible).
 - **Typography & Clarity**: Since this is a *Sales Page*, the content must be highly readable. Avoid using extremely small fonts (`text-xs`) or faded colors (`text-gray-500` in dark mode) for long paragraphs. Standardize descriptions using `text-sm` or `text-base` with high contrast (e.g., `text-gray-600` for light mode, `text-gray-300` for dark mode).
 - **Aesthetics**: The design MUST feel premium. Use gradients, *glassmorphism*, dark mode, subtle micro-animations, and smooth responsive components.
+
+## 6. STYLING REFERENCE
+Whenever you are asked to edit UI components, Astro files, or write CSS, you MUST first read `.agents/rules/styles.md` to ensure compliance with the Design System.
