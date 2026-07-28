@@ -22,7 +22,7 @@ WEB_JSON_PATH = os.path.join(PROJECT_ROOT, "src", "data", "characters.json")
 RAW_ICONS_DIR = os.path.join(AGENTS_DIR, "assets", "raw_icons")
 VENDOR_ICONS_DIR = os.path.join(AGENTS_DIR, "assets", "vendor_icons")
 PUBLIC_ICONS_DIR = os.path.join(PROJECT_ROOT, "public", "character")
-PROMPTS_OUTPUT_DIR = os.path.join(PRODUCTS_DIR, "prompts")
+PROMPTS_OUTPUT_DIR = os.path.join(PRODUCTS_DIR, "customgpt")
 VISUAL_PROMPTS_TXT = os.path.join(SCRIPT_DIR, "character_image_prompts.txt")
 
 # ==========================================
@@ -217,9 +217,13 @@ def generate_web():
         
     print(f"✓ Generated Web Compiled Output (Filtered): {WEB_JSON_PATH}")
 
-def generate_docs():
-    """Query B & C: Generates ASISTANT.md and products/prompts/custom_gpt_settings.md"""
+def generate_docs(only_ids=None):
+    \"\"\"Query B & C: Generates ASISTANT.md and products/prompts/custom_gpt_settings.md\"\"\"
     characters = load_characters()
+    if only_ids:
+        ids_list = [i.strip().lower() for i in only_ids.split(',')]
+        characters = [c for c in characters if c.get('id', '').lower() in ids_list]
+        
     os.makedirs(AGENTS_DIR, exist_ok=True)
     os.makedirs(PROMPTS_OUTPUT_DIR, exist_ok=True)
     
@@ -286,7 +290,8 @@ if __name__ == "__main__":
     subparsers.add_parser('status', help='Check sync status between SSOT and files')
     subparsers.add_parser('generate-visual-prompts', help='Generate visual prompts based on SSOT')
     subparsers.add_parser('compress-icons', help='Compress raw icons to web public folder')
-    subparsers.add_parser('generate-docs', help='Generate ASISTANT.md and custom_gpt_settings.md from SSOT')
+    gen_docs_parser = subparsers.add_parser('generate-docs', help='Generate ASISTANT.md and custom_gpt_settings.md from SSOT')
+    gen_docs_parser.add_argument('--only', type=str, help='Comma-separated list of character IDs to include', default=None)
     subparsers.add_parser('generate-web', help='Generate characters.json for Astro Website')
     subparsers.add_parser('generate-all', help='Generate ALL outputs (web, docs, prompts)')
     
@@ -299,7 +304,7 @@ if __name__ == "__main__":
     elif args.command == 'compress-icons':
         compress_icons()
     elif args.command == 'generate-docs':
-        generate_docs()
+        generate_docs(args.only)
     elif args.command == 'generate-web':
         generate_web()
     elif args.command == 'generate-all':

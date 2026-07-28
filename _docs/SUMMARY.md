@@ -6,14 +6,17 @@
 
 ## 1. Executive Summary
 
-**AIPEDIA** is a digital product business offering a bundle of specialized AI Specialists (CustomGPTs). Instead of selling a generic ChatGPT subscription, AIPEDIA provides pre-trained, ready-to-use AI specialists focused on solving specific problems for Bisnis Indonesia.
+**AIPEDIA** is a digital product business operating as a **Product Generation Engine**. We build and market single-purpose, highly specific AI Specialists (CustomGPTs) designed to solve immediate problems for Bisnis Indonesia. 
+
+While we have a full roster of **17 AI Specialists**, our core strategy (Factory Loop v2.0) focuses on selling **individual specialists** (e.g., Mita-X, Tira) via targeted Meta Ads (Frontend/Sniper), and offering the full 17-specialist bundle via email marketing and backend funnels (Backend/Bank).
 
 Website: https://aipedia.id
 
 **Business Model:**
-- **Basic Offer**: CustomGPT access.
-- **Pro Offer**: CustomGPT access + AI Agents Plugins/Skills.
-- **Goal**: Fast profit generation, optimized for Meta Ads conversion.
+- **Tier 1 (Frontend)**: Single Specialist access (e.g. Tira Only) optimized for Meta Ads.
+- **Tier 2 (Bundle)**: Single Specialist + Full 17 Specialist Bundle (CustomGPT only).
+- **Bump Offer (Pro)**: Full 17 Agent Skills (Codex/Claude Plugins).
+- **Goal**: Fast profit generation, tight risk management per product launch.
 
 ### Directory Structure (Business & Product Context)
 

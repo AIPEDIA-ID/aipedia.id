@@ -31,31 +31,25 @@ Notes:
 
 ---
 
-## Add another 5 Asistan
-The ideas is make this project from 12 asistant to 17 asistant, since Indonesian people have a good psychology with number 17, and arguably it' safe from klenik: Chinese culture, western culture, and Javanese Culture in terms of Bala
+## Setup Mita Campaign
+- [x] Create PRD Mita-X (`_docs/campaign/MITA.md`)
+- [x] Create Landing Page for Mita
+- [x] Update SSOT for Mita
+- [x] Generate visual for Mita
+- [ ] Ensure Mita delivery package is ready (Mita CustomGPT + 6 Skills)
 
-*Please Duplicate this based on newer 5 Asistants (gita, wanda, loka, lila, tira)
-- [x] Generate New Asistant Data (me)
-- [x] Generate Prompt LLM: Define scope, define context needed for conversations, Follow other prompt structure in `_docs/prompts/system` just pick 1 or 2 and make sure it does follows
-- [x] Prepare CustomGPT conversation starter (3) -- New field btw
-- [x] Create Prompt Visual Character
-- [x] Generate Visual char (me)
-    - [x] gita
-    - [x] wanda
-    - [x] loka
-    - [x] lila
-    - [x] tira
-- [] Create CustomGPT (me)
-    - [] gita
-    - [] wanda
-    - [] loka
-    - [] lila
-    - [] tira
-- [x] Add to ASISTANT.md
+## Setup Tira x Fina Campaign
+- [x] Create PRD Tira (`_docs/campaign/TIRA.md`)
+- [ ] Create Landing Page for Tira x Fina Bundle
+- [ ] Generate visual for Tira & Fina
+- [ ] Setup Tira Skills & Prompts in `products/tira-x/`
+- [ ] Ensure Tira delivery package is ready (Tier 1: Tira Only, Tier 2: Tira + Fina + Bundle)
 
+## Build Automation
+- [ ] Update `build.sh` and `manager.py` to support generating deliverables for single-product campaigns (e.g. TIRA only, MITA only) rather than just the full bundle.
 
 ---
 ## Create Claude Plugin
-- [] Create Claude Plugin
-- [] Testing
+- [ ] Create Claude Plugin
+- [ ] Testing
 

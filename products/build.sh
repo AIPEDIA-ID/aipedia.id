@@ -1,29 +1,51 @@
 #!/bin/bash
 
-# Build script for Aipedia Specialist (Basic & Pro)
+# Build script for Aipedia Specialist (Basic & Pro) and Campaign Specific
 
 set -e
 
 # Base Directories
 PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 PRODUCTS_DIR="$PROJECT_ROOT/products"
-BASIC_OUT="$PRODUCTS_DIR/delivery/basic"
-PRO_OUT="$PRODUCTS_DIR/delivery/pro"
 PUBLIC_CHAR_DIR="$PROJECT_ROOT/public/character"
-CODEX_MARKETPLACE_DIR="$PRODUCTS_DIR/codex-plugin-marketplace"
-CODEX_PLUGIN_DIR="$CODEX_MARKETPLACE_DIR/plugins/aipedia-specialists"
-SKILLS_DIR="$CODEX_PLUGIN_DIR/skills"
+SKILLS_SRC_DIR="$PRODUCTS_DIR/skills/codex/skills"
+CODEX_PLUGIN_DIR="$PRODUCTS_DIR/skills/codex"
+DELIVERY_DIR="$PROJECT_ROOT/delivery"
+
+CAMPAIGN="bundle"
+ONLY_IDS=""
+
+while [[ "$#" -gt 0 ]]; do
+    case $1 in
+        --campaign) CAMPAIGN="$2"; shift ;;
+        --only) ONLY_IDS="$2"; shift ;;
+        *) echo "Unknown parameter passed: $1"; exit 1 ;;
+    esac
+    shift
+done
 
 # Ensure output directories exist
+OUT_DIR="$DELIVERY_DIR/$CAMPAIGN"
+BASIC_OUT="$OUT_DIR/basic"
+PRO_OUT="$OUT_DIR/pro"
+
 mkdir -p "$BASIC_OUT"
 mkdir -p "$PRO_OUT"
 mkdir -p "$PRO_OUT/skills"
 mkdir -p "$PRO_OUT/character"
-mkdir -p "$CODEX_PLUGIN_DIR/skills"
 
 echo "=================================================="
-echo "    Building Aipedia Products (Basic & Pro)       "
+echo "    Building Aipedia Products ($CAMPAIGN)         "
 echo "=================================================="
+
+# Generate docs based on --only flag
+if [ -n "$ONLY_IDS" ]; then
+    echo "=> Generating ASISTANT.md for: $ONLY_IDS"
+    python3 "$PROJECT_ROOT/scripts/manager.py" generate-docs --only "$ONLY_IDS"
+else
+    echo "=> Generating full ASISTANT.md"
+    python3 "$PROJECT_ROOT/scripts/manager.py" generate-docs
+fi
 
 # Fix image paths in ASISTANT.md temporarily for PDF generation
 echo "=> Adjusting image paths in ASISTANT.md for PDF generation..."
@@ -49,24 +71,23 @@ npx -y md-to-pdf "$PRODUCTS_DIR/guide/ASISTANT.md"
 npx -y md-to-pdf "$PRODUCTS_DIR/guide/GUIDE_Pro.md"
 
 
-
 echo "=> Assembling Basic Package..."
-mv "$PRODUCTS_DIR/guide/GUIDE_Basic.pdf" "$BASIC_OUT/"
+cp "$PRODUCTS_DIR/guide/GUIDE_Basic.pdf" "$BASIC_OUT/"
 cp "$PRODUCTS_DIR/guide/ASISTANT.pdf" "$BASIC_OUT/"
 
 cd "$BASIC_OUT"
-rm -f aipedia-basic_v1.1.zip
-zip -r aipedia-basic_v1.1.zip ./*.pdf
+rm -f "aipedia-basic-${CAMPAIGN}.zip"
+zip -r "aipedia-basic-${CAMPAIGN}.zip" ./*.pdf
 rm -f ./*.pdf
 cd "$PROJECT_ROOT"
 
 echo "=> Assembling Pro Package..."
-mv "$PRODUCTS_DIR/guide/GUIDE_Pro.pdf" "$PRO_OUT/"
-mv "$PRODUCTS_DIR/guide/ASISTANT.pdf" "$PRO_OUT/"
+cp "$PRODUCTS_DIR/guide/GUIDE_Pro.pdf" "$PRO_OUT/"
+cp "$PRODUCTS_DIR/guide/ASISTANT.pdf" "$PRO_OUT/"
 
 # Prepare skills as individual zips
 mkdir -p "$PRO_OUT/skills"
-for skill_path in "$SKILLS_DIR"/*; do
+for skill_path in "$SKILLS_SRC_DIR"/*; do
   if [ -d "$skill_path" ]; then
     skill_name=$(basename "$skill_path")
     # Create a temporary folder for the zip contents
@@ -91,25 +112,36 @@ for skill_path in "$SKILLS_DIR"/*; do
 done
 
 echo "=> Assembling Codex plugin marketplace..."
-# Keep this preflight portable: product customers should not need Codex's
-# internal plugin-creator files just to build the delivery package.
-python3 -m json.tool "$CODEX_PLUGIN_DIR/.codex-plugin/plugin.json" >/dev/null
-for skill_path in "$CODEX_PLUGIN_DIR/skills"/*; do
+TMP_MARKETPLACE="/tmp/aipedia_marketplace_$CAMPAIGN"
+rm -rf "$TMP_MARKETPLACE"
+# Copy the entire codex plugin directory
+cp -R "$CODEX_PLUGIN_DIR" "$TMP_MARKETPLACE"
+
+# Verify plugin logic
+python3 -m json.tool "$TMP_MARKETPLACE/.codex-plugin/plugin.json" >/dev/null
+for skill_path in "$TMP_MARKETPLACE/skills"/*; do
   [ -f "$skill_path/SKILL.md" ] || {
     echo "Error: missing SKILL.md in bundled skill: $skill_path" >&2
     exit 1
   }
 done
+
 rm -rf "$PRO_OUT/codex-plugin-marketplace"
-cp -R "$CODEX_MARKETPLACE_DIR" "$PRO_OUT/codex-plugin-marketplace"
+# Copy the assembled plugin as codex-plugin-marketplace (so users just see that name when they extract)
+cp -R "$TMP_MARKETPLACE" "$PRO_OUT/codex-plugin-marketplace"
 
 echo "=> Zipping Pro Package..."
 cd "$PRO_OUT"
-rm -f aipedia-asistant_v1.1.zip
-zip -r aipedia-asistant_v1.1.zip GUIDE_Pro.pdf ASISTANT.pdf skills codex-plugin-marketplace install.sh install.bat
+rm -f "aipedia-asistant-${CAMPAIGN}.zip"
+if [ -f install.sh ]; then
+    zip -r "aipedia-asistant-${CAMPAIGN}.zip" GUIDE_Pro.pdf ASISTANT.pdf skills codex-plugin-marketplace install.sh install.bat
+else
+    zip -r "aipedia-asistant-${CAMPAIGN}.zip" GUIDE_Pro.pdf ASISTANT.pdf skills codex-plugin-marketplace
+fi
 rm -rf GUIDE_Pro.pdf ASISTANT.pdf skills codex-plugin-marketplace
 cd "$PROJECT_ROOT"
 
 echo "=================================================="
-echo "    Build Complete! Packages are ready.           "
+echo "    Build Complete! Packages are ready in:        "
+echo "    $OUT_DIR                                      "
 echo "=================================================="
