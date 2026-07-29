@@ -48,8 +48,8 @@
 *Status: Ongoing | Priority: Low*
 
 **Product** 
-- [ ] Update CustomGPT in OpenAI for Wilo (me)
-- [ ] Update CustomGPT in OpenAI for Prima (me)
+- [x] Update CustomGPT in OpenAI for Wilo (me)
+- [x] Update CustomGPT in OpenAI for Prima (me)
 - [ ] Create CustomGPT in OpenAI for Gita (me)
 - [ ] Create CustomGPT in OpenAI for Wanda (me)
 - [ ] Create CustomGPT in OpenAI for Loka (me)
