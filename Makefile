@@ -22,4 +22,12 @@ compress:
 	@python3 scripts/manager.py compress-icons
 
 build-products:
-	bash products/build.sh
+	@if [ -z "$(CAMPAIGN)" ]; then \
+		python3 scripts/builder.py basic; \
+		python3 scripts/builder.py pro; \
+		python3 scripts/builder.py tira; \
+		python3 scripts/builder.py mita; \
+	else \
+		python3 scripts/builder.py $(CAMPAIGN); \
+	fi
+
