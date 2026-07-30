@@ -34,8 +34,11 @@
 - [ ] Ensure Tira delivery package is ready (Tier 1: Tira Only, Tier 2: Tira + Fina + Bundle)
 
 **Website**
-- [ ] Create Landing Page for Tira x Fina Bundle
-- [ ] Generate visual for Tira & Fina
+- [x] Create Landing Page for Tira x Fina Bundle
+- [ ] Generate visual hero for Tira & Fina
+- [ ] Upload screenshots see in actions
+- [ ] Set up payment gateway
+- [ ] Set up Meta Pixel tracking
 
 **Marketing**
 - [ ] Draft ad copies for Meta Ads (Tira x Fina bundle angle)
