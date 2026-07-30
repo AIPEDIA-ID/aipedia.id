@@ -15,6 +15,7 @@
       "examplePrompt": "Kenapa CTR iklanku tinggi tapi konversi rendah? Bantu evaluasi offer-nya.",
       "category": "marketing",
       "price": "86k",
+      "link": "https://chatgpt.com/g/g-6888d99930a081918b80e7ae73122e89-mita-meta-ads-indonesian-market",
       "conversationStarters": [
         "CTR iklan saya bagus tapi sales sepi, apa yang salah di funnel saya?",
         "Bantu evaluasi angle creative dan penawaran (offer) untuk produk skincare.",
@@ -32,6 +33,7 @@
       "examplePrompt": "Tulis 5 varian hero landing page dan 3 angle short-form ads.",
       "category": "marketing",
       "price": "86k",
+      "link": "https://chatgpt.com/g/g-6999c3c0487c8191aee990eac5c3c1a1-wita-copywriting-content",
       "conversationStarters": [
         "Tulis 3 variasi headline landing page untuk kelas online marketing.",
         "Bantu saya menulis copy email promosi diskon akhir tahun.",
@@ -49,6 +51,7 @@
       "examplePrompt": "Buat konsep visual ads untuk promo diskon akhir tahun produk skincare.",
       "category": "marketing",
       "price": "86k",
+      "link": "https://chatgpt.com/g/g-6a6bceec7c5481918dd5a7e4d5304e73-gita-visual-ads-design-specialist",
       "conversationStarters": [
         "Buatkan konsep visual ads yang menarik untuk promo hari kemerdekaan.",
         "Bantu saya menulis design brief untuk banner website promo Ramadhan.",
@@ -83,6 +86,7 @@
       "examplePrompt": "Buat cash flow forecast 3 bulan dan break-even analysis untuk caf\u00e9.",
       "category": "business",
       "price": "86k",
+      "link": "https://chatgpt.com/g/g-689263c606388191ac66964263d1c40b-fina-financial-analysis-planning",
       "conversationStarters": [
         "Buatkan saya template cash flow forecast untuk 3 bulan ke depan.",
         "Bantu hitung break-even point (BEP) untuk bisnis kopi susu.",
@@ -100,6 +104,7 @@
       "examplePrompt": "Buat template broadcast promo baru dan alur auto-reply untuk FAQ pelanggan.",
       "category": "marketing",
       "price": "86k",
+      "link": "https://chatgpt.com/g/g-6a6bcfbb6cc4819191634c06d46793cd-wanda-wa-business-specialist",
       "conversationStarters": [
         "Buatkan template broadcast WhatsApp untuk menyapa pelanggan lama.",
         "Bantu merancang alur auto-reply WhatsApp Business untuk pertanyaan FAQ.",
@@ -117,6 +122,7 @@
       "examplePrompt": "Jelaskan cara hitung PPh Final 0.5% untuk usaha katering dengan omzet 300 juta/tahun.",
       "category": "business",
       "price": "86k",
+      "link": "https://chatgpt.com/g/g-6a6a80018d288191bfbf0c84ff6573ab-tira-pajak-umkm-specialist",
       "conversationStarters": [
         "Bantu saya menghitung PPh Final 0.5% untuk UMKM bulan ini.",
         "Apa saja syarat dan cara lapor pajak tahunan untuk badan usaha CV?",
@@ -134,6 +140,7 @@
       "examplePrompt": "Buat kalender IG/TikTok 14 hari dengan hooks dan CTA.",
       "category": "marketing",
       "price": "86k",
+      "link": "https://chatgpt.com/g/g-6999c156aa988191909c4dde3cf59e0c-sola-social-media-content",
       "conversationStarters": [
         "Buatkan ide konten Instagram Reels selama seminggu untuk klinik kecantikan.",
         "Tuliskan hook dan CTA yang menarik untuk postingan TikTok tentang promo sepatu.",
@@ -143,7 +150,7 @@
     {
       "id": "loka",
       "name": "Loka",
-      "role": "Marketplace Specialist",
+      "role": "E-Commerce & Marketplace Specialist",
       "themeColor": "#7CB342",
       "gender": "Male",
       "image": "/character/loka.png",
@@ -151,6 +158,7 @@
       "examplePrompt": "Optimasi judul dan deskripsi produk tas kulit untuk marketplace Shopee.",
       "category": "marketing",
       "price": "86k",
+      "link": "https://chatgpt.com/g/g-6a6bd05c67d88191a8b549c2d381438a-loka-e-commerce-marketplace-specialist",
       "conversationStarters": [
         "Bantu optimasi judul dan deskripsi produk agar mudah dicari di Shopee.",
         "Strategi apa yang efektif untuk ikut campaign tanggal kembar di Tokopedia?",
@@ -168,6 +176,7 @@
       "examplePrompt": "Analisis CSV cohort retention dan churn drivers.",
       "category": "business",
       "price": "86k",
+      "link": "https://chatgpt.com/g/g-689d1f5fb8c08191904746d2946135bd-dany-data-analysis",
       "conversationStarters": [
         "Bantu saya menganalisis data cohort retention ini dan temukan insight-nya.",
         "Apa faktor utama penyebab churn rate yang tinggi bulan lalu?",
@@ -185,6 +194,7 @@
       "examplePrompt": "Map ide skincare DTC ke Business Model Canvas dengan risiko dan strategi channel.",
       "category": "business",
       "price": "86k",
+      "link": "https://chatgpt.com/g/g-695509ece64c8191b7c4630d0e283bb7-beny-business-strategy-planning",
       "conversationStarters": [
         "Bantu saya membuat Business Model Canvas untuk ide bisnis baru.",
         "Bagaimana cara memetakan risiko untuk peluncuran produk SaaS?",
@@ -202,6 +212,7 @@
       "examplePrompt": "Buat topical map dan internal linking blog niche travel.",
       "category": "marketing",
       "price": "86k",
+      "link": "https://chatgpt.com/g/g-689d22285c28819182cfc3781536d11f-selo-seo",
       "conversationStarters": [
         "Buatkan topical map untuk blog bertema investasi saham pemula.",
         "Bantu rancang strategi internal linking untuk artikel-artikel SEO saya.",
@@ -219,6 +230,7 @@
       "examplePrompt": "Buat strategi optimasi Google Maps untuk klinik gigi agar masuk 3 besar di Jakarta Selatan.",
       "category": "marketing",
       "price": "86k",
+      "link": "https://chatgpt.com/g/g-687e2b9983b48191ae9ce8f5703389ff-hima-human-resources",
       "conversationStarters": [
         "Bagaimana cara agar toko saya muncul nomor 1 di pencarian Google Maps terdekat?",
         "Bantu optimasi profil Google My Business untuk bisnis coffee shop.",
@@ -236,6 +248,7 @@
       "examplePrompt": "Rancang CS macro untuk inquiry Tier-1 dan escalation refund.",
       "category": "business",
       "price": "86k",
+      "link": "https://chatgpt.com/g/g-689f08f7eba481919b0b715c7e655135-cisa-customer-support-relations",
       "conversationStarters": [
         "Bantu saya merancang macro response untuk keluhan pengiriman telat.",
         "Buatkan aturan eskalasi refund untuk tim customer service.",
@@ -253,6 +266,7 @@
       "examplePrompt": "Outline script UGC 60 detik dengan hooks dan CTA.",
       "category": "marketing",
       "price": "86k",
+      "link": "https://chatgpt.com/g/g-6999c34d49688191b9c18d2ec06c34dc-viko-video-script-writing",
       "conversationStarters": [
         "Buatkan outline script video UGC berdurasi 60 detik untuk produk skincare.",
         "Tuliskan naskah video YouTube Shorts tentang tips produktivitas kerja.",
@@ -270,6 +284,7 @@
       "examplePrompt": "Buat script live selling 30 menit untuk jualan produk fashion muslim.",
       "category": "marketing",
       "price": "86k",
+      "link": "https://chatgpt.com/g/g-6a6bd0e5b3688191a980aa67eb1dcdbd-lila-live-selling-specialist",
       "conversationStarters": [
         "Buatkan script live selling berdurasi 1 jam untuk jualan baju anak.",
         "Bantu saya menyusun flow interaksi host agar penonton tidak bosan saat live.",
@@ -287,6 +302,7 @@
       "examplePrompt": "Buat SOP alur pesanan online dari order masuk sampai pengiriman untuk bisnis F&B.",
       "category": "business",
       "price": "86k",
+      "link": "https://chatgpt.com/g/g-6999c498a318819194060ad31ca7b0d5-prima-prompt-engineering",
       "conversationStarters": [
         "Buatkan SOP standar untuk alur penerimaan pesanan di restoran.",
         "Bantu saya menyusun workflow harian yang efisien untuk admin gudang.",

@@ -50,10 +50,10 @@
 **Product** 
 - [x] Update CustomGPT in OpenAI for Wilo (me)
 - [x] Update CustomGPT in OpenAI for Prima (me)
-- [ ] Create CustomGPT in OpenAI for Gita (me)
-- [ ] Create CustomGPT in OpenAI for Wanda (me)
-- [ ] Create CustomGPT in OpenAI for Loka (me)
-- [ ] Create CustomGPT in OpenAI for Lila (me)
+- [x] Create CustomGPT in OpenAI for Gita (me)
+- [x] Create CustomGPT in OpenAI for Wanda (me)
+- [x] Create CustomGPT in OpenAI for Loka (me)
+- [x] Create CustomGPT in OpenAI for Lila (me)
 - [x] Create CustomGPT in OpenAI for Tira (me)
 - [ ] Create Claude Plugin framework
 - [ ] Testing & Validation for Claude Plugins

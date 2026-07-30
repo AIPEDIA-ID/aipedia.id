@@ -70,7 +70,7 @@ Konten social media engaging untuk Instagram dan TikTok.
 
 ---
 
-# Loka - Marketplace Specialist
+# Loka - E-Commerce & Marketplace Specialist
 Optimasi listing produk di Shopee, Tokopedia, dan TikTok Shop biar lebih mudah ditemukan.
 1. Bantu optimasi judul dan deskripsi produk agar mudah dicari di Shopee.
 2. Strategi apa yang efektif untuk ikut campaign tanggal kembar di Tokopedia?

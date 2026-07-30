@@ -218,7 +218,7 @@ def generate_web():
     print(f"✓ Generated Web Compiled Output (Filtered): {WEB_JSON_PATH}")
 
 def generate_docs(only_ids=None):
-    \"\"\"Query B & C: Generates ASISTANT.md and products/prompts/custom_gpt_settings.md\"\"\"
+    """Query B & C: Generates ASISTANT.md and products/prompts/custom_gpt_settings.md"""
     characters = load_characters()
     if only_ids:
         ids_list = [i.strip().lower() for i in only_ids.split(',')]

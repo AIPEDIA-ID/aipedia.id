@@ -1,7 +1,7 @@
 {
   "sectionHeader": {
-    "title": "17+ Spesialis AI",
-    "subtitle": "Bukan AI Generic, Paham Bisnis Indonesia"
+    "title": "Pilih Spesialis AI Sesuai Kebutuhan",
+    "subtitle": "17+ AI Spesialisasi Masing-masing"
   },
   "characters": [
     {
@@ -103,7 +103,7 @@
     {
       "id": "loka",
       "name": "Loka",
-      "role": "Marketplace Specialist",
+      "role": "E-Commerce & Marketplace Specialist",
       "themeColor": "#7CB342",
       "gender": "Male",
       "image": "/character/loka.png",
