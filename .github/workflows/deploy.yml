@@ -21,6 +21,8 @@ jobs:
         uses: withastro/action@v3
         with:
           node-version: 22
+        env:
+          PUPPETEER_SKIP_DOWNLOAD: "true"
 
   deploy:
     needs: build
