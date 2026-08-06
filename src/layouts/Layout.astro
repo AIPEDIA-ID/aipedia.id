@@ -1,11 +1,12 @@
 ---
 export interface Props {
 	title: string;
+	theme?: "dark" | "light";
 }
 
-const { title } = Astro.props;
+const { title, theme = "dark" } = Astro.props;
 // SETTING TEMA DI SINI: 'light' atau 'dark'
-const appTheme = "dark";
+const appTheme = theme;
 ---
 
 <!doctype html>
