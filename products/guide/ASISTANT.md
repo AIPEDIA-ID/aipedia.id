@@ -52,11 +52,11 @@ Pilih asisten AI spesialis yang sesuai dengan kebutuhan bisnis dan marketing kam
 
 ---
 
-### Tira - Pajak UMKM Specialist
+### Teja - Pajak UMKM Specialist
 
 | | Informasi Asisten |
 |:---:|:---|
-| <img src="../public/character/tira.png" width="100"> | Bantu paham kewajiban pajak UMKM, PPh Final, dan cara lapor yang simpel.<br><br>**[🔗 Akses Asisten](https://chatgpt.com/g/g-6a6a80018d288191bfbf0c84ff6573ab-tira-pajak-umkm-specialist)** |
+| <img src="../public/character/teja.png" width="100"> | Bantu paham kewajiban pajak UMKM, PPh Final, dan cara lapor yang simpel.<br><br>**[🔗 Akses Asisten](https://chatgpt.com/g/g-6a6a80018d288191bfbf0c84ff6573ab-tira-pajak-umkm-specialist)** |
 
 ---
 

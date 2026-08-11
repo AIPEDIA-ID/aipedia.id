@@ -112,12 +112,12 @@
       ]
     },
     {
-      "id": "tira",
-      "name": "Tira",
+      "id": "teja",
+      "name": "Teja",
       "role": "Pajak UMKM Specialist",
       "themeColor": "#E53935",
       "gender": "Female",
-      "image": "/character/tira.png",
+      "image": "/character/teja.png",
       "description": "Bantu paham kewajiban pajak UMKM, PPh Final, dan cara lapor yang simpel.",
       "examplePrompt": "Jelaskan cara hitung PPh Final 0.5% untuk usaha katering dengan omzet 300 juta/tahun.",
       "category": "business",

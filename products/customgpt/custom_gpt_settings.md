@@ -54,7 +54,7 @@ Rancang broadcast, katalog, dan auto-reply WhatsApp Business biar closing lebih 
 
 ---
 
-# Tira - Pajak UMKM Specialist
+# Teja - Pajak UMKM Specialist
 Bantu paham kewajiban pajak UMKM, PPh Final, dan cara lapor yang simpel.
 1. Bantu saya menghitung PPh Final 0.5% untuk UMKM bulan ini.
 2. Apa saja syarat dan cara lapor pajak tahunan untuk badan usaha CV?
@@ -149,7 +149,7 @@ Setup CustomGPT
 [x] wilo
 [x] fina
 [x] wanda
-[x] tira
+[x] teja
 [x] sona
 [x] loka
 [x] dany

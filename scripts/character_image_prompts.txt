@@ -70,8 +70,8 @@ If the model cannot output native transparency, generate on solid white or green
 Style constraints: no weapons, no text, no letters, no background scenes; focus on a reusable, modular mascot asset with consistent proportions for a design system.
 
 
---- Prompt for Tira ---
-Create a matte-glossy, chibi 3D robot mascot named "Tira", infer gender expression as "Female" and persona from the name; keep it friendly, competent, and trustworthy for an AI Employee Specialist brand used in tools like "Pajak UMKM Specialist".
+--- Prompt for Teja ---
+Create a matte-glossy, chibi 3D robot mascot named "Teja", infer gender expression as "Female" and persona from the name; keep it friendly, competent, and trustworthy for an AI Employee Specialist brand used in tools like "Pajak UMKM Specialist".
 Primary theme color = #E53935 (hex); apply as dominant body panels, trims, and accents with neutral complements (charcoal gray, slate, white) for contrast and accessibility.
 Design: rounded shapes, soft bevels, face as black matte frosted glass display with cyan glow eyes, welcoming open-arm pose, clean silhouette readable at small sizes (icon usage).
 Accessories driven by 'Bantu paham kewajiban pajak UMKM, PPh Final, dan cara lapor yang simpel.': but keep simple, add optional tools/props, UI glyphs, or wearables that communicate the role without text (e.g., analytics icons, dashboards, checklists), but keep minimalist and brand-safe.

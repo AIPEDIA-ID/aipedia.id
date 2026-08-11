@@ -2,7 +2,7 @@ import json
 
 order = [
     "mita", "wita", "gita", "wilo",
-    "fina", "wanda", "tira",
+    "fina", "wanda", "teja",
     "sona", "loka", "dany",
     "beny", "selo", "hima", "cisa",
     "viko", "lila", "prima"
