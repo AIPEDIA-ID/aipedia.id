@@ -2,7 +2,8 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import type { Resource, Product, Bundle, User, Order } from "./types";
 import { getAllResources, getResourceById as getResourceByIdFromEngine, getCatalog as getCatalogFromEngine } from "../../../resources/index.ts";
-import { mockUser, mockLoggedIn, mockGrants, mockOrders } from "../../data/catalog";
+import { mockUser, mockLoggedIn, mockGrants, mockOrders, products as fallbackProducts, bundles as fallbackBundles } from "../../data/catalog";
+import { resources as fallbackResources } from "../../data/resources";
 
 // In Astro static build, Vite bundles modules into virtual chunks where import.meta.url is not in src/lib/data.
 // process.cwd() is always the project root during build and dev.
@@ -37,47 +38,63 @@ function adaptResource(item: { id: string; data: Record<string, any>; content: s
 }
 
 export async function getResources(): Promise<Resource[]> {
-  const items = getAllResources(resourcesDir);
-  return items.map(adaptResource);
+  try {
+    const items = getAllResources(resourcesDir);
+    if (!items || !items.length) return fallbackResources;
+    return items.map(adaptResource);
+  } catch (_e) {
+    return fallbackResources;
+  }
 }
 
 export async function getResourceById(id: string): Promise<Resource | null> {
-  const item = getResourceByIdFromEngine(id, resourcesDir);
-  if (!item) return null;
-  return adaptResource(item);
+  try {
+    const item = getResourceByIdFromEngine(id, resourcesDir);
+    if (!item) return fallbackResources.find((r) => r.id === id) ?? null;
+    return adaptResource(item);
+  } catch (_e) {
+    return fallbackResources.find((r) => r.id === id) ?? null;
+  }
 }
 
 export async function getCatalog(): Promise<{ products: Product[]; bundles: Bundle[] }> {
-  const catalog = getCatalogFromEngine(resourcesDir);
-  const products: Product[] = (catalog.products || []).map((p: any) => ({
-    slug: p.slug || "product",
-    title: p.title,
-    description: p.description,
-    price: p.price,
-    originalPrice: p.originalPrice || undefined,
-    currency: "IDR",
-    includes: p.includes || [],
-    visibility: "public",
-    thumbnail: p.thumbnail,
-    badge: p.badge || undefined,
-    features: Array.isArray(p.features) ? p.features : undefined,
-  }));
+  try {
+    const catalog = getCatalogFromEngine(resourcesDir);
+    const products: Product[] = (catalog.products || []).map((p: any) => ({
+      slug: p.slug || "product",
+      title: p.title,
+      description: p.description,
+      price: p.price,
+      originalPrice: p.originalPrice || undefined,
+      currency: "IDR",
+      includes: p.includes || [],
+      visibility: "public",
+      thumbnail: p.thumbnail,
+      badge: p.badge || undefined,
+      features: Array.isArray(p.features) ? p.features : undefined,
+    }));
 
-  const bundles: Bundle[] = (catalog.bundles || []).map((b: any) => ({
-    slug: b.slug || "bundle",
-    title: b.title,
-    description: b.description,
-    price: b.price,
-    originalPrice: b.originalPrice || undefined,
-    currency: "IDR",
-    includes: b.includes || [],
-    visibility: "public",
-    thumbnail: b.thumbnail,
-    badge: b.badge || undefined,
-    features: Array.isArray(b.features) ? b.features : undefined,
-  }));
+    const bundles: Bundle[] = (catalog.bundles || []).map((b: any) => ({
+      slug: b.slug || "bundle",
+      title: b.title,
+      description: b.description,
+      price: b.price,
+      originalPrice: b.originalPrice || undefined,
+      currency: "IDR",
+      includes: b.includes || [],
+      visibility: "public",
+      thumbnail: b.thumbnail,
+      badge: b.badge || undefined,
+      features: Array.isArray(b.features) ? b.features : undefined,
+    }));
 
-  return { products, bundles };
+    if (!products.length && !bundles.length) {
+      return { products: fallbackProducts, bundles: fallbackBundles };
+    }
+    return { products, bundles };
+  } catch (_e) {
+    return { products: fallbackProducts, bundles: fallbackBundles };
+  }
 }
 
 import type { AstroCookies } from "astro";
