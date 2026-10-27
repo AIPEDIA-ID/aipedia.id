@@ -3,6 +3,7 @@
   "type": "module",
   "version": "0.1.0",
   "private": true,
+  "packageManager": "yarn@1.22.22",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
@@ -23,6 +24,7 @@
     "@types/node": "^26.6.5",
     "drizzle-kit": "^0.31.11",
     "tailwindcss": "^4.3.3",
+    "vite": "^6.2.0",
     "vitest": "^2.1.9"
   }
 }
