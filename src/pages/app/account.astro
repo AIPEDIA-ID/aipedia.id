@@ -1,0 +1,184 @@
+---
+export const prerender = false;
+import DashboardLayout from "../../layouts/DashboardLayout.astro";
+import StatusBadge from "../../components/StatusBadge.astro";
+import EmptyState from "../../components/EmptyState.astro";
+import { getCurrentUser, getOrders, isMockBypassActive } from "../../lib/data";
+
+const user = await getCurrentUser(Astro.cookies);
+const orders = user ? await getOrders(user.id, Astro.cookies) : [];
+const bypassActive = isMockBypassActive(Astro.cookies);
+
+function formatDate(date: string): string {
+  const d = new Date(date);
+  return d.toLocaleDateString("id-ID", { day: "numeric", month: "long", year: "numeric" });
+}
+
+function formatPrice(price: number): string {
+  return "Rp" + price.toLocaleString("id-ID");
+}
+---
+
+<DashboardLayout title="Pengaturan Akun - AIPEDIA Workspace" activeNav="account" user={user}>
+  {user ? (
+    <div class="max-w-4xl mx-auto space-y-8">
+      <!-- Dev / Mock Access Control Banner -->
+      <div class="flex items-center justify-between p-3.5 rounded-xl border border-[var(--color-separator)] bg-[var(--color-fill)] text-xs">
+        <div class="flex items-center gap-2">
+          <span class={`inline-block w-2.5 h-2.5 rounded-full ${bypassActive ? 'bg-[#34c759]' : 'bg-[#ff9500]'}`}></span>
+          <span class="font-medium text-[var(--color-label)]">
+            Mode Akses Bebas: <strong>{bypassActive ? 'AKTIF (Semua Halaman Terbuka)' : 'NONAKTIF (Wajib Login)'}</strong>
+          </span>
+        </div>
+        <a
+          href={`/api/auth/mock-toggle?enable=${bypassActive ? 'false' : 'true'}`}
+          class="font-semibold text-[var(--color-tint)] hover:underline"
+        >
+          {bypassActive ? 'Matikan untuk Test Login' : 'Nyalakan Akses Bebas'} &rarr;
+        </a>
+      </div>
+
+      <div>
+        <h1 class="text-large-title page-title">Pengaturan Akun</h1>
+        <p class="text-sm text-[var(--color-secondary-label)] mt-1">
+          Kelola profil, riwayat pesanan, dan status kepemilikan Anda
+        </p>
+      </div>
+
+      <!-- Profile Card (Apple Liquid Glass Inset) -->
+      <div id="profile" class="apple-card p-6 flex items-center gap-5">
+        <div class="w-16 h-16 rounded-full bg-gradient-to-b from-[#0077ed] to-[#005fb8] border border-[#0052a3] flex items-center justify-center text-white text-xl font-bold shrink-0 shadow-sm">
+          {user.name.split(" ").map((w) => w[0]).join("").slice(0, 2).toUpperCase()}
+        </div>
+        <div class="flex-1 min-w-0">
+          <h2 class="text-lg font-bold text-[var(--color-label)] truncate">{user.name}</h2>
+          <p class="text-sm text-[var(--color-secondary-label)] truncate">{user.email}</p>
+        </div>
+        <a href="/catalog" class="btn-secondary-sm text-xs py-2 px-3">
+          <span>Katalog Toko &rarr;</span>
+        </a>
+      </div>
+
+      <!-- Order History Section -->
+      <section id="orders" class="space-y-3">
+        <div class="flex items-center justify-between pb-1 border-b border-[var(--color-separator)]">
+          <h2 class="text-base font-semibold text-[var(--color-label)]">Riwayat Pesanan</h2>
+          <span class="text-xs text-[var(--color-secondary-label)]">{orders.length} transaksi</span>
+        </div>
+
+        {orders.length > 0 ? (
+          <div class="apple-card overflow-hidden">
+            <div class="orders-header">
+              <span>Pesanan</span>
+              <span>Tanggal</span>
+              <span>Total</span>
+              <span class="text-right">Status</span>
+            </div>
+            {orders.map((order) => (
+              <div class="order-row">
+                <div class="flex flex-col">
+                  <span class="order-id font-medium text-[var(--color-label)]">{order.productTitle}</span>
+                  <span class="text-xs text-[var(--color-tertiary-label)] font-mono">{order.id}</span>
+                </div>
+                <span class="order-date text-sm text-[var(--color-secondary-label)]">{formatDate(order.date)}</span>
+                <span class="order-amount text-sm font-semibold text-[var(--color-label)]">{formatPrice(order.amount)}</span>
+                <div class="flex justify-end">
+                  <StatusBadge status={order.status} />
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div class="apple-card p-8 text-center">
+            <p class="text-sm text-[var(--color-secondary-label)]">Belum ada pesanan.</p>
+          </div>
+        )}
+      </section>
+
+      <!-- Settings Section -->
+      <section id="settings" class="space-y-3">
+        <h2 class="text-base font-semibold text-[var(--color-label)] pb-1 border-b border-[var(--color-separator)]">Aksi & Keamanan</h2>
+        <div class="apple-card divide-y divide-[var(--color-separator)] overflow-hidden">
+          <a href="/app/my-library" class="settings-row">
+            <span class="font-medium">Buka Koleksi Pembelajaran Saya</span>
+            <span class="text-xs text-[var(--color-tint)] font-semibold">Lihat Koleksi →</span>
+          </a>
+
+          <a href="/api/auth/logout" class="settings-row text-[#ff3b30] hover:bg-[rgba(255,59,48,0.06)] transition-colors w-full">
+            <span class="font-medium">Keluar dari Akun</span>
+          </a>
+        </div>
+      </section>
+    </div>
+  ) : (
+    <div class="max-w-md mx-auto space-y-6 pt-6">
+      <EmptyState
+        title="Masuk untuk melihat akun"
+        description="Kelola profil dan riwayat pesanan Anda setelah masuk."
+        actionLabel="Masuk ke Akun"
+        actionHref="/login"
+      />
+      <div class="text-center p-4 rounded-xl border border-[var(--color-separator)] bg-[var(--color-fill)] text-xs text-[var(--color-secondary-label)] space-y-2">
+        <p class="font-medium text-[var(--color-label)]">Opsi Cepat Demo & Pengembangan:</p>
+        <div class="flex items-center justify-center gap-3">
+          <a href="/api/auth/mock-login" class="text-[var(--color-tint)] font-semibold hover:underline">
+            ⚡ Masuk Cepat Akun Demo
+          </a>
+          <span>•</span>
+          <a href="/api/auth/mock-toggle?enable=true" class="text-[var(--color-tint)] font-semibold hover:underline">
+            Aktifkan Akses Bebas
+          </a>
+        </div>
+      </div>
+    </div>
+  )}
+</DashboardLayout>
+
+<style>
+  .orders-header {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 12px;
+    padding: 12px 18px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-secondary-label);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    border-bottom: 1px solid var(--color-separator);
+    background: var(--color-fill);
+  }
+  .order-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 12px;
+    padding: 14px 18px;
+    align-items: center;
+    border-bottom: 1px solid var(--color-separator);
+  }
+  .order-row:last-child {
+    border-bottom: none;
+  }
+  .settings-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 18px;
+    font-size: 0.9375rem;
+    color: var(--color-label);
+    transition: background 0.15s ease;
+    cursor: pointer;
+  }
+  .settings-row:hover {
+    background: var(--color-fill);
+  }
+  @media (max-width: 640px) {
+    .orders-header { display: none; }
+    .order-row {
+      grid-template-columns: 1fr auto;
+      gap: 12px;
+      padding: 12px 16px;
+    }
+    .order-date { display: none; }
+  }
+</style>

@@ -1,0 +1,13 @@
+---
+import Navbar from "./nav/Navbar.astro";
+
+interface Props {
+  user: { name: string; email: string } | null;
+  currentPath?: string;
+  class?: string;
+}
+
+const { user, currentPath = "", class: className = "" } = Astro.props;
+---
+
+<Navbar user={user} currentPath={currentPath} class={className} />

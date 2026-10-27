@@ -1,0 +1,342 @@
+---
+import Icon from "./Icon.astro";
+
+interface Props {
+  currentPage?: number;
+  totalPages?: number;
+  baseUrl?: string;
+  paramName?: string;
+  totalItems?: number;
+  pageSize?: number;
+  itemLabel?: string;
+  clientDriven?: boolean;
+  class?: string;
+}
+
+const {
+  currentPage = 1,
+  totalPages = 1,
+  baseUrl = "",
+  paramName = "page",
+  totalItems,
+  pageSize,
+  itemLabel = "item",
+  clientDriven = false,
+  class: className = "",
+} = Astro.props;
+
+// Helper to construct URL with page param for SSR
+function getPageUrl(p: number): string {
+  if (clientDriven) return "#";
+  const url = baseUrl ? new URL(baseUrl, "http://localhost") : null;
+  const searchParams = url ? url.searchParams : new URLSearchParams();
+  if (p === 1) {
+    searchParams.delete(paramName);
+  } else {
+    searchParams.set(paramName, String(p));
+  }
+  const queryString = searchParams.toString();
+  const path = url ? url.pathname : "";
+  return queryString ? `${path}?${queryString}` : (path || "?");
+}
+
+// Generate smart window of pages with ellipsis
+type PageItem = number | "...";
+
+function getPageNumbers(current: number, total: number): PageItem[] {
+  if (total <= 7) {
+    return Array.from({ length: total }, (_, i) => i + 1);
+  }
+
+  const pages: PageItem[] = [];
+  pages.push(1);
+
+  if (current > 3) {
+    pages.push("...");
+  }
+
+  const start = Math.max(2, current - 1);
+  const end = Math.min(total - 1, current + 1);
+
+  for (let i = start; i <= end; i++) {
+    pages.push(i);
+  }
+
+  if (current < total - 2) {
+    pages.push("...");
+  }
+
+  pages.push(total);
+  return pages;
+}
+
+const pageNumbers = getPageNumbers(currentPage, totalPages);
+const hasPrev = currentPage > 1;
+const hasNext = currentPage < totalPages;
+
+const itemStart = pageSize && totalItems ? (currentPage - 1) * pageSize + 1 : null;
+const itemEnd = pageSize && totalItems ? Math.min(currentPage * pageSize, totalItems) : null;
+
+const NavBtnTag = clientDriven ? "button" : "a";
+const PageBtnTag = clientDriven ? "button" : "a";
+const shouldRender = clientDriven || totalPages > 1;
+---
+
+{
+  shouldRender && (
+    <nav
+      class={`pagination-nav flex flex-col sm:flex-row items-center justify-between gap-4 py-6 select-none ${className}`.trim()}
+      aria-label="Navigasi Halaman"
+      data-pagination
+      data-client-driven={clientDriven ? "true" : undefined}
+      data-current-page={currentPage}
+      data-total-pages={totalPages}
+      data-page-size={pageSize}
+      data-item-label={itemLabel}
+      hidden={totalPages <= 1}
+    >
+      <!-- Item Counter Info -->
+      <div class="pagination-info text-xs font-medium text-[var(--color-secondary-label)] order-2 sm:order-1">
+        {totalItems && itemStart && itemEnd ? (
+          <span>
+            Menampilkan <strong>{itemStart}–{itemEnd}</strong> dari <strong>{totalItems}</strong> {itemLabel}
+          </span>
+        ) : (
+          <span>
+            Halaman <strong>{currentPage}</strong> dari <strong>{totalPages}</strong>
+          </span>
+        )}
+      </div>
+
+      <!-- Controls & Page Numbers -->
+      <div class="pagination-controls flex items-center gap-1.5 order-1 sm:order-2">
+        <!-- Previous Button -->
+        <NavBtnTag
+          type={clientDriven ? "button" : undefined}
+          href={!clientDriven && hasPrev ? getPageUrl(currentPage - 1) : undefined}
+          class:list={[
+            "pagination-btn pagination-prev flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold transition-all border",
+            hasPrev
+              ? "bg-white hover:bg-[#f9fafc] text-[var(--color-label)] border-[rgba(0,0,0,0.10)] border-b-[1.5px] border-b-[rgba(0,0,0,0.18)] shadow-xs hover:border-[rgba(0,0,0,0.16)] active:scale-97 cursor-pointer"
+              : "opacity-40 cursor-not-allowed bg-transparent text-[var(--color-tertiary-label)] border-[rgba(0,0,0,0.06)] pointer-events-none",
+          ]}
+          disabled={clientDriven && !hasPrev}
+          aria-disabled={!hasPrev}
+          aria-label="Halaman Sebelumnya"
+          data-page={hasPrev ? currentPage - 1 : undefined}
+        >
+          <Icon name="chevron-left" size={14} />
+          <span class="hidden sm:inline">Sebelumnya</span>
+        </NavBtnTag>
+
+        <!-- Page Numbers List -->
+        <div class="pagination-pages flex items-center gap-1">
+          {pageNumbers.map((item, idx) => {
+            if (item === "...") {
+              return (
+                <span
+                  key={`ellipsis-${idx}`}
+                  class="pagination-ellipsis w-7 h-8 flex items-center justify-center text-xs font-bold text-[var(--color-tertiary-label)] tracking-wider"
+                  aria-hidden="true"
+                >
+                  •••
+                </span>
+              );
+            }
+
+            const isCurrent = item === currentPage;
+            return (
+              <PageBtnTag
+                type={clientDriven ? "button" : undefined}
+                href={!clientDriven ? getPageUrl(item) : undefined}
+                class:list={[
+                  "pagination-page-pill min-w-[34px] h-8 px-2 rounded-xl text-xs flex items-center justify-center transition-all select-none no-underline",
+                  isCurrent
+                    ? "active bg-[var(--color-tint)] text-white font-bold shadow-xs border border-[#005bb5]"
+                    : "bg-white/80 hover:bg-white text-[var(--color-label)] font-medium border border-[rgba(0,0,0,0.08)] hover:border-[rgba(0,0,0,0.14)] active:scale-97 cursor-pointer",
+                ]}
+                aria-current={isCurrent ? "page" : undefined}
+                aria-label={`Halaman ${item}`}
+                data-page={item}
+              >
+                {item}
+              </PageBtnTag>
+            );
+          })}
+        </div>
+
+        <!-- Next Button -->
+        <NavBtnTag
+          type={clientDriven ? "button" : undefined}
+          href={!clientDriven && hasNext ? getPageUrl(currentPage + 1) : undefined}
+          class:list={[
+            "pagination-btn pagination-next flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold transition-all border",
+            hasNext
+              ? "bg-white hover:bg-[#f9fafc] text-[var(--color-label)] border-[rgba(0,0,0,0.10)] border-b-[1.5px] border-b-[rgba(0,0,0,0.18)] shadow-xs hover:border-[rgba(0,0,0,0.16)] active:scale-97 cursor-pointer"
+              : "opacity-40 cursor-not-allowed bg-transparent text-[var(--color-tertiary-label)] border-[rgba(0,0,0,0.06)] pointer-events-none",
+          ]}
+          disabled={clientDriven && !hasNext}
+          aria-disabled={!hasNext}
+          aria-label="Halaman Berikutnya"
+          data-page={hasNext ? currentPage + 1 : undefined}
+        >
+          <span class="hidden sm:inline">Berikutnya</span>
+          <Icon name="chevron-right" size={14} />
+        </NavBtnTag>
+      </div>
+    </nav>
+  )
+}
+
+<style>
+  .pagination-nav {
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .pagination-btn {
+    min-height: 34px;
+    text-decoration: none;
+  }
+
+  .pagination-page-pill.active {
+    box-shadow: 0 1px 2px rgba(0, 113, 227, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  }
+</style>
+
+<script>
+  function setupClientPagination() {
+    document.querySelectorAll<HTMLElement>("nav[data-pagination][data-client-driven]").forEach((nav) => {
+      if (nav.dataset.initialized) return;
+      nav.dataset.initialized = "true";
+
+      const prevBtn = nav.querySelector<HTMLButtonElement | HTMLAnchorElement>(".pagination-prev");
+      const nextBtn = nav.querySelector<HTMLButtonElement | HTMLAnchorElement>(".pagination-next");
+      const pagesContainer = nav.querySelector<HTMLElement>(".pagination-pages");
+      const infoContainer = nav.querySelector<HTMLElement>(".pagination-info");
+      const itemLabel = nav.dataset.itemLabel || "item";
+
+      function update(totalMatches: number, current: number, pageSize: number) {
+        const totalPages = Math.ceil(totalMatches / pageSize) || 1;
+        nav.dataset.currentPage = String(current);
+        nav.dataset.totalPages = String(totalPages);
+
+        if (totalPages <= 1) {
+          nav.hidden = true;
+          return;
+        }
+        nav.hidden = false;
+
+        const hasPrev = current > 1;
+        const hasNext = current < totalPages;
+        const itemStart = (current - 1) * pageSize + 1;
+        const itemEnd = Math.min(current * pageSize, totalMatches);
+
+        if (infoContainer) {
+          infoContainer.innerHTML = `Menampilkan <strong>${itemStart}–${itemEnd}</strong> dari <strong>${totalMatches}</strong> ${itemLabel}`;
+        }
+
+        if (prevBtn) {
+          if (prevBtn instanceof HTMLButtonElement) prevBtn.disabled = !hasPrev;
+          prevBtn.classList.toggle("opacity-40", !hasPrev);
+          prevBtn.classList.toggle("cursor-not-allowed", !hasPrev);
+          prevBtn.classList.toggle("pointer-events-none", !hasPrev);
+          prevBtn.classList.toggle("cursor-pointer", hasPrev);
+          if (hasPrev) {
+            prevBtn.setAttribute("data-page", String(current - 1));
+          } else {
+            prevBtn.removeAttribute("data-page");
+          }
+        }
+
+        if (nextBtn) {
+          if (nextBtn instanceof HTMLButtonElement) nextBtn.disabled = !hasNext;
+          nextBtn.classList.toggle("opacity-40", !hasNext);
+          nextBtn.classList.toggle("cursor-not-allowed", !hasNext);
+          nextBtn.classList.toggle("pointer-events-none", !hasNext);
+          nextBtn.classList.toggle("cursor-pointer", hasNext);
+          if (hasNext) {
+            nextBtn.setAttribute("data-page", String(current + 1));
+          } else {
+            nextBtn.removeAttribute("data-page");
+          }
+        }
+
+        if (pagesContainer) {
+          const pages: (number | "...")[] = [];
+          if (totalPages <= 7) {
+            for (let i = 1; i <= totalPages; i++) pages.push(i);
+          } else {
+            pages.push(1);
+            if (current > 3) pages.push("...");
+            const start = Math.max(2, current - 1);
+            const end = Math.min(totalPages - 1, current + 1);
+            for (let i = start; i <= end; i++) pages.push(i);
+            if (current < totalPages - 2) pages.push("...");
+            pages.push(totalPages);
+          }
+
+          pagesContainer.innerHTML = pages
+            .map((p) => {
+              if (p === "...") {
+                return '<span class="pagination-ellipsis w-7 h-8 flex items-center justify-center text-xs font-bold text-[var(--color-tertiary-label)] tracking-wider" aria-hidden="true">•••</span>';
+              }
+              const isCurrent = p === current;
+              return `
+                <button
+                  type="button"
+                  class="pagination-page-pill min-w-[34px] h-8 px-2 rounded-xl text-xs flex items-center justify-center transition-all select-none no-underline cursor-pointer ${
+                    isCurrent
+                      ? "active bg-[var(--color-tint)] text-white font-bold shadow-xs border border-[#005bb5]"
+                      : "bg-white/80 hover:bg-white text-[var(--color-label)] font-medium border border-[rgba(0,0,0,0.08)] hover:border-[rgba(0,0,0,0.14)] active:scale-97"
+                  }"
+                  data-page="${p}"
+                  aria-current="${isCurrent ? "page" : "false"}"
+                  aria-label="Halaman ${p}"
+                >
+                  ${p}
+                </button>
+              `;
+            })
+            .join("");
+        }
+      }
+
+      function goToPage(page: number) {
+        const total = Number(nav.dataset.totalPages) || 1;
+        if (page < 1 || page > total) return;
+        nav.dispatchEvent(
+          new CustomEvent("pagination:change", {
+            bubbles: true,
+            detail: { page },
+          })
+        );
+      }
+
+      nav.addEventListener("click", (e) => {
+        const target = e.target as HTMLElement;
+        const pageBtn = target.closest<HTMLElement>("[data-page]");
+        if (
+          pageBtn &&
+          !pageBtn.hasAttribute("disabled") &&
+          !pageBtn.classList.contains("pointer-events-none")
+        ) {
+          const p = Number(pageBtn.getAttribute("data-page"));
+          if (p) {
+            e.preventDefault();
+            goToPage(p);
+          }
+        }
+      });
+
+      nav.addEventListener("pagination:update", ((e: CustomEvent) => {
+        const { totalMatches, currentPage, pageSize } = e.detail;
+        update(totalMatches, currentPage, pageSize);
+      }) as EventListener);
+    });
+  }
+
+  setupClientPagination();
+  document.addEventListener("astro:page-load", setupClientPagination);
+</script>

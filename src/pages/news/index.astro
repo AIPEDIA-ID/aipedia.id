@@ -1,0 +1,339 @@
+---
+import Base from "../../layouts/Base.astro";
+import SegmentedControl from "../../components/SegmentedControl.astro";
+import Icon from "../../components/Icon.astro";
+import { newsArticles } from "../../data/news";
+
+const featuredArticle = newsArticles[0];
+const otherArticles = newsArticles.slice(1);
+---
+
+<Base title="Updates & Tips AI - AIPEDIA" wide>
+  <!-- News Publication Hero Header -->
+  <section class="news-hero card p-6 sm:p-10 overflow-hidden relative">
+    <div class="relative z-10 max-w-2xl space-y-2">
+      <h1
+        class="text-3xl sm:text-4xl font-bold tracking-tight text-[var(--color-label)]"
+      >
+        Updates &amp; Tips AI
+      </h1>
+      <p
+        class="text-sm sm:text-base text-[var(--color-secondary-label)] leading-relaxed"
+      >
+        Kurasi perkembangan AI, tips praktis, dan studi kasus untuk bisnis &amp;
+        UMKM.
+      </p>
+    </div>
+  </section>
+
+  <!-- Featured Lead Article -->
+  {
+    featuredArticle && (
+      <article class="featured-card card overflow-hidden group">
+        <a href={`/news/${featuredArticle.slug}`} class="featured-link">
+          <div class="featured-media">
+            <img
+              src={featuredArticle.thumbnail}
+              alt={featuredArticle.title}
+              loading="eager"
+            />
+          </div>
+          <div class="featured-body">
+            <div class="featured-meta">
+              <span class="chip-sm">{featuredArticle.category}</span>
+              <span>•</span>
+              <span>{featuredArticle.date}</span>
+              <span>•</span>
+              <span>{featuredArticle.readTime}</span>
+            </div>
+            <h2 class="featured-title">{featuredArticle.title}</h2>
+            <p class="featured-excerpt">{featuredArticle.excerpt}</p>
+            <div class="featured-cta">
+              <span class="read-more-link">
+                <span>Baca selengkapnya</span>
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </span>
+            </div>
+          </div>
+        </a>
+      </article>
+    )
+  }
+
+  <!-- News Controls & Filter -->
+  <div
+    class="news-controls flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6"
+  >
+    <div>
+      <h3 class="text-xl font-bold tracking-tight text-[var(--color-label)]">
+        Semua Artikel
+      </h3>
+      <p class="text-xs text-[var(--color-secondary-label)]">
+        {newsArticles.length} artikel
+      </p>
+    </div>
+
+    <div class="news-filter">
+      <SegmentedControl
+        name="news-filter"
+        segments={[
+          { label: "Semua", value: "all" },
+          { label: "Tips", value: "tips" },
+          { label: "Studi Kasus", value: "studi-kasus" },
+          { label: "Updates", value: "updates" },
+        ]}
+      />
+    </div>
+  </div>
+
+  <!-- Articles Grid -->
+  <div class="news-grid">
+    {
+      newsArticles.map((article) => (
+        <article class="news-card card group">
+          <a href={`/news/${article.slug}`} class="news-card-link">
+            <div class="news-card-image">
+              <img src={article.thumbnail} alt={article.title} loading="lazy" />
+              {article.badge && (
+                <span class="news-card-badge badge-gold">{article.badge}</span>
+              )}
+            </div>
+            <div class="news-card-body">
+              <div class="news-meta">
+                <span class="chip-sm">{article.category}</span>
+                <span>{article.readTime}</span>
+              </div>
+              <h4 class="news-card-title">{article.title}</h4>
+              <p class="news-card-excerpt">{article.excerpt}</p>
+              <div class="news-card-footer">
+                <span class="news-date">{article.date}</span>
+                <span class="news-read-btn">Baca &rarr;</span>
+              </div>
+            </div>
+          </a>
+        </article>
+      ))
+    }
+  </div>
+</Base>
+
+<style>
+  .news-hero {
+    background: #ffffff;
+  }
+
+  /* ─── Featured Article Card ─── */
+  .featured-card {
+    background: #ffffff;
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+  .featured-card:hover {
+    transform: translateY(-2px);
+  }
+
+  .featured-link {
+    display: grid;
+    grid-template-columns: 1fr;
+    text-decoration: none;
+    color: inherit;
+  }
+  @media (min-width: 860px) {
+    .featured-link {
+      grid-template-columns: 1.2fr 1fr;
+    }
+  }
+
+  .featured-media {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    background: var(--color-background);
+  }
+  .featured-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+  .featured-card:hover .featured-media img {
+    transform: scale(1.03);
+  }
+
+  .featured-tag {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+  }
+
+  .featured-body {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 12px;
+  }
+  .news-hero { margin-bottom: var(--space-section); }
+  .featured-card { margin-bottom: var(--space-section-heading); }
+  @media (min-width: 860px) {
+    .featured-body {
+      padding: 36px 32px;
+    }
+  }
+
+  .featured-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.75rem;
+    color: var(--color-secondary-label);
+  }
+
+  .featured-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    line-height: 1.35;
+    letter-spacing: -0.02em;
+    color: var(--color-label);
+  }
+  @media (min-width: 860px) {
+    .featured-title {
+      font-size: 1.6rem;
+    }
+  }
+
+  .featured-excerpt {
+    font-size: 0.875rem;
+    line-height: 1.55;
+    color: var(--color-secondary-label);
+  }
+
+  .featured-cta {
+    margin-top: 8px;
+  }
+
+  .read-more-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-tint);
+  }
+
+  /* ─── Articles Grid ─── */
+  .news-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-card-grid);
+  }
+  @media (min-width: 640px) {
+    .news-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (min-width: 1024px) {
+    .news-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .news-card {
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .news-card-link {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .news-card-image {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    background: var(--color-background);
+  }
+  .news-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+  .news-card:hover .news-card-image img {
+    transform: scale(1.03);
+  }
+
+  .news-card-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+
+  .news-card-body {
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 10px;
+  }
+
+  .news-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: var(--color-secondary-label);
+  }
+
+  .news-card-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    line-height: 1.35;
+    letter-spacing: -0.015em;
+    color: var(--color-label);
+  }
+
+  .news-card-excerpt {
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    color: var(--color-secondary-label);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .news-card-footer {
+    margin-top: auto;
+    padding-top: 12px;
+    border-top: 1px solid var(--color-separator);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: var(--color-secondary-label);
+  }
+
+  .news-read-btn {
+    font-weight: 600;
+    color: var(--color-tint);
+  }
+</style>

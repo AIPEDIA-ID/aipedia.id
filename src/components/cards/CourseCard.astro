@@ -1,0 +1,69 @@
+---
+import ToolBadge from "../ToolBadge.astro";
+import Icon from "../Icon.astro";
+
+interface Props {
+  resource: any;
+  cardHref: string;
+  showBadge: boolean;
+  badgeClass: string;
+  badgeLabel: string;
+  imgMap: Record<string, string>;
+  locked?: boolean;
+}
+
+const { resource, cardHref, showBadge, badgeClass, badgeLabel, imgMap, locked = false } = Astro.props;
+const data = resource.data || resource;
+const category = data.category || "course";
+const isPro = badgeLabel === "PRO" || data.access_level === "paid";
+---
+
+<a
+  href={cardHref}
+  class="apple-card group overflow-hidden flex flex-col h-full relative"
+>
+  <div class="relative bg-[var(--color-fill)] border-b border-[var(--border)] flex items-center justify-center aspect-video overflow-hidden">
+    <img
+      src={data.thumbnail || imgMap[category] || "/card-tutorial.webp"}
+      alt={data.title}
+      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+      loading="lazy"
+    />
+    
+    <div class="absolute top-3 right-3 flex items-center gap-1.5 z-10">
+      {
+        showBadge && (
+          <span
+            class={isPro ? (locked ? "badge-tactile-locked" : "badge-tactile-pro") : badgeLabel === "GRATIS" ? "badge-tactile-free" : `text-xs font-semibold px-2.5 py-0.5 rounded-full shadow-sm ${badgeClass}`}
+          >
+            {locked && isPro ? "🔒 PRO" : badgeLabel}
+          </span>
+        )
+      }
+    </div>
+  </div>
+
+  <div class="p-4 flex flex-col flex-1 gap-2">
+    <h3 class="text-base font-semibold text-[var(--color-label)] leading-snug group-hover:text-[var(--color-tint)] transition-colors">
+      {data.title}
+    </h3>
+    <p class="text-sm text-[var(--color-secondary-label)] leading-relaxed line-clamp-2">
+      {data.teaser || data.description}
+    </p>
+    <div class="pt-3 border-t border-[var(--color-separator)] flex items-center justify-between mt-auto">
+      <span class="text-xs text-[var(--color-secondary-label)] font-medium">
+        {data.moduleCount ? `${data.moduleCount} modul` : "Tutorial"}
+      </span>
+      {
+        locked ? (
+          <span class="text-xs font-semibold text-[#b4820a] dark:text-[#f59e0b] flex items-center gap-1">
+            <span>Buka Akses</span>
+            <span>&rarr;</span>
+          </span>
+        ) : (
+          <span class="text-xs font-semibold text-[var(--color-tint)]">Pelajari &rarr;</span>
+        )
+      }
+    </div>
+  </div>
+</a>

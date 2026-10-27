@@ -1,29 +1,710 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Hero from "../components/Hero.astro";
-import Comparison from "../components/Comparison.astro";
-import Features from "../components/Features.astro";
-import SeeInAction from "../components/SeeInAction.astro";
-import ProductFormat from "../components/ProductFormat.astro";
-import Pricing from "../components/Pricing.astro";
-import Characters from "../components/Characters.astro";
-import TargetAudience from "../components/TargetAudience.astro";
-import FAQ from "../components/FAQ.astro";
-import CTA from "../components/CTA.astro";
-import HowItWorks from "../components/HowItWorks.astro";
+import SalesLayout from "../layouts/SalesLayout.astro";
+import SpecialistCard from "../components/SpecialistCard.astro";
+import ComparisonTable from "../components/ComparisonTable.astro";
+import PlatformGrid from "../components/PlatformGrid.astro";
+import SpecialistPricing from "../components/SpecialistPricing.astro";
+import FaqItem from "../components/FaqItem.astro";
+import { assistants } from "../data/assistants";
+
+const faqs = [
+  {
+    q: "Apakah AIPEDIA perlu langganan bulanan?",
+    a: "Enggak. Sekali bayar, akses seterusnya. Gak ada biaya bulanan, gak ada biaya tersembunyi—cocok kalau kamu capek bayar subscription AI tiap bulan.",
+  },
+  {
+    q: "Apa bedanya AIPEDIA dengan AI tool biasa?",
+    a: "AI biasa kasih jawaban umum. AIPEDIA berisi 17+ AI Spesialis yang masing-masing sudah diprogram khusus per bidang (SEO, Ads, Pajak, Finance, dll) dengan template dan prompt rahasia yang sudah terbukti di dunia nyata.",
+  },
+  {
+    q: "Apa bedanya Bundle Custom GPT dan Bundle Skill?",
+    a: "Bundle Custom GPT memberikan akses ke 17+ AI Spesialis langsung di platform ChatGPT. Sedangkan Bundle Skill memberikan semuanya PLUS file Plugins & Skills mentah yang bisa kamu instal ke AI Agent lokal (seperti Codex) atau dipakai di platform lain seperti Claude.",
+  },
+  {
+    q: "Bagaimana cara akses setelah pembelian?",
+    a: "Begitu pembayaran selesai, kamu akan langsung mendapat akses instan untuk membuka CustomGPT dan mengunduh file panduan (PDF) beserta ekosistem AI Spesialis yang siap digunakan.",
+  },
+  {
+    q: "Apakah harus pakai akun ChatGPT Plus yang berbayar?",
+    a: "Tidak harus! Versi Custom GPT kami dirancang agar tetap bisa berjalan di ChatGPT versi gratis. Khusus pengguna Bundle Skill, file plugin bahkan bisa dijalankan di ekosistem lain seperti Claude atau Codex tanpa bergantung pada langganan ChatGPT.",
+  },
+  {
+    q: "Bagaimana kalau saya kurang cocok dengan hasilnya?",
+    a: "Kami menyediakan garansi refund 7 hari. Syaratnya: Kamu melampirkan screenshot sudah mencoba minimal 1 spesialis dan output-nya tidak sesuai klaim di halaman ini. Tim kami siap mengembalikan dana 100%.",
+  },
+];
 ---
 
-<Layout title="AIPEDIA - Bantu Bisnis Anda dengan 17+ AI Spesialis">
-	<Hero />
-	<Characters />
-	<Comparison />
-	<Features />
-	<SeeInAction />
-	<ProductFormat />
-	<HowItWorks />
-	<!-- <TargetAudience /> -->
-	<!-- <SocialProof /> -->
-	<Pricing />
-	<FAQ />
-	<CTA />
-</Layout>
+<SalesLayout
+  title="17+ AI Spesialis Bisnis Indonesia — AIPEDIA"
+  description="Bantu bisnis Anda dengan 17 AI spesialis: Ads, Copywriting, Keuangan, Pajak, E-Commerce, hingga SOP Operasional. Kerja 24 jam, bayar sekali."
+>
+  <main class="spesialis-page">
+    <!-- Hero Section -->
+    <section class="hero-section" aria-labelledby="hero-title">
+      <div class="hero-ambient-glow"></div>
+      <div class="hero-glass-shine"></div>
+
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        <span>17+ AI SPESIALIS BISNIS INDONESIA</span>
+      </div>
+
+      <h1 id="hero-title" class="hero-title">
+        Belum Sanggup Gaji Tim? <br />
+        <span class="hero-gradient">Coba 17 AI Spesialis Ini</span>
+      </h1>
+
+      <p class="hero-desc">
+        Ada <strong>Mita (Iklan)</strong>, <strong>Wilo (Website)</strong>, <strong>Fina (Keuangan)</strong>, <strong>Teja (Pajak)</strong> + 13 spesialis lain. Bukan chatbot generik, sudah dilatih khusus per bidang. Kerja 24 jam, bayar sekali.
+      </p>
+
+      <div class="hero-pills">
+        <span class="pill-item">✓ Langsung di ChatGPT & Claude</span>
+        <span class="pill-item">✓ Tanpa Install Software Tambahan</span>
+        <span class="pill-item">✓ Sekali Bayar, Bebas Biaya Bulanan</span>
+      </div>
+
+      <div class="hero-actions">
+        <a href="#specialists-grid" class="btn-primary-action">
+          <span>Pilih Spesialis AI ↓</span>
+        </a>
+        <a href="#pricing" class="btn-secondary-action">
+          <span>Ambil Bundle (108k)</span>
+        </a>
+      </div>
+
+      <!-- Quick Avatars Strip -->
+      <div class="specialist-strip">
+        <div class="strip-avatars">
+          {assistants.slice(0, 8).map((a) => (
+            <img
+              src={a.image}
+              alt={a.name}
+              class="strip-img"
+              title={`${a.name} — ${a.role}`}
+              loading="lazy"
+              onerror="this.style.display='none'"
+            />
+          ))}
+          <span class="strip-more">+9</span>
+        </div>
+        <span class="strip-caption">17 spesialis siap mendampingi operasional & marketing harian bisnismu</span>
+      </div>
+    </section>
+
+    <!-- Interactive Directory / Filter Section -->
+    <section class="directory-section" id="specialists-grid" aria-labelledby="directory-title">
+      <div class="directory-header">
+        <div>
+          <span class="section-kicker">KATALOG ASISTEN</span>
+          <h2 id="directory-title" class="directory-title">Pilih AI Sesuai Kebutuhan Bisnismu</h2>
+        </div>
+
+        <!-- Filter Buttons (Apple Segmented Control) -->
+        <div class="filter-bar" role="tablist">
+          <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">
+            Semua (17)
+          </button>
+          <button class="filter-btn" data-filter="marketing" role="tab" aria-selected="false">
+            Marketing (10)
+          </button>
+          <button class="filter-btn" data-filter="business" role="tab" aria-selected="false">
+            Bisnis & Operasional (7)
+          </button>
+        </div>
+      </div>
+
+      <!-- Cards Grid -->
+      <div class="specialists-grid">
+        {assistants.map((assistant) => (
+          <SpecialistCard assistant={assistant} />
+        ))}
+      </div>
+    </section>
+
+    <!-- Objective Comparison Section -->
+    <ComparisonTable
+      title="Kenapa Harus AI Spesialis?"
+      subtitle="Bukan sekadar prompt generik, tiap spesialis membawa kerangka berpikir konsultan senior."
+    />
+
+    <!-- Three Core Highlights -->
+    <section class="highlights-section">
+      <div class="highlight-card">
+        <div class="card-glass-shine"></div>
+        <div class="highlight-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h3>Output Siap Eksekusi</h3>
+        <p>Bukan jawaban mengambang. Format tabel, skrip copy, checklist SOP, dan breakdown angka langsung siap pakai di bisnis.</p>
+      </div>
+
+      <div class="highlight-card">
+        <div class="card-glass-shine"></div>
+        <div class="highlight-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h3>Framework Industri Nyata</h3>
+        <p>Dilatih menggunakan data PMK pajak terbaru, playbook Meta Ads, metode copywriting teruji, dan SOP e-commerce Indonesia.</p>
+      </div>
+
+      <div class="highlight-card">
+        <div class="card-glass-shine"></div>
+        <div class="highlight-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h3>Sekali Bayar, Bebas Bulanan</h3>
+        <p>Akses selamanya tanpa perlu memikirkan tagihan subscription yang menumpuk setiap akhir bulan.</p>
+      </div>
+    </section>
+
+    <!-- Platform Compatibility -->
+    <PlatformGrid />
+
+    <!-- Pricing Section -->
+    <SpecialistPricing
+      title="Beli Sekali, Akses Seterusnya"
+      subtitle="Pilih bundle CustomGPT atau bundle komplit dengan AI Agent Plugins & Skills."
+      singleName="Bundle GPT Specialist"
+      singlePrice="108.000"
+      singleDescription="Akses lengkap ke seluruh 17+ CustomGPT Spesialis"
+      singleFeatures={[
+        "Akses ke 17+ Custom GPT Specialists",
+        "Template & Framework Spesifik Industri",
+        "Dapat dipakai di ChatGPT Free & Plus",
+        "Panduan penggunaan step-by-step lengkap",
+      ]}
+      singleCtaText="Ambil Bundle GPT (108k)"
+      singleCtaUrl="https://aipedia.myr.id/pl/marketing-pack"
+
+      bundleName="Bundle + Skill Agent"
+      bundlePrice="177.000"
+      bundleOriginalPrice="247.000"
+      bundleBadge="Nilai Terbaik"
+      bundleDescription="17 Custom GPT + 17 Raw AI Agent Plugins / Skills"
+      bundleFeatures={[
+        "Semua isi Bundle GPT Specialist",
+        "+ 17 Raw Plugins & Skills untuk Claude & IDE",
+        "Bisa di-inject ke Cursor, VSCode, atau Codex",
+        "Kepemilikan file mentah (aman dari perubahan platform)",
+        "Lifetime update materi & skills baru",
+      ]}
+      bundleCtaText="Akses Semua + Skills (177k)"
+      bundleCtaUrl="https://aipedia.myr.id/pl/business-pack"
+      bundleBumpNote="*Pilihan paling direkomendasikan untuk pemilik bisnis & tim digital yang butuh fleksibilitas platform."
+    />
+
+    <!-- FAQ Section -->
+    <section class="faq-section" aria-labelledby="faq-title">
+      <div class="faq-header">
+        <span class="section-kicker">PERTANYAAN UMUM</span>
+        <h2 id="faq-title" class="faq-title">Frequently Asked Questions</h2>
+        <p class="faq-desc">Semua yang perlu kamu ketahui tentang AIPEDIA Spesialis.</p>
+      </div>
+
+      <div class="faq-container">
+        {faqs.map((f) => (
+          <FaqItem q={f.q} a={f.a} />
+        ))}
+      </div>
+    </section>
+
+    <!-- Closing Banner -->
+    <section class="closing-banner">
+      <div class="closing-ambient-glow"></div>
+      <div class="closing-inner">
+        <h2>Siap Punya 17 Asisten AI yang Bekerja untuk Bisnismu?</h2>
+        <p>Mulai sekarang dan hemat waktu riset serta operasional harian bisnismu.</p>
+        <a href="#pricing" class="btn-primary-action pulse-on-hover">
+          <span>Dapatkan 17 AI Spesialis Sekarang →</span>
+        </a>
+      </div>
+    </section>
+  </main>
+</SalesLayout>
+
+<script>
+  // Filter buttons interaction
+  document.addEventListener("DOMContentLoaded", () => {
+    const filterBtns = document.querySelectorAll<HTMLButtonElement>(".filter-btn");
+    const cards = document.querySelectorAll<HTMLElement>(".specialist-card");
+
+    filterBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        filterBtns.forEach((b) => {
+          b.classList.remove("active");
+          b.setAttribute("aria-selected", "false");
+        });
+        btn.classList.add("active");
+        btn.setAttribute("aria-selected", "true");
+
+        const target = btn.dataset.filter;
+        cards.forEach((card) => {
+          if (target === "all" || card.dataset.category === target) {
+            card.style.display = "flex";
+          } else {
+            card.style.display = "none";
+          }
+        });
+      });
+    });
+  });
+</script>
+
+<style>
+  .spesialis-page {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 24px 20px 80px;
+  }
+
+  /* Hero Section */
+  .hero-section {
+    position: relative;
+    text-align: center;
+    padding: clamp(40px, 6vw, 68px) 20px clamp(42px, 6vw, 62px);
+    border-radius: 30px;
+    background:
+      radial-gradient(circle at 10% 20%, rgba(0, 113, 227, 0.08), transparent 45%),
+      radial-gradient(circle at 90% 80%, rgba(242, 201, 76, 0.12), transparent 45%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(247, 249, 252, 0.82) 100%);
+    border: 1px solid rgba(0, 0, 0, 0.07);
+    box-shadow:
+      0 20px 48px rgba(17, 24, 39, 0.04),
+      inset 0 1.5px 0.5px #fff;
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    margin-bottom: 52px;
+    overflow: hidden;
+  }
+
+  .hero-ambient-glow {
+    position: absolute;
+    top: -80px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 480px;
+    height: 240px;
+    border-radius: 50%;
+    background: radial-gradient(ellipse, rgba(0, 113, 227, 0.12) 0%, rgba(242, 201, 76, 0.08) 60%, transparent 70%);
+    filter: blur(40px);
+    pointer-events: none;
+  }
+
+  .hero-glass-shine {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 45%;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0) 100%);
+    pointer-events: none;
+  }
+
+  .hero-badge {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 15px;
+    border-radius: 999px;
+    background: rgba(0, 113, 227, 0.08);
+    border: 1px solid rgba(0, 113, 227, 0.18);
+    color: #0062c4;
+    font-size: 0.72rem;
+    font-weight: 750;
+    letter-spacing: 0.06em;
+    margin-bottom: 22px;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    z-index: 1;
+  }
+
+  .badge-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #0071e3;
+    box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.25);
+    animation: pulse 2.2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.55; transform: scale(0.85); }
+  }
+
+  .hero-title {
+    position: relative;
+    font-size: clamp(2.2rem, 4.8vw, 3.6rem);
+    font-weight: 800;
+    color: var(--color-label, #1d1d1f);
+    line-height: 1.1;
+    letter-spacing: -0.04em;
+    margin: 0 0 18px;
+    z-index: 1;
+  }
+
+  .hero-gradient {
+    background: linear-gradient(135deg, #0071e3 0%, #005bb5 55%, #e53935 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .hero-desc {
+    position: relative;
+    max-width: 640px;
+    margin: 0 auto 24px;
+    font-size: clamp(0.96rem, 1.8vw, 1.08rem);
+    color: var(--color-secondary-label, #6e6e73);
+    line-height: 1.68;
+    z-index: 1;
+  }
+
+  .hero-pills {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px 14px;
+    margin-bottom: 30px;
+    z-index: 1;
+  }
+
+  .pill-item {
+    font-size: 0.78rem;
+    font-weight: 650;
+    color: #1e293b;
+    background: rgba(255, 255, 255, 0.88);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    padding: 6px 14px;
+    border-radius: 999px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03), inset 0 1px 0 #fff;
+  }
+
+  .hero-actions {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 38px;
+    z-index: 1;
+  }
+
+  .btn-primary-action {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 28px;
+    border-radius: 999px;
+    font-size: 0.92rem;
+    font-weight: 750;
+    text-decoration: none;
+    background: linear-gradient(180deg, #2b8bf5 0%, #0077ed 44%, #005bb5 100%);
+    color: #fff;
+    box-shadow:
+      0 4px 16px rgba(0, 113, 227, 0.35),
+      inset 0 1px 0.5px rgba(255, 255, 255, 0.5);
+    transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.22s, opacity 0.2s;
+  }
+
+  .btn-primary-action:hover {
+    transform: translateY(-2px);
+    box-shadow:
+      0 8px 22px rgba(0, 113, 227, 0.45),
+      inset 0 1px 0.5px #fff;
+  }
+
+  .btn-secondary-action {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 26px;
+    border-radius: 999px;
+    font-size: 0.92rem;
+    font-weight: 700;
+    text-decoration: none;
+    background: linear-gradient(180deg, #ffffff 0%, #f9fafc 40%, #edf1f6 100%);
+    color: #1d1d1f;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04), inset 0 1px 0 #fff;
+    transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), background 0.2s;
+  }
+
+  .btn-secondary-action:hover {
+    transform: translateY(-2px);
+    background: #fff;
+    border-color: rgba(0, 0, 0, 0.2);
+  }
+
+  /* Specialist Avatars Strip */
+  .specialist-strip {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding-top: 26px;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+    max-width: 600px;
+    margin: 0 auto;
+    z-index: 1;
+  }
+
+  .strip-avatars {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .strip-img {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-left: -8px;
+    background: #e2e8f0;
+    object-fit: cover;
+    transition: transform 0.2s;
+  }
+
+  .strip-img:hover {
+    transform: translateY(-2px) scale(1.1);
+    z-index: 2;
+  }
+
+  .strip-avatars .strip-img:first-child {
+    margin-left: 0;
+  }
+
+  .strip-more {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #0f172a;
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 750;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-left: -8px;
+  }
+
+  .strip-caption {
+    font-size: 0.78rem;
+    color: var(--color-secondary-label, #6e6e73);
+  }
+
+  /* Directory Section */
+  .directory-section {
+    margin: 56px 0;
+  }
+
+  .directory-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 30px;
+  }
+
+  .section-kicker {
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 750;
+    letter-spacing: 0.08em;
+    color: var(--color-gold-text, #78350f);
+    background: rgba(245, 158, 11, 0.12);
+    border: 1px solid rgba(245, 158, 11, 0.25);
+    padding: 4px 12px;
+    border-radius: 999px;
+    margin-bottom: 10px;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  }
+
+  .directory-title {
+    font-size: clamp(1.5rem, 3vw, 2.1rem);
+    font-weight: 800;
+    color: var(--color-label, #1d1d1f);
+    letter-spacing: -0.025em;
+    margin: 0;
+  }
+
+  .filter-bar {
+    display: flex;
+    gap: 4px;
+    background: rgba(0, 0, 0, 0.05);
+    padding: 4px;
+    border-radius: 999px;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.03);
+  }
+
+  .filter-btn {
+    padding: 7px 15px;
+    border-radius: 999px;
+    font-size: 0.76rem;
+    font-weight: 700;
+    border: none;
+    background: transparent;
+    color: var(--color-secondary-label, #6e6e73);
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .filter-btn:hover {
+    color: var(--color-label, #1d1d1f);
+  }
+
+  .filter-btn.active {
+    background: #fff;
+    color: #1d1d1f;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1), inset 0 1px 0 #fff;
+  }
+
+  .specialists-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+    gap: 22px;
+  }
+
+  /* Highlights Section */
+  .highlights-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 22px;
+    margin: 64px 0;
+  }
+
+  .highlight-card {
+    position: relative;
+    padding: 30px 26px;
+    border-radius: 22px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(250, 251, 254, 0.82) 100%);
+    border: 1px solid rgba(0, 0, 0, 0.07);
+    box-shadow:
+      0 4px 20px rgba(0, 0, 0, 0.03),
+      inset 0 1.5px 0.5px rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(16px);
+    overflow: hidden;
+  }
+
+  .highlight-icon {
+    position: relative;
+    width: 46px;
+    height: 46px;
+    border-radius: 13px;
+    background: rgba(0, 113, 227, 0.09);
+    color: #0071e3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    z-index: 1;
+  }
+
+  .highlight-card h3 {
+    position: relative;
+    margin: 0 0 8px;
+    font-size: 1.15rem;
+    font-weight: 750;
+    color: var(--color-label, #1d1d1f);
+    z-index: 1;
+  }
+
+  .highlight-card p {
+    position: relative;
+    margin: 0;
+    font-size: 0.86rem;
+    color: var(--color-secondary-label, #6e6e73);
+    line-height: 1.58;
+    z-index: 1;
+  }
+
+  /* FAQ Section */
+  .faq-section {
+    margin: 64px 0;
+  }
+
+  .faq-header {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 36px;
+  }
+
+  .faq-title {
+    font-size: clamp(1.5rem, 3vw, 2.1rem);
+    font-weight: 800;
+    color: var(--color-label, #1d1d1f);
+    margin: 0 0 8px;
+  }
+
+  .faq-desc {
+    font-size: 0.92rem;
+    color: var(--color-secondary-label, #6e6e73);
+    margin: 0;
+  }
+
+  .faq-container {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+
+  /* Closing Banner */
+  .closing-banner {
+    position: relative;
+    margin-top: 72px;
+    padding: 54px 28px;
+    border-radius: 28px;
+    text-align: center;
+    background:
+      radial-gradient(circle at 10% 90%, rgba(0, 113, 227, 0.22), transparent 45%),
+      radial-gradient(circle at 90% 10%, rgba(242, 201, 76, 0.18), transparent 45%),
+      linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    color: #fff;
+    box-shadow: 0 24px 54px rgba(15, 23, 42, 0.18);
+    overflow: hidden;
+  }
+
+  .closing-ambient-glow {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 0%, rgba(255, 255, 255, 0.08) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .closing-inner {
+    position: relative;
+    max-width: 580px;
+    margin: 0 auto;
+    z-index: 1;
+  }
+
+  .closing-inner h2 {
+    font-size: clamp(1.6rem, 3.2vw, 2.3rem);
+    font-weight: 800;
+    color: #fff;
+    margin: 0 0 12px;
+    letter-spacing: -0.03em;
+  }
+
+  .closing-inner p {
+    font-size: 0.95rem;
+    color: #cbd5e1;
+    margin: 0 0 28px;
+    line-height: 1.6;
+  }
+</style>

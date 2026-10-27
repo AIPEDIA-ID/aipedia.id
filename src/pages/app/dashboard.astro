@@ -1,0 +1,200 @@
+---
+export const prerender = false;
+import DashboardLayout from "../../layouts/DashboardLayout.astro";
+import ResourceCard from "../../components/ResourceCard.astro";
+import Icon from "../../components/Icon.astro";
+import { getResources, getCurrentUser, getGrants } from "../../lib/data";
+import { canAccess } from "../../lib/access";
+
+const user = await getCurrentUser(Astro.cookies);
+if (!user) {
+  return Astro.redirect("/login");
+}
+const grants = await getGrants(user.id, Astro.cookies);
+const allResources = await getResources();
+
+const accessibleResources = allResources.filter((r) => canAccess(r, grants));
+
+const categories = [
+  "Semua",
+  "LLM Prompt",
+  "Visual AI",
+  "Customer Service",
+  "Marketing & Content",
+  "Bisnis & SOP",
+  "Produktivitas",
+];
+---
+
+<DashboardLayout title="Workspace Dashboard - AIPEDIA" activeNav="dashboard" user={user}>
+  <div class="w-full space-y-8">
+    <!-- Clean Workspace Header -->
+    <header
+      class="workspace-header flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-2"
+    >
+      <div>
+        <h1
+          class="text-2xl sm:text-3xl font-bold tracking-tight text-[var(--color-label)]"
+        >
+          Halo, {user ? user.name.split(" ")[0] : "Founder"}
+        </h1>
+        <p class="text-sm text-[var(--color-secondary-label)] mt-1">
+          Lanjutkan eksplorasi prompt, workflow otomatisasi, dan panduan taktis
+          Anda.
+        </p>
+      </div>
+
+      <div class="flex items-center gap-3 shrink-0">
+        <div
+          class="workspace-badge px-3 py-1.5 rounded-full text-xs font-semibold bg-[var(--color-fill)] border border-[var(--color-separator)] text-[var(--color-secondary-label)]"
+        >
+          <span class="text-[var(--color-tint)] font-bold"
+            >{accessibleResources.length}</span
+          > materi terbuka
+        </div>
+        <a href="/app/my-library" class="btn-primary-sm text-xs py-1.5 px-3">
+          <span>Koleksi Saya</span>
+        </a>
+      </div>
+    </header>
+
+    <!-- Search & Filter Controls -->
+    <div class="space-y-3">
+      <div class="relative">
+        <span
+          class="absolute left-4 top-1/2 -translate-y-1/2 text-[var(--color-tertiary-label)] pointer-events-none"
+        >
+          <Icon name="search" size={18} />
+        </span>
+        <input
+          id="search-input"
+          type="search"
+          placeholder="Cari prompt, SOP, script WhatsApp, atau tutorial..."
+          class="macos-search-field w-full pl-11 pr-24 py-3 text-sm rounded-xl focus:outline-none placeholder:text-[var(--color-tertiary-label)]"
+        />
+        <div
+          class="absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-1 text-xs text-[var(--color-tertiary-label)] font-mono"
+        >
+          <span
+            class="px-2 py-0.5 rounded-md bg-[var(--color-fill)] border border-[var(--color-separator)]"
+            >⌘K</span
+          >
+        </div>
+      </div>
+
+      <!-- Category Filter Pills -->
+      <div
+        class="flex gap-2 overflow-x-auto pb-1 scrollbar-none sm:flex-wrap -mx-4 px-4 sm:mx-0 sm:px-0"
+      >
+        {
+          categories.map((cat, i) => (
+            <button
+              type="button"
+              class={`chip shrink-0 ${i === 0 ? "active" : ""}`}
+              data-category={cat}
+            >
+              {cat}
+            </button>
+          ))
+        }
+      </div>
+    </div>
+
+    <!-- Primary Resource Section -->
+    <div class="space-y-4">
+      <div
+        class="flex items-center justify-between pb-2 border-b border-[var(--color-separator)]"
+      >
+        <div class="flex items-center gap-2">
+          <h2 class="text-base font-bold text-[var(--color-label)]">
+            Materi Siap Pakai
+          </h2>
+          <span
+            class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-[var(--color-fill)] text-[var(--color-secondary-label)]"
+          >
+            <span id="resource-count">{allResources.length}</span> materi
+          </span>
+        </div>
+        <a
+          href="/app/library"
+          class="text-xs font-semibold text-[var(--color-tint)] hover:underline"
+        >
+          <span>Buka Direktori Lengkap →</span>
+        </a>
+      </div>
+
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
+        id="resource-grid"
+      >
+        {
+          allResources.map((resource: any) => {
+            const locked = !canAccess(resource, grants);
+            return (
+              <div
+                class="resource-item"
+                data-topics={resource.topics?.join(",") || ""}
+                data-title={resource.title?.toLowerCase() || ""}
+                data-category={resource.category || ""}
+              >
+                <ResourceCard resource={resource} locked={locked} hrefPrefix="/app/r" />
+              </div>
+            );
+          })
+        }
+      </div>
+    </div>
+  </div>
+</DashboardLayout>
+
+<script>
+  const searchInput = document.getElementById(
+    "search-input",
+  ) as HTMLInputElement | null;
+  const chips = document.querySelectorAll<HTMLButtonElement>(".chip");
+  const items = document.querySelectorAll<HTMLElement>(".resource-item");
+  const countEl = document.getElementById("resource-count");
+
+  let activeCategory = "Semua";
+
+  function filterItems() {
+    const query = (searchInput?.value || "").toLowerCase().trim();
+    let visibleCount = 0;
+
+    items.forEach((item) => {
+      const title = item.getAttribute("data-title") || "";
+      const topics = item.getAttribute("data-topics") || "";
+
+      const matchesCat =
+        activeCategory === "Semua" ||
+        topics.toLowerCase().includes(activeCategory.toLowerCase());
+      const matchesSearch =
+        !query || title.includes(query) || topics.toLowerCase().includes(query);
+
+      const visible = matchesCat && matchesSearch;
+      item.style.display = visible ? "" : "none";
+      if (visible) visibleCount++;
+    });
+
+    if (countEl) countEl.textContent = String(visibleCount);
+  }
+
+  searchInput?.addEventListener("input", filterItems);
+
+  chips.forEach((chip) => {
+    chip.addEventListener("click", () => {
+      chips.forEach((c) => c.classList.remove("active"));
+      chip.classList.add("active");
+      activeCategory = chip.getAttribute("data-category") || "Semua";
+      filterItems();
+    });
+  });
+
+  // Shortcut ⌘K / Ctrl+K focus search
+  window.addEventListener("keydown", (e) => {
+    if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+      e.preventDefault();
+      searchInput?.focus();
+    }
+  });
+</script>

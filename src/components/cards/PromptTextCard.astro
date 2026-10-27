@@ -1,0 +1,91 @@
+---
+import Icon from "../Icon.astro";
+import ToolBadge from "../ToolBadge.astro";
+
+interface Props {
+  resource: any;
+  cardHref: string;
+  showBadge: boolean;
+  badgeClass: string;
+  badgeLabel: string;
+  locked?: boolean;
+}
+
+const { resource, cardHref, showBadge, badgeClass, badgeLabel, locked = false } = Astro.props;
+const data = resource.data || resource;
+const category = data.category || "llm-prompt";
+
+const typeIcons: Record<string, string> = {
+  "llm-prompt": "file-text",
+  "visual-prompt": "image",
+  "custom-ai": "terminal",
+  resource: "layers",
+  tutorial: "book",
+  "founder-space": "briefcase",
+  course: "video",
+};
+const isPro = badgeLabel === "PRO" || data.access_level === "paid";
+---
+
+<a
+  href={cardHref}
+  class="apple-card p-5 flex flex-col gap-3 group h-full justify-between relative overflow-hidden"
+>
+  <div class="space-y-2.5">
+    <!-- Card Top Header: Tool & Status -->
+    <div class="flex items-center justify-between gap-2">
+      <div class="flex items-center gap-1.5">
+        {data.tools && data.tools.length > 0 ? (
+          <ToolBadge tool={data.tools[0]} />
+        ) : (
+          <span class="text-xs font-medium text-[var(--color-secondary-label)] bg-[var(--color-fill)] px-2 py-0.5 rounded-full">
+            Prompt
+          </span>
+        )}
+      </div>
+
+      <div class="flex items-center gap-1.5 shrink-0">
+        {
+          showBadge && (
+            <span
+              class={isPro ? (locked ? "badge-tactile-locked" : "badge-tactile-pro") : badgeLabel === "GRATIS" ? "badge-tactile-free" : `text-xs px-2.5 py-0.5 rounded-full font-semibold ${badgeClass}`}
+            >
+              {locked && isPro ? "🔒 PRO" : badgeLabel}
+            </span>
+          )
+        }
+      </div>
+    </div>
+
+    <!-- Title: Clear & Bold -->
+    <h3
+      class="text-base font-bold text-[var(--color-label)] leading-snug group-hover:text-[var(--color-tint)] transition-colors"
+    >
+      {data.title}
+    </h3>
+
+    <!-- Description: Simple, readable natural text -->
+    <p class="text-sm text-[var(--color-secondary-label)] leading-relaxed line-clamp-3">
+      {data.teaser || data.description}
+    </p>
+  </div>
+
+  <!-- Bottom Meta & Action -->
+  <div class="pt-3 border-t border-[var(--color-separator)] flex items-center justify-between gap-2 mt-auto">
+    <span class="text-xs text-[var(--color-secondary-label)] font-medium truncate max-w-[150px]">
+      {data.topics?.[0] || "Bisnis & UMKM"}
+    </span>
+
+    {
+      locked ? (
+        <span class="text-[#b4820a] dark:text-[#f59e0b] font-semibold text-xs shrink-0 flex items-center gap-1 group-hover:translate-x-0.5 transition-transform">
+          Buka Akses &rarr;
+        </span>
+      ) : (
+        <span class="text-[var(--color-tint)] font-semibold text-xs shrink-0 group-hover:translate-x-0.5 transition-transform">
+          Buka Prompt &rarr;
+        </span>
+      )
+    }
+  </div>
+</a>

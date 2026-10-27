@@ -1,0 +1,194 @@
+---
+import type { Product } from "../lib/data/types";
+
+interface Props {
+  product: Product;
+}
+
+const { product } = Astro.props;
+
+const itemCount = product.includes.length;
+
+function formatPrice(price: number): string {
+  return "Rp" + price.toLocaleString("id-ID");
+}
+
+function discountPct(price: number, original?: number): number | null {
+  if (!original || original <= price) return null;
+  return Math.round(((original - price) / original) * 100);
+}
+
+const discount = discountPct(product.price, product.originalPrice);
+---
+
+<a href={`/products/${product.slug}`} class="product-card card group">
+  <div class="card-image relative overflow-hidden">
+    <img src={product.thumbnail} alt={product.title} loading="lazy" />
+    {
+      product.badge && (
+        <span class="absolute top-3 left-3 px-2.5 py-1 text-xs font-semibold text-white bg-black/75 backdrop-blur-md rounded-full border border-white/20">
+          {product.badge}
+        </span>
+      )
+    }
+  </div>
+
+  <div class="card-body">
+    <h3 class="product-title">{product.title}</h3>
+    <p class="product-desc">{product.description}</p>
+
+    <div
+      class="product-footer mt-auto pt-3 border-t border-[var(--color-separator)] flex items-center justify-between gap-3"
+    >
+      <div class="price-stack">
+        <div class="product-price">{formatPrice(product.price)}</div>
+        <div class="price-sub flex items-center gap-1.5 mt-0.5">
+          {
+            product.originalPrice && product.originalPrice > product.price && (
+              <span class="original-price">
+                {formatPrice(product.originalPrice)}
+              </span>
+            )
+          }
+          {discount && <span class="discount-tag">-{discount}%</span>}
+        </div>
+      </div>
+
+      <div class="card-action shrink-0">
+        <span class="btn-buy-pill"> Beli </span>
+      </div>
+    </div>
+  </div>
+</a>
+
+<style>
+  .product-card {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    background: var(--card-gradient);
+    background-clip: padding-box;
+    border: 1px solid var(--card-border);
+    border-bottom: 2px solid var(--card-border-bottom);
+    border-radius: var(--radius-xl);
+    transition: all 0.2s cubic-bezier(0.25, 0.1, 0.25, 1);
+  }
+  .product-card:hover {
+    transform: none;
+    border-color: var(--card-border-hover);
+    border-bottom-color: var(--card-border-bottom-hover);
+    background: var(--card-gradient-hover);
+    background-clip: padding-box;
+  }
+
+  .card-image {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    background: var(--color-surface);
+    position: relative;
+  }
+  .card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  .product-card:hover .card-image img {
+    transform: scale(1.03);
+  }
+
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 16px 18px 18px;
+    background: var(--card-gradient);
+    flex: 1;
+  }
+  .product-card:hover .card-body {
+    background: var(--card-gradient-hover);
+  }
+  .product-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-label);
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+  }
+  .product-desc {
+    font-size: 0.8125rem;
+    font-weight: 400;
+    color: var(--color-secondary-label);
+    line-height: 1.45;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .product-price {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--color-label);
+    letter-spacing: -0.015em;
+  }
+  .original-price {
+    font-size: 0.8125rem;
+    font-weight: 400;
+    color: var(--color-tertiary-label);
+    text-decoration: line-through;
+  }
+  .discount-tag {
+    font-size: 0.6875rem;
+    font-weight: 700;
+    color: #e02e24;
+    background: rgba(224, 46, 36, 0.08);
+    border: 0.5px solid rgba(224, 46, 36, 0.2);
+    padding: 2px 7px;
+    border-radius: 9999px;
+    letter-spacing: -0.01em;
+  }
+
+  .btn-buy-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 14px;
+    height: 28px;
+    min-height: 28px;
+    border-radius: 9999px;
+    background: var(--gradient-blue-action);
+    color: #ffffff !important;
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 1;
+    white-space: nowrap;
+    border: 1px solid rgba(0, 75, 175, 0.35);
+    border-bottom: 1.5px solid rgba(0, 50, 130, 0.6);
+    box-shadow:
+      0 1px 2px rgba(0, 70, 160, 0.2),
+      0 2px 5px -1px rgba(0, 113, 227, 0.25),
+      inset 0 1px 0.5px rgba(255, 255, 255, 0.55),
+      inset 0 -1px 1px rgba(0, 30, 80, 0.25);
+    transition: all 0.15s cubic-bezier(0.25, 0.1, 0.25, 1);
+  }
+
+  .product-card:hover .btn-buy-pill {
+    background: var(--gradient-blue-action-hover);
+    box-shadow:
+      0 2px 6px rgba(0, 70, 160, 0.25),
+      0 6px 14px -2px rgba(0, 113, 227, 0.35),
+      inset 0 1px 0.5px rgba(255, 255, 255, 0.7);
+    transform: translateY(-0.5px);
+  }
+
+  .product-card:active .btn-buy-pill {
+    background: var(--gradient-blue-action-pressed);
+    box-shadow: inset 0 2px 4px rgba(0, 20, 60, 0.45);
+    transform: translateY(0.5px);
+  }
+</style>

@@ -1,0 +1,88 @@
+---
+import "../styles/tokens.css";
+import Header from "../components/Header.astro";
+import TabBar from "../components/TabBar.astro";
+import Footer from "../components/Footer.astro";
+import { getCurrentUser } from "../lib/data";
+
+interface Props {
+  title?: string;
+  description?: string;
+  showFooter?: boolean;
+  wide?: boolean;
+  user?: any;
+}
+
+const {
+  title = "AIPEDIA",
+  description = "Belajar dan terapkan AI untuk bisnis Anda.",
+  showFooter = true,
+  wide = false,
+  user: userProp,
+} = Astro.props;
+
+let user = userProp;
+if (user === undefined) {
+  try {
+    user = await getCurrentUser(Astro.cookies);
+  } catch (_) {
+    user = null;
+  }
+}
+const currentPath = Astro.url.pathname;
+---
+
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <Header user={user} currentPath={currentPath} />
+    <main class:list={["app-main", { wide }]}>
+      <slot />
+    </main>
+    {showFooter && <Footer />}
+    <TabBar currentPath={currentPath} user={user} />
+
+    <style>
+      .app-main {
+        max-width: 1024px;
+        margin: 0 auto;
+        padding: 16px;
+        padding-bottom: calc(72px + var(--safe-bottom));
+        min-height: 60vh;
+      }
+      .app-main.wide {
+        max-width: 1120px;
+      }
+      @media (min-width: 768px) {
+        .app-main {
+          padding: 32px 32px 40px;
+          padding-bottom: 40px;
+        }
+      }
+    </style>
+
+    <script>
+      // Demo form submission interceptor
+      document.addEventListener("DOMContentLoaded", () => {
+        document.querySelectorAll<HTMLFormElement>("form[data-demo-form]")?.forEach((form) => {
+          form.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const notice = form.querySelector(".demo-notice");
+            if (notice) {
+              notice.removeAttribute("hidden");
+              notice.setAttribute("role", "alert");
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

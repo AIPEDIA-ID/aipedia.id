@@ -1,0 +1,175 @@
+---
+export const prerender = false;
+import DashboardLayout from "../../../layouts/DashboardLayout.astro";
+import ResourceCard from "../../../components/ResourceCard.astro";
+import FolderCard from "../../../components/FolderCard.astro";
+import EmptyState from "../../../components/EmptyState.astro";
+import Icon from "../../../components/Icon.astro";
+import { getResources, getCurrentUser } from "../../../lib/data";
+import { toPublicView } from "../../../lib/content";
+
+const user = await getCurrentUser(Astro.cookies);
+const slug = Astro.params.slug;
+if (!slug) return Astro.redirect("/404");
+
+const parts = slug.split("/");
+const categorySlug = parts[0];
+const subcategorySlug = parts.slice(1).join("/");
+
+const labelMap: Record<string, string> = {
+  "llm-prompt": "LLM Prompt",
+  "visual-prompt": "Visual Prompt",
+  "custom-ai": "Custom AI",
+  "resource": "Resource",
+  "tutorial": "Tutorial",
+  "course": "Kursus AI",
+  "founder-space": "Founder Space",
+};
+
+const label = labelMap[categorySlug] || categorySlug;
+const allResources = await getResources();
+const filtered = allResources.filter((r) => r.category === categorySlug);
+
+if (!labelMap[categorySlug] && filtered.length === 0) {
+  return Astro.redirect("/404");
+}
+
+const itemsToShow: typeof allResources = [];
+const folderMap = new Map<string, number>();
+
+filtered.forEach((r) => {
+  const idParts = r.id.split("/");
+  const catIndex = idParts.indexOf(categorySlug);
+
+  if (catIndex !== -1) {
+    const relativePath = idParts.slice(catIndex + 1).join("/");
+
+    if (subcategorySlug) {
+      if (relativePath.startsWith(subcategorySlug + "/")) {
+        const remainingPath = relativePath.substring(subcategorySlug.length + 1);
+        if (!remainingPath.includes("/")) {
+          itemsToShow.push(r);
+        } else {
+          const nextSub = remainingPath.split("/")[0];
+          const fullNextSub = subcategorySlug + "/" + nextSub;
+          folderMap.set(fullNextSub, (folderMap.get(fullNextSub) || 0) + 1);
+        }
+      }
+    } else {
+      if (!relativePath.includes("/")) {
+        itemsToShow.push(r);
+      } else {
+        const sub = relativePath.split("/")[0];
+        folderMap.set(sub, (folderMap.get(sub) || 0) + 1);
+      }
+    }
+  } else {
+    // If category is not in path parts, show at root of that category
+    if (!subcategorySlug) {
+      itemsToShow.push(r);
+    }
+  }
+});
+
+const folders = Array.from(folderMap.entries()).map(([name, count]) => ({
+  name: name.split("/").pop() || name,
+  href: `/app/library/${categorySlug}/${name}`,
+  count,
+}));
+
+const formatSubcategoryName = (str: string) => {
+  return str
+    .split("-")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
+};
+
+const pageTitle = subcategorySlug
+  ? formatSubcategoryName(subcategorySlug.split("/").pop() || "")
+  : label;
+---
+
+<DashboardLayout title={`${pageTitle} - AIPEDIA Vault`} activeNav={categorySlug} user={user}>
+  <!-- Breadcrumbs & Header -->
+  <div class="mb-6">
+    <div class="flex items-center gap-2 text-sm text-[var(--color-secondary-label)] mb-2">
+      <a href="/app/library" class="hover:text-[var(--color-tint)] transition-colors">Vault</a>
+      <Icon name="arrow-right" size={12} />
+      <a href={`/app/library/${categorySlug}`} class="hover:text-[var(--color-tint)] transition-colors">{label}</a>
+      {
+        subcategorySlug && (
+          <>
+            <Icon name="arrow-right" size={12} />
+            <span class="text-[var(--color-label)] font-medium">
+              {formatSubcategoryName(subcategorySlug.split("/").pop() || "")}
+            </span>
+          </>
+        )
+      }
+    </div>
+
+    <h1 class="text-large-title page-title">{pageTitle}</h1>
+    <p class="page-desc text-body">
+      {folders.length > 0 && `${folders.length} subkategori • `}{itemsToShow.length} materi siap pakai
+    </p>
+  </div>
+
+  {
+    folders.length === 0 && itemsToShow.length === 0 ? (
+      <EmptyState
+        title="Belum ada materi"
+        description="Materi untuk kategori ini akan segera hadir."
+        action={{ label: "Kembali ke Vault", href: "/app/library" }}
+      />
+    ) : (
+      <div class="space-y-8">
+        <!-- Subcategory Folders -->
+        {folders.length > 0 && (
+          <div>
+            <h2 class="text-headline section-label mb-3">Subkategori</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+              {folders.map((f) => (
+                <FolderCard name={f.name} href={f.href} itemCount={f.count} />
+              ))}
+            </div>
+          </div>
+        )}
+
+        <!-- Resource Cards -->
+        {itemsToShow.length > 0 && (
+          <div>
+            {folders.length > 0 && (
+              <h2 class="text-headline section-label mb-3">Materi Langsung</h2>
+            )}
+            <div class="resource-grid">
+              {itemsToShow.map((r) => (
+                <ResourceCard resource={r} hrefPrefix="/app/r" />
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+    )
+  }
+</DashboardLayout>
+
+<style>
+  .page-title { margin-bottom: 4px; }
+  .page-desc { color: var(--color-secondary-label); margin-bottom: 20px; }
+  .section-label { color: var(--color-label); font-weight: 600; }
+  .resource-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  @media (min-width: 640px) {
+    .resource-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (min-width: 1024px) {
+    .resource-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+</style>

@@ -1,621 +1,897 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import SalesLayout from "../layouts/SalesLayout.astro";
+import ComparisonTable from "../components/ComparisonTable.astro";
+import PlatformGrid from "../components/PlatformGrid.astro";
+import SpecialistPricing from "../components/SpecialistPricing.astro";
+import FaqItem from "../components/FaqItem.astro";
 
-// Data untuk Mita Dedicated Funnel
-const pricing = [
+const problems = [
   {
-    id: "mita_only",
-    name: "Mita Only",
-    price: "87.000",
-    type: "custom_gpt",
-    cta: "Ambil Mita",
-    url: "https://myr.id/mita-only-87k",
-    features: [
-      "Mita CustomGPT (11 Meta Ads Knowledge Bases)",
-      "6 Mita Skills: Campaign Audit, LP Review, Budget Calculator",
-      "Siap pakai di ChatGPT Free/Plus",
-    ],
+    title: "Spend 500rb Gak Ada yang Beli",
+    desc: "Sudah bakar budget iklan harian tapi konversi penjualan nihil. Margin keuntungan habis hanya untuk bayar biaya impresi dan traffic.",
+    icon: `<rect width="20" height="12" x="2" y="6" rx="2"/><circle cx="12" cy="12" r="2"/><path d="M6 12h.01M18 12h.01"/>`,
   },
   {
-    id: "bundle_17",
-    name: "Bundle 17 Spesialis",
-    price: "128.000",
-    original_price: "348.000",
-    badge: "Best Value",
-    is_hero: true,
-    cta: "Ambil Bundle - Paling Laku",
-    url: "https://myr.id/mita-bundle-128k",
-    features: [
-      "Semua fitur paket Mita (Tetap dapat Mita Skills)",
-      "+ 16 AI Spesialis lainnya (CustomGPT Only, tanpa Skills)",
-      "Bonus Prompt Library & SOP",
-      "Lifetime Update",
-    ],
+    title: "CTR Bagus Tapi Gak Closing",
+    desc: "Banyak audiens yang mengklik link iklan Anda, tapi begitu masuk ke landing page atau chat WhatsApp, tidak ada satupun yang membeli.",
+    icon: `<polyline points="22 17 13.5 8.5 8.5 13.5 2 7"/><polyline points="16 17 22 17 22 11"/>`,
+  },
+  {
+    title: "Takut Scale, Takut Boncos",
+    desc: "Saat iklan sedang bagus-bagusnya, Anda bingung dan ragu untuk menaikkan budget karena takut performa drop atau algoritma reset.",
+    icon: `<path d="M12 9v4M12 17h.01M21.73 18l-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z" stroke-linecap="round" stroke-linejoin="round"/>`,
   },
 ];
 
-const features = [
+const capabilities = [
   {
     title: "Audit Iklan Boncos 5 Menit",
-    desc: "Upload metrik Ads Manager, Mita kasih saran matikan / scale.",
+    desc: "Ketik atau paste metrik Ads Manager Anda (CTR, CPC, CPR, Frequency), Mita langsung beri diagnosa tajam: matikan atau pertahankan.",
     image: "/screenshots/1.png",
   },
   {
     title: "Bikin 3 Angle Iklan Otomatis",
-    desc: "Generate copy, headline, CTA siap test A/B.",
+    desc: "Generate variasi copy, hook 3 detik pembuka, headline konversi, dan penawaran (offer) yang siap dites split A/B.",
     image: "/screenshots/2.png",
   },
   {
     title: "Kalkulator Budget & ROAS",
-    desc: "Hitung max CAC dan break-even ROAS otomatis.",
+    desc: "Hitung batas maksimal Customer Acquisition Cost (CAC) dan target Break-Even ROAS secara akurat berdasarkan margin bisnismu.",
     image: "/screenshots/3.png",
   },
   {
-    title: "Review Creative Sebelum Boncos",
-    desc: "Feedback hook 3 detik pertama dan visual.",
+    title: "Review Creative Sebelum Tayang",
+    desc: "Dapatkan feedback objektif mengenai hook visual, headline gambar, dan keselarasan pesan sebelum Anda membakar budget promosi.",
     image: "/screenshots/4.png",
   },
   {
-    title: "Kapan Scale, Kapan Cut",
-    desc: "Rule: Learning Limited, Frequency, CTR.",
+    title: "Aturan Pasti: Kapan Scale, Kapan Cut",
+    desc: "SOP jelas membaca status Learning Limited, frekuensi adset jenuh, dan threshold CPA agar scale iklan terarah dan aman.",
     image: "/screenshots/5.png",
   },
   {
-    title: "24 Jam Siap Pakai",
-    desc: "Akses asisten kapan saja saat sedang manage iklan.",
+    title: "Siap Sedia 24 Jam Penuh",
+    desc: "Mita siap menjadi sparring partner kapanpun Anda membuka Ads Manager di malam hari untuk evaluasi performa campaign.",
     image: "/screenshots/6.png",
   },
 ];
 
-const faqs = [
-  { q: "Ini prompt atau aplikasi?", a: "CustomGPT, tinggal klik." },
+const comparisonItems = [
   {
-    q: "Bedanya 87k dan 128k?",
-    a: "87k cuma Mita (CustomGPT+Skills Mita), 128k dapat Mita + 16 CustomGPT lain. Full Skills 17 Spesialis ada di bump 288k",
+    generic: "Hanya menyarankan tips generik seperti 'coba perluas targeting minat'",
+    specialist: "Diagnosa metrik presisi: identifikasi bottleneck (Creative vs LP vs Offer)",
+  },
+  {
+    generic: "Tidak paham batas standar CTR, CPR, dan CPM pasar Indonesia",
+    specialist: "11 Knowledge base Meta Ads pasar Indonesia + benchmark industri lokal",
+  },
+  {
+    generic: "Menulis copy iklan yang kaku dan berisiko terkena penalty Meta Policy",
+    specialist: "Formula copywriting konversi tinggi yang aman dari kata-kata banned iklan",
+  },
+  {
+    generic: "Tidak bisa memberikan rekomendasi scaling budget matematis",
+    specialist: "Kalkulator target ROAS, batas CAC maksimal, dan panduan scaling 20% rule",
   },
 ];
 
 const platforms = [
   {
     name: "ChatGPT (CustomGPT)",
-    desc: "Cocok untuk konsultasi interaktif cepat, tanya-jawab strategi, dan diagnosis adset langsung via ChatGPT Free maupun Plus.",
-    img: "/vendors/chatgpt-white.png",
+    badge: "Free & Plus",
+    desc: "Konsultasi interaktif cepat, tanya-jawab strategi adset, dan diagnosis metrik harian langsung via aplikasi ChatGPT.",
+    icon: "/vendors/chatgpt-white.png",
   },
   {
-    name: "Claude (Mita Skills)",
-    desc: "Cocok untuk audit campaign mendalam, menulis panjang (copywriting), dan membaca report data (CSV) dengan logika tinggi.",
-    img: "/vendors/claude.png",
+    name: "Claude (Skills & Logic)",
+    badge: "Audit Mendalam",
+    desc: "Unggah ekspor file CSV dari Ads Manager untuk dianalisis secara menyeluruh dengan logika pemrosesan data tinggi.",
+    icon: "/vendors/claude.png",
   },
   {
-    name: "IDE (Codex Plugin)",
-    desc: "Cocok untuk eksekusi workflow developer (auto-generate Markdown Audit Report & SOP) langsung di dalam Cursor / VSCode.",
-    img: "/vendors/codex.png",
+    name: "IDE & AI Agents (Codex)",
+    badge: "Workflow Otomatis",
+    desc: "Eksekusi SOP marketing & audit report langsung di dalam workspace IDE Cursor atau VSCode secara terstruktur.",
+    icon: "/vendors/codex.png",
+  },
+];
+
+const faqs = [
+  {
+    q: "Ini prompt biasa atau aplikasi?",
+    a: "Mita adalah CustomGPT cerdas yang sudah dibekali 11 knowledge base playbook Meta Ads. Anda tinggal klik link dan langsung bisa berdiskusi di dalam akun ChatGPT Anda.",
+  },
+  {
+    q: "Bedanya paket Mita Only (87k) dan Bundle 17 Spesialis (128k)?",
+    a: "Paket 87k hanya mencakup Mita (Spesialis Meta Ads). Paket 128k memberikan Mita PLUS 16 AI Spesialis lainnya (Copywriting, Desain, Website, Pajak, Keuangan, SEO, dsb).",
+  },
+  {
+    q: "Apakah Mita bisa mengoperasikan Ads Manager saya secara otomatis?",
+    a: "Tidak. Mita adalah asisten konsultan strategi. Anda memberikan data/screenshot metrik atau brief, lalu Mita memberikan analisa, copy, dan arahan tindakan yang harus Anda lakukan.",
+  },
+  {
+    q: "Apakah harus pakai akun ChatGPT Plus yang berbayar?",
+    a: "Tidak harus! CustomGPT Mita dirancang agar dapat digunakan baik pada akun ChatGPT Free maupun ChatGPT Plus.",
+  },
+  {
+    q: "Bagaimana jika saya masih pemula di Meta Ads?",
+    a: "Mita sangat ramah pemula. Mita akan memandu Anda mulai dari memilih struktur campaign, merancang angle penawaran, hingga membaca metrik iklan tanpa istilah rumit yang membingungkan.",
+  },
+  {
+    q: "Apakah ada garansi jika tidak cocok?",
+    a: "Kami menyediakan garansi 7 hari uang kembali 100% jika Anda sudah mencoba berkonsultasi dengan Mita dan merasa saran yang diberikan tidak sesuai dengan klaim di halaman ini.",
   },
 ];
 ---
 
-<Layout title="Mita | Meta Ads Consultant untuk Bisnis Indonesia">
-  <style>
-    @keyframes rotate {
-      to {
-        --angle: 360deg;
-      }
-    }
-    @property --angle {
-      syntax: "<angle>";
-      initial-value: 0deg;
-      inherits: false;
-    }
-    .mita-glassy-border {
-      position: relative;
-      background: transparent !important;
-      z-index: 1;
-    }
-    .mita-glassy-border::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border-radius: inherit;
-      padding: 2px;
-      background: linear-gradient(
-        var(--angle, 0deg),
-        rgba(255, 255, 255, 0.05),
-        rgba(1, 100, 224, 0.4),
-        /* Mita blue #0164e0 */ rgba(255, 255, 255, 0.1),
-        rgba(1, 100, 224, 0.2)
-      );
-      -webkit-mask:
-        linear-gradient(#fff 0 0) content-box,
-        linear-gradient(#fff 0 0);
-      -webkit-mask-composite: xor;
-      mask-composite: exclude;
-      pointer-events: none;
-      z-index: 0;
-      animation: rotate 8s linear infinite;
-    }
-  </style>
+<SalesLayout
+  title="Mita — AI Konsultan Meta Ads & Funnel untuk Bisnis Indonesia"
+  description="AI Spesialis Meta Ads yang tau kapan iklan harus dimatikan, kapan harus di-scale. Evaluasi funnel, audit adset boncos dalam 5 menit, dan kalkulator ROAS."
+>
+  <main class="specialist-page mita-theme">
+    <!-- Hero Section -->
+    <section class="hero-card" aria-labelledby="mita-title">
+      <div class="hero-ambient-glow"></div>
+      <div class="card-glass-shine"></div>
 
-  <!-- Hero Section -->
-  <section
-    class="relative min-h-screen flex items-center justify-center px-6 py-10 md:py-16 overflow-hidden"
-  >
-    <div
-      class="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-white to-sky-50/50 dark:from-gray-900 dark:via-black dark:to-gray-900"
-    >
-    </div>
-    <div
-      class="absolute top-20 left-10 w-64 h-64 bg-blue-500/10 rounded-full blur-[100px] animate-pulse-slow"
-    >
-    </div>
-    <div
-      class="absolute bottom-20 right-10 w-80 h-80 bg-blue-400/5 rounded-full blur-[120px] animate-float"
-    >
-    </div>
-
-    <div class="relative z-10 max-w-4xl mx-auto text-center mt-12 md:mt-0">
-      <div
-        class="inline-flex items-center gap-2 px-2 py-1 rounded-full bg-black/5 dark:bg-white/5 backdrop-blur-sm border border-black/10 dark:border-white/10 mb-4"
-      >
-        <span class="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></span>
-        <span class="text-sm text-gray-600 dark:text-gray-300"
-          >Mita by AIPEDIA</span
-        >
-      </div>
-
-      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-        Iklan Boncos Terus? <br />
-        <span
-          class="bg-gradient-to-r from-blue-500 to-blue-700 bg-clip-text text-transparent"
-          >Biar Mita yang Auditin 5 Menit.</span
-        >
-      </h1>
-
-      <p
-        class="text-base md:text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto"
-      >
-        AI Spesialis Meta Ads yang tau kapan iklan harus dimatikan, kapan harus
-        di-scale.
-      </p>
-
-      <div class="max-w-xl w-full mx-auto mb-8">
-        <div
-          class="mita-glassy-border p-[2px] rounded-xl bg-gradient-to-r from-black/10 via-black/5 to-blue-500/30 dark:from-white/30 dark:via-white/10 dark:to-blue-500/30"
-        >
-          <div
-            class="w-full rounded-xl bg-gradient-to-b from-white/50 to-white/10 dark:from-black/50 dark:to-black/10 backdrop-blur-sm p-8 flex justify-center items-center"
-          >
-            <img
-              src="/character/mita.png"
-              alt="Mita - Spesialis Iklan Boncos"
-              class="h-64 md:h-80 object-contain drop-shadow-2xl"
-              loading="lazy"
-            />
-          </div>
+      <div class="hero-left">
+        <div class="hero-badge">
+          <span class="badge-dot"></span>
+          <span>Mita by AIPEDIA</span>
         </div>
-      </div>
 
-      <div
-        class="flex flex-col sm:flex-row gap-3 justify-center items-center mb-12"
-      >
-        <a
-          href="#pricing"
-          class="btn-cta group inline-flex items-center gap-2 px-6 py-3 font-medium rounded-xl"
-          onclick="if(typeof fbq !== 'undefined') fbq('track', 'ViewContent');"
-        >
-          Dapatkan Mita Sekarang
-        </a>
-        <a
-          href="#demo"
-          class="inline-flex items-center gap-2 px-6 py-3 bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 text-gray-900 dark:text-white font-medium rounded-lg border border-black/10 dark:border-white/20 hover:border-black/20 dark:hover:border-white/30 transition-all duration-200 backdrop-blur-sm hover:border-blue-500/30"
-        >
-          Lihat Demo
-        </a>
-      </div>
-    </div>
-  </section>
+        <h1 id="mita-title" class="hero-title">
+          Iklan Boncos Terus? <br />
+          <span class="highlight-text">Biar Mita yang Auditin 5 Menit.</span>
+        </h1>
 
-  <!-- Problem Section -->
-  <section class="py-12 md:py-16 px-6 relative overflow-hidden">
-    <div
-      class="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-white to-sky-50/50 dark:from-gray-900 dark:via-black dark:to-gray-900 opacity-50"
-    >
-    </div>
-    <div class="relative z-10 max-w-5xl mx-auto">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl md:text-4xl font-bold mb-6">
-          Iklan Meta Anda
-          <span
-            class="bg-gradient-to-r from-blue-500 to-blue-700 bg-clip-text text-transparent"
-            >Sering Boncos?</span
-          >
-        </h2>
-      </div>
+        <p class="hero-desc">
+          AI Spesialis Meta Ads yang tau kapan iklan harus dimatikan, kapan harus di-scale. Dilatih khusus dengan 11 playbook optimasi pasar Indonesia.
+        </p>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div
-          class="group p-6 rounded-xl bg-white/60 dark:bg-white/5 backdrop-blur-sm border border-red-200 dark:border-red-900/30 transition-all duration-300"
-        >
-          <div
-            class="mb-3 p-2 bg-blue-100 dark:bg-blue-900/30 text-blue-600 rounded-lg inline-block"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="28"
-              height="28"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              ><rect width="20" height="12" x="2" y="6" rx="2"></rect><circle
-                cx="12"
-                cy="12"
-                r="2"></circle><path d="M6 12h.01M18 12h.01"></path></svg
-            >
-          </div>
-          <h3 class="text-xl font-bold mb-3 text-gray-900 dark:text-white">
-            Spend 500rb gak ada yang beli
-          </h3>
-          <p class="text-sm text-gray-600 dark:text-gray-400">
-            Sudah bakar budget harian tapi konversi nihil. Margin keuntungan
-            habis hanya untuk bayar traffic.
-          </p>
+        <div class="feature-pills">
+          <span class="pill">✓ Audit Metrik Ads Manager</span>
+          <span class="pill">✓ 3 Angle Iklan & Copywriting</span>
+          <span class="pill">✓ Kalkulator Budget & ROAS</span>
         </div>
-        <div
-          class="group p-6 rounded-xl bg-white/60 dark:bg-white/5 backdrop-blur-sm border border-red-200 dark:border-red-900/30 transition-all duration-300"
-        >
-          <div
-            class="mb-3 p-2 bg-blue-100 dark:bg-blue-900/30 text-blue-600 rounded-lg inline-block"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="28"
-              height="28"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              ><polyline points="22 17 13.5 8.5 8.5 13.5 2 7"
-              ></polyline><polyline points="16 17 22 17 22 11"></polyline></svg
-            >
-          </div>
-          <h3 class="text-xl font-bold mb-3 text-gray-900 dark:text-white">
-            CTR bagus tapi gak closing
-          </h3>
-          <p class="text-sm text-gray-600 dark:text-gray-400">
-            Banyak yang klik iklan Anda, tapi saat masuk ke landing page atau
-            chat, tidak ada yang membeli.
-          </p>
+
+        <div class="hero-actions">
+          <a href="#pricing" class="btn-primary-mita">
+            <span>Dapatkan Mita Sekarang →</span>
+          </a>
+          <a href="#capabilities" class="btn-secondary-mita">
+            <span>Lihat Kemampuan Mita</span>
+          </a>
         </div>
-        <div
-          class="group p-6 rounded-xl bg-white/60 dark:bg-white/5 backdrop-blur-sm border border-red-200 dark:border-red-900/30 transition-all duration-300"
-        >
-          <div
-            class="mb-3 p-2 bg-blue-100 dark:bg-blue-900/30 text-blue-600 rounded-lg inline-block"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="28"
-              height="28"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              ><path
-                d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"
-              ></path><path d="M12 9v4"></path><path d="M12 17h.01"></path></svg
-            >
-          </div>
-          <h3 class="text-xl font-bold mb-3 text-gray-900 dark:text-white">
-            Takut scale, takut boncos
-          </h3>
-          <p class="text-sm text-gray-600 dark:text-gray-400">
-            Saat iklan sedang bagus, Anda ragu untuk menaikkan budget karena
-            takut algoritma rusak.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- Demo Section -->
-  <section id="demo" class="py-12 md:py-16 px-6 relative overflow-hidden">
-    <div
-      class="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-white to-sky-50/50 dark:from-gray-900 dark:via-black dark:to-gray-900"
-    >
-    </div>
-    <div class="relative z-10 max-w-4xl mx-auto text-center">
-      <h2 class="text-3xl md:text-4xl font-bold mb-6">
-        Intip Bagaimana
-        <span
-          class="bg-gradient-to-r from-blue-500 to-blue-700 bg-clip-text text-transparent"
-          >Mita Beraksi</span
-        >
-      </h2>
-      <p class="text-base text-gray-600 dark:text-gray-400 mb-8">
-        Chat: "Mita, audit adset ini..."
-      </p>
-      <div
-        class="mita-glassy-border p-[2px] rounded-xl bg-gradient-to-r from-black/10 via-black/5 to-blue-500/30 dark:from-white/30 dark:via-white/10 dark:to-blue-500/30"
-      >
-        <video
-          controls
-          class="w-full object-cover rounded-xl bg-black block"
-          poster="https://placehold.co/1200x675/000000/ffffff?text=Video:+Mita+Audit+Demo"
-        >
-          <source src="/demo/mita-audit.mp4" type="video/mp4" />
-          Browser Anda tidak mendukung video tag.
-        </video>
-      </div>
-    </div>
-  </section>
-
-  <!-- Features Grid -->
-  <section id="features" class="py-12 md:py-16 px-6 relative overflow-hidden">
-    <div
-      class="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-white to-sky-50/50 dark:from-gray-900 dark:via-black dark:to-gray-900 opacity-50"
-    >
-    </div>
-    <div class="relative z-10 max-w-5xl mx-auto">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl md:text-4xl font-bold mb-6">
-          Kemampuan
-          <span
-            class="bg-gradient-to-r from-blue-500 to-blue-700 bg-clip-text text-transparent"
-            >Spesialis Mita</span
-          >
-        </h2>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-        {
-          features.map((feat, i) => (
-            <div class="group p-6 rounded-xl bg-white/60 dark:bg-white/5 backdrop-blur-sm border border-gray-200 dark:border-white/10 hover:border-blue-500/30 transition-all duration-300">
-              <div class="flex items-center gap-4 mb-3">
-                <div class="w-10 h-10 rounded-lg flex items-center justify-center border border-blue-300 dark:border-blue-500/30 bg-blue-50 dark:bg-blue-500/10 text-blue-600 font-bold">
-                  {i + 1}
-                </div>
-                <h3 class="text-xl font-bold">{feat.title}</h3>
-              </div>
-              <p class="text-sm text-gray-600 dark:text-gray-400">
-                {feat.desc}
-              </p>
-              {feat.image && (
-                <details class="mt-4 group/accordion">
-                  <summary class="cursor-pointer text-xs font-semibold text-blue-600 dark:text-blue-400 hover:text-blue-700 select-none list-none flex items-center gap-1">
-                    <span class="group-open/accordion:rotate-90 transition-transform">
-                      ▶
-                    </span>{" "}
-                    Lihat Bukti & Contoh
-                  </summary>
-                  <div class="mt-3 rounded-lg overflow-hidden border border-gray-200 dark:border-white/10 shadow-sm">
-                    <img
-                      src={feat.image}
-                      alt={feat.title}
-                      class="w-full object-cover"
-                      loading="lazy"
-                    />
-                  </div>
-                </details>
-              )}
-            </div>
-          ))
-        }
-      </div>
-    </div>
-  </section>
-
-  <!-- Multi-Platform Section -->
-  <section class="py-12 md:py-16 px-6 relative overflow-hidden">
-    <div
-      class="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-white to-sky-50/50 dark:from-gray-900 dark:via-black dark:to-gray-900 opacity-50"
-    >
-    </div>
-    <div class="relative z-10 max-w-5xl mx-auto">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl md:text-4xl font-bold mb-4">
-          Tersedia di
-          <span
-            class="bg-gradient-to-r from-blue-500 to-blue-700 bg-clip-text text-transparent"
-            >Platform Favorit Anda</span
-          >
-        </h2>
-        <p class="text-base text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-          Tidak perlu install aplikasi baru. Mita langsung terintegrasi di
-          ekosistem AI yang sudah Anda pakai sehari-hari.
+        <p class="disclaimer-text">
+          *Dirancang untuk advertiser, pemilik toko online, UMKM, dan digital marketer Indonesia.
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-        {
-          platforms.map((platform) => (
-            <div class="p-8 rounded-2xl bg-white/80 dark:bg-white/5 backdrop-blur-sm border border-gray-200 dark:border-white/10 hover:border-blue-500/30 transition-all duration-300 group">
-              <div class="flex items-center gap-4 mb-4">
-                <img
-                  src={platform.img}
-                  alt={platform.name}
-                  class="w-10 h-10 object-contain group-hover:scale-105 transition-transform"
-                />
-                <h3 class="text-xl font-bold">{platform.name}</h3>
-              </div>
-              <p class="text-sm text-gray-600 dark:text-gray-400">
-                {platform.desc}
-              </p>
-            </div>
-          ))
-        }
-      </div>
-    </div>
-  </section>
-
-  <!-- Pricing Section -->
-  <section id="pricing" class="py-12 md:py-16 px-6 relative overflow-hidden">
-    <div
-      class="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-white to-sky-50/50 dark:from-gray-900 dark:via-black dark:to-gray-900"
-    >
-    </div>
-    <div class="relative z-10 max-w-4xl mx-auto text-center">
-      <h2 class="text-3xl md:text-4xl font-bold mb-10">
-        Pilih Paket Spesialis Anda
-      </h2>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
-        <!-- Mita Only -->
-        <div
-          class="p-8 rounded-2xl bg-white/60 dark:bg-white/5 backdrop-blur-sm border border-gray-200 dark:border-white/10 flex flex-col"
-        >
-          <h3 class="text-2xl font-bold mb-2">{pricing[0].name}</h3>
-          <p class="text-sm text-gray-500 mb-1">
-            Hanya akses AI CustomGPT Mita
-          </p>
-          <p class="text-sm text-gray-400 mb-4">
-            Tanpa akses 16 specialist lain.
-          </p>
-          <div class="text-5xl font-bold mb-8 text-gray-900 dark:text-white">
-            Rp {pricing[0].price}
+      <!-- Hero Visual -->
+      <div class="hero-right">
+        <div class="avatar-glass-card">
+          <div class="avatar-ambient-glow"></div>
+          <div class="avatar-glass-shine"></div>
+          <img
+            src="/character/mita.png"
+            alt="Mita - Spesialis Meta Ads & Funnel"
+            class="avatar-large"
+            loading="eager"
+            onerror="this.style.display='none'"
+          />
+          <div class="avatar-tag">
+            <strong>MITA</strong>
+            <span>Meta Ads & Funnel Specialist</span>
           </div>
-
-          <ul class="text-left space-y-4 mb-8 flex-1">
-            {
-              pricing[0].features.map((f) => (
-                <li class="flex items-start gap-3">
-                  <span class="text-blue-500 font-bold mt-0.5">✓</span>
-                  <span class="text-sm text-gray-700 dark:text-gray-300">
-                    {f}
-                  </span>
-                </li>
-              ))
-            }
-          </ul>
-
-          <a
-            href={pricing[0].url}
-            class="inline-flex items-center justify-center w-full px-6 py-4 bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 text-gray-900 dark:text-white font-medium rounded-xl border border-black/10 dark:border-white/20 transition-all duration-200 text-lg"
-            onclick="if(typeof fbq !== 'undefined') fbq('track', 'InitiateCheckout', {content_name: 'Mita Only', value: 67000, currency: 'IDR'});"
-          >
-            {pricing[0].cta}
-          </a>
-        </div>
-
-        <!-- Bundle 17 -->
-        <div
-          class="relative p-8 rounded-2xl bg-white/90 dark:bg-gray-800 backdrop-blur-sm border-2 border-blue-500 shadow-2xl shadow-blue-500/20 transform md:scale-105 flex flex-col"
-        >
-          <div
-            class="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-blue-500 to-blue-700 text-white px-4 py-1 rounded-full text-sm font-bold shadow-lg"
-          >
-            {pricing[1].badge}
-          </div>
-          <h3 class="text-2xl font-bold mb-2">{pricing[1].name}</h3>
-          <p class="text-sm text-gray-500 mb-1">
-            Termasuk Mita & 16 AI Lainnya
-          </p>
-          <p class="text-sm text-gray-400 mb-4">
-            Total Eceran: <span class="line-through"
-              >Rp {pricing[1].original_price}</span>
-          </p>
-          <div class="text-5xl font-bold text-gray-900 dark:text-white mb-8">
-            Rp {pricing[1].price}
-          </div>
-
-          <ul class="text-left space-y-4 mb-8 flex-1">
-            {
-              pricing[1].features.map((f) => (
-                <li class="flex items-start gap-3">
-                  <span class="text-blue-500 font-bold mt-0.5">✓</span>
-                  <span class="text-sm text-gray-700 dark:text-gray-300 font-medium">
-                    {f}
-                  </span>
-                </li>
-              ))
-            }
-          </ul>
-
-          <a
-            href={pricing[1].url}
-            class="btn-cta inline-flex items-center justify-center w-full px-6 py-4 font-bold rounded-xl text-lg"
-            onclick="if(typeof fbq !== 'undefined') fbq('track', 'InitiateCheckout', {content_name: 'Bundle 17 Spesialis', value: 128000, currency: 'IDR'});"
-          >
-            {pricing[1].cta}
-          </a>
-
-          <p class="text-xs text-center text-gray-500 mt-4">
-            *Tersedia bump offer: Full 17 Agent Skills (+160k) saat checkout
-          </p>
         </div>
       </div>
+    </section>
 
-      <p
-        class="mt-10 text-sm text-gray-500 dark:text-gray-400 font-medium text-center"
-      >
-        Garansi 7 Hari Uang Kembali. Gak puas? Chat Admin via WhatsApp (link di
-        email), dana direfund 100% tanpa ditanya.
-      </p>
-    </div>
-  </section>
-
-  <!-- FAQ Section -->
-  <section class="py-12 md:py-16 px-4 relative overflow-hidden">
-    <div
-      class="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-white to-sky-50/50 dark:from-gray-900 dark:via-black dark:to-gray-900 opacity-50"
-    >
-    </div>
-    <div class="relative z-10 max-w-3xl mx-auto">
-      <div class="text-center mb-10">
-        <h2 class="text-3xl font-bold mb-6">FAQ</h2>
+    <!-- Problem Section -->
+    <section class="problem-section" aria-labelledby="problem-title">
+      <div class="section-header">
+        <span class="section-kicker">PROBLEM ADVERTISER</span>
+        <h2 id="problem-title" class="section-title">Iklan Meta Anda Sering Boncos?</h2>
+        <p class="section-subtitle">Tiga penyakit utama yang bikin budget promosi habis tanpa hasil penjualan.</p>
       </div>
 
-      <div class="space-y-4">
-        {
-          faqs.map((faq) => (
-            <div class="faq-item p-4 rounded-lg bg-white/60 dark:bg-white/5 backdrop-blur-sm border border-gray-200 dark:border-white/10">
-              <button class="faq-question w-full flex justify-between items-center text-left">
-                <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
-                  {faq.q}
-                </h3>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-4 w-4 text-blue-500 transform transition-transform duration-300"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg>
-              </button>
-              <div class="faq-answer mt-2 hidden">
-                <p class="text-base text-gray-600 dark:text-gray-400">
-                  {faq.a}
-                </p>
-              </div>
+      <div class="problem-grid">
+        {problems.map((p) => (
+          <div class="problem-card">
+            <div class="card-glass-shine"></div>
+            <div class="problem-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" set:html={p.icon} />
             </div>
-          ))
-        }
+            <h3>{p.title}</h3>
+            <p>{p.desc}</p>
+          </div>
+        ))}
       </div>
-    </div>
+    </section>
 
-    <script is:inline>
-      document.addEventListener("DOMContentLoaded", () => {
-        const faqQuestions = document.querySelectorAll(".faq-question");
-        faqQuestions.forEach((question) => {
-          question.addEventListener("click", () => {
-            const answer = question.nextElementSibling;
-            const icon = question.querySelector("svg");
-            answer.classList.toggle("hidden");
-            icon.classList.toggle("rotate-180");
-          });
-        });
-      });
-    </script>
-  </section>
-</Layout>
+    <!-- Comparison Section -->
+    <ComparisonTable
+      title="Kenapa Tanya Iklan ke ChatGPT Biasa Tidak Cukup?"
+      subtitle="AI umum tidak tahu benchmark metrik di pasar lokal. Mita membawa kerangka berpikir media buyer berpengalaman."
+      genericTitle="ChatGPT Generic"
+      specialistTitle="Mita by AIPEDIA"
+      specialistBadge="BENCHMARK INDONESIA"
+      items={comparisonItems}
+    />
+
+    <!-- Capabilities Section -->
+    <section class="capabilities-section" id="capabilities" aria-labelledby="cap-title">
+      <div class="section-header">
+        <span class="section-kicker">KEMAMPUAN UTAMA</span>
+        <h2 id="cap-title" class="section-title">Kemampuan Spesialis Mita</h2>
+        <p class="section-subtitle">Sparring partner harian saat Anda mengatur campaign di Ads Manager.</p>
+      </div>
+
+      <div class="cap-grid">
+        {capabilities.map((cap, i) => (
+          <div class="cap-card">
+            <div class="card-glass-shine"></div>
+            <div class="cap-num">0{i + 1}</div>
+            <h3>{cap.title}</h3>
+            <p>{cap.desc}</p>
+
+            {cap.image && (
+              <details class="cap-accordion">
+                <summary class="cap-summary">
+                  <span>Lihat Contoh Bukti</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </summary>
+                <div class="cap-preview">
+                  <img src={cap.image} alt={cap.title} loading="lazy" />
+                </div>
+              </details>
+            )}
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Platform Compatibility -->
+    <PlatformGrid
+      title="Tersedia di Platform yang Biasa Anda Pakai"
+      subtitle="Gunakan langsung di akun ChatGPT Anda atau jalankan audit mendalam lewat Claude."
+      platforms={platforms}
+    />
+
+    <!-- Pricing Section -->
+    <SpecialistPricing
+      title="Pilih Paket Spesialis Anda"
+      subtitle="Investasi satu kali untuk menghemat jutaan rupiah budget iklan yang boncos."
+      singleName="Mita Only"
+      singlePrice="87.000"
+      singleDescription="Akses penuh ke AI CustomGPT Mita (Meta Ads Specialist)"
+      singleFeatures={[
+        "Mita CustomGPT (11 Meta Ads Knowledge Bases)",
+        "Audit metrik campaign, adset, & creative",
+        "Generator copy iklan & formula hook anti-skip",
+        "Kompatibel ChatGPT Free maupun Plus",
+      ]}
+      singleCtaText="Ambil Mita (87k)"
+      singleCtaUrl="https://myr.id/mita-only-87k"
+
+      bundleName="Bundle 17 Spesialis"
+      bundlePrice="128.000"
+      bundleOriginalPrice="348.000"
+      bundleBadge="Paling Laku"
+      bundleDescription="Dapatkan Mita + 16 AI Spesialis Lainnya (Full Bundle)"
+      bundleFeatures={[
+        "Semua fitur paket Mita Only",
+        "+ 16 AI Spesialis lainnya (Copywriting, Video, Desain, dll)",
+        "Bonus Prompt Library & SOP Marketing Bisnis",
+        "Akses seumur hidup termasuk pembaruan materi",
+      ]}
+      bundleCtaText="Ambil Bundle Paling Laku (128k)"
+      bundleCtaUrl="https://myr.id/mita-bundle-128k"
+      bundleBumpNote="*Tersedia bump offer: Full 17 Agent Skills (+160k) saat checkout untuk pemakaian di Claude & IDE."
+    />
+
+    <!-- FAQ Section -->
+    <section class="faq-section" aria-labelledby="mita-faq-title">
+      <div class="section-header">
+        <span class="section-kicker">TANYA JAWAB</span>
+        <h2 id="mita-faq-title" class="section-title">Pertanyaan Seputar Mita</h2>
+      </div>
+
+      <div class="faq-container">
+        {faqs.map((f) => (
+          <FaqItem q={f.q} a={f.a} />
+        ))}
+      </div>
+    </section>
+
+    <!-- Bottom Action Box -->
+    <section class="closing-box">
+      <div class="closing-ambient-glow"></div>
+      <div class="closing-inner">
+        <h2>Stop Buang Budget Iklan Tanpa Arah</h2>
+        <p>Ajak Mita mengaudit campaign Anda hari ini dan temukan kebocoran funnel bisnismu.</p>
+        <a href="#pricing" class="btn-primary-mita">
+          <span>Ambil Mita Sekarang (Rp 87k) →</span>
+        </a>
+      </div>
+    </section>
+  </main>
+</SalesLayout>
+
+<style>
+  .specialist-page {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 24px 20px 80px;
+  }
+
+  /* Hero Card */
+  .hero-card {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    align-items: center;
+    gap: 40px;
+    padding: clamp(36px, 5.5vw, 60px);
+    border-radius: 30px;
+    background:
+      radial-gradient(circle at 10% 20%, rgba(0, 113, 227, 0.09), transparent 45%),
+      radial-gradient(circle at 90% 80%, rgba(14, 165, 233, 0.12), transparent 45%),
+      linear-gradient(180deg, #ffffff 0%, #f7faff 100%);
+    border: 1px solid rgba(0, 113, 227, 0.16);
+    box-shadow:
+      0 20px 48px rgba(0, 113, 227, 0.06),
+      inset 0 1.5px 0.5px #fff;
+    backdrop-filter: blur(24px);
+    margin-bottom: 52px;
+    overflow: hidden;
+  }
+
+  @media (max-width: 860px) {
+    .hero-card {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+  }
+
+  .hero-ambient-glow {
+    position: absolute;
+    top: -60px;
+    left: 20%;
+    width: 380px;
+    height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(ellipse, rgba(0, 113, 227, 0.16) 0%, rgba(14, 165, 233, 0.1) 50%, transparent 70%);
+    filter: blur(35px);
+    pointer-events: none;
+  }
+
+  .card-glass-shine {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 40%;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.65) 0%, rgba(255, 255, 255, 0) 100%);
+    pointer-events: none;
+  }
+
+  .hero-left {
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 15px;
+    border-radius: 999px;
+    background: rgba(0, 113, 227, 0.08);
+    border: 1px solid rgba(0, 113, 227, 0.22);
+    color: #0062c4;
+    font-size: 0.72rem;
+    font-weight: 750;
+    letter-spacing: 0.06em;
+    margin-bottom: 18px;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  }
+
+  .badge-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #0071e3;
+    box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.25);
+    animation: mita-pulse 2.2s infinite;
+  }
+
+  @keyframes mita-pulse {
+    0%, 100% {
+      transform: scale(1);
+      opacity: 1;
+      box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.25);
+    }
+    50% {
+      transform: scale(1.15);
+      opacity: 0.85;
+      box-shadow: 0 0 0 6px rgba(0, 113, 227, 0.12);
+    }
+  }
+
+  .hero-title {
+    font-size: clamp(2rem, 4.4vw, 3.25rem);
+    font-weight: 800;
+    color: var(--color-label, #1d1d1f);
+    line-height: 1.12;
+    letter-spacing: -0.035em;
+    margin: 0 0 16px;
+  }
+
+  .highlight-text {
+    background: linear-gradient(135deg, #0071e3 0%, #0284c7 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .hero-desc {
+    font-size: 1rem;
+    color: var(--color-secondary-label, #6e6e73);
+    line-height: 1.65;
+    margin: 0 0 24px;
+    max-width: 520px;
+  }
+
+  @media (max-width: 860px) {
+    .hero-desc {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  .feature-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 28px;
+  }
+
+  @media (max-width: 860px) {
+    .feature-pills {
+      justify-content: center;
+    }
+  }
+
+  .pill {
+    font-size: 0.75rem;
+    font-weight: 650;
+    color: #0369a1;
+    background: rgba(2, 132, 199, 0.08);
+    border: 1px solid rgba(2, 132, 199, 0.2);
+    padding: 5px 13px;
+    border-radius: 999px;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 18px;
+  }
+
+  @media (max-width: 860px) {
+    .hero-actions {
+      justify-content: center;
+    }
+  }
+
+  .btn-primary-mita {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 13px 26px;
+    border-radius: 999px;
+    font-size: 0.92rem;
+    font-weight: 750;
+    text-decoration: none;
+    background: linear-gradient(180deg, #2b8bf5 0%, #0077ed 44%, #005bb5 100%);
+    color: #fff;
+    box-shadow:
+      0 4px 14px rgba(0, 113, 227, 0.35),
+      inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    transition: transform 0.22s, box-shadow 0.22s, opacity 0.2s;
+  }
+
+  .btn-primary-mita:hover {
+    transform: translateY(-1.5px);
+    box-shadow:
+      0 8px 20px rgba(0, 113, 227, 0.45),
+      inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    opacity: 0.98;
+  }
+
+  .btn-secondary-mita {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 13px 22px;
+    border-radius: 999px;
+    font-size: 0.92rem;
+    font-weight: 650;
+    text-decoration: none;
+    background: #fff;
+    color: #1d1d1f;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04), inset 0 1px 0 #fff;
+    transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+  }
+
+  .btn-secondary-mita:hover {
+    transform: translateY(-1px);
+    border-color: rgba(0, 113, 227, 0.35);
+    box-shadow: 0 4px 12px rgba(0, 113, 227, 0.08);
+  }
+
+  .disclaimer-text {
+    font-size: 0.72rem;
+    color: #94a3b8;
+    margin: 0;
+  }
+
+  /* Avatar Card */
+  .hero-right {
+    position: relative;
+    z-index: 1;
+  }
+
+  .avatar-glass-card {
+    position: relative;
+    padding: 34px 26px;
+    border-radius: 26px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.85) 0%, rgba(240, 247, 255, 0.7) 100%);
+    border: 1.5px solid rgba(0, 113, 227, 0.22);
+    box-shadow:
+      0 14px 36px rgba(0, 113, 227, 0.1),
+      inset 0 1.5px 0 #fff;
+    backdrop-filter: blur(16px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .avatar-ambient-glow {
+    position: absolute;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0, 113, 227, 0.25) 0%, transparent 70%);
+    filter: blur(22px);
+    pointer-events: none;
+  }
+
+  .avatar-glass-shine {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 48%;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0) 100%);
+    pointer-events: none;
+  }
+
+  .avatar-large {
+    position: relative;
+    height: 220px;
+    object-fit: contain;
+    filter: drop-shadow(0 12px 20px rgba(0, 0, 0, 0.12));
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .avatar-large:hover {
+    transform: scale(1.04);
+  }
+
+  .avatar-tag {
+    position: relative;
+    margin-top: 16px;
+    text-align: center;
+  }
+
+  .avatar-tag strong {
+    display: block;
+    font-size: 1.15rem;
+    font-weight: 750;
+    color: var(--color-label, #1d1d1f);
+  }
+
+  .avatar-tag span {
+    font-size: 0.75rem;
+    color: #0071e3;
+    font-weight: 650;
+  }
+
+  /* Section Header */
+  .section-header {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 36px;
+  }
+
+  .section-kicker {
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 750;
+    letter-spacing: 0.08em;
+    color: #0369a1;
+    background: rgba(2, 132, 199, 0.08);
+    border: 1px solid rgba(2, 132, 199, 0.2);
+    padding: 4px 11px;
+    border-radius: 999px;
+    margin-bottom: 12px;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  }
+
+  .section-title {
+    font-size: clamp(1.6rem, 3.2vw, 2.3rem);
+    font-weight: 750;
+    color: var(--color-label, #1d1d1f);
+    margin: 0 0 10px;
+    letter-spacing: -0.03em;
+  }
+
+  .section-subtitle {
+    font-size: 0.94rem;
+    color: var(--color-secondary-label, #6e6e73);
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  /* Problem Cards */
+  .problem-section {
+    margin: 56px 0;
+  }
+
+  .problem-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+
+  .problem-card {
+    position: relative;
+    padding: 28px 24px;
+    border-radius: 20px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 255, 0.85) 100%);
+    border: 1px solid rgba(0, 113, 227, 0.14);
+    box-shadow:
+      0 4px 20px rgba(0, 0, 0, 0.03),
+      inset 0 1.5px 0.5px #fff;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s;
+    overflow: hidden;
+  }
+
+  .problem-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(0, 113, 227, 0.32);
+    box-shadow:
+      0 16px 36px rgba(0, 113, 227, 0.08),
+      inset 0 1.5px 0 #fff;
+  }
+
+  .problem-icon {
+    position: relative;
+    z-index: 1;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: rgba(0, 113, 227, 0.1);
+    color: #0071e3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+    border: 1px solid rgba(0, 113, 227, 0.15);
+  }
+
+  .problem-card h3 {
+    position: relative;
+    z-index: 1;
+    margin: 0 0 8px;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--color-label, #1d1d1f);
+  }
+
+  .problem-card p {
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--color-secondary-label, #6e6e73);
+    line-height: 1.55;
+  }
+
+  /* Capabilities Grid */
+  .capabilities-section {
+    margin: 56px 0;
+  }
+
+  .cap-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+    gap: 20px;
+  }
+
+  .cap-card {
+    position: relative;
+    padding: 26px 24px;
+    border-radius: 20px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(250, 251, 254, 0.88) 100%);
+    border: 1px solid rgba(0, 0, 0, 0.07);
+    box-shadow:
+      0 4px 18px rgba(0, 0, 0, 0.03),
+      inset 0 1.5px 0.5px #fff;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s;
+    overflow: hidden;
+  }
+
+  .cap-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(0, 113, 227, 0.28);
+    box-shadow:
+      0 16px 36px rgba(17, 24, 39, 0.07),
+      inset 0 1.5px 0 #fff;
+  }
+
+  .cap-num {
+    position: relative;
+    z-index: 1;
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: #0071e3;
+    background: rgba(0, 113, 227, 0.08);
+    border: 1px solid rgba(0, 113, 227, 0.15);
+    padding: 3px 9px;
+    border-radius: 6px;
+    width: fit-content;
+    margin-bottom: 14px;
+  }
+
+  .cap-card h3 {
+    position: relative;
+    z-index: 1;
+    margin: 0 0 8px;
+    font-size: 1.12rem;
+    font-weight: 700;
+    color: var(--color-label, #1d1d1f);
+  }
+
+  .cap-card p {
+    position: relative;
+    z-index: 1;
+    margin: 0 0 16px;
+    font-size: 0.84rem;
+    color: var(--color-secondary-label, #6e6e73);
+    line-height: 1.55;
+    flex-grow: 1;
+  }
+
+  .cap-accordion {
+    position: relative;
+    z-index: 1;
+    margin-top: auto;
+  }
+
+  .cap-summary {
+    cursor: pointer;
+    font-size: 0.75rem;
+    font-weight: 650;
+    color: #0071e3;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    list-style: none;
+    user-select: none;
+    transition: color 0.15s;
+  }
+
+  .cap-summary:hover {
+    color: #005bb5;
+  }
+
+  .cap-summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .cap-accordion[open] .cap-summary svg {
+    transform: rotate(180deg);
+  }
+
+  .cap-preview {
+    margin-top: 12px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  }
+
+  .cap-preview img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* FAQ Section */
+  .faq-section {
+    margin: 56px 0;
+  }
+
+  .faq-container {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+
+  /* Closing Box */
+  .closing-box {
+    position: relative;
+    margin-top: 64px;
+    padding: clamp(48px, 6vw, 64px) 24px;
+    border-radius: 28px;
+    text-align: center;
+    background:
+      radial-gradient(circle at 10% 90%, rgba(0, 113, 227, 0.22), transparent 45%),
+      radial-gradient(circle at 90% 10%, rgba(2, 132, 199, 0.2), transparent 45%),
+      linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    color: #fff;
+    box-shadow:
+      0 20px 48px rgba(15, 23, 42, 0.15),
+      inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    overflow: hidden;
+  }
+
+  .closing-ambient-glow {
+    position: absolute;
+    top: -80px;
+    left: 30%;
+    width: 400px;
+    height: 200px;
+    background: radial-gradient(ellipse, rgba(0, 113, 227, 0.35) 0%, transparent 70%);
+    filter: blur(40px);
+    pointer-events: none;
+  }
+
+  .closing-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  .closing-box h2 {
+    font-size: clamp(1.6rem, 3.2vw, 2.3rem);
+    font-weight: 750;
+    color: #fff;
+    margin: 0 0 12px;
+    letter-spacing: -0.03em;
+  }
+
+  .closing-box p {
+    font-size: 0.95rem;
+    color: #cbd5e1;
+    margin: 0 0 28px;
+    line-height: 1.6;
+  }
+</style>

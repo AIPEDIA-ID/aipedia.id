@@ -1,0 +1,304 @@
+---
+import "../styles/tokens.css";
+import Sidebar from "../components/sidebar/Sidebar.astro";
+import BrandLogo from "../components/BrandLogo.astro";
+import Icon from "../components/Icon.astro";
+import { getCurrentUser } from "../lib/data";
+
+interface Props {
+  title?: string;
+  description?: string;
+  activeNav?: string;
+  user?: any;
+}
+
+const {
+  title = "AIPEDIA",
+  description = "Belajar dan terapkan AI untuk bisnis Anda.",
+  activeNav = "",
+  user: userProp,
+} = Astro.props;
+
+const user = userProp !== undefined ? userProp : await getCurrentUser(Astro.cookies);
+const mobileTabs = [
+  { label: "Dashboard", href: "/app/dashboard", key: "dashboard", icon: "home" },
+  { label: "Koleksi", href: "/app/my-library", key: "my-library", icon: "layers" },
+  { label: "Vault", href: "/app/library", key: "library", icon: "library" },
+  { label: user ? "Akun" : "Masuk", href: user ? "/app/account" : "/login", key: "account", icon: "user" },
+];
+
+function isMobileTabActive(key: string): boolean {
+  if (key === "library") return !["dashboard", "my-library", "account", "akun"].includes(activeNav);
+  if (key === "my-library") return activeNav === "my-library";
+  if (key === "account") return activeNav === "account" || activeNav === "akun";
+  return activeNav === key;
+}
+---
+
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+  </head>
+  <body class="bg-[var(--color-background)] text-[var(--color-label)] antialiased font-sans">
+    <div class="dashboard-shell flex h-screen overflow-hidden">
+      <!-- Desktop Sidebar (macOS style inset card) -->
+      <aside id="dashboard-desktop-sidebar" class="dashboard-desktop-sidebar hidden md:flex shrink-0 p-3 h-full">
+        <Sidebar activeNav={activeNav} user={user} />
+      </aside>
+
+      <!-- Mobile Overlay Sidebar -->
+      <div id="mobile-sidebar-overlay" class="mobile-sidebar-overlay fixed inset-0 z-50 md:hidden hidden" aria-hidden="true">
+        <div id="sidebar-backdrop" class="mobile-sidebar-backdrop absolute inset-0 transition-opacity" aria-hidden="true"></div>
+        <div class="mobile-sidebar-panel relative z-10 m-3 h-[calc(100dvh-24px)]" role="dialog" aria-modal="true" aria-label="Menu navigasi">
+          <Sidebar activeNav={activeNav} mobile={true} user={user} />
+        </div>
+      </div>
+
+      <!-- Main Content Area -->
+      <div class="flex-1 flex flex-col min-w-0 overflow-hidden">
+        <!-- Mobile Header Bar (Apple Floating Island Glass) -->
+        <header class="mobile-dashboard-header md:hidden p-3 shrink-0">
+          <div class="mobile-nav-island flex items-center justify-between px-4 py-2.5 rounded-full">
+            <div class="flex items-center gap-2.5">
+              <button
+                id="mobile-menu-btn"
+                type="button"
+                aria-label="Buka menu navigasi"
+                aria-controls="mobile-sidebar-overlay"
+                aria-expanded="false"
+                class="mobile-menu-trigger text-[var(--color-secondary-label)] hover:text-[var(--color-label)] p-2 rounded-xl hover:bg-[var(--color-sidebar-accent)] transition-colors"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="3" y1="12" x2="21" y2="12"></line>
+                  <line x1="3" y1="6" x2="21" y2="6"></line>
+                  <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+              </button>
+              <BrandLogo size="sm" />
+            </div>
+
+            <a
+              href={user ? "/app/account" : "/login"}
+              class="btn-secondary-sm py-1 px-3 text-xs"
+            >
+              <Icon name="user" size={13} />
+              <span>{user ? user.name.split(" ")[0] : "Akun"}</span>
+            </a>
+          </div>
+        </header>
+
+        <!-- Scrollable Page Content -->
+        <main class="dashboard-main flex-1 overflow-y-auto px-4 py-6 sm:px-8 sm:py-8">
+          <div class="max-w-6xl mx-auto w-full">
+            <slot />
+          </div>
+        </main>
+      </div>
+
+      <!-- Persistent mobile destinations; hamburger keeps the full category list available. -->
+      <nav class="dashboard-mobile-tabs md:hidden" aria-label="Navigasi workspace">
+        {mobileTabs.map((tab) => (
+          <a
+            href={tab.href}
+            class:list={["dashboard-mobile-tab", { active: isMobileTabActive(tab.key) }]}
+            aria-current={isMobileTabActive(tab.key) ? "page" : undefined}
+          >
+            <Icon name={tab.icon} size={20} />
+            <span>{tab.label}</span>
+          </a>
+        ))}
+      </nav>
+    </div>
+
+    <script>
+      const btn = document.getElementById("mobile-menu-btn");
+      const overlay = document.getElementById("mobile-sidebar-overlay");
+      const backdrop = document.getElementById("sidebar-backdrop");
+      const closeBtn = document.getElementById("sidebar-close-btn");
+      const panel = overlay?.querySelector<HTMLElement>(".mobile-sidebar-panel");
+      let previousBodyOverflow = "";
+      let closeTimer: number | undefined;
+
+      function closeMobileSidebar() {
+        if (!overlay || overlay.classList.contains("hidden")) return;
+        overlay.classList.remove("is-open");
+        overlay.setAttribute("aria-hidden", "true");
+        btn?.setAttribute("aria-expanded", "false");
+        document.body.style.overflow = previousBodyOverflow;
+        window.clearTimeout(closeTimer);
+        closeTimer = window.setTimeout(() => overlay.classList.add("hidden"), 180);
+        btn?.focus();
+      }
+
+      function openMobileSidebar() {
+        if (!overlay) return;
+        window.clearTimeout(closeTimer);
+        previousBodyOverflow = document.body.style.overflow;
+        overlay.classList.remove("hidden");
+        overlay.setAttribute("aria-hidden", "false");
+        btn?.setAttribute("aria-expanded", "true");
+        document.body.style.overflow = "hidden";
+        requestAnimationFrame(() => overlay.classList.add("is-open"));
+        closeBtn?.focus();
+      }
+
+      btn?.addEventListener("click", openMobileSidebar);
+      backdrop?.addEventListener("click", closeMobileSidebar);
+      closeBtn?.addEventListener("click", closeMobileSidebar);
+      panel?.addEventListener("click", (event) => {
+        if ((event.target as HTMLElement).closest("a")) closeMobileSidebar();
+      });
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") closeMobileSidebar();
+      });
+    </script>
+
+    <style>
+      @supports (height: 100dvh) {
+        .dashboard-shell {
+          height: 100dvh;
+        }
+      }
+      .mobile-sidebar-overlay {
+        background: var(--mobile-sidebar-scrim);
+      }
+
+      .mobile-sidebar-backdrop {
+        opacity: 0;
+        background: var(--mobile-sidebar-backdrop);
+        backdrop-filter: blur(4px);
+        transition: opacity var(--duration-fast) var(--ease-standard);
+      }
+
+      .mobile-sidebar-panel {
+        width: min(300px, calc(100vw - 24px));
+        opacity: 0;
+        transform: translateX(-10px);
+        transition:
+          opacity var(--duration-fast) var(--ease-standard),
+          transform var(--duration-fast) var(--ease-standard);
+      }
+
+      .mobile-sidebar-overlay.is-open .mobile-sidebar-backdrop {
+        opacity: 1;
+      }
+
+      .mobile-sidebar-overlay.is-open .mobile-sidebar-panel {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      .mobile-sidebar-panel :global(.sidebar-container) {
+        width: 100%;
+        height: 100%;
+      }
+
+      @media (min-width: 768px) and (max-width: 1023px) {
+        .dashboard-desktop-sidebar :global(.sidebar-container) {
+          width: var(--sidebar-width-tablet);
+        }
+      }
+
+      .mobile-sidebar-panel :global(.mobile-sidebar-close) {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 40px;
+        min-height: 40px;
+      }
+
+      .mobile-menu-trigger {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 40px;
+        min-height: 40px;
+      }
+
+      @media (max-width: 767px) {
+        .dashboard-main {
+          padding-right: max(16px, var(--safe-right));
+          padding-bottom: calc(var(--mobile-nav-clearance) + max(24px, var(--safe-bottom)));
+          padding-left: max(16px, var(--safe-left));
+          -webkit-overflow-scrolling: touch;
+        }
+
+        .mobile-dashboard-header {
+          padding-top: max(12px, var(--safe-top));
+          padding-right: max(12px, var(--safe-right));
+          padding-left: max(12px, var(--safe-left));
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .mobile-sidebar-backdrop,
+        .mobile-sidebar-panel {
+          transition: none;
+        }
+      }
+
+      .dashboard-mobile-tabs {
+        display: none !important;
+      }
+
+      @media (max-width: 767px) {
+        .dashboard-mobile-tabs {
+          position: fixed;
+          z-index: var(--mobile-nav-z-index);
+          inset: auto 0 0;
+          display: flex !important;
+          justify-content: space-around;
+          min-height: var(--mobile-nav-height);
+          padding-top: 7px;
+          padding-right: max(10px, var(--safe-right));
+          padding-bottom: max(7px, var(--safe-bottom));
+          padding-left: max(10px, var(--safe-left));
+          border-top: 1px solid var(--mobile-nav-border);
+          background: var(--mobile-nav-background);
+          backdrop-filter: blur(var(--glass-blur)) saturate(180%);
+          -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(180%);
+          box-shadow: var(--mobile-nav-shadow);
+        }
+      }
+
+      @media (min-width: 768px) {
+        .dashboard-mobile-tabs {
+          display: none !important;
+        }
+      }
+
+      .dashboard-mobile-tab {
+        display: flex;
+        min-width: 58px;
+        min-height: 48px;
+        flex: 1;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 3px;
+        color: var(--color-secondary-label);
+        font-size: var(--type-caption);
+        font-weight: 550;
+        line-height: 1;
+        text-decoration: none;
+      }
+
+      .dashboard-mobile-tab.active {
+        color: var(--color-tint);
+        font-weight: 700;
+      }
+
+      .dashboard-mobile-tab:focus-visible {
+        outline: 2px solid var(--color-tint);
+        outline-offset: -2px;
+        border-radius: var(--radius-sm);
+      }
+    </style>
+  </body>
+</html>

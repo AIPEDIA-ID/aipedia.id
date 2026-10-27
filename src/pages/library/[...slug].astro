@@ -1,0 +1,5 @@
+---
+export const prerender = false;
+const slug = Astro.params.slug;
+return Astro.redirect(slug ? `/app/library/${slug}` : "/app/library");
+---

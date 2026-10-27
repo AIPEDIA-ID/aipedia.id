@@ -1,24 +1,27 @@
 {
-  "name": "@example/basics",
+  "name": "aipedia",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "test": "vitest run"
   },
   "dependencies": {
-    "@astrojs/sitemap": "^3.4.2",
-    "@astrojs/tailwind": "^6.0.2",
-    "@heroicons/react": "^2.2.0",
-    "@tailwindcss/typography": "^0.5.16",
+    "@astrojs/markdown-remark": "6.3.11",
+    "@astrojs/node": "^9.0.0",
     "astro": "^5.2.5",
-    "autoprefixer": "^10.4.21",
-    "tailwindcss": "^3.4.3"
+    "drizzle-orm": "^0.45.4",
+    "postgres": "^3.4.9"
   },
   "devDependencies": {
-    "md-to-pdf": "^5.2.5"
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/node": "^26.6.5",
+    "drizzle-kit": "^0.31.11",
+    "tailwindcss": "^4.3.3",
+    "vitest": "^2.1.9"
   }
 }

@@ -1,0 +1,49 @@
+---
+interface Props {
+  q: string;
+  a?: string;
+  open?: boolean;
+  class?: string;
+}
+
+const { q, a, open = false, class: className = "" } = Astro.props;
+---
+
+<details class={`faq-item card p-4 sm:p-5 mb-3 ${className}`.trim()} open={open}>
+  <summary
+    class="faq-q font-semibold text-sm sm:text-base text-[var(--color-label)] cursor-pointer list-none flex items-center justify-between select-none"
+  >
+    <span>{q}</span>
+    <svg
+      class="faq-chevron shrink-0 ml-2 text-[var(--color-secondary-label)]"
+      width="18"
+      height="18"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M9 6l6 6-6 6"
+        stroke="currentColor"
+        stroke-width="1.8"
+        fill="none"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  </summary>
+  <div class="faq-a text-sm text-[var(--color-secondary-label)] mt-3 leading-relaxed border-t border-[var(--color-separator)] pt-3">
+    {a ? <p>{a}</p> : <slot />}
+  </div>
+</details>
+
+<style>
+  .faq-item[open] {
+    background: var(--card-gradient-hover);
+    border-color: var(--card-border-hover);
+  }
+  .faq-chevron {
+    transition: transform 0.2s cubic-bezier(0.25, 0.1, 0.25, 1);
+  }
+  .faq-item[open] .faq-chevron {
+    transform: rotate(90deg);
+  }
+</style>

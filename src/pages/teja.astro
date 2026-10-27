@@ -1,800 +1,881 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import SalesLayout from "../layouts/SalesLayout.astro";
+import ComparisonTable from "../components/ComparisonTable.astro";
+import PlatformGrid from "../components/PlatformGrid.astro";
+import SpecialistPricing from "../components/SpecialistPricing.astro";
+import FaqItem from "../components/FaqItem.astro";
 
-// Data untuk Teja x Fina Bundle
-const pricing = [
-    {
-        id: "teja_only",
-        name: "TEJA Only",
-        price: "87.000",
-        type: "custom_gpt",
-        cta: "Ambil TEJA",
-        url: "https://myr.id/teja-only-87k",
-        features: [
-            "Tanya jawab pajak unlimited via ChatGPT",
-            "Hitung PPh Final 0.5% otomatis dari omzet",
-            "Panduan Coretax sampai lapor beres",
-        ],
-    },
-    {
-        id: "bundle_teja_fina",
-        name: "Bundle TEJA (+ Bonus FINA)",
-        price: "128.000",
-        original_price: "348.000",
-        badge: "Best Value",
-        is_hero: true,
-        cta: "Ambil Bundle (Lebih Hemat)",
-        url: "https://myr.id/teja-fina-bundle-128k",
-        features: [
-            "Semua fitur TEJA Only",
-            "+ AI FINA (Finance Specialist)",
-            "+ 15 Spesialis lain (CustomGPT Only)",
-            "Template Excel SOP Keuangan",
-        ],
-    },
+const problems = [
+  {
+    title: "Pusing Lapor Pajak",
+    desc: "Masih bingung cara lapor PPh Final UMKM dan SPT Tahunan? TEJA bantu jelaskan aturannya step-by-step tanpa ribet.",
+    icon: `<path d="M12 9v4M12 17h.01M21.73 18l-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z" stroke-linecap="round" stroke-linejoin="round"/>`,
+  },
+  {
+    title: "Takut Kena Denda",
+    desc: "Sering was-was dapat surat imbauan dari kantor pajak karena telat lapor atau salah hitung kewajiban pajak bulanan?",
+    icon: `<polyline points="22 17 13.5 8.5 8.5 13.5 2 7"/><polyline points="16 17 22 17 22 11"/>`,
+  },
+  {
+    title: "Konsultan Pajak Mahal",
+    desc: "Mau tanya-tanya seputar pajak bisnis UMKM tapi budget belum cukup untuk sewa konsultan pajak bulanan?",
+    icon: `<rect width="20" height="12" x="2" y="6" rx="2"/><circle cx="12" cy="12" r="2"/><path d="M6 12h.01M18 12h.01"/>`,
+  },
 ];
 
-const features = [
-    {
-        title: "Konsultasi Pajak UMKM",
-        desc: "Tanya apa saja seputar pajak UMKM, TEJA bantu jelaskan dengan bahasa yang mudah dipahami (bukan bahasa undang-undang).",
-        image: "/screenshots/1.png",
-        specialist: "TEJA",
-    },
-    {
-        title: "Panduan Lapor Pajak",
-        desc: "Dapatkan panduan step-by-step cara lapor SPT Tahunan dan Masa secara online tanpa pusing.",
-        image: "/screenshots/2.png",
-        specialist: "TEJA",
-    },
-    {
-        title: "Hitung PPh Final Otomatis",
-        desc: "Cukup berikan angka omzet, TEJA hitungkan PPh Final 0.5% secara instan untuk bisnis kamu.",
-        image: "/screenshots/3.png",
-        specialist: "TEJA",
-    },
-    {
-        title: "Simulasi Estimasi Denda Pajak",
-        desc: "Telat bayar atau lapor? TEJA bantu hitung estimasi potensi denda sesuai Pasal 7 KUP biar bisa antisipasi.",
-        image: "/screenshots/4.png",
-        specialist: "TEJA",
-    },
-    {
-        title: "Panduan Coretax DJP",
-        desc: "Bingung sistem pajak baru? TEJA pandu step-by-step cara pakai Coretax: dari aktivasi akun sampai lapor SPT online.",
-        image: "/screenshots/5.png",
-        specialist: "TEJA",
-    },
-    {
-        title: "Siap 24 Jam Kapan Saja",
-        desc: "Konsultasi pajak kapanpun kamu butuh, bahkan di malam hari saat sedang rekap pembukuan bisnis.",
-        image: "/screenshots/6.png",
-        specialist: "TEJA",
-    },
+const capabilities = [
+  {
+    title: "Konsultasi Pajak UMKM",
+    desc: "Tanya apa saja seputar pajak UMKM, TEJA bantu jelaskan dengan bahasa warung yang mudah dipahami—bukan bahasa pasal UU.",
+    image: "/screenshots/1.png",
+  },
+  {
+    title: "Panduan Lapor Pajak",
+    desc: "Dapatkan panduan step-by-step cara lapor SPT Tahunan dan SPT Masa secara online tanpa perlu datang antre di kantor pajak.",
+    image: "/screenshots/2.png",
+  },
+  {
+    title: "Hitung PPh Final Otomatis",
+    desc: "Cukup berikan total omzet bulanan Anda, TEJA hitungkan PPh Final 0.5% secara instan dan tepat untuk bisnis Anda.",
+    image: "/screenshots/3.png",
+  },
+  {
+    title: "Simulasi Estimasi Denda",
+    desc: "Telat bayar atau lapor? TEJA bantu hitung estimasi potensi sanksi sesuai Pasal 7 KUP agar Anda bisa mempersiapkan antisipasi.",
+    image: "/screenshots/4.png",
+  },
+  {
+    title: "Panduan Coretax DJP",
+    desc: "Bingung sistem perpajakan baru? TEJA pandu alur pemakaian Coretax mulai dari aktivasi akun sampai submit SPT online.",
+    image: "/screenshots/5.png",
+  },
+  {
+    title: "Siap 24 Jam Kapan Saja",
+    desc: "Konsultasi kapan pun Anda butuh, bahkan saat sedang rekap pembukuan malam hari. TEJA selalu standby tanpa hari libur.",
+    image: "/screenshots/6.png",
+  },
 ];
 
-const faqs = [
-    {
-        q: "Ini prompt atau aplikasi?",
-        a: "CustomGPT, tinggal klik di ChatGPT.",
-    },
-    {
-        q: "Bedanya 87k dan 128k?",
-        a: "87k cuma TEJA (CustomGPT+Skills TEJA), 128k dapat TEJA + FINA + 15 CustomGPT lain. Full Skills 17 Spesialis ada di bump 288k",
-    },
-    {
-        q: "Apakah data keuangan bisnis saya aman?",
-        a: "Sangat aman. Kami tidak menyimpan data atau chat Anda. Semua diproses di dalam akun ChatGPT Anda sendiri sesuai standar privasi OpenAI.",
-    },
-    {
-        q: "Apakah TEJA bisa bantu hitung pajak PT/CV?",
-        a: "Bisa banget! TEJA dirancang khusus untuk UMKM (Perorangan maupun Badan seperti CV/PT) dengan omzet di bawah 4,8 Miliar per tahun.",
-    },
-    {
-        q: "Kalau ada aturan pajak baru gimana?",
-        a: "TEJA selalu di-update secara berkala (seperti Coretax dan aturan PMK terbaru) sehingga Anda tidak perlu khawatir ketinggalan informasi.",
-    },
-    {
-        q: "Apakah bisa dipakai di HP?",
-        a: "Bisa, selama Anda menginstall aplikasi ChatGPT di HP (iOS/Android), Anda bisa konsultasi dengan TEJA kapan saja dari mana saja.",
-    },
-    {
-        q: "Apakah butuh ChatGPT Plus (berbayar)?",
-        a: "TEJA bisa digunakan di akun ChatGPT versi gratis (Free) maupun Plus. Anda tidak wajib berlangganan ChatGPT berbayar untuk menggunakannya.",
-    },
-    {
-        q: "Apakah ini sistem langganan (bayar bulanan)?",
-        a: "Tidak. Pembayaran ini hanya satu kali (sekali bayar) untuk akses selamanya, termasuk jika ada pembaruan database aturan pajak ke depannya.",
-    },
-    {
-        q: "Bagaimana cara aksesnya setelah beli?",
-        a: "Setelah pembayaran berhasil, Anda akan langsung mendapatkan email berisi link akses eksklusif ke CustomGPT TEJA beserta panduan penggunaannya.",
-    },
-    {
-        q: "Apakah TEJA bisa langsung otomatis lapor ke web DJP?",
-        a: "Tidak. TEJA bertugas sebagai asisten yang menghitung, mensimulasikan, dan memberikan panduan step-by-step. Untuk submit laporan akhir, Anda tetap harus login sendiri ke web DJP / Coretax.",
-    },
+const comparisonItems = [
+  {
+    generic: "Jawaban sering memakai acuan aturan pajak lama yang sudah tidak berlaku",
+    specialist: "Knowledge base update 2026: regulasi PMK PPh Final 0.5% & sistem Coretax terbaru",
+  },
+  {
+    generic: "Belum paham sistem alur Coretax DJP yang baru diluncurkan",
+    specialist: "Panduan teknis Coretax DJP step-by-step mulai dari login sampai lapor",
+  },
+  {
+    generic: "Menjelaskan dengan bahasa pasal undang-undang yang rumit dan bikin bingung",
+    specialist: "Menjelaskan dengan bahasa warung sehari-hari + simulasi angka omzet Anda",
+  },
+  {
+    generic: "Hitungan denda dan simulasi sanksi sering ngawur dan tidak akurat",
+    specialist: "Simulasi estimasi denda terkalibrasi sesuai ketentuan resmi Pasal 7 KUP",
+  },
 ];
 
 const platforms = [
-    {
-        name: "ChatGPT (CustomGPT)",
-        desc: "Cocok untuk konsultasi interaktif cepat, tanya-jawab urusan pajak UMKM dan hitung-hitungan cashflow via ChatGPT Free maupun Plus.",
-        img: "/vendors/chatgpt-white.png",
-    },
-    {
-        name: "Claude (Skills)",
-        desc: "Cocok untuk membaca report data Meta Ads (CSV) atau laporan laba-rugi keuangan dengan akurasi dan logika tinggi.",
-        img: "/vendors/claude.png",
-    },
+  {
+    name: "ChatGPT (CustomGPT)",
+    badge: "Free & Plus",
+    desc: "Konsultasi tanya-jawab pajak UMKM, simulasi hitungan PPh Final 0.5%, dan panduan Coretax via ChatGPT.",
+    icon: "/vendors/chatgpt-white.png",
+  },
+  {
+    name: "Claude (Skills & Logic)",
+    badge: "Analisis Laporan",
+    desc: "Unggah rekap omzet atau laporan keuangan Excel/CSV untuk dianalisis kewajiban perpajakannya secara detail.",
+    icon: "/vendors/claude.png",
+  },
+];
+
+const faqs = [
+  {
+    q: "Ini prompt atau aplikasi terpisah?",
+    a: "TEJA adalah CustomGPT yang langsung berjalan di dalam platform ChatGPT. Anda tinggal klik link yang diberikan dan langsung bisa tanya jawab tanpa instalasi aplikasi tambahan.",
+  },
+  {
+    q: "Bedanya paket 87k dan 128k?",
+    a: "Paket 87k hanya mencakup akses TEJA (Spesialis Pajak UMKM). Sedangkan paket 128k memberikan TEJA + FINA (Finance Specialist) + 15 AI Spesialis lainnya dalam ekosistem AIPEDIA.",
+  },
+  {
+    q: "Apakah data keuangan bisnis saya aman?",
+    a: "Sangat aman. Kami tidak menyimpan rekaman chat atau angka omzet Anda. Semua percakapan diproses langsung di akun ChatGPT Anda sendiri sesuai standar privasi OpenAI.",
+  },
+  {
+    q: "Apakah TEJA bisa bantu hitung pajak PT atau CV?",
+    a: "Bisa banget! TEJA dirancang khusus untuk UMKM (baik Wajib Pajak Orang Pribadi maupun Badan seperti CV/PT) dengan peredaran bruto tertentu.",
+  },
+  {
+    q: "Kalau ada pembaruan aturan pajak baru bagaimana?",
+    a: "Database TEJA diperbarui secara berkala mengikuti aturan PMK terbaru dan panduan Coretax resmi pemerintah tanpa biaya tambahan.",
+  },
+  {
+    q: "Apakah bisa dipakai di handphone?",
+    a: "Bisa! Selama Anda memiliki aplikasi ChatGPT di smartphone (iOS / Android), TEJA dapat dibuka dan diajak konsultasi kapan saja.",
+  },
+  {
+    q: "Apakah wajib langganan ChatGPT Plus (berbayar)?",
+    a: "Tidak wajib. TEJA kompatibel dan bisa langsung digunakan baik pada akun ChatGPT versi Free maupun Plus.",
+  },
+  {
+    q: "Apakah ini sistem langganan bulanan?",
+    a: "Tidak ada langganan bulanan. Anda hanya bayar satu kali untuk akses selamanya (lifetime access).",
+  },
+  {
+    q: "Apakah TEJA bisa otomatis lapor langsung ke web DJP?",
+    a: "Tidak. TEJA bertindak sebagai asisten edukasi yang menghitung, mensimulasikan, dan memandu alur lapor. Untuk submit resmi, Anda tetap login ke portal DJP / Coretax.",
+  },
 ];
 ---
 
-<Layout title="TEJA | Spesialis Pajak UMKM by AIPEDIA" theme="light">
-    <style>
-        @keyframes rotate {
-            to {
-                --angle: 360deg;
-            }
-        }
-        @property --angle {
-            syntax: "<angle>";
-            initial-value: 0deg;
-            inherits: false;
-        }
-        .teja-glassy-border {
-            position: relative;
-            background: transparent !important;
-            z-index: 1;
-        }
-        .teja-glassy-border::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            border-radius: inherit;
-            padding: 3px;
-            background: linear-gradient(
-                var(--angle, 0deg),
-                transparent,
-                #E53935,
-                transparent,
-                #FFD400
-            );
-            -webkit-mask:
-                linear-gradient(#fff 0 0) content-box,
-                linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            pointer-events: none;
-            z-index: 0;
-            animation: rotate 8s linear infinite;
-        }
-    </style>
-
+<SalesLayout
+  title="TEJA — Asisten AI Spesialis Pajak UMKM Indonesia"
+  description="AI Spesialis Pajak UMKM: hitung PPh Final 0.5% otomatis, panduan Coretax DJP step-by-step, simulasi denda, dan konsultasi 24 jam dengan bahasa santai."
+>
+  <main class="specialist-page teja-theme">
     <!-- Hero Section -->
-    <section
-        class="relative min-h-screen flex items-center justify-center px-6 py-10 md:py-16 overflow-hidden"
-    >
-        <div
-            class="absolute inset-0 bg-gradient-to-br from-red-50/50 via-white to-yellow-50/50"
-        >
-        </div>
-        <div
-            class="absolute top-20 left-10 w-64 h-64 bg-red-500/10 rounded-full blur-[100px] animate-pulse-slow"
-        >
-        </div>
-        <div
-            class="absolute bottom-20 right-10 w-80 h-80 bg-yellow-400/10 rounded-full blur-[120px] animate-float"
-        >
+    <section class="hero-card" aria-labelledby="teja-title">
+      <div class="hero-ambient-glow"></div>
+      <div class="card-glass-shine"></div>
+
+      <div class="hero-left">
+        <div class="hero-badge">
+          <span class="badge-dot"></span>
+          <span>TEJA by AIPEDIA</span>
         </div>
 
-        <div class="relative z-10 max-w-4xl mx-auto text-center mt-12 md:mt-0">
-            <div
-                class="inline-flex items-center gap-2 px-2 py-1 rounded-full bg-black/5 backdrop-blur-sm border-2 border-black/20 mb-4"
-            >
-                <span class="w-2 h-2 bg-red-500 rounded-full animate-pulse"
-                ></span>
-                <span class="text-sm text-gray-600"
-                    >TEJA by AIPEDIA</span
-                >
-            </div>
+        <h1 id="teja-title" class="hero-title">
+          Pusing Urusan Pajak UMKM? <br />
+          <span class="highlight-text">Biar TEJA yang Bantuin.</span>
+        </h1>
 
-            <h1
-                class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
-            >
-                Pusing Urusan Pajak UMKM? <br />
-                <span
-                    class="bg-gradient-to-r from-red-500 to-orange-400 bg-clip-text text-transparent"
-                    >Biar TEJA yang Bantuin</span
-                >
-            </h1>
+        <p class="hero-desc">
+          AI Spesialis Pajak UMKM yang siap bantu hitung PPh Final 0.5%, panduan lapor Coretax, dan jawab kebingungan harian seputar pajak bisnismu 24/7.
+        </p>
 
-            <p
-                class="text-base md:text-lg text-gray-600 mb-4 max-w-2xl mx-auto"
-            >
-                AI Spesialis Pajak UMKM yang siap bantu hitung, lapor, dan jawab
-                kebingungan harian seputar pajak bisnismu 24/7
-            </p>
-            <div
-                class="flex flex-wrap justify-center gap-3 md:gap-4 mb-8"
-            >
-                <span class="flex items-center gap-1.5 px-3 py-1.5 bg-green-50 text-green-800 border border-green-200 rounded-full text-xs md:text-sm font-bold shadow-sm"
-                    ><span class="text-green-600 font-black">✓</span> Update Aturan
-                    Juli 2026</span
-                >
-                <span class="flex items-center gap-1.5 px-3 py-1.5 bg-green-50 text-green-800 border border-green-200 rounded-full text-xs md:text-sm font-bold shadow-sm"
-                    ><span class="text-green-600 font-black">✓</span> Panduan Coretax
-                    Step-by-Step</span
-                >
-                <span class="flex items-center gap-1.5 px-3 py-1.5 bg-green-50 text-green-800 border border-green-200 rounded-full text-xs md:text-sm font-bold shadow-sm"
-                    ><span class="text-green-600 font-black">✓</span> Bahasa Warung,
-                    Bukan Bahasa UU</span
-                >
-            </div>
-
-            <div class="max-w-xl w-full mx-auto mb-8 relative">
-                <div
-                    class="teja-glassy-border p-[2px] rounded-xl bg-gradient-to-r from-black/10 via-black/5 to-red-500/30"
-                >
-                    <div
-                        class="w-full rounded-xl bg-gradient-to-b from-white/50 to-white/10 backdrop-blur-sm p-8 flex justify-center items-center"
-                    >
-                        <div class="relative">
-                            <img
-                                src="/character/teja.png"
-                                alt="Teja - Spesialis Pajak UMKM"
-                                class="h-48 md:h-80 object-contain drop-shadow-2xl z-10 relative hover:scale-105 transition-transform"
-                                loading="lazy"
-                            />
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div
-                class="flex flex-col sm:flex-row gap-3 justify-center items-center mb-6"
-            >
-                <a
-                    href="#pricing"
-                    class="btn-cta group inline-flex items-center gap-2 px-6 py-3 font-medium rounded-xl"
-                    onclick="if(typeof fbq !== 'undefined') fbq('track', 'ViewContent');"
-                >
-                    Dapatkan TEJA Sekarang
-                </a>
-                <a
-                    href="#demo"
-                    class="inline-flex items-center gap-2 px-6 py-3 bg-black/5 hover:bg-black/10 text-gray-900 font-medium rounded-lg border-2 border-black/20 hover:border-black/20 transition-all duration-200 backdrop-blur-sm hover:border-red-500/30"
-                >
-                    Lihat Demo
-                </a>
-            </div>
-
-            <p
-                class="text-[11px] md:text-xs text-gray-500 max-w-xl mx-auto opacity-80 pb-8 px-4 text-center"
-            >
-                *Disclaimer: TEJA adalah AI asisten edukasi pajak, bukan
-                konsultan pajak resmi.
-            </p>
+        <div class="feature-pills">
+          <span class="pill">✓ Update Aturan 2026</span>
+          <span class="pill">✓ Panduan Coretax Step-by-Step</span>
+          <span class="pill">✓ Bahasa Warung, Bukan Pasal UU</span>
         </div>
+
+        <div class="hero-actions">
+          <a href="#pricing" class="btn-primary-teja">
+            <span>Dapatkan TEJA Sekarang →</span>
+          </a>
+          <a href="#capabilities" class="btn-secondary-teja">
+            <span>Lihat Kemampuan TEJA</span>
+          </a>
+        </div>
+
+        <p class="disclaimer-text">
+          *Disclaimer: TEJA adalah AI asisten edukasi pajak bisnis, bukan konsultan pajak resmi berkantor hukum.
+        </p>
+      </div>
+
+      <!-- Hero Visual -->
+      <div class="hero-right">
+        <div class="avatar-glass-card">
+          <div class="avatar-ambient-glow"></div>
+          <div class="avatar-glass-shine"></div>
+          <img
+            src="/character/teja.png"
+            alt="Teja - Spesialis Pajak UMKM"
+            class="avatar-large"
+            loading="eager"
+            onerror="this.style.display='none'"
+          />
+          <div class="avatar-tag">
+            <strong>TEJA</strong>
+            <span>Pajak UMKM Specialist</span>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Problem Section -->
-    <section class="py-12 md:py-16 px-6 bg-slate-100 relative overflow-hidden">
-        <div class="relative z-10 max-w-5xl mx-auto">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold mb-6">
-                    Urusan Pajak Bisnis <br />
-                    <span
-                        class="bg-gradient-to-r from-red-500 to-orange-400 bg-clip-text text-transparent"
-                        >Bikin Pusing?</span
-                    >
-                </h2>
-            </div>
+    <section class="problem-section" aria-labelledby="problem-title">
+      <div class="section-header">
+        <span class="section-kicker">PROBLEM UMUM</span>
+        <h2 id="problem-title" class="section-title">Urusan Pajak Bisnis Bikin Pusing?</h2>
+        <p class="section-subtitle">Tantangan nyata yang sering dialami pemilik usaha di Indonesia.</p>
+      </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div
-                    class="group p-6 rounded-xl bg-white/60 backdrop-blur-sm border-2 border-red-300 transition-all duration-300"
-                >
-                    <div
-                        class="mb-3 p-2 bg-red-100 text-red-600 rounded-lg inline-block"
-                    >
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="28"
-                            height="28"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            ><path
-                                d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"
-                            ></path><path d="M12 9v4"></path><path
-                                d="M12 17h.01"></path></svg
-                        >
-                    </div>
-                    <h3
-                        class="text-xl font-bold mb-3 text-gray-900"
-                    >
-                        Pusing Lapor Pajak
-                    </h3>
-                    <p class="text-sm text-gray-600">
-                        Masih bingung cara lapor PPh Final UMKM dan SPT Tahunan?
-                        TEJA bantu jelaskan aturannya step-by-step tanpa ribet.
-                    </p>
-                </div>
-                <div
-                    class="group p-6 rounded-xl bg-white/60 backdrop-blur-sm border-2 border-red-300 transition-all duration-300"
-                >
-                    <div
-                        class="mb-3 p-2 bg-red-100 text-red-600 rounded-lg inline-block"
-                    >
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="28"
-                            height="28"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            ><polyline points="22 17 13.5 8.5 8.5 13.5 2 7"
-                            ></polyline><polyline points="16 17 22 17 22 11"
-                            ></polyline></svg
-                        >
-                    </div>
-                    <h3
-                        class="text-xl font-bold mb-3 text-gray-900"
-                    >
-                        Takut Kena Denda
-                    </h3>
-                    <p class="text-sm text-gray-600">
-                        Sering was-was dapet surat cinta dari kantor pajak
-                        karena telat bayar atau salah hitung kewajiban pajak
-                        bulanan?
-                    </p>
-                </div>
-                <div
-                    class="group p-6 rounded-xl bg-white/60 backdrop-blur-sm border-2 border-red-300 transition-all duration-300"
-                >
-                    <div
-                        class="mb-3 p-2 bg-red-100 text-red-600 rounded-lg inline-block"
-                    >
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="28"
-                            height="28"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            ><rect width="20" height="12" x="2" y="6" rx="2"
-                            ></rect><circle cx="12" cy="12" r="2"></circle><path
-                                d="M6 12h.01M18 12h.01"></path></svg
-                        >
-                    </div>
-                    <h3
-                        class="text-xl font-bold mb-3 text-gray-900"
-                    >
-                        Konsultan Pajak Mahal
-                    </h3>
-                    <p class="text-sm text-gray-600">
-                        Mau tanya-tanya soal pajak bisnis tapi budget belum
-                        cukup buat sewa jasa konsultan pajak profesional?
-                    </p>
-                </div>
+      <div class="problem-grid">
+        {problems.map((p) => (
+          <div class="problem-card">
+            <div class="card-glass-shine"></div>
+            <div class="problem-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" set:html={p.icon} />
             </div>
-        </div>
+            <h3>{p.title}</h3>
+            <p>{p.desc}</p>
+          </div>
+        ))}
+      </div>
     </section>
 
     <!-- Comparison Section -->
-    <section class="py-12 md:py-16 px-6 relative overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-br from-red-50/50 via-white to-yellow-50/50 opacity-50"></div>
-        <div class="relative z-10 max-w-5xl mx-auto">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">
-                    Kenapa Tanya Pajak ke ChatGPT Biasa Itu <span
-                        class="text-red-500">Berbahaya?</span
-                    >
-                </h2>
-                <p
-                    class="text-base text-gray-600 max-w-2xl mx-auto"
-                >
-                    AI generic dilatih pakai data lama. TEJA sudah di-training
-                    khusus pakai peraturan pajak Indonesia terbaru.
-                </p>
-            </div>
+    <ComparisonTable
+      title="Kenapa ChatGPT Biasa Berbahaya untuk Pajak?"
+      subtitle="AI generik dilatih dengan data global lama. TEJA di-training khusus dengan peraturan pajak Indonesia terbaru."
+      genericTitle="ChatGPT / Gemini Generic"
+      specialistTitle="TEJA by AIPEDIA"
+      specialistBadge="UPDATE 2026 & AKURAT"
+      items={comparisonItems}
+    />
 
-            <div
-                class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto"
-            >
-                <!-- Bad Column -->
-                <div
-                    class="bg-white/80 backdrop-blur-sm p-8 rounded-2xl border-2 border-red-300 shadow-lg shadow-red-500/5"
-                >
-                    <div class="flex items-center gap-4 mb-6">
-                        <div
-                            class="w-12 h-12 bg-red-100 text-red-500 rounded-full flex items-center justify-center font-bold text-2xl"
-                        >
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="24"
-                                height="24"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="2"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                ><path d="M18 6 6 18"></path><path
-                                    d="m6 6 12 12"></path></svg
-                            >
-                        </div>
-                        <h3 class="text-2xl font-bold">
-                            ChatGPT / Gemini Generic
-                        </h3>
-                    </div>
-                    <ul class="space-y-4">
-                        <li class="flex items-start gap-3">
-                            <span class="text-red-500 font-bold mt-0.5">✗</span>
-                            <span class="text-gray-700"
-                                >Jawaban sering pakai aturan pajak lama 2024</span
-                            >
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="text-red-500 font-bold mt-0.5">✗</span>
-                            <span class="text-gray-700"
-                                >Belum update sistem Coretax DJP yang baru
-                            </span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="text-red-500 font-bold mt-0.5">✗</span>
-                            <span class="text-gray-700"
-                                >Jawab pakai bahasa undang-undang yang ribet</span
-                            >
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="text-red-500 font-bold mt-0.5">✗</span>
-                            <span class="text-gray-700"
-                                >Hitungan denda sering ngawur</span
-                            >
-                        </li>
-                    </ul>
+    <!-- Capabilities Section -->
+    <section class="capabilities-section" id="capabilities" aria-labelledby="cap-title">
+      <div class="section-header">
+        <span class="section-kicker">FITUR & KEMAMPUAN</span>
+        <h2 id="cap-title" class="section-title">Kemampuan Spesialis TEJA</h2>
+        <p class="section-subtitle">Didesain khusus untuk mempermudah operasional perpajakan bisnis harian.</p>
+      </div>
+
+      <div class="cap-grid">
+        {capabilities.map((cap, i) => (
+          <div class="cap-card">
+            <div class="card-glass-shine"></div>
+            <div class="cap-num">0{i + 1}</div>
+            <h3>{cap.title}</h3>
+            <p>{cap.desc}</p>
+
+            {cap.image && (
+              <details class="cap-accordion">
+                <summary class="cap-summary">
+                  <span>Lihat Contoh Bukti</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </summary>
+                <div class="cap-preview">
+                  <img src={cap.image} alt={cap.title} loading="lazy" />
                 </div>
-
-                <!-- Good Column -->
-                <div
-                    class="bg-gradient-to-b from-green-50 to-white backdrop-blur-sm p-8 rounded-2xl border-2 border-green-500 shadow-2xl shadow-green-500/30 relative transform md:-translate-y-4 scale-105 z-10"
-                >
-                    <div
-                        class="absolute -top-4 left-1/2 -translate-x-1/2 bg-green-500 text-white px-4 py-1 rounded-full text-sm font-bold shadow-lg whitespace-nowrap"
-                    >
-                        Pilihan Tepat
-                    </div>
-                    <div class="flex items-center gap-4 mb-6">
-                        <div
-                            class="w-12 h-12 bg-green-100 text-green-500 rounded-full flex items-center justify-center font-bold text-2xl"
-                        >
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="24"
-                                height="24"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="2"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                ><path d="M20 6 9 17l-5-5"></path></svg
-                            >
-                        </div>
-                        <h3 class="text-2xl font-bold">TEJA by AIPEDIA</h3>
-                    </div>
-                    <ul class="space-y-4">
-                        <li class="flex items-start gap-3">
-                            <span class="text-green-500 font-bold mt-0.5"
-                                >✓</span
-                            >
-                            <span
-                                class="text-gray-700 font-medium"
-                                >Knowledge base update Juli 2026 - include PMK
-                                PPh Final 0.5% & alur Coretax terbaru</span
-                            >
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="text-green-500 font-bold mt-0.5"
-                                >✓</span
-                            >
-                            <span
-                                class="text-gray-700 font-medium"
-                                >Jawab pakai bahasa warung + contoh angka omzet
-                                kamu</span
-                            >
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="text-green-500 font-bold mt-0.5"
-                                >✓</span
-                            >
-                            <span
-                                class="text-gray-700 font-medium"
-                                >Simulasi estimasi denda sesuai Pasal 7 KUP</span
-                            >
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+              </details>
+            )}
+          </div>
+        ))}
+      </div>
     </section>
 
-    <!-- Features Grid -->
-    <section id="features" class="py-12 md:py-16 px-6 bg-slate-100 relative overflow-hidden">
-        <div class="relative z-10 max-w-5xl mx-auto">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold mb-6">
-                    Kemampuan
-                    <span
-                        class="bg-gradient-to-r from-red-500 to-orange-400 bg-clip-text text-transparent"
-                        >Spesialis TEJA</span
-                    >
-                </h2>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-                {
-                    features.map((feat, i) => (
-                        <div class="group p-6 rounded-xl bg-white shadow-lg shadow-red-500/5 border-2 border-red-200 hover:border-red-500 hover:shadow-xl hover:shadow-red-500/20 transition-all duration-300 transform hover:-translate-y-1">
-                            <h3 class="text-xl font-bold mb-2">{feat.title}</h3>
-                            <p class="text-sm text-gray-600">
-                                {feat.desc}
-                            </p>
-                            {feat.image && (
-                                <details class="mt-4 group/accordion">
-                                    <summary class="cursor-pointer text-sm font-semibold select-none list-none flex items-center gap-1 hover:opacity-80 transition-opacity w-fit">
-                                        <span class="group-open/accordion:rotate-90 transition-transform bg-gradient-to-r from-red-500 to-orange-400 bg-clip-text text-transparent">
-                                            ▶
-                                        </span>
-                                        <span class="bg-gradient-to-r from-red-500 to-orange-400 bg-clip-text text-transparent">
-                                            Lihat Contoh
-                                        </span>
-                                    </summary>
-                                    <div class="mt-3 rounded-lg overflow-hidden border-2 border-gray-300 shadow-sm">
-                                        <img
-                                            src={feat.image}
-                                            alt={feat.title}
-                                            class="w-full object-cover"
-                                            loading="lazy"
-                                        />
-                                    </div>
-                                </details>
-                            )}
-                        </div>
-                    ))
-                }
-            </div>
-        </div>
-    </section>
-
-    <!-- Multi-Platform Section -->
-    <section class="py-12 md:py-16 px-6 relative overflow-hidden">
-        <div
-            class="absolute inset-0 bg-gradient-to-br from-red-50/50 via-white to-yellow-50/50 opacity-50"
-        >
-        </div>
-        <div class="relative z-10 max-w-5xl mx-auto">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">
-                    Tersedia di
-                    <span
-                        class="bg-gradient-to-r from-red-500 to-orange-400 bg-clip-text text-transparent"
-                        >Platform Favorit Anda</span
-                    >
-                </h2>
-                <p
-                    class="text-base text-gray-600 max-w-2xl mx-auto"
-                >
-                    Tidak perlu install aplikasi baru. TEJA & FINA langsung
-                    terintegrasi di ekosistem AI yang sudah Anda pakai
-                    sehari-hari.
-                </p>
-            </div>
-
-            <div class="flex flex-wrap justify-center gap-6 max-w-6xl mx-auto">
-                {
-                    platforms.map((platform) => (
-                        <div class="flex-1 basis-[300px] max-w-[420px] p-8 rounded-2xl bg-white/80 backdrop-blur-sm border-2 border-gray-300 hover:border-orange-500/30 transition-all duration-300 group">
-                            <div class="flex items-center gap-4 mb-4">
-                                <img
-                                    src={platform.img}
-                                    alt={platform.name}
-                                    class={`w-10 h-10 object-contain group-hover:scale-105 transition-transform ${platform.name.includes('ChatGPT') ? 'invert opacity-80' : ''}`}
-                                />
-                                <h3 class="text-xl font-bold">
-                                    {platform.name}
-                                </h3>
-                            </div>
-                            <p class="text-sm text-gray-600">
-                                {platform.desc}
-                            </p>
-                        </div>
-                    ))
-                }
-            </div>
-        </div>
-    </section>
+    <!-- Platform Compatibility -->
+    <PlatformGrid
+      title="Tersedia di Platform yang Biasa Kamu Pakai"
+      subtitle="Langsung terhubung dengan akun ChatGPT atau Claude Anda tanpa perlu instalasi aplikasi baru."
+      platforms={platforms}
+    />
 
     <!-- Pricing Section -->
-    <section id="pricing" class="py-12 md:py-16 px-6 bg-slate-100 relative overflow-hidden">
-        <div class="relative z-10 max-w-4xl mx-auto text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-10">
-                Pilih Paket Spesialis Anda
-            </h2>
+    <SpecialistPricing
+      title="Pilih Paket Spesialis Anda"
+      subtitle="Sekali bayar untuk akses selamanya. Tanpa biaya bulanan atau tagihan tersembunyi."
+      singleName="TEJA Only"
+      singlePrice="87.000"
+      singleDescription="Akses penuh ke AI CustomGPT TEJA (Pajak UMKM)"
+      singleFeatures={[
+        "Tanya jawab perpajakan UMKM unlimited via ChatGPT",
+        "Hitung PPh Final 0.5% otomatis dari omzet usaha",
+        "Panduan alur Coretax DJP sampai lapor tuntas",
+        "Kompatibel ChatGPT versi Free maupun Plus",
+      ]}
+      singleCtaText="Ambil TEJA (87k)"
+      singleCtaUrl="https://myr.id/teja-only-87k"
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
-                <!-- Teja Only -->
-                <div
-                    class="p-8 rounded-2xl bg-white/60 backdrop-blur-sm border-2 border-gray-300 flex flex-col"
-                >
-                    <h3 class="text-2xl font-bold mb-2">{pricing[0].name}</h3>
-                    <p class="text-sm text-gray-500 mb-1">
-                        Hanya akses AI CustomGPT TEJA
-                    </p>
-                    <p class="text-sm text-gray-400 mb-4">
-                        Cocok buat yang cuma butuh beresin urusan pajak.
-                    </p>
-                    <div
-                        class="text-5xl font-bold mb-8 text-gray-900"
-                    >
-                        Rp {pricing[0].price}
-                    </div>
-
-                    <ul class="text-left space-y-4 mb-8 flex-1">
-                        {
-                            pricing[0].features.map((f) => (
-                                <li class="flex items-start gap-3">
-                                    <span class="text-red-500 font-bold mt-0.5">
-                                        ✓
-                                    </span>
-                                    <span class="text-sm text-gray-700">
-                                        {f}
-                                    </span>
-                                </li>
-                            ))
-                        }
-                    </ul>
-
-                    <a
-                        href={pricing[0].url}
-                        class="inline-flex items-center justify-center w-full px-6 py-4 bg-black/5 hover:bg-black/10 text-gray-900 font-medium rounded-xl border-2 border-black/20 transition-all duration-200 text-lg"
-                        onclick="if(typeof fbq !== 'undefined') fbq('track', 'InitiateCheckout', {content_name: 'Teja Only', value: 87000, currency: 'IDR'});"
-                    >
-                        {pricing[0].cta}
-                    </a>
-                </div>
-
-                <!-- Bundle Teja x Fina -->
-                <div
-                    class="relative p-8 rounded-2xl bg-white/90 backdrop-blur-sm border-2 border-orange-500 shadow-2xl shadow-orange-500/20 transform md:scale-105 flex flex-col"
-                >
-                    <div
-                        class="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-red-500 to-orange-500 text-white px-4 py-1 rounded-full text-sm font-bold shadow-lg whitespace-nowrap"
-                    >
-                        {pricing[1].badge}
-                    </div>
-                    <h3 class="text-2xl font-bold mb-2">{pricing[1].name}</h3>
-                    <p class="text-sm text-gray-500 mb-1">
-                        Termasuk TEJA & BONUS FINA (+15 AI Lainnya)
-                    </p>
-                    <p class="text-sm text-gray-400 mb-4">
-                        Total Eceran: <span class="line-through"
-                            >Rp {pricing[1].original_price}</span
-                        >
-                    </p>
-                    <div
-                        class="text-5xl font-bold text-gray-900 mb-8"
-                    >
-                        Rp {pricing[1].price}
-                    </div>
-
-                    <ul class="text-left space-y-4 mb-8 flex-1">
-                        {
-                            pricing[1].features.map((f) => (
-                                <li class="flex items-start gap-3">
-                                    <span class="text-orange-500 font-bold mt-0.5">
-                                        ✓
-                                    </span>
-                                    <span class="text-sm text-gray-700 font-medium">
-                                        {f}
-                                    </span>
-                                </li>
-                            ))
-                        }
-                    </ul>
-
-                    <a
-                        href={pricing[1].url}
-                        class="btn-cta inline-flex items-center justify-center w-full px-6 py-4 font-bold rounded-xl text-lg"
-                        onclick="if(typeof fbq !== 'undefined') fbq('track', 'InitiateCheckout', {content_name: 'Bundle Teja Fina', value: 128000, currency: 'IDR'});"
-                    >
-                        {pricing[1].cta}
-                    </a>
-
-                    <p class="text-xs text-center text-gray-500 mt-4">
-                        *Tersedia bump offer: Full 17 Agent Skills (+160k) saat
-                        checkout
-                    </p>
-                </div>
-            </div>
-
-            <p
-                class="mt-10 text-sm text-gray-500 font-medium text-center"
-            >
-                Garansi 7 Hari Uang Kembali. Gak puas? Chat Admin via WhatsApp
-                (link di email), dana direfund 100% tanpa ditanya.
-            </p>
-        </div>
-    </section>
+      bundleName="Bundle TEJA (+ Bonus FINA)"
+      bundlePrice="128.000"
+      bundleOriginalPrice="348.000"
+      bundleBadge="Nilai Terbaik"
+      bundleDescription="Dapatkan TEJA + FINA (Finance) + 15 AI Spesialis Lainnya"
+      bundleFeatures={[
+        "Semua fitur paket TEJA Only",
+        "+ AI FINA (Finance & Cash Flow Specialist)",
+        "+ 15 AI Spesialis lainnya (Full Ekosistem)",
+        "Bonus Template Excel SOP Keuangan & Pembukuan",
+        "Akses pembaruan aturan pajak ke depannya",
+      ]}
+      bundleCtaText="Ambil Bundle Lebih Hemat (128k)"
+      bundleCtaUrl="https://myr.id/teja-fina-bundle-128k"
+      bundleBumpNote="*Tersedia bump offer: Full 17 Agent Skills (+160k) saat checkout untuk pemakaian di Claude & IDE."
+    />
 
     <!-- FAQ Section -->
-    <section class="py-12 md:py-16 px-4 relative overflow-hidden">
-        <div
-            class="absolute inset-0 bg-gradient-to-br from-red-50/50 via-white to-yellow-50/50 opacity-50"
-        >
-        </div>
-        <div class="relative z-10 max-w-3xl mx-auto">
-            <div class="text-center mb-10">
-                <h2 class="text-3xl font-bold mb-6">FAQ</h2>
-            </div>
+    <section class="faq-section" aria-labelledby="teja-faq-title">
+      <div class="section-header">
+        <span class="section-kicker">TANYA JAWAB</span>
+        <h2 id="teja-faq-title" class="section-title">Pertanyaan Seputar TEJA</h2>
+      </div>
 
-            <div class="space-y-4">
-                {
-                    faqs.map((faq) => (
-                        <div class="faq-item p-4 rounded-lg bg-white/60 backdrop-blur-sm border-2 border-gray-300">
-                            <button class="faq-question w-full flex justify-between items-center text-left">
-                                <h3 class="text-lg font-semibold text-gray-900">
-                                    {faq.q}
-                                </h3>
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    class="h-4 w-4 text-orange-500 transform transition-transform duration-300"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke="currentColor"
-                                >
-                                    <path
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        stroke-width="2"
-                                        d="M19 9l-7 7-7-7"
-                                    />
-                                </svg>
-                            </button>
-                            <div class="faq-answer mt-2 hidden">
-                                <p class="text-base text-gray-600">
-                                    {faq.a}
-                                </p>
-                            </div>
-                        </div>
-                    ))
-                }
-            </div>
-        </div>
-
-        <script is:inline>
-            document.addEventListener("DOMContentLoaded", () => {
-                const faqQuestions = document.querySelectorAll(".faq-question");
-                faqQuestions.forEach((question) => {
-                    question.addEventListener("click", () => {
-                        const answer = question.nextElementSibling;
-                        const icon = question.querySelector("svg");
-                        answer.classList.toggle("hidden");
-                        icon.classList.toggle("rotate-180");
-                    });
-                });
-            });
-        </script>
+      <div class="faq-container">
+        {faqs.map((f) => (
+          <FaqItem q={f.q} a={f.a} />
+        ))}
+      </div>
     </section>
-</Layout>
+
+    <!-- Bottom Action Bar -->
+    <section class="closing-box">
+      <div class="closing-ambient-glow"></div>
+      <div class="closing-inner">
+        <h2>Mulai Hitung Pajak Usahamu Tanpa Pusing</h2>
+        <p>Akses TEJA sekarang dan pastikan kewajiban perpajakan bisnismu beres tanpa drama.</p>
+        <a href="#pricing" class="btn-primary-teja">
+          <span>Ambil TEJA Sekarang (Rp 87k) →</span>
+        </a>
+      </div>
+    </section>
+  </main>
+</SalesLayout>
+
+<style>
+  .specialist-page {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 24px 20px 80px;
+  }
+
+  /* Hero Card */
+  .hero-card {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    align-items: center;
+    gap: 40px;
+    padding: clamp(36px, 5.5vw, 60px);
+    border-radius: 30px;
+    background:
+      radial-gradient(circle at 10% 20%, rgba(229, 57, 53, 0.08), transparent 45%),
+      radial-gradient(circle at 90% 80%, rgba(245, 158, 11, 0.1), transparent 45%),
+      linear-gradient(180deg, #ffffff 0%, #fdfbfb 100%);
+    border: 1px solid rgba(229, 57, 53, 0.16);
+    box-shadow:
+      0 20px 48px rgba(229, 57, 53, 0.06),
+      inset 0 1.5px 0.5px #fff;
+    backdrop-filter: blur(24px);
+    margin-bottom: 52px;
+    overflow: hidden;
+  }
+
+  @media (max-width: 860px) {
+    .hero-card {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+  }
+
+  .hero-ambient-glow {
+    position: absolute;
+    top: -60px;
+    left: 20%;
+    width: 380px;
+    height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(ellipse, rgba(229, 57, 53, 0.12) 0%, rgba(245, 158, 11, 0.08) 50%, transparent 70%);
+    filter: blur(35px);
+    pointer-events: none;
+  }
+
+  .card-glass-shine {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 40%;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.65) 0%, rgba(255, 255, 255, 0) 100%);
+    pointer-events: none;
+  }
+
+  .hero-left {
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 15px;
+    border-radius: 999px;
+    background: rgba(229, 57, 53, 0.08);
+    border: 1px solid rgba(229, 57, 53, 0.2);
+    color: #c62828;
+    font-size: 0.72rem;
+    font-weight: 750;
+    letter-spacing: 0.06em;
+    margin-bottom: 18px;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  }
+
+  .badge-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #e53935;
+    box-shadow: 0 0 0 3px rgba(229, 57, 53, 0.25);
+    animation: teja-pulse 2.2s infinite;
+  }
+
+  @keyframes teja-pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.55; transform: scale(0.85); }
+  }
+
+  .hero-title {
+    font-size: clamp(2.1rem, 4.5vw, 3.35rem);
+    font-weight: 800;
+    color: var(--color-label, #1d1d1f);
+    line-height: 1.1;
+    letter-spacing: -0.035em;
+    margin: 0 0 16px;
+  }
+
+  .highlight-text {
+    background: linear-gradient(135deg, #e53935 0%, #ea580c 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .hero-desc {
+    font-size: 1.02rem;
+    color: var(--color-secondary-label, #6e6e73);
+    line-height: 1.65;
+    margin: 0 0 24px;
+    max-width: 520px;
+  }
+
+  @media (max-width: 860px) {
+    .hero-desc {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  .feature-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 28px;
+  }
+
+  @media (max-width: 860px) {
+    .feature-pills {
+      justify-content: center;
+    }
+  }
+
+  .pill {
+    font-size: 0.75rem;
+    font-weight: 650;
+    color: #166534;
+    background: rgba(22, 163, 74, 0.08);
+    border: 1px solid rgba(22, 163, 74, 0.22);
+    padding: 6px 13px;
+    border-radius: 999px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03), inset 0 1px 0 #fff;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  @media (max-width: 860px) {
+    .hero-actions {
+      justify-content: center;
+    }
+  }
+
+  .btn-primary-teja {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 28px;
+    border-radius: 999px;
+    font-size: 0.92rem;
+    font-weight: 750;
+    text-decoration: none;
+    background: linear-gradient(180deg, #ef4444 0%, #dc2626 50%, #b91c1c 100%);
+    color: #fff;
+    box-shadow:
+      0 4px 16px rgba(220, 38, 38, 0.35),
+      inset 0 1px 0.5px rgba(255, 255, 255, 0.45);
+    transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.22s, opacity 0.2s;
+  }
+
+  .btn-primary-teja:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(220, 38, 38, 0.45);
+  }
+
+  .btn-secondary-teja {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 24px;
+    border-radius: 999px;
+    font-size: 0.92rem;
+    font-weight: 700;
+    text-decoration: none;
+    background: #fff;
+    color: #1d1d1f;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.04), inset 0 1px 0 #fff;
+    transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s;
+  }
+
+  .btn-secondary-teja:hover {
+    transform: translateY(-2px);
+    border-color: rgba(229, 57, 53, 0.35);
+  }
+
+  .disclaimer-text {
+    font-size: 0.72rem;
+    color: #94a3b8;
+    margin: 0;
+  }
+
+  /* Avatar Card */
+  .hero-right {
+    position: relative;
+    z-index: 1;
+  }
+
+  .avatar-glass-card {
+    position: relative;
+    padding: 34px 26px;
+    border-radius: 26px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.88) 0%, rgba(255, 245, 245, 0.7) 100%);
+    border: 1.5px solid rgba(229, 57, 53, 0.22);
+    box-shadow:
+      0 16px 38px rgba(229, 57, 53, 0.09),
+      0 0 0 1px rgba(255, 255, 255, 0.8),
+      inset 0 2px 0 #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .avatar-ambient-glow {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(239, 68, 68, 0.28) 0%, transparent 70%);
+    filter: blur(24px);
+  }
+
+  .avatar-glass-shine {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
+    pointer-events: none;
+  }
+
+  .avatar-large {
+    position: relative;
+    height: 220px;
+    object-fit: contain;
+    filter: drop-shadow(0 14px 24px rgba(0, 0, 0, 0.12));
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 1;
+  }
+
+  .avatar-large:hover {
+    transform: scale(1.05) translateY(-2px);
+  }
+
+  .avatar-tag {
+    position: relative;
+    margin-top: 18px;
+    text-align: center;
+    z-index: 1;
+  }
+
+  .avatar-tag strong {
+    display: block;
+    font-size: 1.18rem;
+    font-weight: 800;
+    color: var(--color-label, #1d1d1f);
+    letter-spacing: -0.02em;
+  }
+
+  .avatar-tag span {
+    font-size: 0.75rem;
+    color: #dc2626;
+    font-weight: 650;
+  }
+
+  /* Section Header */
+  .section-header {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 36px;
+  }
+
+  .section-kicker {
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 750;
+    letter-spacing: 0.08em;
+    color: #c62828;
+    background: rgba(229, 57, 53, 0.08);
+    border: 1px solid rgba(229, 57, 53, 0.22);
+    padding: 4px 12px;
+    border-radius: 999px;
+    margin-bottom: 12px;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  }
+
+  .section-title {
+    font-size: clamp(1.6rem, 3.2vw, 2.3rem);
+    font-weight: 800;
+    color: var(--color-label, #1d1d1f);
+    margin: 0 0 10px;
+    letter-spacing: -0.03em;
+  }
+
+  .section-subtitle {
+    font-size: 0.94rem;
+    color: var(--color-secondary-label, #6e6e73);
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  /* Problem Cards */
+  .problem-section {
+    margin: 64px 0;
+  }
+
+  .problem-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 22px;
+  }
+
+  .problem-card {
+    position: relative;
+    padding: 30px 26px;
+    border-radius: 22px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 250, 250, 0.82) 100%);
+    border: 1px solid rgba(229, 57, 53, 0.16);
+    box-shadow:
+      0 4px 20px rgba(0, 0, 0, 0.03),
+      inset 0 1.5px 0.5px rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(16px);
+    overflow: hidden;
+  }
+
+  .problem-icon {
+    position: relative;
+    width: 46px;
+    height: 46px;
+    border-radius: 13px;
+    background: rgba(239, 68, 68, 0.1);
+    color: #dc2626;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+    border: 1px solid rgba(239, 68, 68, 0.18);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    z-index: 1;
+  }
+
+  .problem-card h3 {
+    position: relative;
+    margin: 0 0 8px;
+    font-size: 1.18rem;
+    font-weight: 750;
+    color: var(--color-label, #1d1d1f);
+    letter-spacing: -0.02em;
+    z-index: 1;
+  }
+
+  .problem-card p {
+    position: relative;
+    margin: 0;
+    font-size: 0.86rem;
+    color: var(--color-secondary-label, #6e6e73);
+    line-height: 1.58;
+    z-index: 1;
+  }
+
+  /* Capabilities Grid */
+  .capabilities-section {
+    margin: 64px 0;
+  }
+
+  .cap-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+    gap: 22px;
+  }
+
+  .cap-card {
+    position: relative;
+    padding: 26px 22px;
+    border-radius: 22px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(250, 251, 254, 0.82) 100%);
+    border: 1px solid rgba(0, 0, 0, 0.07);
+    box-shadow:
+      0 4px 18px rgba(0, 0, 0, 0.03),
+      inset 0 1.5px 0.5px #fff;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s, box-shadow 0.25s;
+  }
+
+  .cap-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(229, 57, 53, 0.3);
+    box-shadow: 0 14px 32px rgba(229, 57, 53, 0.08), inset 0 1.5px 0 #fff;
+  }
+
+  .cap-num {
+    position: relative;
+    font-size: 0.72rem;
+    font-weight: 800;
+    color: #dc2626;
+    background: rgba(220, 38, 38, 0.08);
+    border: 1px solid rgba(220, 38, 38, 0.18);
+    padding: 3px 9px;
+    border-radius: 6px;
+    width: fit-content;
+    margin-bottom: 14px;
+    z-index: 1;
+  }
+
+  .cap-card h3 {
+    position: relative;
+    margin: 0 0 8px;
+    font-size: 1.15rem;
+    font-weight: 750;
+    color: var(--color-label, #1d1d1f);
+    letter-spacing: -0.02em;
+    z-index: 1;
+  }
+
+  .cap-card p {
+    position: relative;
+    margin: 0 0 16px;
+    font-size: 0.85rem;
+    color: var(--color-secondary-label, #6e6e73);
+    line-height: 1.58;
+    flex-grow: 1;
+    z-index: 1;
+  }
+
+  .cap-accordion {
+    position: relative;
+    margin-top: auto;
+    z-index: 1;
+  }
+
+  .cap-summary {
+    cursor: pointer;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #dc2626;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    list-style: none;
+    user-select: none;
+    transition: opacity 0.2s;
+  }
+
+  .cap-summary:hover {
+    opacity: 0.8;
+  }
+
+  .cap-summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .cap-summary svg {
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .cap-accordion[open] .cap-summary svg {
+    transform: rotate(180deg);
+  }
+
+  .cap-preview {
+    margin-top: 14px;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  }
+
+  .cap-preview img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* FAQ Section */
+  .faq-section {
+    margin: 64px 0;
+  }
+
+  .faq-container {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+
+  /* Closing Box */
+  .closing-box {
+    position: relative;
+    margin-top: 72px;
+    padding: 54px 28px;
+    border-radius: 28px;
+    text-align: center;
+    background:
+      radial-gradient(circle at 10% 90%, rgba(229, 57, 53, 0.22), transparent 45%),
+      radial-gradient(circle at 90% 10%, rgba(245, 158, 11, 0.18), transparent 45%),
+      linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    color: #fff;
+    box-shadow: 0 24px 54px rgba(15, 23, 42, 0.18);
+    overflow: hidden;
+  }
+
+  .closing-box .closing-ambient-glow {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 0%, rgba(255, 255, 255, 0.08) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .closing-inner {
+    position: relative;
+    max-width: 580px;
+    margin: 0 auto;
+    z-index: 1;
+  }
+
+  .closing-box h2 {
+    font-size: clamp(1.6rem, 3.2vw, 2.3rem);
+    font-weight: 800;
+    color: #fff;
+    margin: 0 0 12px;
+    letter-spacing: -0.03em;
+  }
+
+  .closing-box p {
+    font-size: 0.95rem;
+    color: #cbd5e1;
+    margin: 0 0 28px;
+    line-height: 1.6;
+  }
+</style>

@@ -1,0 +1,149 @@
+---
+import Base from "../layouts/Base.astro";
+import SectionBand from "../components/SectionBand.astro";
+import Icon from "../components/Icon.astro";
+---
+
+<Base title="Tentang Kami - AIPEDIA" wide>
+  <div class="about-container">
+    <!-- Header Hero -->
+    <header class="about-hero text-center max-w-2xl mx-auto">
+      <span
+        class="text-xs font-bold uppercase tracking-widest text-[var(--color-tint)]"
+        >Tentang AIPEDIA</span
+      >
+      <h1
+        class="text-3xl sm:text-4xl font-bold tracking-tight text-[var(--color-label)] mt-2"
+      >
+        Membantu Bisnis Indonesia Menang Bersama AI
+      </h1>
+      <p
+        class="text-sm sm:text-base text-[var(--color-secondary-label)] mt-3 leading-relaxed"
+      >
+        AIPEDIA dibangun dari keresahan nyata: kebanyakan panduan AI di internet
+        terlalu teoritis, berbahasa Inggris rumit, dan tidak aplikatif untuk
+        operasional bisnis sehari-hari di Indonesia.
+      </p>
+    </header>
+
+    <!-- Narrative & Values Grid -->
+    <!-- Narrative & Values Grid -->
+    <SectionBand
+      as="div"
+      class="principles-band"
+      innerClass="principles-grid grid grid-cols-1 md:grid-cols-3 gap-6"
+    >
+      <div class="card p-6 flex flex-col justify-between">
+        <div>
+          <span
+            class="font-mono text-xs font-bold text-[var(--color-tint)] block mb-2"
+            >01 / PRINSIP</span
+          >
+          <h2 class="text-lg font-bold text-[var(--color-label)] mb-2">
+            Kontekstual & Taktis
+          </h2>
+          <p
+            class="text-sm text-[var(--color-secondary-label)] leading-relaxed"
+          >
+            Setiap prompt dan workflow diuji pada kasus nyata pasar lokal:
+            script WhatsApp CS responsif, formula copy iklan pasar Indonesia,
+            hingga optimasi toko marketplace.
+          </p>
+        </div>
+      </div>
+
+      <div class="card p-6 flex flex-col justify-between">
+        <div>
+          <span
+            class="font-mono text-xs font-bold text-[#b4820a] dark:text-[#F2C94C] block mb-2"
+            >02 / MODEL</span
+          >
+          <h2 class="text-lg font-bold text-[var(--color-label)] mb-2">
+            Tanpa Biaya Berulang
+          </h2>
+          <p
+            class="text-sm text-[var(--color-secondary-label)] leading-relaxed"
+          >
+            Kami menganut prinsip Zero-Gravity: founder tidak perlu terbebani
+            tagihan langganan SaaS bulanan. Sekali beli, Anda memiliki aset dan
+            materi selamanya.
+          </p>
+        </div>
+      </div>
+
+      <div class="card p-6 flex flex-col justify-between">
+        <div>
+          <span class="font-mono text-xs font-bold text-[#34c759] block mb-2"
+            >03 / IMPLEMENTASI</span
+          >
+          <h2 class="text-lg font-bold text-[var(--color-label)] mb-2">
+            Plug & Play
+          </h2>
+          <p
+            class="text-sm text-[var(--color-secondary-label)] leading-relaxed"
+          >
+            Tidak ada jargon rumit coding. Semua materi berupa template teruji
+            yang langsung bisa disalin dan dijalankan di ChatGPT, Claude, atau
+            Midjourney.
+          </p>
+        </div>
+      </div>
+    </SectionBand>
+
+    <!-- Editorial Story & Proof Box -->
+    <SectionBand tone="dark" as="div" class="about-story-band">
+      <div class="max-w-2xl mx-auto space-y-4">
+        <h2
+          class="text-xl sm:text-2xl font-bold tracking-tight text-[var(--color-label)]"
+        >
+          Dikurasi oleh Praktisi, Bukan Teori Akademik
+        </h2>
+        <p class="text-sm text-[var(--color-secondary-label)] leading-relaxed">
+          Materi di AIPEDIA dikembangkan bersama oleh para praktisi digital
+          marketing, software engineer, dan founder UMKM yang setiap harinya
+          menggunakan AI untuk memangkas waktu kerja dari jam-jaman menjadi
+          hitungan menit.
+        </p>
+        <p class="text-sm text-[var(--color-secondary-label)] leading-relaxed">
+          Ketika teknologi model bahasa (LLM) berkembang pesat setiap minggunya,
+          kami memastikan perpustakaan materi terus disesuaikan sehingga Anda
+          selalu memakai formula prompt paling efektif dan relevan.
+        </p>
+      </div>
+    </SectionBand>
+
+    <!-- Closing CTA Banner -->
+    <div class="text-center py-6">
+      <h2 class="text-xl font-bold text-[var(--color-label)] mb-2">
+        Siap Mengakselerasi Bisnis Anda?
+      </h2>
+      <p class="text-sm text-[var(--color-secondary-label)] mb-6">
+        Pilih paket materi yang paling relevan dengan kebutuhan operasional Anda
+        saat ini.
+      </p>
+      <div class="flex items-center justify-center gap-3">
+        <a href="/catalog" class="btn-gold text-sm py-2.5 px-6">
+          <span>Lihat Katalog Toolkit AI</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</Base>
+
+<style>
+  .about-container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 0 var(--space-page-bottom);
+  }
+
+  .about-hero {
+    margin-bottom: var(--space-section);
+  }
+  .principles-band {
+    margin-bottom: var(--space-section);
+  }
+  .about-story-band {
+    margin-bottom: var(--space-section);
+  }
+</style>

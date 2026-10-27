@@ -1,0 +1,146 @@
+---
+interface Props {
+  currentPath?: string;
+  user?: any;
+}
+
+const { currentPath = "", user = null } = Astro.props;
+
+const navItems = [
+  { label: "Katalog", href: "/catalog" },
+  { label: "Updates", href: "/news" },
+  { label: "Tools", href: "/tools" },
+];
+
+const serviceItems = [
+  { label: "AI Workflow", href: "/services#ai-workflow" },
+  { label: "Software Development", href: "/services#software-development" },
+  { label: "Software QA", href: "/services#software-qa" },
+  { label: "Web & SEO", href: "/services#web-seo" },
+];
+
+function isActive(href: string, path: string): boolean {
+  if (href === "/dashboard") return path === "/dashboard";
+  if (href === "/catalog") return path === "/catalog" || path.startsWith("/products");
+  if (href === "/library") return path === "/library" || path.startsWith("/library") || path.startsWith("/r/");
+  if (href === "/news") return path === "/news" || path.startsWith("/news");
+  return path === href || path.startsWith(href + "/");
+}
+---
+
+<nav class="nav-links flex items-center gap-0.5 select-none" aria-label="Navigasi utama">
+  {
+    navItems.map((item) => {
+      const active = isActive(item.href, currentPath);
+      return (
+        <a
+          href={item.href}
+          class:list={[
+            "nav-link-pill transition-all duration-150 select-none",
+            active ? "active" : "",
+          ]}
+          aria-current={active ? "page" : undefined}
+        >
+          {item.label}
+        </a>
+      );
+    })
+  }
+
+  <!-- Services Dropdown with Native Details/Summary -->
+  <details class:list={["nav-services-dropdown relative", { active: currentPath.startsWith("/services") }]}>
+    <summary
+      class:list={[
+        "nav-link-pill transition-all duration-150 cursor-pointer list-none flex items-center gap-1 select-none",
+        currentPath.startsWith("/services") ? "active" : "",
+      ]}
+      aria-label="Buka menu Layanan"
+    >
+      <span>Services</span>
+      <svg
+        class="dropdown-caret shrink-0 transition-transform duration-150"
+        width="11"
+        height="11"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="m6 9 6 6 6-6"></path>
+      </svg>
+    </summary>
+
+    <div
+      class="services-popover absolute top-[calc(100%+8px)] right-0 z-50 w-56 p-1.5 rounded-2xl border border-[var(--color-separator)] shadow-2xl backdrop-blur-2xl"
+    >
+      {
+        serviceItems.map((item) => (
+          <a
+            href={item.href}
+            class="dropdown-link-item block px-3 py-2 text-[13px] font-medium text-[var(--color-secondary-label)] hover:text-[var(--color-label)] hover:bg-[var(--color-fill)] rounded-xl transition-colors"
+          >
+            {item.label}
+          </a>
+        ))
+      }
+    </div>
+  </details>
+</nav>
+
+<style>
+  .nav-links {
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .nav-link-pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 14px;
+    border-radius: 9999px;
+    font-size: 0.84375rem; /* 13.5px - Apple's ideal UI text size */
+    font-weight: 500;
+    letter-spacing: -0.014em;
+    line-height: 1.35;
+    color: #424245;
+    text-decoration: none;
+    transition: all 0.15s cubic-bezier(0.25, 0.1, 0.25, 1);
+  }
+
+  .nav-link-pill:hover {
+    color: #1d1d1f;
+    background: rgba(0, 0, 0, 0.05);
+    text-decoration: none;
+  }
+
+  .nav-link-pill.active {
+    color: #0071e3;
+    font-weight: 600;
+    background: rgba(0, 113, 227, 0.09);
+    box-shadow: inset 0 1px 0.5px rgba(255, 255, 255, 0.8);
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .nav-services-dropdown[open] .dropdown-caret {
+    transform: rotate(180deg);
+  }
+
+  .services-popover {
+    background: rgba(255, 255, 255, 0.96);
+    box-shadow:
+      0 16px 36px -4px rgba(15, 23, 42, 0.14),
+      0 2px 6px rgba(15, 23, 42, 0.04),
+      inset 0 1px 0 rgba(255, 255, 255, 1);
+  }
+
+  .dropdown-link-item {
+    font-family: var(--font-sans);
+    letter-spacing: -0.01em;
+  }
+</style>

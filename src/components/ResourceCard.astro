@@ -1,0 +1,69 @@
+---
+import PromptTextCard from "./cards/PromptTextCard.astro";
+import PromptImageCard from "./cards/PromptImageCard.astro";
+import CourseCard from "./cards/CourseCard.astro";
+import StandardCard from "./cards/StandardCard.astro";
+
+export interface Props {
+  resource: any;
+  variant?: "default" | "with-image";
+  locked?: boolean;
+  hrefPrefix?: string;
+}
+
+const { resource, locked = false, hrefPrefix = "/app/r" } = Astro.props;
+
+const imgMap: Record<string, string> = {
+  "llm-prompt": "/card-prompt-teks.webp",
+  "visual-prompt": "/card-prompt-visual.webp",
+  "custom-ai": "/card-skill-agent.webp",
+  resource: "/card-preset.webp",
+  tutorial: "/card-tutorial.webp",
+  "founder-space": "/card-preset.webp",
+  course: "/card-preset.webp",
+};
+
+// Normalize data whether flat or with .data
+const data = resource.data || resource;
+const category = data.category || "llm-prompt";
+const isPaidProduct = data.price !== undefined;
+const priceLabel = isPaidProduct ? `Rp ${Math.round(data.price / 1000)}K` : "";
+
+const isPro = data.access_level === "paid" || data.access_level === "pro";
+const badgeClass = isPaidProduct
+  ? "bg-[var(--color-tint)] text-white"
+  : isPro
+    ? "bg-[rgba(0,122,255,0.1)] text-[var(--color-tint)] border border-[rgba(0,122,255,0.2)]"
+    : "bg-[var(--color-fill)] text-[var(--color-secondary-label)]";
+
+const badgeLabel = isPaidProduct
+  ? data.badge || priceLabel
+  : isPro
+    ? "PRO"
+    : "GRATIS";
+
+const showBadge = true;
+const cardHref = `${hrefPrefix}/${resource.id}`;
+
+const cardProps = {
+  resource,
+  cardHref,
+  showBadge,
+  badgeClass,
+  badgeLabel,
+  imgMap,
+  locked,
+};
+---
+
+{
+  category === "visual-prompt" ? (
+    <PromptImageCard {...cardProps} />
+  ) : category === "llm-prompt" ? (
+    <PromptTextCard {...cardProps} />
+  ) : category === "course" || category === "tutorial" ? (
+    <CourseCard {...cardProps} />
+  ) : (
+    <StandardCard {...cardProps} />
+  )
+}

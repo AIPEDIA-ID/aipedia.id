@@ -1,0 +1,235 @@
+---
+export const prerender = false;
+import DashboardLayout from "../../../layouts/DashboardLayout.astro";
+import Card from "../../../components/Card.astro";
+import EmptyState from "../../../components/EmptyState.astro";
+import ResourceCard from "../../../components/ResourceCard.astro";
+import Icon from "../../../components/Icon.astro";
+import {
+  getResources,
+  getCurrentUser,
+  getGrants,
+  getCatalog,
+} from "../../../lib/data";
+import { canAccess } from "../../../lib/access";
+
+const user = await getCurrentUser(Astro.cookies);
+if (!user) {
+  return Astro.redirect("/login");
+}
+
+const grants = await getGrants(user.id, Astro.cookies);
+const { products, bundles } = await getCatalog();
+const allCatalogItems = [...bundles, ...products];
+const allResources = await getResources();
+
+// Check All-Access entitlement
+const hasAllAccess =
+  grants.includes("bundle-all-access") ||
+  grants.includes("course/") ||
+  grants.includes("prompts/llm-prompt/");
+
+// Filter owned products from catalog
+const ownedProducts = allCatalogItems.filter((item) => {
+  if (hasAllAccess) return true;
+  if (grants.includes(item.slug)) return true;
+  return item.includes?.some((inc) => grants.includes(inc));
+});
+
+// Filter unlocked resources
+const accessibleResources = allResources.filter((r) => canAccess(r, grants));
+---
+
+<DashboardLayout
+  title="Koleksi Saya - AIPEDIA"
+  activeNav="my-library"
+  user={user}
+>
+  <div class="w-full space-y-8">
+    <!-- Ownership Hub Header -->
+    <header class="ownership-header flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-2 border-b border-[var(--color-separator)]">
+      <div>
+        <div class="flex items-center gap-2 mb-1">
+          <span class="text-xs font-bold tracking-wider uppercase text-[var(--color-tint)]">
+            Ownership Hub
+          </span>
+          {hasAllAccess && (
+            <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-gradient-to-r from-[#ffe580] to-[#f2c94c] text-[#3d2700] border border-[#f2c94c]/40 shadow-xs">
+              👑 ALL-ACCESS PASS
+            </span>
+          )}
+        </div>
+        <h1 class="text-2xl sm:text-3xl font-bold tracking-tight text-[var(--color-label)]">
+          Koleksi Pembelajaran Saya
+        </h1>
+        <p class="text-sm text-[var(--color-secondary-label)] mt-1">
+          Akses seluruh paket toolkit, panduan, dan kursus AI yang telah Anda miliki.
+        </p>
+      </div>
+
+      <div class="flex items-center gap-2 shrink-0">
+        <a href="/catalog" class="btn-secondary-sm text-xs py-1.5 px-3">
+          <Icon name="grid" size={13} />
+          <span>Buka Toko</span>
+        </a>
+        <a href="/app/library" class="btn-secondary-sm text-xs py-1.5 px-3">
+          <Icon name="search" size={13} />
+          <span>Jelajah Vault</span>
+        </a>
+      </div>
+    </header>
+
+    {/* VIP Banner if User Has All-Access */}
+    {hasAllAccess && (
+      <Card tone="dark" class="p-6 relative overflow-hidden">
+        <div class="relative z-10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div class="space-y-1.5 max-w-xl">
+            <span class="inline-block text-[10px] font-extrabold uppercase tracking-widest text-[var(--color-accent-gold)]">
+              Membership Seumur Hidup Aktif
+            </span>
+            <h2 class="text-lg sm:text-xl font-bold text-white">
+              Status VIP: Seluruh 100+ Materi & Kursus Terbuka Penuh
+            </h2>
+            <p class="text-xs sm:text-sm text-[#aeb7c5]">
+              Anda memiliki hak akses tanpa batas ke seluruh direktori prompt, script SOP, file aset, dan video pembelajaran masa depan.
+            </p>
+          </div>
+          <a
+            href="/app/library"
+            class="btn-gold text-xs py-2.5 px-4 font-bold shadow-sm shrink-0"
+          >
+            <span>Buka Direktori Lengkap</span>
+            <Icon name="arrow-right" size={14} />
+          </a>
+        </div>
+      </Card>
+    )}
+
+    {/* Owned Products & Courses Section */}
+    {ownedProducts.length > 0 ? (
+      <div class="space-y-4">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <h2 class="text-base font-bold text-[var(--color-label)]">
+              Paket & Modul yang Dimiliki
+            </h2>
+            <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-[rgba(0,113,227,0.10)] text-[var(--color-tint)]">
+              {ownedProducts.length} Aset
+            </span>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {ownedProducts.map((prod) => (
+            <Card elevated class="p-5 flex flex-col justify-between">
+              <div class="space-y-3">
+                <div class="flex items-center justify-between gap-2">
+                  <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-bold bg-[#34c759]/10 text-[#248a3d] border border-[#34c759]/20">
+                    <Icon name="check" size={11} />
+                    <span>Aktif & Dimiliki</span>
+                  </span>
+                  {prod.slug.includes("bundle") && (
+                    <span class="text-[10px] font-bold text-[var(--color-secondary-label)] uppercase">
+                      Bundle
+                    </span>
+                  )}
+                </div>
+
+                <h3 class="text-base font-bold text-[var(--color-label)] leading-snug">
+                  {prod.title}
+                </h3>
+                <p class="text-xs text-[var(--color-secondary-label)] line-clamp-2">
+                  {prod.description}
+                </p>
+
+                {prod.features && (
+                  <ul class="space-y-1.5 pt-2 border-t border-[var(--color-separator)] text-xs text-[var(--color-secondary-label)]">
+                    {prod.features.slice(0, 3).map((feat: string) => (
+                      <li class="flex items-center gap-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[var(--color-tint)]"></span>
+                        <span class="truncate">{feat}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+
+              <div class="pt-4 mt-4 border-t border-[var(--color-separator)] flex items-center justify-between gap-2">
+                <span class="text-[11px] text-[var(--color-tertiary-label)] font-medium">
+                  Lisensi Personal
+                </span>
+                <a
+                  href="/app/library"
+                  class="btn-primary-sm text-xs py-1.5 px-3"
+                >
+                  <span>Buka Materi &rarr;</span>
+                </a>
+              </div>
+            </Card>
+          ))}
+        </div>
+      </div>
+    ) : (
+      /* Reusable Empty State if No Products Owned */
+      <Card class="p-8 max-w-xl mx-auto">
+        <EmptyState
+          title="Koleksi Belajarmu Masih Kosong"
+          description="Anda belum memiliki paket toolkit prompt maupun kursus AI berbayar. Pilih materi pertama Anda di katalog untuk langsung mulai praktek."
+          actionLabel="Buka Katalog Toko"
+          actionHref="/catalog"
+        />
+      </Card>
+    )}
+
+    {/* Accessible Quick-Access Prompts */}
+    {accessibleResources.length > 0 && (
+      <div class="space-y-4 pt-4 border-t border-[var(--color-separator)]">
+        <div class="flex items-center justify-between">
+          <div>
+            <h2 class="text-base font-bold text-[var(--color-label)]">
+              Materi Terbuka yang Siap Anda Salin
+            </h2>
+            <p class="text-xs text-[var(--color-secondary-label)]">
+              {accessibleResources.length} template prompt dan panduan siap pakai
+            </p>
+          </div>
+          <a
+            href="/app/library"
+            class="text-xs font-semibold text-[var(--color-tint)] hover:underline"
+          >
+            Semua di Vault &rarr;
+          </a>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {accessibleResources.slice(0, 6).map((resource) => (
+            <ResourceCard resource={resource} locked={false} hrefPrefix="/app/r" />
+          ))}
+        </div>
+      </div>
+    )}
+
+    {/* Upsell Banner for Non-All-Access Members */}
+    {!hasAllAccess && (
+      <Card tone="dark" class="p-6">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div class="space-y-1 max-w-xl">
+            <h3 class="text-sm sm:text-base font-bold text-white">
+              Ingin Membuka Seluruh 100+ Modul & Direktori Lengkap?
+            </h3>
+            <p class="text-xs text-[#aeb7c5]">
+              Hemat hingga jutaan rupiah dengan All-Access Lifetime Pass. Sekali bayar, akses seluruh update prompt dan kursus selamanya.
+            </p>
+          </div>
+          <a
+            href="/catalog"
+            class="btn-gold text-xs py-2.5 px-4 font-bold shadow-sm shrink-0"
+          >
+            <span>Ambil All-Access Pass</span>
+            <Icon name="arrow-right" size={13} />
+          </a>
+        </div>
+      </Card>
+    )}
+  </div>
+</DashboardLayout>

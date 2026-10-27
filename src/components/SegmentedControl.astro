@@ -1,0 +1,82 @@
+---
+interface Props {
+  name: string;
+  segments: { label: string; value: string }[];
+}
+
+const { name, segments } = Astro.props;
+---
+
+<div class="segmented-control" role="radiogroup" aria-label={name}>
+  {segments.map((seg, i) => (
+    <label class="seg-label">
+      <input
+        type="radio"
+        name={name}
+        value={seg.value}
+        checked={i === 0}
+        class="seg-radio"
+      />
+      <span class="seg-display">{seg.label}</span>
+    </label>
+  ))}
+</div>
+
+<style>
+  .segmented-control {
+    display: inline-flex;
+    gap: 2px;
+    padding: 2px;
+    background: var(--color-fill);
+    border-radius: 10px;
+  }
+  .seg-label {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  .seg-radio {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  .seg-display {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 16px;
+    min-height: 32px;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--color-secondary-label);
+    border-radius: 8px;
+    transition: background 0.2s, color 0.2s;
+    white-space: nowrap;
+  }
+  .seg-radio:checked + .seg-display {
+    background: var(--color-surface-elevated);
+    color: var(--color-label);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  }
+  .seg-radio:focus-visible + .seg-display {
+    outline: 2px solid var(--color-tint);
+    outline-offset: 1px;
+  }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>(".segmented-control")?.forEach((control) => {
+    const radios = control.querySelectorAll<HTMLInputElement>("input[type='radio']");
+    radios.forEach((radio) => {
+      radio.addEventListener("change", () => {
+        const event = new CustomEvent("segment-change", {
+          detail: { value: radio.value, name: radio.name },
+          bubbles: true,
+        });
+        control.dispatchEvent(event);
+      });
+    });
+  });
+</script>

@@ -1,0 +1,30 @@
+---
+interface Props {
+  size?: "sm" | "md" | "lg";
+  className?: string;
+  textColorClass?: string;
+}
+
+const {
+  size = "md",
+  className = "",
+  textColorClass = "text-[#1d1d1f]",
+} = Astro.props;
+
+const sizes = {
+  sm: { wrapper: "w-6 h-6 rounded-md", iconSize: 14, text: "text-base", gap: "gap-2" },
+  md: { wrapper: "w-7 h-7 rounded-lg", iconSize: 16, text: "text-base", gap: "gap-2.5" },
+  lg: { wrapper: "w-8 h-8 rounded-xl", iconSize: 20, text: "text-lg", gap: "gap-2.5" },
+};
+
+const config = sizes[size];
+---
+
+<a href="/" class={`flex items-center ${config.gap} ${className} hover:opacity-90 transition-opacity`}>
+  <div class={`${config.wrapper} bg-[#0071e3] flex items-center justify-center shrink-0 shadow-sm`}>
+    <svg width={config.iconSize} height={config.iconSize} viewBox="0 0 24 24" fill="none" class="text-white">
+      <path d="M12 3v18m-7.79-4.5l15.58-9m0 9l-15.58-9" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+  <span class={`font-bold ${config.text} tracking-tight ${textColorClass} brand-logo-text`}>Aipedia</span>
+</a>

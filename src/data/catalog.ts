@@ -1,0 +1,333 @@
+import type { Product, Bundle, User, Order } from "../data/types";
+
+export const products: Product[] = [
+  {
+    slug: "starter-pack-prompt",
+    title: "Starter Pack Prompt Bisnis & UMKM",
+    description:
+      "Paket lengkap 50+ prompt siap pakai untuk otomatisasi pemasaran, CS WhatsApp, dan operasional bisnis.",
+    price: 199000,
+    originalPrice: 299000,
+    currency: "IDR",
+    badge: "Populer",
+    includes: ["prompts/llm-prompt/bisnis-umkm", "prompts/llm-prompt/customer-service-wa"],
+    visibility: "public",
+    thumbnail: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=700&q=80",
+    features: [
+      "50+ Template Prompt Bisnis",
+      "Script Customer Service WhatsApp",
+      "Template SOP & Proposal Bisnis",
+    ],
+  },
+  {
+    slug: "copywriting-marketing-pro",
+    title: "Copywriting & Social Media Engine",
+    description:
+      "Koleksi prompt copywriting iklan persuasif, caption viral TikTok & Instagram, dan artikel SEO.",
+    price: 249000,
+    originalPrice: 349000,
+    currency: "IDR",
+    badge: "Rekomendasi",
+    includes: ["prompts/llm-prompt/copywriting-marketing", "prompts/llm-prompt/konten-media-sosial"],
+    visibility: "public",
+    thumbnail: "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=700&q=80",
+    features: [
+      "Framework Hook 3 Detik Reels/TikTok",
+      "Copy Iklan FB/IG Ads & Google Ads",
+      "Strategi Konten Bulanan Lengkap",
+    ],
+  },
+  {
+    slug: "visual-creator-pack",
+    title: "Visual & Branding Creator Pack",
+    description:
+      "Panduan prompt Midjourney dan visual AI untuk pembuatan logo, foto produk komersial, dan banner iklan.",
+    price: 299000,
+    originalPrice: 399000,
+    currency: "IDR",
+    badge: "Trending",
+    includes: ["prompts/visual-prompt/minimalist-tech-logo", "tutorial/how-to-use-visual"],
+    visibility: "public",
+    thumbnail: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=700&q=80",
+    features: [
+      "Parameter Kamera & Lighting Profesional",
+      "Template Prompt Logo Minimalis",
+      "Panduan Lisensi Komersial Aset Visual",
+    ],
+  },
+  {
+    slug: "ecommerce-auto-pilot",
+    title: "E-Commerce & Marketplace Auto-Pilot",
+    description:
+      "Generator deskripsi produk Shopee & Tokopedia, formula penanganan komplain, dan skrip closing WhatsApp otomatis.",
+    price: 169000,
+    originalPrice: 249000,
+    currency: "IDR",
+    badge: "Terlaris",
+    includes: ["prompts/llm-prompt/bisnis-umkm", "prompts/llm-prompt/customer-service-wa"],
+    visibility: "public",
+    thumbnail: "https://images.unsplash.com/photo-1556740758-90de374c12ad?auto=format&fit=crop&w=700&q=80",
+    features: [
+      "40+ Template Deskripsi Produk Marketplace",
+      "Skrip Respon Komplain Bintang 1-3",
+      "Formula Follow Up Checkout Terbengkalai",
+    ],
+  },
+  {
+    slug: "midjourney-photorealism-kit",
+    title: "Midjourney Photorealistic Studio",
+    description:
+      "Prompt parameter kamera profesional (85mm lens, rim lighting, depth of field) untuk foto produk makanan, skincare, dan fashion komersial.",
+    price: 229000,
+    originalPrice: 329000,
+    currency: "IDR",
+    badge: "Baru",
+    includes: ["prompts/visual-prompt/minimalist-tech-logo", "tutorial/how-to-use-visual"],
+    visibility: "public",
+    thumbnail: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=700&q=80",
+    features: [
+      "Parameter Lensa & Pencahayaan Studio",
+      "Formula Foto Produk Makanan & Skincare",
+      "Panduan Lisensi Aset Komersial",
+    ],
+  },
+  {
+    slug: "social-media-content-lab",
+    title: "Viral Reels & TikTok Content Lab",
+    description:
+      "120+ formula hook pembuka 3 detik anti-skip, template storyboard video pendek vertikal, dan generator ide konten 30 hari.",
+    price: 189000,
+    originalPrice: 279000,
+    currency: "IDR",
+    badge: "Trending",
+    includes: ["prompts/llm-prompt/konten-media-sosial", "prompts/llm-prompt/copywriting-marketing"],
+    visibility: "public",
+    thumbnail: "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=700&q=80",
+    features: [
+      "120+ Hook 3 Detik Anti-Skip",
+      "Kalender Konten 30 Hari Otomatis",
+      "Template Carousel Edukasi Instagram",
+    ],
+  },
+  {
+    slug: "ai-legal-hr-toolkit",
+    title: "AI HR & Legal Dokumen Builder",
+    description:
+      "Panduan pembuatan draft Surat Perjanjian Kerja (PKWT), Non-Disclosure Agreement (NDA), dan SOP operasional karyawan berstandar korporat.",
+    price: 219000,
+    originalPrice: 319000,
+    currency: "IDR",
+    badge: "Hemat 30%",
+    includes: ["prompts/llm-prompt/bisnis-umkm", "prompts/llm-prompt/produktivitas"],
+    visibility: "public",
+    thumbnail: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=700&q=80",
+    features: [
+      "Draft Kontrak Kerja & NDA Freelancer",
+      "Template SOP Karyawan & Job Description",
+      "Formulir KPI & Evaluasi Kinerja Tim",
+    ],
+  },
+  {
+    slug: "seo-affiliate-domination",
+    title: "SEO Article & Affiliate Authority",
+    description:
+      "Framework prompt riset kata kunci, outline artikel pilar 2.500 kata, dan review produk komparasi afiliasi yang lolos Google Helpful Content.",
+    price: 249000,
+    originalPrice: 349000,
+    currency: "IDR",
+    badge: "Rekomendasi",
+    includes: ["prompts/llm-prompt/seo-article-master", "tutorial/keyword-research-guide"],
+    visibility: "public",
+    thumbnail: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=700&q=80",
+    features: [
+      "Outline Artikel SEO Pilar Long-Form",
+      "Review Komparasi Produk Afiliasi",
+      "Skema FAQ & Rich Snippet Google",
+    ],
+  },
+  {
+    slug: "whatsapp-sales-closer",
+    title: "WhatsApp Sales & Follow-Up Engine",
+    description:
+      "Kumpulan skrip mengatasi keberatan 'kemahalan', pola follow up 3 sentuhan tanpa spam, dan strategi broadcast promosi akhir bulan.",
+    price: 149000,
+    originalPrice: 219000,
+    currency: "IDR",
+    badge: "Favorit",
+    includes: ["prompts/llm-prompt/customer-service-wa", "prompts/llm-prompt/bisnis-umkm"],
+    visibility: "public",
+    thumbnail: "https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&w=700&q=80",
+    features: [
+      "25 Skrip Mengatasi Keberatan Harga",
+      "Pola Follow-Up 3 Hari Tanpa Spam",
+      "Template Broadcast Promo Akhir Bulan",
+    ],
+  },
+  {
+    slug: "founder-ai-accelerator",
+    title: "Founder AI Business Accelerator",
+    description:
+      "Framework go-to-market, pitch deck investor, riset pasar kompetitor, dan financial forecasting berbasis AI.",
+    price: 499000,
+    originalPrice: 699000,
+    currency: "IDR",
+    badge: "Exclusive",
+    includes: ["prompts/llm-prompt/bisnis-umkm", "tutorial/keyword-research-guide"],
+    visibility: "public",
+    thumbnail: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&w=700&q=80",
+    features: [
+      "Template Pitch Deck Investor Siap Presentasi",
+      "Rencana Ekspansi Usaha & Valuasi Pasar",
+      "SOP Operasional Berstandar Korporat",
+    ],
+  },
+];
+
+export const bundles: Bundle[] = [
+  {
+    slug: "bundle-all-access",
+    title: "All-Access Lifetime Pass",
+    description:
+      "Akses tanpa batas ke seluruh perpustakaan AIPEDIA: prompt bisnis, visual studio, tutorial, dan update materi berkala.",
+    price: 999000,
+    originalPrice: 1999000,
+    currency: "IDR",
+    badge: "Nilai Terbaik",
+    thumbnail: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=700&q=80",
+    features: [
+      "100+ Materi & Terus Bertambah",
+      "Akses Seluruh Modul & Resource Masa Depan",
+      "Support Langsung Komunitas Founder",
+    ],
+    includes: [
+      "course/",
+      "course/ai-for-beginners",
+      "course/ai-untuk-pemula",
+      "prompts/llm-prompt/",
+      "prompts/visual-prompt/",
+      "custom-ai/",
+      "tutorial/",
+      "founder-space/",
+      "resource/",
+    ],
+    visibility: "public",
+  },
+  {
+    slug: "bundle-marketing-powerhouse",
+    title: "Marketing & Sales Powerhouse Bundle",
+    description:
+      "Gabungan strategi copywriting konversi tinggi, customer service WhatsApp, dan visual ads kelas dunia.",
+    price: 649000,
+    originalPrice: 899000,
+    currency: "IDR",
+    badge: "Hemat 35%",
+    thumbnail: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=700&q=80",
+    features: [
+      "Corong Penjualan Otomatis End-to-End",
+      "40+ Script Closing Penjualan WhatsApp",
+      "Template Visual Konten Media Sosial",
+    ],
+    includes: [
+      "prompts/llm-prompt/copywriting-marketing",
+      "prompts/llm-prompt/customer-service-wa",
+      "prompts/llm-prompt/konten-media-sosial",
+      "prompts/visual-prompt/minimalist-tech-logo",
+    ],
+    visibility: "public",
+  },
+  {
+    slug: "bundle-umkm-godigital",
+    title: "Bundle UMKM Go-Digital AI",
+    description:
+      "Solusi terpadu UMKM untuk mendominasi pasar: optimasi toko online, skrip closing WhatsApp cepat, dan materi visual iklan berdaya pikat.",
+    price: 399000,
+    originalPrice: 699000,
+    currency: "IDR",
+    badge: "Paling Laris",
+    thumbnail: "https://images.unsplash.com/photo-1556740738-b6a63e27c4df?auto=format&fit=crop&w=700&q=80",
+    features: [
+      "Menggabungkan 4 Toolkit Esensial UMKM",
+      "150+ Prompt Praktis Tanpa Teori Rumit",
+      "Panduan Video Praktik Langkah demi Langkah",
+    ],
+    includes: [
+      "prompts/llm-prompt/bisnis-umkm",
+      "prompts/llm-prompt/customer-service-wa",
+      "prompts/llm-prompt/konten-media-sosial",
+      "tutorial/how-to-use-prompt",
+    ],
+    visibility: "public",
+  },
+  {
+    slug: "bundle-creator-studio-ultra",
+    title: "Creator Studio Ultra Pass",
+    description:
+      "Paket lengkap creator konten & studio desain: formula prompt visual resolusi tinggi, hook video viral, dan template carousel edukatif.",
+    price: 599000,
+    originalPrice: 999000,
+    currency: "IDR",
+    badge: "Hemat 40%",
+    thumbnail: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=700&q=80",
+    features: [
+      "Akses Seluruh Prompt Visual & Copywriting",
+      "Template Desain Banner & Carousel",
+      "Lisensi Komersial untuk Proyek Klien",
+    ],
+    includes: [
+      "prompts/visual-prompt/minimalist-tech-logo",
+      "prompts/llm-prompt/konten-media-sosial",
+      "prompts/llm-prompt/copywriting-marketing",
+      "tutorial/how-to-use-visual",
+    ],
+    visibility: "public",
+  },
+];
+
+export const mockUser: User = {
+  id: "u_demo",
+  name: "Pengguna Demo",
+  email: "demo@aipedia.id",
+};
+
+export const mockLoggedIn = true;
+
+// Local UX preview: unlock all resource families without creating a real order.
+// Keep this in mock data so it cannot be mistaken for a production entitlement.
+export const mockGrants: string[] = [
+  "course/",
+  "prompts/",
+  "tutorial/",
+  "founder-space/",
+  "custom-ai/",
+  "resource/",
+];
+
+export const mockOrders: Order[] = [
+  {
+    id: "ORD-2026-001",
+    date: "2026-10-15",
+    productSlug: "starter-pack-prompt",
+    productTitle: "Starter Pack Prompt Bisnis",
+    amount: 199000,
+    currency: "IDR",
+    status: "paid",
+  },
+  {
+    id: "ORD-2026-002",
+    date: "2026-10-18",
+    productSlug: "bundle-all-access",
+    productTitle: "Bundle All Access",
+    amount: 999000,
+    currency: "IDR",
+    status: "pending",
+  },
+  {
+    id: "ORD-2026-003",
+    date: "2026-10-20",
+    productSlug: "visual-creator-pack",
+    productTitle: "Visual Creator Pack",
+    amount: 299000,
+    currency: "IDR",
+    status: "failed",
+  },
+];

@@ -1,0 +1,257 @@
+---
+interface PathwayItem {
+  step: string;
+  title: string;
+  href: string;
+  image: string;
+  accessLabel?: string;
+}
+
+interface Props {
+  eyebrow?: string;
+  title: string;
+  description: string;
+  href?: string;
+  linkLabel?: string;
+  items: PathwayItem[];
+  class?: string;
+}
+
+const {
+  eyebrow = "BELAJAR · COBA · TERAPKAN",
+  title,
+  description,
+  href = "/library",
+  linkLabel = "Jelajahi semua materi",
+  items,
+  class: className = "",
+} = Astro.props;
+---
+
+<section class:list={["feature-pathway", className]} aria-label={title}>
+  <div class="pathway-heading">
+    <div>
+      <span class="pathway-eyebrow">{eyebrow}</span>
+      <h2>{title}</h2>
+      <p>{description}</p>
+    </div>
+    <a href={href} class="pathway-link">
+      {linkLabel} <span aria-hidden="true">→</span>
+    </a>
+  </div>
+
+  <div class="pathway-grid">
+    {items.map((item) => (
+      <a class="pathway-card" href={item.href}>
+        <div class="pathway-card-image">
+          <img src={item.image} alt="" loading="lazy" />
+          {item.accessLabel && <span>{item.accessLabel}</span>}
+        </div>
+        <div class="pathway-card-copy">
+          <span class="pathway-card-step">{item.step}</span>
+          <h3>{item.title}</h3>
+          <span class="pathway-card-cta">Buka materi <span aria-hidden="true">↗</span></span>
+        </div>
+      </a>
+    ))}
+  </div>
+
+  <p class="pathway-footnote">Akses tiap materi mengikuti labelnya.</p>
+</section>
+
+<style>
+  .feature-pathway {
+    position: relative;
+    overflow: hidden;
+    padding: var(--space-feature-panel);
+    border: 1px solid var(--color-feature-blue-border);
+    border-radius: var(--radius-2xl);
+    color: var(--color-feature-blue-ink);
+    background: var(--gradient-feature-blue);
+    box-shadow: var(--shadow-feature-blue);
+  }
+
+  .pathway-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: var(--space-4);
+    margin-bottom: var(--space-4);
+  }
+
+  .pathway-eyebrow,
+  .pathway-card-step {
+    color: var(--color-feature-blue-muted);
+    font-size: var(--type-caption);
+    font-weight: 700;
+    letter-spacing: .09em;
+  }
+
+  .pathway-heading h2 {
+    max-width: 620px;
+    margin-top: var(--space-1);
+    color: var(--color-feature-blue-ink);
+    font-size: clamp(1.5rem, 3.3vw, 2.25rem);
+    font-weight: 750;
+    line-height: 1.12;
+    letter-spacing: -.035em;
+  }
+
+  .pathway-heading p {
+    max-width: 560px;
+    margin-top: var(--space-1);
+    color: var(--color-feature-blue-muted);
+    font-size: .9rem;
+    line-height: 1.55;
+  }
+
+  .pathway-link {
+    flex: 0 0 auto;
+    padding: 10px var(--space-2);
+    border: 1px solid var(--color-feature-blue-border);
+    border-radius: 999px;
+    color: var(--color-feature-blue-ink);
+    font-size: var(--type-meta);
+    font-weight: 650;
+    text-decoration: none;
+    background: var(--color-feature-blue-wash);
+    transition:
+      background var(--duration-fast) var(--ease-standard),
+      border-color var(--duration-fast) var(--ease-standard);
+  }
+
+  .pathway-link:hover {
+    border-color: var(--color-feature-blue-border);
+    background: var(--color-feature-blue-wash-hover);
+  }
+
+  .pathway-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-2);
+  }
+
+  .pathway-card {
+    display: grid;
+    grid-template-columns: 112px minmax(0, 1fr);
+    gap: var(--space-2);
+    min-width: 0;
+    padding: var(--space-1);
+    border: 1px solid var(--color-feature-blue-border);
+    border-radius: var(--radius-lg);
+    color: var(--color-feature-blue-ink);
+    text-decoration: none;
+    background: var(--color-feature-blue-card);
+    box-shadow: inset 0 1px var(--color-feature-blue-wash);
+    transition:
+      transform var(--duration-fast) var(--ease-standard),
+      background var(--duration-fast) var(--ease-standard);
+  }
+
+  .pathway-card:hover {
+    transform: translateY(-2px);
+    background: var(--color-feature-blue-card-hover);
+  }
+
+  .pathway-card:focus-visible,
+  .pathway-link:focus-visible {
+    outline: 3px solid var(--color-feature-blue-ink);
+    outline-offset: 3px;
+  }
+
+  .pathway-card-image {
+    position: relative;
+    overflow: hidden;
+    min-height: 112px;
+    border-radius: var(--radius-sm);
+    background: var(--color-feature-blue-wash);
+  }
+
+  .pathway-card-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 112px;
+    object-fit: cover;
+  }
+
+  .pathway-card-image > span {
+    position: absolute;
+    left: var(--space-1);
+    bottom: var(--space-1);
+    padding: 4px var(--space-1);
+    border-radius: var(--radius-xs);
+    color: var(--color-feature-blue-ink);
+    background: var(--color-feature-blue-chip);
+    font-size: var(--type-caption);
+    font-weight: 750;
+    letter-spacing: .07em;
+  }
+
+  .pathway-card-copy {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 4px 4px 4px 0;
+  }
+
+  .pathway-card-step { font-size: var(--type-caption); }
+
+  .pathway-card-copy h3 {
+    margin-top: 6px;
+    color: var(--color-feature-blue-ink);
+    font-size: .94rem;
+    font-weight: 700;
+    line-height: 1.25;
+  }
+
+  .pathway-card-cta {
+    margin-top: 9px;
+    color: var(--color-feature-blue-muted);
+    font-size: var(--type-caption);
+    font-weight: 600;
+  }
+
+  .pathway-footnote {
+    margin: 13px 2px 0;
+    color: var(--color-feature-blue-muted);
+    font-size: var(--type-caption);
+  }
+
+  @media (min-width: 760px) {
+    .pathway-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .pathway-card {
+      display: flex;
+      flex-direction: column;
+      padding: var(--space-1) var(--space-1) 13px;
+    }
+
+    .pathway-card-image {
+      aspect-ratio: 1.28 / 1;
+      min-height: 0;
+    }
+
+    .pathway-card-image img {
+      min-height: 0;
+    }
+
+    .pathway-card-copy { padding: 4px 5px 0; }
+    .pathway-card-copy h3 { min-height: 2.4em; }
+  }
+
+  @media (max-width: 639px) {
+    .pathway-heading {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+
+    .pathway-link {
+      align-self: flex-start;
+    }
+  }
+</style>

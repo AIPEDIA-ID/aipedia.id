@@ -1,0 +1,487 @@
+---
+export const prerender = false;
+import Base from "../../layouts/Base.astro";
+import Card from "../../components/Card.astro";
+import PlaceholderButton from "../../components/PlaceholderButton.astro";
+import {
+  getCatalog,
+  getResources,
+  getCurrentUser,
+  getGrants,
+} from "../../lib/data";
+import { canAccess } from "../../lib/access";
+import { toPublicView } from "../../lib/content";
+
+const slug = Astro.params.slug;
+if (!slug) {
+  return Astro.redirect("/404");
+}
+
+const { products, bundles } = await getCatalog();
+const allProducts = [...products, ...bundles];
+const product = allProducts.find((p) => p.slug === slug);
+
+if (!product) {
+  return Astro.redirect("/404");
+}
+
+const allResources = await getResources();
+
+const includedResources = allResources.filter((r) =>
+  product.includes.some((inc) => {
+    const normalized = inc.endsWith("/") ? inc : inc;
+    return (
+      r.id === normalized ||
+      r.id.startsWith(normalized.endsWith("/") ? normalized : normalized + "/")
+    );
+  }),
+);
+
+const user = await getCurrentUser(Astro.cookies);
+const grants = user ? await getGrants(user.id, Astro.cookies) : [];
+
+const hasAllAccess = includedResources.every((r) => canAccess(r, grants));
+
+function formatPrice(price: number): string {
+  return "Rp" + price.toLocaleString("id-ID");
+}
+
+function discountPct(price: number, original?: number): number | null {
+  if (!original || original <= price) return null;
+  return Math.round(((original - price) / original) * 100);
+}
+
+const discount = discountPct(product.price, product.originalPrice);
+---
+
+<Base title={`${product.title} - AIPEDIA`} wide user={user}>
+  <div class="product-page-container">
+    <a href="/catalog" class="back-link">
+      <svg width="16" height="16" viewBox="0 0 24 24"
+        ><path
+          d="M15 6l-6 6 6 6"
+          stroke="currentColor"
+          stroke-width="1.5"
+          fill="none"
+          stroke-linecap="round"
+          stroke-linejoin="round"></path></svg
+      >
+      <span>Kembali ke Katalog</span>
+    </a>
+
+    <div class="product-detail-layout">
+      <!-- Main Content Column (Left) -->
+      <div class="product-main-content">
+        {
+          product.thumbnail && (
+            <div class="detail-image-box">
+              <img src={product.thumbnail} alt={product.title} />
+              {product.badge && (
+                <span class="product-image-badge">{product.badge}</span>
+              )}
+            </div>
+          )
+        }
+
+        <div class="detail-header">
+          <h1
+            class="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-[var(--color-label)]"
+          >
+            {product.title}
+          </h1>
+          <p
+            class="text-base text-[var(--color-secondary-label)] mt-3 leading-relaxed"
+          >
+            {product.description}
+          </p>
+        </div>
+
+        {
+          product.features && product.features.length > 0 && (
+            <section class="detail-section">
+              <h2 class="section-title">Yang Anda Dapatkan</h2>
+              <ul class="space-y-2 mt-3">
+                {product.features.map((feat) => (
+                  <li class="flex items-center gap-2 text-sm font-medium text-[var(--color-label)]">
+                    <span class="text-[var(--color-tint)] font-bold">•</span>
+                    <span>{feat}</span>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )
+        }
+
+        {
+          includedResources.length > 0 && (
+            <section class="detail-section">
+              <div class="flex items-center justify-between mb-3">
+                <h2 class="section-title mb-0">Materi yang Termasuk</h2>
+                <span class="text-xs font-semibold text-[var(--color-secondary-label)]">
+                  {includedResources.length} materi siap pakai
+                </span>
+              </div>
+              <div class="included-compact-list">
+                {includedResources.map((r, idx) => {
+                  const pub = toPublicView(r);
+                  return (
+                    <a href={`/r/${r.id}`} class="included-compact-row">
+                      <span class="row-num">{idx + 1}</span>
+                      <div class="row-content">
+                        <span class="row-title">{pub.title}</span>
+                        <span class="row-teaser">{pub.teaser}</span>
+                      </div>
+                      <svg
+                        class="row-chevron"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M9 6l6 6-6 6"
+                          stroke="currentColor"
+                          stroke-width="1.5"
+                          fill="none"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </a>
+                  );
+                })}
+              </div>
+            </section>
+          )
+        }
+
+        <!-- Trust Note -->
+        <div class="guarantee-box card p-4">
+          <h3 class="text-sm font-bold text-[var(--color-label)]">
+            Garansi Update & Kompatibilitas
+          </h3>
+          <p
+            class="text-sm text-[var(--color-secondary-label)] mt-1 leading-relaxed"
+          >
+            Semua prompt dan workflow diuji secara berkala dengan versi terbaru
+            model AI (ChatGPT Plus/Team, Claude 3.5 Sonnet, Midjourney v6).
+            Update materi baru otomatis tersedia di akun Anda.
+          </p>
+        </div>
+      </div>
+
+      <!-- Sticky Pricing / Action Column (Right) -->
+      <aside class="product-sidebar">
+        <Card as="div" tone="dark" class="sticky-buy-box">
+          <div class="price-header">
+            <span
+              class="text-xs font-bold uppercase tracking-wider text-[var(--color-tertiary-label)]"
+              >Total Investasi</span
+            >
+            <div class="flex items-baseline gap-2.5 mt-1">
+              <span
+                class="text-3xl font-bold tracking-tight text-[var(--color-label)]"
+                >{formatPrice(product.price)}</span
+              >
+              {
+                product.originalPrice &&
+                  product.originalPrice > product.price && (
+                    <span class="text-sm text-[var(--color-tertiary-label)] line-through">
+                      {formatPrice(product.originalPrice)}
+                    </span>
+                  )
+              }
+              {
+                discount && (
+                  <span class="discount-badge">
+                    -{discount}%
+                  </span>
+                )
+              }
+            </div>
+            <p class="text-xs text-[var(--color-secondary-label)] mt-1">
+              Satu kali bayar • Akses selamanya tanpa langganan
+            </p>
+          </div>
+
+          <div
+            class="action-block mt-5 pt-5 border-t border-[var(--color-separator)]"
+          >
+            {
+              hasAllAccess && user ? (
+                <a href="/dashboard" class="btn-primary-full text-center">
+                  <span>Buka di Dashboard</span>
+                </a>
+              ) : (
+                <div>
+                  <a
+                    href={`/payment/success?status=paid&order=ORD-${product.slug.toUpperCase()}`}
+                    class="btn-gold-full text-center"
+                  >
+                    <span>Beli Paket Sekarang</span>
+                  </a>
+                  <span class="text-xs text-[var(--color-secondary-label)] text-center block mt-2">
+                    Pembayaran instan via QRIS &amp; Virtual Account Midtrans
+                  </span>
+                </div>
+              )
+            }
+          </div>
+
+          <div
+            class="perks-checklist mt-5 pt-5 border-t border-[var(--color-separator)]"
+          >
+            <h4 class="text-sm font-bold text-[var(--color-label)] mb-2.5">
+              Keuntungan Paket:
+            </h4>
+            <ul class="space-y-2 text-sm text-[var(--color-secondary-label)]">
+              <li>• Akses instan setelah konfirmasi pembayaran</li>
+              <li>• Format siap copy-paste ke ChatGPT &amp; Claude</li>
+              <li>• Hak pakai komersial untuk bisnis pribadi / klien</li>
+              <li>• Bebas biaya langganan bulanan selamanya</li>
+            </ul>
+          </div>
+        </Card>
+      </aside>
+    </div>
+
+    <!-- Mobile Fixed Buy Bar -->
+    <div class="mobile-buy-bar">
+      <div class="buy-price">
+        <span class="text-lg font-bold text-[var(--color-label)]"
+          >{formatPrice(product.price)}</span
+        >
+        {
+          product.originalPrice && product.originalPrice > product.price && (
+            <span class="text-xs text-[var(--color-tertiary-label)] line-through">
+              {formatPrice(product.originalPrice)}
+            </span>
+          )
+        }
+      </div>
+      {
+        hasAllAccess && user ? (
+          <a href="/dashboard" class="btn-primary text-xs py-2 px-4">
+            Buka di Dashboard
+          </a>
+        ) : (
+          <a
+            href={`/payment/success?status=paid&order=ORD-${product.slug.toUpperCase()}`}
+            class="btn-gold text-xs py-2 px-4"
+          >
+            Beli Sekarang
+          </a>
+        )
+      }
+    </div>
+  </div>
+</Base>
+
+<style>
+  .product-page-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding-bottom: 60px;
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--color-tint);
+    text-decoration: none;
+    margin-bottom: 20px;
+    transition: opacity 0.15s;
+  }
+  .back-link:hover {
+    opacity: 0.75;
+  }
+
+  .product-detail-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  @media (min-width: 900px) {
+    .product-detail-layout {
+      grid-template-columns: 1fr 360px;
+      gap: 48px;
+      align-items: start;
+    }
+  }
+
+  .detail-image-box {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: var(--radius-xl);
+    background: var(--color-surface);
+    border: 1px solid var(--color-separator);
+    position: relative;
+    margin-bottom: 24px;
+  }
+  .detail-image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .product-image-badge {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    padding: 4px 12px;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(8px);
+    border-radius: 100px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .detail-section {
+    margin-top: 36px;
+  }
+  .section-title {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--color-label);
+    margin-bottom: 16px;
+    letter-spacing: -0.01em;
+  }
+
+  .features-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.9375rem;
+    color: var(--color-label);
+    line-height: 1.5;
+  }
+  .feature-item .check-icon {
+    color: #34c759;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+
+  .included-compact-list {
+    background: var(--color-surface-elevated);
+    border: 1px solid var(--color-separator);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+  .included-compact-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 16px;
+    text-decoration: none;
+    color: var(--color-label);
+    border-bottom: 1px solid var(--color-separator);
+    transition: background 0.15s;
+  }
+  .included-compact-row:last-child {
+    border-bottom: none;
+  }
+  .included-compact-row:hover {
+    background: var(--color-fill);
+  }
+  .row-num {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--color-tertiary-label);
+    width: 20px;
+  }
+  .row-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .row-title {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-label);
+  }
+  .row-teaser {
+    font-size: 0.75rem;
+    color: var(--color-secondary-label);
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .row-chevron {
+    color: var(--color-tertiary-label);
+    flex-shrink: 0;
+  }
+
+  .guarantee-box {
+    margin-top: 36px;
+    padding: 18px 20px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-separator);
+    border-radius: var(--radius-lg);
+  }
+
+  /* Sticky Sidebar */
+  .product-sidebar {
+    position: relative;
+  }
+  .sticky-buy-box :global(.price-header > span:first-child) { color: #aeb7c5; }
+  .sticky-buy-box :global(.price-header .text-3xl) { color: #fff; }
+  .sticky-buy-box :global(.price-header .line-through) { color: #98a1b0; }
+  .sticky-buy-box :global(.action-block),
+  .sticky-buy-box :global(.perks-checklist) { border-color: var(--color-dark-border) !important; }
+  .sticky-buy-box :global(.perks-checklist ul) { color: #c7ced9; }
+  .discount-badge { padding: 3px 8px; border: 1px solid rgba(242,201,76,.3); border-radius: 999px; color: #2b1a00; background: linear-gradient(180deg,#ffe580,#f2c94c); font-size: .7rem; font-weight: 750; }
+  @media (min-width: 900px) {
+    .sticky-buy-box {
+      position: sticky;
+      top: 24px;
+      padding: 24px;
+      border-radius: var(--radius-xl);
+    }
+  }
+
+  .mobile-buy-bar {
+    display: none;
+  }
+
+  @media (max-width: 899px) {
+    .product-sidebar {
+      display: none;
+    }
+    .mobile-buy-bar {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: var(--color-surface-elevated);
+      border-top: 1px solid var(--color-separator);
+      padding: 12px 18px;
+      padding-bottom: calc(12px + var(--safe-bottom));
+      z-index: 50;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+    }
+    .buy-price {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+    }
+  }
+</style>

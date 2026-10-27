@@ -1,0 +1,296 @@
+---
+interface Inclusion {
+  title: string;
+  subtitle?: string;
+}
+
+interface Props {
+  title?: string;
+  description?: string;
+  price?: number;
+  originalPrice?: number;
+  discount?: string;
+  href?: string;
+  ctaText?: string;
+  trustText?: string;
+  inclusions?: Inclusion[];
+  tone?: "default" | "dark" | "gold";
+  class?: string;
+}
+
+const {
+  title = "All-Access Lifetime Pass",
+  description = "Akses satu kali ke seluruh materi di Directory AIPEDIA, termasuk prompt, tutorial, course, dan resource yang terus diperbarui.",
+  price = 999000,
+  originalPrice = 1999000,
+  discount = "Hemat 50%",
+  href = "/products/all-access-pass",
+  ctaText = "Dapatkan All-Access Pass",
+  trustText = "Lisensi komersial untuk bisnis Anda",
+  inclusions = [
+    { title: "100+ Template Prompt", subtitle: "Bisnis, CS & Marketing" },
+    { title: "Akses Selamanya", subtitle: "ke seluruh modul & materi baru" },
+    { title: "Midjourney Studio & SOP", subtitle: "operasional bisnis" },
+    { title: "Dukungan Langsung", subtitle: "panduan implementasi berkala" },
+  ],
+  tone = "default",
+  class: className = "",
+} = Astro.props;
+
+function formatPrice(val: number): string {
+  return "Rp" + val.toLocaleString("id-ID");
+}
+---
+
+<section class:list={["featured-showcase card card-elevated overflow-hidden", { "featured-showcase-dark": tone === "dark", "featured-showcase-gold": tone === "gold" }, className]}>
+  <div class="featured-grid">
+    <div class="featured-content">
+      <h2
+        class="text-2xl sm:text-3xl font-bold tracking-tight text-[var(--color-label)]"
+      >
+        {title}
+      </h2>
+      <p
+        class="text-sm sm:text-base text-[var(--color-secondary-label)] mt-2 leading-relaxed max-w-xl"
+      >
+        {description}
+      </p>
+
+      <div class="featured-inclusions mt-6">
+        <h3
+          class="text-xs font-bold uppercase tracking-wider text-[var(--color-secondary-label)] mb-3"
+        >
+          Termasuk di dalam paket:
+        </h3>
+        <ul class="inclusions-grid">
+          {
+            inclusions.map((item) => (
+              <li>
+                <span class="bullet">•</span>
+                <span>
+                  <strong>{item.title}</strong> {item.subtitle || ""}
+                </span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+
+    <div class="featured-action-box">
+      <div class="price-header">
+        <span class="price-main">{formatPrice(price)}</span>
+        {
+          originalPrice && originalPrice > price && (
+            <span class="price-original">{formatPrice(originalPrice)}</span>
+          )
+        }
+        {discount && <span class="discount-pill">{discount}</span>}
+      </div>
+      <p class="price-note">
+        Satu kali bayar • Akses langsung & update gratis
+      </p>
+
+      <a
+        href={href}
+        class:list={[["dark", "gold"].includes(tone) ? "btn-gold" : "btn-primary", "w-full mt-5 text-sm font-semibold py-3 text-center justify-center"]}
+      >
+        <span>{ctaText}</span>
+      </a>
+
+      <div
+        class="action-trust-points mt-4 pt-3.5 border-t border-[var(--color-separator)] space-y-1.5"
+      >
+        <div
+          class="text-xs text-[var(--color-secondary-label)] flex items-center gap-2"
+        >
+          <span class="text-[var(--color-tint)] font-bold">✓</span>
+          <span>{trustText}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .featured-showcase {
+    padding: 28px 24px;
+  }
+
+  @media (min-width: 640px) {
+    .featured-showcase {
+      padding: 36px 36px;
+    }
+  }
+
+  .featured-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 28px;
+    align-items: center;
+  }
+
+  @media (min-width: 900px) {
+    .featured-grid {
+      grid-template-columns: 1.35fr 0.95fr;
+      gap: 40px;
+    }
+  }
+
+  .inclusions-grid {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  @media (min-width: 540px) {
+    .inclusions-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 12px 18px;
+    }
+  }
+
+  .inclusions-grid li {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    font-size: 0.8125rem;
+    color: var(--color-secondary-label);
+    line-height: 1.45;
+  }
+
+  .inclusions-grid .bullet {
+    color: var(--color-tint);
+    font-weight: 700;
+  }
+
+  .inclusions-grid strong {
+    color: var(--color-label);
+    font-weight: 600;
+  }
+
+  .featured-action-box {
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: var(--radius-lg);
+    padding: 24px 22px;
+    box-shadow:
+      0 1px 3px rgba(0, 0, 0, 0.03),
+      inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  }
+
+  .price-header {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .price-main {
+    font-size: 1.75rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--color-label);
+    line-height: 1;
+  }
+
+  .price-original {
+    font-size: 0.9375rem;
+    color: var(--color-tertiary-label);
+    text-decoration: line-through;
+  }
+
+  .discount-pill {
+    font-size: 0.6875rem;
+    font-weight: 700;
+    color: #e02e24;
+    background: rgba(224, 46, 36, 0.08);
+    padding: 2px 8px;
+    border-radius: var(--radius-xs);
+  }
+
+  .price-note {
+    font-size: 0.75rem;
+    color: var(--color-secondary-label);
+    margin-top: 8px;
+  }
+
+  .featured-showcase-dark {
+    color: var(--color-dark-text);
+    border-color: var(--color-dark-border);
+    background: var(--gradient-dark-panel);
+    box-shadow: inset 0 1px rgba(255,255,255,.1), 0 12px 30px rgba(20,25,37,.14);
+  }
+  .featured-showcase-dark .featured-content h2 { color: var(--color-dark-text); }
+  .featured-showcase-dark .featured-content p,
+  .featured-showcase-dark .featured-inclusions h3 { color: var(--color-dark-text-muted); }
+  .featured-showcase-dark .inclusions-grid li { color: #c7ced9; }
+  .featured-showcase-dark .inclusions-grid strong,
+  .featured-showcase-dark .price-main { color: #fff; }
+  .featured-showcase-dark .inclusions-grid .bullet { color: var(--color-accent-gold); }
+  .featured-showcase-dark .featured-action-box {
+    border-color: rgba(255,255,255,.14);
+    background: rgba(255,255,255,.07);
+    box-shadow: inset 0 1px rgba(255,255,255,.08);
+  }
+  .featured-showcase-dark .price-original,
+  .featured-showcase-dark .price-note { color: #b6becc; }
+  .featured-showcase-dark .discount-pill {
+    color: #2b1a00;
+    background: var(--color-gold-gradient);
+  }
+  .featured-showcase-dark .action-trust-points { border-color: var(--color-dark-border); }
+  .featured-showcase-dark .action-trust-points > div { color: #c7ced9; }
+  .featured-showcase-dark .action-trust-points > div > span:first-child { color: var(--color-accent-gold); }
+
+  .featured-showcase-gold {
+    color: var(--color-feature-gold-ink);
+    border-color: var(--color-feature-gold-border);
+    background: var(--gradient-feature-gold);
+    box-shadow: var(--shadow-feature-gold);
+  }
+
+  .featured-showcase-gold .featured-content h2,
+  .featured-showcase-gold .inclusions-grid strong,
+  .featured-showcase-gold .price-main {
+    color: var(--color-feature-gold-ink);
+  }
+
+  .featured-showcase-gold .featured-content p,
+  .featured-showcase-gold .featured-inclusions h3,
+  .featured-showcase-gold .inclusions-grid li {
+    color: var(--color-feature-gold-muted);
+  }
+
+  .featured-showcase-gold .inclusions-grid .bullet {
+    color: var(--color-feature-gold-bullet);
+  }
+
+  .featured-showcase-gold .featured-action-box {
+    border-color: var(--color-feature-gold-action-border);
+    background: var(--color-feature-gold-action);
+  }
+
+  .featured-showcase-gold .price-note,
+  .featured-showcase-gold .action-trust-points > div {
+    color: var(--color-feature-gold-note);
+  }
+
+  .featured-showcase-gold .action-trust-points {
+    border-color: var(--color-feature-gold-action-border);
+  }
+
+  .featured-showcase-gold .btn-gold {
+    border-color: var(--color-feature-gold-button-border);
+    color: var(--color-feature-gold-button);
+    background: var(--gradient-feature-gold-button);
+    box-shadow: var(--shadow-feature-gold-button);
+  }
+
+  .featured-showcase-gold .btn-gold:hover {
+    background: var(--gradient-feature-gold-button-hover);
+  }
+</style>

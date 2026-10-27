@@ -1,0 +1,77 @@
+---
+interface Props {
+  text: string;
+  label?: string;
+}
+
+const { text, label = "Salin" } = Astro.props;
+---
+
+<button
+  class="copy-btn"
+  type="button"
+  data-copy-text={text}
+  aria-label={label}
+>
+  <svg class="copy-icon" width="18" height="18" viewBox="0 0 24 24">
+    <rect x="9" y="9" width="11" height="11" rx="2" stroke="currentColor" stroke-width="1.5" fill="none"/>
+    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" stroke="currentColor" stroke-width="1.5" fill="none"/>
+  </svg>
+  <svg class="check-icon" width="18" height="18" viewBox="0 0 24 24" style="display:none;">
+    <path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  <span class="copy-label">{label}</span>
+</button>
+
+<style>
+  .copy-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    min-height: 36px;
+    background: var(--color-fill);
+    color: var(--color-label);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: opacity 0.2s, background 0.2s;
+  }
+  .copy-btn:hover {
+    background: var(--color-fill-strong);
+  }
+  .copy-btn:active {
+    opacity: 0.6;
+  }
+  .copy-btn.copied {
+    color: var(--color-success);
+  }
+  .copy-btn.copied .copy-icon {
+    display: none;
+  }
+  .copy-btn.copied .check-icon {
+    display: block;
+  }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>(".copy-btn")?.forEach((btn) => {
+    btn.addEventListener("click", async () => {
+      const text = btn.getAttribute("data-copy-text") ?? "";
+      try {
+        await navigator.clipboard.writeText(text);
+        btn.classList.add("copied");
+        const label = btn.querySelector(".copy-label");
+        if (label) label.textContent = "Tersalin";
+        setTimeout(() => {
+          btn.classList.remove("copied");
+          if (label) label.textContent = "Salin";
+        }, 2000);
+      } catch {
+        // fallback
+      }
+    });
+  });
+</script>

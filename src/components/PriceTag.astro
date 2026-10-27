@@ -1,0 +1,31 @@
+---
+interface Props {
+  price: number;
+  currency?: "IDR";
+  size?: "sm" | "md" | "lg";
+}
+
+const { price, currency = "IDR", size = "md" } = Astro.props;
+
+function formatPrice(p: number): string {
+  return "Rp" + p.toLocaleString("id-ID");
+}
+---
+
+<span class:list={["price-tag", `price-${size}`]}>{formatPrice(price)}</span>
+
+<style>
+  .price-tag {
+    font-weight: 700;
+    color: var(--color-label);
+  }
+  .price-sm {
+    font-size: 0.875rem;
+  }
+  .price-md {
+    font-size: 1.25rem;
+  }
+  .price-lg {
+    font-size: 1.75rem;
+  }
+</style>

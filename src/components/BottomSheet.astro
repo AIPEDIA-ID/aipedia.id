@@ -1,0 +1,123 @@
+---
+interface Props {
+  id: string;
+  title?: string;
+}
+
+const { id, title = "" } = Astro.props;
+---
+
+<dialog
+  id={id}
+  class="bottom-sheet"
+  aria-label={title || undefined}
+>
+  <div class="sheet-content">
+    <div class="sheet-handle" aria-hidden="true"></div>
+    {title && <h2 class="sheet-title">{title}</h2>}
+    <div class="sheet-body">
+      <slot />
+    </div>
+  </div>
+  <button class="sheet-close" type="button" aria-label="Tutup" data-close-sheet={id}>
+    <svg width="20" height="20" viewBox="0 0 24 24">
+      <path d="M6 6l12 12M6 18L18 6" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+    </svg>
+  </button>
+</dialog>
+
+<style>
+  .bottom-sheet {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 0;
+    padding-bottom: var(--safe-bottom);
+    border: none;
+    border-radius: 16px 16px 0 0;
+    background: var(--color-background);
+    box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.15);
+    max-height: 85vh;
+    overflow-y: auto;
+    animation: slideUp 0.3s ease-out;
+  }
+  .bottom-sheet::backdrop {
+    background: rgba(0, 0, 0, 0.4);
+  }
+  @keyframes slideUp {
+    from { transform: translateY(100%); }
+    to { transform: translateY(0); }
+  }
+  .sheet-content {
+    padding: 8px 20px 24px;
+  }
+  .sheet-handle {
+    width: 36px;
+    height: 5px;
+    background: var(--color-fill-strong);
+    border-radius: 100px;
+    margin: 4px auto 16px;
+  }
+  .sheet-title {
+    font-size: 1.0625rem;
+    font-weight: 600;
+    color: var(--color-label);
+    margin-bottom: 16px;
+    text-align: center;
+  }
+  .sheet-body {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .sheet-close {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    min-width: 44px;
+    min-height: 44px;
+    background: transparent;
+    border: none;
+    color: var(--color-secondary-label);
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background 0.2s;
+  }
+  .sheet-close:hover {
+    background: var(--color-fill);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .bottom-sheet {
+      animation: none;
+    }
+  }
+</style>
+
+<script>
+  function setupSheet(id: string) {
+    const sheet = document.getElementById(id) as HTMLDialogElement | null;
+    if (!sheet) return;
+
+    const closeBtn = sheet.querySelector(`[data-close-sheet="${id}"]`);
+    closeBtn?.addEventListener("click", () => sheet.close());
+
+    sheet.addEventListener("click", (e) => {
+      if (e.target === sheet) sheet.close();
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll<HTMLDialogElement>(".bottom-sheet")?.forEach((sheet) => {
+      setupSheet(sheet.id);
+    });
+  });
+</script>

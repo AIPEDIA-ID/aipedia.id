@@ -1,0 +1,54 @@
+---
+interface Props {
+  as?: "div" | "a" | "section" | "article" | "aside";
+  href?: string;
+  elevated?: boolean;
+  interactive?: boolean;
+  tone?: "default" | "dark";
+  class?: string;
+  [key: string]: any;
+}
+
+const {
+  as,
+  href,
+  elevated = false,
+  interactive,
+  tone = "default",
+  class: className = "",
+  ...rest
+} = Astro.props;
+
+const Component = href ? "a" : as || "div";
+const isInteractive = interactive ?? Boolean(href);
+const classes = [
+  "card",
+  elevated ? "card-elevated" : "",
+  isInteractive ? "card-interactive" : "",
+  tone === "dark" ? "card-dark" : "",
+  className,
+]
+  .filter(Boolean)
+  .join(" ");
+---
+
+<Component href={href} class={classes} {...rest}>
+  <slot />
+</Component>
+
+<style>
+  .card-dark {
+    color: var(--color-dark-text);
+    border-color: var(--color-dark-border);
+    background: var(--gradient-dark-panel);
+    box-shadow: none;
+  }
+
+  .card-dark :global(h1),
+  .card-dark :global(h2),
+  .card-dark :global(h3),
+  .card-dark :global(h4) { color: var(--color-dark-text); }
+
+  .card-dark :global(p) { color: var(--color-dark-text-muted); }
+</style>
+

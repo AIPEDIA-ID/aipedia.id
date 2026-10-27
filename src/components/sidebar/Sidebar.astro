@@ -1,0 +1,146 @@
+---
+import Icon from "../Icon.astro";
+import BrandLogo from "../BrandLogo.astro";
+import SidebarNav from "./SidebarNav.astro";
+import SidebarPromo from "./SidebarPromo.astro";
+import SidebarUser from "./SidebarUser.astro";
+import type { User } from "../../lib/data/types";
+
+interface Props {
+  activeNav?: string;
+  mobile?: boolean;
+  user?: User | null;
+}
+
+const { activeNav = "", mobile = false, user = null } = Astro.props;
+---
+
+<aside
+  class="sidebar-container flex flex-col h-full w-[260px] select-none text-[var(--color-label)]"
+>
+  <!-- Brand Logo & Header Controls -->
+  <div class="sidebar-header flex items-center justify-between px-4 py-4 shrink-0 transition-all">
+    <a href="/" class="brand-logo-link flex items-center gap-2 group select-none no-underline" aria-label="AIPEDIA Beranda">
+      <BrandLogo size="md" />
+    </a>
+
+    <div class="flex items-center gap-1 shrink-0">
+      {
+        !mobile && (
+          <button
+            id="sidebar-collapse-btn"
+            type="button"
+            class="sidebar-toggle-btn"
+            title="Kecilkan Sidebar (⌘B)"
+            aria-label="Kecilkan Sidebar"
+          >
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <rect width="18" height="18" x="3" y="3" rx="4" />
+              <path d="M9 3v18" />
+            </svg>
+          </button>
+        )
+      }
+      {
+        mobile && (
+          <button
+            id="sidebar-close-btn"
+            type="button"
+            aria-label="Tutup menu"
+            class="mobile-sidebar-close text-[var(--color-tertiary-label)] hover:text-[var(--color-label)] p-2 rounded-xl hover:bg-[var(--sidebar-accent)] transition-colors"
+          >
+            <Icon name="close" size={16} />
+          </button>
+        )
+      }
+    </div>
+  </div>
+
+  <!-- Modular Nav Links -->
+  <SidebarNav activeNav={activeNav} />
+
+  <!-- Modular Pro Upgrade Promo -->
+  <SidebarPromo />
+
+  <!-- Modular User Profile Footer -->
+  <SidebarUser user={user} activeNav={activeNav} />
+</aside>
+
+{
+  !mobile && (
+    <script>
+      function initSidebarMinimize() {
+        const toggleBtn = document.getElementById("sidebar-collapse-btn");
+        const desktopSidebar = document.querySelector<HTMLElement>(
+          "#dashboard-desktop-sidebar .sidebar-container"
+        );
+        if (!desktopSidebar) return;
+
+        const STORAGE_KEY = "aipedia_sidebar_minimized";
+
+        function setSidebarState(collapsed: boolean, persist = true) {
+          if (collapsed) {
+            desktopSidebar.classList.add("is-collapsed");
+            toggleBtn?.setAttribute("title", "Perbesar Sidebar (⌘B)");
+          } else {
+            desktopSidebar.classList.remove("is-collapsed");
+            toggleBtn?.setAttribute("title", "Kecilkan Sidebar (⌘B)");
+          }
+          if (persist) {
+            try {
+              localStorage.setItem(STORAGE_KEY, collapsed ? "1" : "0");
+            } catch (_) {}
+          }
+        }
+
+        // Restore the saved state on the current page.
+        try {
+          setSidebarState(localStorage.getItem(STORAGE_KEY) === "1", false);
+        } catch (_) {}
+
+        // Astro page loads can re-run initialization; bind once per rendered button.
+        if (toggleBtn && toggleBtn.dataset.sidebarBound !== "true") {
+          toggleBtn.dataset.sidebarBound = "true";
+          toggleBtn.addEventListener("click", () => {
+            setSidebarState(!desktopSidebar.classList.contains("is-collapsed"));
+          });
+        }
+
+        // Delegate the shortcut so Astro navigations never stack stale listeners.
+        if (document.documentElement.dataset.sidebarShortcutBound !== "true") {
+          document.documentElement.dataset.sidebarShortcutBound = "true";
+          window.addEventListener("keydown", (event) => {
+            if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "b") {
+              const currentSidebar = document.querySelector<HTMLElement>(
+                "#dashboard-desktop-sidebar .sidebar-container"
+              );
+              if (!currentSidebar) return;
+              event.preventDefault();
+              const collapsed = !currentSidebar.classList.contains("is-collapsed");
+              currentSidebar.classList.toggle("is-collapsed", collapsed);
+              try {
+                localStorage.setItem(STORAGE_KEY, collapsed ? "1" : "0");
+              } catch (_) {}
+              document.getElementById("sidebar-collapse-btn")?.setAttribute(
+                "title",
+                collapsed ? "Perbesar Sidebar (⌘B)" : "Kecilkan Sidebar (⌘B)"
+              );
+            }
+          });
+        }
+      }
+
+      initSidebarMinimize();
+      document.addEventListener("astro:page-load", initSidebarMinimize);
+    </script>
+  )
+}

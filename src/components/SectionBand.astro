@@ -1,0 +1,16 @@
+---
+interface Props {
+  as?: "section" | "div" | "article";
+  tone?: "blue" | "dark";
+  class?: string;
+  innerClass?: string;
+  [key: string]: any;
+}
+
+const { as = "section", tone = "blue", class: className = "", innerClass = "", ...rest } = Astro.props;
+const Component = as;
+---
+
+<Component class:list={["section-band", `section-band-${tone}`, className]} {...rest}>
+  <div class:list={["section-band-inner", innerClass]}><slot /></div>
+</Component>

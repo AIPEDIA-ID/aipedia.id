@@ -1,0 +1,344 @@
+---
+import type { Assistant } from "../data/assistants";
+
+interface Props {
+  assistant: Assistant;
+  class?: string;
+}
+
+const { assistant, class: className = "" } = Astro.props;
+---
+
+<div
+  class:list={["specialist-card", className]}
+  data-category={assistant.category}
+  id={`specialist-${assistant.id}`}
+  style={`--specialist-theme: ${assistant.themeColor};`}
+>
+  <div class="card-glass-shine"></div>
+
+  <div class="card-top">
+    <div class="avatar-wrap">
+      <div class="avatar-halo"></div>
+      <img
+        src={assistant.image}
+        alt={assistant.name}
+        class="avatar-img"
+        loading="lazy"
+        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+      />
+      <div class="avatar-fallback" style={`display:none; background: ${assistant.themeColor};`}>
+        {assistant.name.slice(0, 1)}
+      </div>
+    </div>
+
+    <div class="meta-wrap">
+      <div class="name-row">
+        <h3 class="name">{assistant.name}</h3>
+        <span class="category-pill" data-category={assistant.category}>
+          {assistant.category === "marketing" ? "Marketing" : "Bisnis"}
+        </span>
+      </div>
+      <p class="role">{assistant.role}</p>
+    </div>
+  </div>
+
+  <p class="description">{assistant.description}</p>
+
+  {assistant.examplePrompt && (
+    <div class="prompt-box">
+      <span class="prompt-label">Contoh prompt:</span>
+      <p class="prompt-text">“{assistant.examplePrompt}”</p>
+    </div>
+  )}
+
+  <div class="card-footer">
+    <div class="price-wrap">
+      <span class="price-val">Rp {assistant.price}</span>
+      <span class="price-note">Akses lifetime</span>
+    </div>
+
+    {assistant.link ? (
+      <a
+        href={assistant.link}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="chat-btn"
+        aria-label={`Buka AI ${assistant.name}`}
+      >
+        <span>Buka AI</span>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M7 17L17 7M17 7H7M17 7V17" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    ) : (
+      <a
+        href="#pricing"
+        class="chat-btn secondary"
+        aria-label={`Pilih ${assistant.name} di Bundle`}
+      >
+        <span>Ambil Bundle</span>
+      </a>
+    )}
+  </div>
+</div>
+
+<style>
+  .specialist-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 22px 20px;
+    border-radius: 20px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(250, 251, 254, 0.84) 100%);
+    border: 1px solid rgba(0, 0, 0, 0.07);
+    box-shadow:
+      0 4px 18px rgba(0, 0, 0, 0.03),
+      inset 0 1.5px 0.5px rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .card-glass-shine {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 45%;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0) 100%);
+    pointer-events: none;
+    border-radius: 20px 20px 0 0;
+  }
+
+  .specialist-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(0, 113, 227, 0.28);
+    box-shadow:
+      0 16px 36px rgba(17, 24, 39, 0.08),
+      0 0 0 1px rgba(0, 113, 227, 0.15),
+      inset 0 1.5px 0 #fff;
+  }
+
+  .card-top {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 14px;
+    z-index: 1;
+  }
+
+  .avatar-wrap {
+    position: relative;
+    width: 54px;
+    height: 54px;
+    flex-shrink: 0;
+  }
+
+  .avatar-halo {
+    position: absolute;
+    inset: -3px;
+    border-radius: 50%;
+    background: var(--specialist-theme, #0071e3);
+    opacity: 0.22;
+    filter: blur(7px);
+    transition: opacity 0.3s;
+  }
+
+  .specialist-card:hover .avatar-halo {
+    opacity: 0.38;
+  }
+
+  .avatar-img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    background: #f1f3f7;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .specialist-card:hover .avatar-img {
+    transform: scale(1.05);
+  }
+
+  .avatar-fallback {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.25rem;
+    border: 2px solid #fff;
+  }
+
+  .meta-wrap {
+    min-width: 0;
+    flex: 1;
+  }
+
+  .name-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+  .name {
+    margin: 0;
+    font-size: 1.15rem;
+    font-weight: 750;
+    color: var(--color-label, #1d1d1f);
+    letter-spacing: -0.025em;
+  }
+
+  .category-pill {
+    padding: 3px 9px;
+    border-radius: 999px;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+  }
+
+  .category-pill[data-category="marketing"] {
+    background: rgba(0, 113, 227, 0.08);
+    color: #0062c4;
+    border: 1px solid rgba(0, 113, 227, 0.2);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  }
+
+  .category-pill[data-category="business"] {
+    background: rgba(245, 158, 11, 0.1);
+    color: #92400e;
+    border: 1px solid rgba(245, 158, 11, 0.25);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  }
+
+  .role {
+    margin: 2px 0 0;
+    font-size: 0.78rem;
+    font-weight: 550;
+    color: var(--color-secondary-label, #6e6e73);
+    line-height: 1.35;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .description {
+    position: relative;
+    margin: 0 0 14px;
+    font-size: 0.84rem;
+    line-height: 1.58;
+    color: #48484a;
+    flex-grow: 1;
+    z-index: 1;
+  }
+
+  .prompt-box {
+    position: relative;
+    padding: 11px 13px;
+    border-radius: 13px;
+    background: rgba(0, 0, 0, 0.025);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-left: 3px solid var(--specialist-theme, #0071e3);
+    margin-bottom: 16px;
+    z-index: 1;
+    transition: background 0.2s;
+  }
+
+  .specialist-card:hover .prompt-box {
+    background: rgba(0, 0, 0, 0.035);
+  }
+
+  .prompt-label {
+    display: block;
+    font-size: 0.64rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-tertiary-label, #86868b);
+    margin-bottom: 3px;
+  }
+
+  .prompt-text {
+    margin: 0;
+    font-size: 0.77rem;
+    font-style: italic;
+    color: #334155;
+    line-height: 1.48;
+  }
+
+  .card-footer {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 13px;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+    margin-top: auto;
+    z-index: 1;
+  }
+
+  .price-wrap {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .price-val {
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--color-label, #1d1d1f);
+    letter-spacing: -0.02em;
+  }
+
+  .price-note {
+    font-size: 0.65rem;
+    color: var(--color-tertiary-label, #86868b);
+  }
+
+  .chat-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 7px 14px;
+    border-radius: 999px;
+    font-size: 0.76rem;
+    font-weight: 700;
+    text-decoration: none;
+    background: linear-gradient(180deg, #2b8bf5 0%, #0077ed 44%, #005bb5 100%);
+    color: #fff;
+    box-shadow:
+      0 3px 8px rgba(0, 113, 227, 0.28),
+      inset 0 1px 0.5px rgba(255, 255, 255, 0.45);
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s, opacity 0.2s;
+  }
+
+  .chat-btn:hover {
+    transform: translateY(-1px) scale(1.02);
+    box-shadow:
+      0 5px 12px rgba(0, 113, 227, 0.38),
+      inset 0 1px 0.5px rgba(255, 255, 255, 0.6);
+  }
+
+  .chat-btn.secondary {
+    background: linear-gradient(180deg, #ffffff 0%, #f6f8fb 100%);
+    color: #1d1d1f;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), inset 0 1px 0 #fff;
+  }
+
+  .chat-btn.secondary:hover {
+    background: #ffffff;
+    border-color: rgba(0, 0, 0, 0.2);
+  }
+</style>

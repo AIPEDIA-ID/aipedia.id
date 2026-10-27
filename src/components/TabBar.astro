@@ -1,0 +1,105 @@
+---
+interface Props {
+  currentPath?: string;
+  user?: any;
+}
+
+const { currentPath = "", user = null } = Astro.props;
+
+// Bottom nav is exclusively for mobile and mirrors the side nav exactly:
+// Dashboard, Katalog, Library, Akun (never top nav values)
+const tabs = [
+  { label: "Dashboard", href: "/app/dashboard", icon: "squares" },
+  { label: "Koleksi", href: "/app/my-library", icon: "squares" },
+  { label: "Vault", href: "/app/library", icon: "books" },
+  { label: user ? "Akun" : "Masuk", href: user ? "/app/account" : "/login", icon: "person" },
+];
+
+function isActive(href: string, path: string): boolean {
+  if (href === "/app/dashboard") return path === "/app/dashboard" || path === "/dashboard";
+  if (href === "/app/my-library") return path.startsWith("/app/my-library");
+  if (href === "/app/account" || href === "/login") return path === "/app/account" || path === "/account" || path === "/login";
+  if (href === "/app/library") return path.startsWith("/app/library") || path.startsWith("/app/r/") || path.startsWith("/library") || path.startsWith("/r/");
+  return path === href || path.startsWith(href + "/");
+}
+
+const icons: Record<string, string> = {
+  squares: `<rect x="3" y="3" width="8" height="8" rx="2" stroke="currentColor" stroke-width="1.5" fill="none"/><rect x="13" y="3" width="8" height="8" rx="2" stroke="currentColor" stroke-width="1.5" fill="none"/><rect x="3" y="13" width="8" height="8" rx="2" stroke="currentColor" stroke-width="1.5" fill="none"/><rect x="13" y="13" width="8" height="8" rx="2" stroke="currentColor" stroke-width="1.5" fill="none"/>`,
+  grid: `<rect x="3" y="3" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.5" fill="none"/><rect x="14" y="3" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.5" fill="none"/><rect x="3" y="14" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.5" fill="none"/><rect x="14" y="14" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.5" fill="none"/>`,
+  books: `<path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M8 6h8M8 10h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>`,
+  person: `<circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M4 20c0-3.31 3.58-6 8-6s8 2.69 8 6" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>`,
+};
+---
+
+<nav class="tab-bar" aria-label="Navigasi bawah mobile">
+  {tabs.map((tab) => (
+    <a
+      href={tab.href}
+      class:list={["tab-item", { active: isActive(tab.href, currentPath) }]}
+      aria-current={isActive(tab.href, currentPath) ? "page" : undefined}
+      aria-label={tab.label}
+    >
+      <svg width="22" height="22" viewBox="0 0 24 24" set:html={icons[tab.icon]} />
+      <span class="tab-label">{tab.label}</span>
+    </a>
+  ))}
+</nav>
+
+<style>
+  .tab-bar {
+    display: none !important;
+  }
+
+  @media (max-width: 767px) {
+    .tab-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex !important;
+      justify-content: space-around;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-top: 1px solid var(--color-separator);
+      padding-bottom: var(--safe-bottom);
+      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.04);
+    }
+  }
+
+  .tab-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    padding: 8px 0;
+    min-width: 44px;
+    min-height: 49px;
+    color: var(--color-secondary-label);
+    text-decoration: none;
+    flex: 1;
+    transition: color 0.15s ease;
+  }
+  .tab-item:hover {
+    text-decoration: none;
+    color: var(--color-label);
+  }
+  .tab-item.active {
+    color: var(--color-tint);
+    font-weight: 600;
+  }
+  .tab-label {
+    font-size: 0.65rem;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -0.01em;
+  }
+  @media (min-width: 768px) {
+    .tab-bar {
+      display: none !important;
+    }
+  }
+</style>

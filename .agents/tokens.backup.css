@@ -1,0 +1,562 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", "Inter", system-ui, sans-serif;
+  --font-heading: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", "Inter", system-ui, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Monaco, Consolas, monospace;
+  --color-background: var(--color-background);
+  --color-label: var(--color-label);
+  --color-card: var(--card);
+  --color-surface-elevated: var(--color-surface-elevated);
+  --color-primary: var(--color-tint);
+  --color-primary-foreground: #ffffff;
+  --color-secondary-label: var(--color-secondary-label);
+  --color-tertiary-label: var(--color-tertiary-label);
+  --color-accent: var(--color-fill);
+  --color-accent-foreground: var(--color-tint);
+  --color-destructive: var(--color-danger);
+  --color-border: var(--color-separator);
+  --color-input: var(--color-separator);
+  --color-ring: var(--color-tint);
+  --color-surface: var(--color-surface);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   APPLE DESIGN SYSTEM (LIGHT MODE)
+   Inspired by iOS 26, macOS Tahoe, and visionOS 26
+   Clean, authentic, high-contrast, distraction-free
+   ═══════════════════════════════════════════════════════════════════ */
+
+:root {
+  color-scheme: light;
+
+  /* Official Apple Light Mode Color System with Liquid Glass Substrate */
+  --color-background: #f5f5f7;
+  --card: rgba(255, 255, 255, 0.40);
+  --color-surface-elevated: rgba(255, 255, 255, 0.65);
+  --color-surface: rgba(255, 255, 255, 0.40);
+  --color-surface-secondary: rgba(245, 245, 247, 0.60);
+
+  --color-label: #1d1d1f;
+  --color-secondary-label: #6e6e73;
+  --color-tertiary-label: #86868b;
+
+  /* Apple System Blue Accent */
+  --color-tint: #0071e3;
+  --color-tint-hover: #0077ed;
+  --color-tint-pressed: #0062c4;
+
+  /* Separators & Liquid Glass Borders (Hairline 1px) */
+  --color-separator: rgba(255, 255, 255, 0.20);
+  --color-separator-subtle: rgba(0, 0, 0, 0.08);
+  --border: rgba(255, 255, 255, 0.20);
+  --color-fill: rgba(0, 0, 0, 0.04);
+  --color-fill-strong: rgba(0, 0, 0, 0.08);
+  --color-fill-hover: rgba(0, 0, 0, 0.06);
+  --color-danger: #ff3b30;
+
+  /* Liquid Glass Ambient Adaptive Shadows (shadowRadius: 20pt, shadowY: 8pt) */
+  --color-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  --color-shadow-md: 0 8px 20px rgba(0, 0, 0, 0.12);
+  --color-shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.14);
+
+  /* Focus Ring */
+  --color-focus-ring: 0 0 0 3px rgba(0, 113, 227, 0.28);
+
+  /* Apple Hardware-Native Radii (12px, 14px, 16px, 20px) */
+  --radius-xs: 8px;
+  --radius-sm: 12px;
+  --radius-md: 14px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-2xl: 24px;
+
+  /* Liquid Glass Sidebar Tokens */
+  --sidebar: rgba(255, 255, 255, 0.40);
+  --sidebar-foreground: #1d1d1f;
+  --sidebar-primary: #0071e3;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: rgba(0, 0, 0, 0.04);
+  --sidebar-accent-foreground: #0071e3;
+  --sidebar-border: rgba(255, 255, 255, 0.20);
+
+  /* Apple Liquid Glass Material Layer Specifications */
+  --glass-blur: 20px;
+  --glass-bg: rgba(255, 255, 255, 0.40);
+  --glass-bg-elevated: rgba(255, 255, 255, 0.65);
+  --glass-border: 1px solid rgba(255, 255, 255, 0.20);
+  --glass-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+
+  /* Navigation Bar Island */
+  --nav-bg: rgba(255, 255, 255, 0.40);
+  --nav-border: rgba(255, 255, 255, 0.20);
+
+  /* Safe Area Insets */
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left: env(safe-area-inset-left, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    font-family: var(--font-sans);
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+    background: #fbfbfd;
+    color: var(--color-label);
+  }
+
+  body {
+    background: 
+      radial-gradient(circle at 18% 12%, rgba(0, 113, 227, 0.045) 0%, transparent 45%),
+      radial-gradient(circle at 82% 28%, rgba(94, 92, 230, 0.035) 0%, transparent 50%),
+      radial-gradient(circle at 50% 85%, rgba(0, 113, 227, 0.03) 0%, transparent 55%),
+      #f5f5f7;
+    background-attachment: fixed;
+    color: var(--color-label);
+    min-height: 100vh;
+    font-family: var(--font-sans);
+    font-size: 1.0625rem; /* 17px Apple Body standard */
+    font-weight: 400;
+    line-height: 1.47059;
+    letter-spacing: -0.016em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    letter-spacing: -0.024em;
+    color: var(--color-label);
+  }
+
+  p {
+    font-family: var(--font-sans);
+    color: var(--color-secondary-label);
+  }
+
+  a {
+    color: var(--color-tint);
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   AUTHENTIC APPLE SYSTEM COMPONENTS (LIGHT MODE)
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ═══════════════════════════════════════════════════════════════════
+   AUTHENTIC APPLE SYSTEM COMPONENTS (LIQUID GLASS SYSTEM)
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ─── Apple Cards (Liquid Glass Material Substrate) ─── */
+.card,
+.apple-card,
+.feed-card,
+.product-card,
+.auth-card,
+.value-card,
+.feature-card {
+  background: var(--card);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  will-change: backdrop-filter;
+  transform: translateZ(0);
+  border: 1px solid var(--color-separator);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--glass-shadow);
+  color: var(--color-label);
+  position: relative;
+}
+
+.card-elevated {
+  background: var(--color-surface-elevated);
+  box-shadow: var(--color-shadow-md);
+}
+
+/* Interactive card state with spring physics */
+@media (prefers-reduced-motion: no-preference) {
+  .card,
+  .apple-card,
+  .feed-card,
+  .product-card,
+  .auth-card,
+  .value-card,
+  .feature-card {
+    transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1),
+                box-shadow 0.3s cubic-bezier(0.25, 0.1, 0.25, 1),
+                border-color 0.3s cubic-bezier(0.25, 0.1, 0.25, 1),
+                background 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+  }
+
+  a.card:hover,
+  a.apple-card:hover,
+  a.feed-card:hover,
+  a.product-card:hover,
+  a.feature-card:hover,
+  button.card:hover,
+  button.apple-card:hover,
+  .card-interactive:hover {
+    transform: translateY(-2px);
+    background: var(--color-surface-elevated);
+    border-color: rgba(255, 255, 255, 0.40);
+    box-shadow: var(--color-shadow-lg);
+  }
+
+  a.card:active,
+  a.apple-card:active,
+  a.feed-card:active,
+  a.product-card:active,
+  a.feature-card:active,
+  button.card:active,
+  button.apple-card:active,
+  .card-interactive:active {
+    transform: translateY(0) scale(0.97);
+    transition-duration: 0.15s;
+  }
+}
+
+/* ─── Apple macOS Floating Sidebar ─── */
+.sidebar-container {
+  background: var(--sidebar);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  will-change: backdrop-filter;
+  transform: translateZ(0);
+  border: 1px solid var(--sidebar-border);
+  border-radius: var(--radius-xl);
+  position: relative;
+  box-shadow: var(--glass-shadow);
+}
+
+/* ─── Apple Frosted Header Bar ─── */
+.apple-glass-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: var(--glass-bg-elevated);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  will-change: backdrop-filter;
+  transform: translateZ(0);
+  border-bottom: 1px solid var(--color-separator);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+}
+
+/* ─── Apple Clean Capsule Chips / Filter Pills ─── */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.4rem 0.95rem;
+  background: var(--color-fill);
+  border: 1px solid var(--color-separator);
+  color: var(--color-label);
+  border-radius: 9999px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .chip {
+    transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  }
+}
+
+.chip:hover {
+  background: var(--color-fill-strong);
+  border-color: rgba(0, 0, 0, 0.12);
+}
+
+/* Active State: Clean Apple Blue Pill */
+.chip.active {
+  background: var(--color-tint);
+  color: #ffffff;
+  border-color: var(--color-tint);
+  box-shadow: 0 1px 3px rgba(0, 113, 227, 0.2);
+}
+
+/* ─── Apple Refined Inputs & Search Bar ─── */
+input[type="search"],
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+  background: var(--color-fill);
+  border: 1px solid var(--color-separator);
+  border-radius: var(--radius-md);
+  color: var(--color-label);
+  padding: 0.65rem 1rem;
+  font-size: 0.9375rem;
+  outline: none;
+  font-family: inherit;
+}
+
+input[type="search"] {
+  border-radius: 9999px;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  input[type="search"],
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  textarea {
+    transition: background 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+}
+
+input:focus,
+textarea:focus {
+  background: var(--color-surface-elevated);
+  border-color: var(--color-tint);
+  box-shadow: var(--color-focus-ring);
+}
+
+/* ─── Apple Buttons (Centralized Single Source of Truth - Liquid Glass) ─── */
+.btn,
+.btn-primary,
+.btn-primary-sm,
+.btn-primary-full,
+.btn-submit,
+.btn-buy,
+.btn-back,
+.btn-secondary,
+.btn-secondary-sm,
+.btn-secondary-full {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 44px;
+  min-width: 44px;
+  padding: 0.65rem 1.4rem;
+  border-radius: 9999px;
+  font-weight: 600; /* Liquid Glass minimum font weight */
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  text-decoration: none !important;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  position: relative;
+  overflow: hidden;
+  will-change: transform, backdrop-filter, box-shadow;
+  transform: translateZ(0);
+}
+
+/* Compact button size */
+.btn-sm,
+.btn-primary-sm,
+.btn-secondary-sm {
+  min-height: 36px;
+  padding: 0.4rem 1.1rem;
+  font-size: 0.8125rem;
+}
+
+/* Full width modifier */
+.btn-full,
+.btn-primary-full,
+.btn-secondary-full,
+.btn-submit {
+  width: 100%;
+}
+
+/* ─── Apple Liquid Glass Primary Button ─── */
+/* Glowing Apple Blue with translucent glass reflection */
+.btn-primary,
+.btn-primary-sm,
+.btn-primary-full,
+.btn-submit,
+.btn-buy,
+.btn-back {
+  background: linear-gradient(180deg, rgba(0, 113, 227, 0.92) 0%, rgba(0, 98, 196, 0.96) 100%);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  box-shadow: 0 4px 16px rgba(0, 113, 227, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+/* ─── Apple Liquid Glass Secondary Button ─── */
+/* Pure translucent glass material floating on the canvas */
+.btn-secondary,
+.btn-secondary-sm,
+.btn-secondary-full {
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.60);
+  color: var(--color-label) !important;
+}
+
+/* Button Motion & Fluid Spring Interactions (response: 0.3, scale: 0.92-0.94) */
+@media (prefers-reduced-motion: no-preference) {
+  .btn,
+  .btn-primary,
+  .btn-primary-sm,
+  .btn-primary-full,
+  .btn-submit,
+  .btn-buy,
+  .btn-back,
+  .btn-secondary,
+  .btn-secondary-sm,
+  .btn-secondary-full {
+    transition: transform 0.25s cubic-bezier(0.25, 0.1, 0.25, 1),
+                box-shadow 0.25s cubic-bezier(0.25, 0.1, 0.25, 1),
+                background 0.25s cubic-bezier(0.25, 0.1, 0.25, 1),
+                border-color 0.25s cubic-bezier(0.25, 0.1, 0.25, 1);
+  }
+
+  .btn-primary:hover,
+  .btn-primary-sm:hover,
+  .btn-primary-full:hover,
+  .btn-submit:hover,
+  .btn-buy:hover,
+  .btn-back:hover {
+    background: linear-gradient(180deg, rgba(0, 122, 255, 0.96) 0%, rgba(0, 113, 227, 1) 100%);
+    box-shadow: 0 8px 24px rgba(0, 113, 227, 0.38), inset 0 1px 0 rgba(255, 255, 255, 0.45);
+    border-color: rgba(255, 255, 255, 0.40);
+    transform: translateY(-1.5px);
+  }
+
+  .btn-primary:active,
+  .btn-primary-sm:active,
+  .btn-primary-full:active,
+  .btn-submit:active,
+  .btn-buy:active,
+  .btn-back:active {
+    transform: scale(0.92);
+    box-shadow: 0 2px 8px rgba(0, 113, 227, 0.3), inset 0 1px 0 rgba(0, 0, 0, 0.1);
+    transition-duration: 0.1s;
+  }
+
+  .btn-secondary:hover,
+  .btn-secondary-sm:hover,
+  .btn-secondary-full:hover {
+    background: rgba(255, 255, 255, 0.85);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.80);
+    border-color: rgba(255, 255, 255, 0.65);
+    transform: translateY(-1.5px);
+  }
+
+  .btn-secondary:active,
+  .btn-secondary-sm:active,
+  .btn-secondary-full:active {
+    background: rgba(255, 255, 255, 0.50);
+    transform: scale(0.92);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    transition-duration: 0.1s;
+  }
+}
+
+.btn:focus-visible,
+.btn-primary:focus-visible,
+.btn-primary-sm:focus-visible,
+.btn-primary-full:focus-visible,
+.btn-submit:focus-visible,
+.btn-buy:focus-visible,
+.btn-back:focus-visible,
+.btn-secondary:focus-visible,
+.btn-secondary-sm:focus-visible,
+.btn-secondary-full:focus-visible {
+  outline: none;
+  box-shadow: var(--color-focus-ring);
+}
+
+/* ─── Apple Inset Upgrade Card ─── */
+.upgrade-card {
+  background: var(--color-fill);
+  border: 1px solid var(--color-separator);
+  border-radius: var(--radius-md);
+  color: var(--color-label);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .upgrade-card {
+    transition: background 0.15s ease, border-color 0.15s ease;
+  }
+}
+
+.upgrade-card:hover {
+  background: var(--color-fill-strong);
+  border-color: var(--color-tint);
+}
+
+/* ─── Apple Typography Helpers ─── */
+.text-large-title {
+  font-size: 2.125rem; /* 34px Apple Large Title */
+  font-weight: 700;
+  letter-spacing: -0.022em;
+  color: var(--color-label);
+}
+.text-headline {
+  font-size: 1.0625rem; /* 17px Apple Headline */
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: var(--color-label);
+}
+.text-body {
+  font-size: 1.0625rem; /* 17px Apple Body */
+  color: var(--color-secondary-label);
+}
+
+/* ─── Accessibility: Reduced Transparency Support ─── */
+@media (prefers-reduced-transparency: reduce) {
+  :root {
+    --card: #ffffff;
+    --glass-bg: #ffffff;
+    --glass-bg-elevated: #ffffff;
+    --sidebar: #ffffff;
+    --nav-bg: #ffffff;
+  }
+
+  .apple-card,
+  .feed-card,
+  .product-card,
+  .sidebar-container,
+  .apple-glass-header {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: #ffffff !important;
+  }
+}
+
+/* ─── Scrollbar Utility ─── */
+.no-scrollbar::-webkit-scrollbar,
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar,
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

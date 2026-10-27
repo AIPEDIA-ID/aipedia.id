@@ -1,0 +1,186 @@
+---
+import Icon from "../Icon.astro";
+
+interface Props {
+  activeNav?: string;
+}
+
+const { activeNav = "" } = Astro.props;
+
+// Primary App Nav Items
+const primaryItems = [
+  {
+    label: "Dashboard",
+    href: "/app/dashboard",
+    key: "dashboard",
+    icon: "home",
+    color: "#0071e3",
+    bg: "rgba(0, 113, 227, 0.12)",
+  },
+  {
+    label: "Koleksi Saya",
+    href: "/app/my-library",
+    key: "my-library",
+    icon: "layers",
+    color: "#ff9500",
+    bg: "rgba(255, 149, 0, 0.12)",
+  },
+  {
+    label: "Direktori Vault",
+    href: "/app/library",
+    key: "library",
+    icon: "book",
+    color: "#0071e3",
+    bg: "rgba(0, 113, 227, 0.12)",
+  },
+];
+
+// Joyful Apple Colorful Glyph Badges for Library Categories
+const libraryCategories = [
+  {
+    label: "LLM Prompt",
+    href: "/app/library/llm-prompt",
+    key: "llm-prompt",
+    icon: "file-text",
+    color: "#0071e3", // Apple System Blue
+    bg: "rgba(0, 113, 227, 0.12)",
+  },
+  {
+    label: "Visual Prompt",
+    href: "/app/library/visual-prompt",
+    key: "visual-prompt",
+    icon: "image",
+    color: "#ff2d55", // System Pink
+    bg: "rgba(255, 45, 85, 0.12)",
+  },
+  {
+    label: "Custom AI",
+    href: "/app/library/custom-ai",
+    key: "custom-ai",
+    icon: "terminal",
+    color: "#34c759", // System Green
+    bg: "rgba(52, 199, 89, 0.12)",
+  },
+  {
+    label: "Resource",
+    href: "/app/library/resource",
+    key: "resource",
+    icon: "layers",
+    color: "#af52de", // System Purple
+    bg: "rgba(175, 82, 222, 0.12)",
+  },
+  {
+    label: "Tutorial",
+    href: "/app/library/tutorial",
+    key: "tutorial",
+    icon: "book",
+    color: "#ff9500", // System Orange
+    bg: "rgba(255, 149, 0, 0.12)",
+  },
+  {
+    label: "Kursus AI",
+    href: "/app/library/course",
+    key: "course",
+    icon: "video",
+    color: "#ff3b30", // System Red
+    bg: "rgba(255, 59, 48, 0.12)",
+  },
+  {
+    label: "Founder Space",
+    href: "/app/library/founder-space",
+    key: "founder-space",
+    icon: "briefcase",
+    color: "#00c7be", // System Teal
+    bg: "rgba(0, 199, 190, 0.12)",
+  },
+];
+
+function isActive(key: string): boolean {
+  return activeNav === key;
+}
+---
+
+<nav class="sidebar-nav-root flex-1 overflow-y-auto px-2.5 py-2 space-y-1 no-scrollbar select-none">
+  <!-- Primary Navigation -->
+  <div class="primary-group space-y-0.5">
+    {
+      primaryItems.map((item) => {
+        const active = isActive(item.key);
+        return (
+          <a
+            href={item.href}
+            class:list={[
+              "sidebar-nav-item group flex items-center gap-2.5 px-2.5 py-2 rounded-xl text-xs font-medium transition-all duration-150 no-underline",
+              active
+                ? "active bg-[rgba(0,113,227,0.10)] text-[var(--color-tint)] font-semibold shadow-xs"
+                : "text-[var(--color-secondary-label)] hover:text-[var(--color-label)] hover:bg-[rgba(0,0,0,0.04)]",
+            ]}
+            title={item.label}
+          >
+            <!-- Apple Colorful Glyph Capsule -->
+            <div
+              class="w-7 h-7 rounded-lg flex items-center justify-center shrink-0 transition-transform group-hover:scale-108"
+              style={`background-color: ${item.bg}; color: ${item.color};`}
+            >
+              <Icon name={item.icon} size={15} />
+            </div>
+            <span class="sidebar-label truncate">{item.label}</span>
+          </a>
+        );
+      })
+    }
+  </div>
+
+  <!-- Library Categories Section Header -->
+  <div class="sidebar-divider pt-4 pb-1.5 px-2.5 flex items-center justify-between">
+    <span class="sidebar-label text-[10px] font-bold uppercase tracking-wider text-[var(--color-tertiary-label)]">
+      Kategori Library
+    </span>
+    <span class="sidebar-badge text-[10px] font-semibold px-1.5 py-0.5 rounded-full bg-[rgba(0,0,0,0.05)] text-[var(--color-secondary-label)]">
+      7
+    </span>
+  </div>
+
+  <!-- Category Items (Joyful Apple Colors) -->
+  <div class="categories-group space-y-0.5">
+    {
+      libraryCategories.map((item) => {
+        const active = isActive(item.key);
+        return (
+          <a
+            href={item.href}
+            class:list={[
+              "sidebar-nav-item group flex items-center gap-2.5 px-2.5 py-1.5 rounded-xl text-xs font-medium transition-all duration-150 no-underline",
+              active
+                ? "active bg-[rgba(0,113,227,0.10)] text-[var(--color-tint)] font-semibold shadow-xs"
+                : "text-[var(--color-secondary-label)] hover:text-[var(--color-label)] hover:bg-[rgba(0,0,0,0.04)]",
+            ]}
+            title={item.label}
+          >
+            <!-- Joyful Apple Colorful Glyph Capsule -->
+            <div
+              class="w-7 h-7 rounded-lg flex items-center justify-center shrink-0 transition-transform group-hover:scale-108"
+              style={`background-color: ${item.bg}; color: ${item.color};`}
+            >
+              <Icon name={item.icon} size={15} />
+            </div>
+            <span class="sidebar-label truncate">{item.label}</span>
+          </a>
+        );
+      })
+    }
+  </div>
+</nav>
+
+<style>
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .group:hover .group-hover\:scale-108 {
+    transform: scale(1.08);
+  }
+</style>

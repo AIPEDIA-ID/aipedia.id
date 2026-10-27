@@ -1,276 +1,534 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import charactersData from "../data/characters.json";
+import Base from "../layouts/Base.astro";
+import ResourceCard from "../components/ResourceCard.astro";
+import ProductCard from "../components/ProductCard.astro";
+import FaqItem from "../components/FaqItem.astro";
+import ClosingCta from "../components/ClosingCta.astro";
+import SectionBand from "../components/SectionBand.astro";
+import FeaturedShowcase from "../components/FeaturedShowcase.astro";
+import FeaturePathway from "../components/FeaturePathway.astro";
+import { getResources, getCatalog } from "../lib/data";
+import { toPublicView } from "../lib/content";
 
-const { characters } = charactersData;
+const resources = await getResources();
+const { products, bundles } = await getCatalog();
+const allAccessBundle = bundles.find((bundle) => bundle.slug === "bundle-all-access");
 
-// Highlighted specialist pages
-const featuredSpecialists = characters.filter((c) =>
-  ["teja", "fina", "mita"].includes(c.id)
-);
+const categories = [
+  { label: "LLM Prompt", slug: "llm-prompt" },
+  { label: "Visual Prompt", slug: "visual-prompt" },
+  { label: "Custom AI", slug: "custom-ai" },
+  { label: "Resource", slug: "resource" },
+  { label: "Tutorial", slug: "tutorial" },
+  { label: "Founder Space", slug: "founder-space" },
+  { label: "Kursus", slug: "course" },
+];
+
+const showcaseItems = resources.slice(0, 6).map((r) => ({
+  resource: toPublicView(r),
+  locked: r.access_level === "paid",
+}));
+
+const featuredProducts = products.slice(0, 3);
+
+const pathwayItems = [
+  {
+    step: "01 / PAHAMI",
+    title: "Kenali cara kerja AI",
+    resource: resources.find((resource) => resource.id === "course/ai-for-beginners"),
+    image: "/card-tutorial.webp",
+  },
+  {
+    step: "02 / COBA",
+    title: "Mulai dari prompt yang jelas",
+    resource: resources.find((resource) => resource.id === "tutorial/how-to-use-prompt"),
+    image: "/card-prompt-teks.webp",
+  },
+  {
+    step: "03 / TERAPKAN",
+    title: "Pakai untuk pemasaran",
+    resource: resources.find((resource) => resource.id === "prompts/llm-prompt/copywriting-marketing/copy-ads-facebook-ig"),
+    image: "/card-konten.webp",
+  },
+].flatMap((item) => item.resource ? [{
+  step: item.step,
+  title: item.resource.title || item.title,
+  href: `/r/${item.resource.id}`,
+  image: item.image,
+  accessLabel: item.resource.access_level === "paid" ? "PREMIUM" : "GRATIS",
+}] : []);
+
+const faqs = [
+  {
+    q: "Apakah materi cocok untuk pemula yang belum pernah pakai AI?",
+    a: "Sangat cocok. Semua prompt dan tutorial disusun dengan bahasa Indonesia praktis dan format siap isi (fill-in-the-blank). Anda tidak perlu paham istilah teknis seperti temperature atau top-p.",
+  },
+  {
+    q: "Alat AI apa saja yang didukung?",
+    a: "ChatGPT, Claude, Google Gemini, Midjourney, DeepSeek, dan Zapier. Kami terus memperbarui materi setiap ada model AI baru yang rilis.",
+  },
+  {
+    q: "Apakah ada biaya langganan bulanan?",
+    a: "Tidak ada. Di AIPEDIA sistemnya beli lepas (one-time purchase). Sekali beli paket atau All-Access Pass, Anda mendapatkan akses selamanya.",
+  },
+  {
+    q: "Bagaimana cara mengakses materi setelah bayar?",
+    a: "Akses terbuka otomatis secara instan setelah pembayaran Midtrans atau QRIS berhasil. Anda dapat langsung membuka semua prompt dan template di dashboard.",
+  },
+];
 ---
 
-<Layout title="AIPEDIA.ID - Utilize AI that matters">
-  <div class="relative min-h-screen py-10 md:py-16 px-4 md:px-8 overflow-hidden">
-    <!-- Background Gradient & Ambient Blobs -->
-    <div
-      class="absolute inset-0 bg-gradient-to-br from-indigo-50/50 via-white to-purple-50/50 dark:from-gray-900 dark:via-black dark:to-gray-900 -z-10"
-    >
-    </div>
-    <div
-      class="absolute top-20 left-10 w-64 h-64 md:w-96 md:h-96 bg-primary-500/10 rounded-full blur-[100px] md:blur-[140px] animate-pulse-slow -z-10"
-    >
-    </div>
-    <div
-      class="absolute bottom-20 right-10 w-80 h-80 md:w-[450px] md:h-[450px] bg-primary-400/5 rounded-full blur-[120px] md:blur-[160px] animate-float -z-10"
-    >
-    </div>
-
-    <div class="max-w-md md:max-w-4xl lg:max-w-5xl mx-auto relative z-10">
-      <!-- Profile Header -->
-      <div class="text-center mb-8 md:mb-12">
-        <div
-          class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/5 dark:bg-white/5 backdrop-blur-sm border border-black/10 dark:border-white/10 mb-4"
-        >
-          <span class="w-2 h-2 bg-primary-400 rounded-full animate-pulse"
-          ></span>
-          <span class="text-xs md:text-sm font-medium text-gray-600 dark:text-gray-300"
-            >17+ AI Specialists for Business</span
-          >
-        </div>
-
-        <div class="relative w-24 h-24 md:w-32 md:h-32 mx-auto mb-4 group">
-          <div
-            class="absolute inset-0 rounded-full bg-gradient-to-r from-primary-400 via-accent-400 to-primary-600 blur-md opacity-70 group-hover:opacity-100 transition-opacity"
-          >
-          </div>
-          <img
-            src="/logo.png"
-            alt="AIPEDIA.ID Logo"
-            class="relative w-full h-full object-contain rounded-full bg-black p-3 border-2 border-white/20 shadow-2xl"
-          />
-        </div>
-
-        <h1 class="text-3xl md:text-5xl font-extrabold text-gray-900 dark:text-white mb-2 md:mb-3 tracking-tight">
-          <span
-            class="bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent"
-            >AIPEDIA.ID</span
-          >
-        </h1>
-        <p
-          class="text-base md:text-xl text-gray-600 dark:text-gray-300 max-w-sm md:max-w-lg mx-auto leading-relaxed font-medium"
-        >
-          Utilize AI that matters
-        </p>
-      </div>
-
-      <!-- Main Action Stack & Grid -->
-      <div class="space-y-4 md:space-y-6 mb-10 md:mb-14">
-        <!-- Hero Primary Action Button (Full Width Banner) -->
-        <a
-          href="https://aipedia.myr.id/pl/business-pack"
-          target="_blank"
-          class="btn-cta group flex items-center justify-between p-4 md:p-6 rounded-2xl text-white shadow-xl hover:shadow-2xl transition-all"
-        >
-          <div class="flex items-center gap-4 text-left">
-            <span
-              class="w-12 h-12 md:w-14 md:h-14 rounded-xl bg-white/20 backdrop-blur-md flex items-center justify-center text-2xl md:text-3xl flex-shrink-0"
-              >🚀</span
+<Base title="AIPEDIA - Belajar & Terapkan AI untuk Bisnis" wide>
+  <div class="home-canvas">
+    <!-- Hero Section: Asymmetric 2-Column Dark Block Focal Point (#17191F -> #20283A) -->
+    <section class="hero-block block-dark">
+      <div class="hero-grid">
+        <!-- Left Column: Copy & Actions -->
+        <div class="hero-copy-col">
+          <h1 class="hero-title">
+            Semua yang Anda butuhkan untuk <span class="text-gold-accent"
+              >menang dengan AI</span
             >
-            <div>
-              <div class="font-bold text-base md:text-xl leading-tight">
-                Bundle Complete (17+ AI + Skills)
-              </div>
-              <div class="text-xs md:text-sm text-white/80 font-normal mt-0.5">
-                Pay once • Lifetime access to 17+ Specialists & Agents
-              </div>
-            </div>
-          </div>
-          <svg
-            class="w-6 h-6 flex-shrink-0 group-hover:translate-x-1.5 transition-transform"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2.5"
-              d="M9 5l7 7-7 7"></path>
-          </svg>
-        </a>
-
-        <!-- Responsive 2-Column Grid for Links -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-3.5 md:gap-5">
-          <!-- Featured Specialist Pages -->
-          {
-            featuredSpecialists.map((specialist) => (
-              <a
-                href={`/${specialist.id}`}
-                class="group flex items-center justify-between p-4 md:p-5 rounded-2xl bg-white/60 dark:bg-white/5 backdrop-blur-sm border border-gray-200 dark:border-white/10 hover:border-primary-500/40 dark:hover:border-primary-500/40 transition-all duration-200 shadow-sm hover:shadow-xl hover:-translate-y-0.5"
-              >
-                <div class="flex items-center gap-3.5 text-left min-w-0">
-                  <img
-                    src={specialist.image}
-                    alt={specialist.name}
-                    class="w-11 h-11 md:w-14 md:h-14 rounded-full object-cover flex-shrink-0 shadow-md"
-                    style={`border: 2px solid ${specialist.themeColor}80;`}
-                  />
-                  <div class="min-w-0">
-                    <div
-                      class="font-bold text-sm md:text-base truncate"
-                      style={`color: ${specialist.themeColor};`}
-                    >
-                      {specialist.name} — {specialist.role}
-                    </div>
-                    <div class="text-xs md:text-sm text-gray-500 dark:text-gray-400 line-clamp-1">
-                      {specialist.description}
-                    </div>
-                  </div>
-                </div>
-                <svg
-                  class="w-5 h-5 text-gray-400 group-hover:text-primary-400 group-hover:translate-x-1 transition-all flex-shrink-0 ml-2"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M9 5l7 7-7 7"
-                  />
-                </svg>
-              </a>
-            ))
-          }
-
-          <!-- GPT Specialist Pack -->
-          <a
-            href="https://aipedia.myr.id/pl/marketing-pack"
-            target="_blank"
-            class="group flex items-center justify-between p-4 md:p-5 rounded-2xl bg-white/60 dark:bg-white/5 backdrop-blur-sm border border-gray-200 dark:border-white/10 hover:border-primary-500/40 dark:hover:border-primary-500/40 transition-all duration-200 shadow-sm hover:shadow-xl hover:-translate-y-0.5"
-          >
-            <div class="flex items-center gap-3.5 text-left min-w-0">
-              <span
-                class="w-11 h-11 md:w-14 md:h-14 rounded-full bg-primary-500/10 dark:bg-primary-500/20 text-primary-500 flex items-center justify-center text-xl md:text-2xl flex-shrink-0"
-                >✨</span
-              >
-              <div class="min-w-0">
-                <div class="font-bold text-sm md:text-base text-gray-900 dark:text-white truncate">
-                  Bundle GPT Only
-                </div>
-                <div class="text-xs md:text-sm text-gray-500 dark:text-gray-400 truncate">
-                  17+ Custom GPT Specialists untuk ChatGPT
-                </div>
-              </div>
-            </div>
-            <svg
-              class="w-5 h-5 text-gray-400 group-hover:text-primary-400 group-hover:translate-x-1 transition-all flex-shrink-0 ml-2"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M9 5l7 7-7 7"></path>
-            </svg>
-          </a>
-
-          <!-- Blog & Insight -->
-          <a
-            href="/blog"
-            class="group flex items-center justify-between p-4 md:p-5 rounded-2xl bg-white/60 dark:bg-white/5 backdrop-blur-sm border border-gray-200 dark:border-white/10 hover:border-primary-500/40 dark:hover:border-primary-500/40 transition-all duration-200 shadow-sm hover:shadow-xl hover:-translate-y-0.5"
-          >
-            <div class="flex items-center gap-3.5 text-left min-w-0">
-              <span
-                class="w-11 h-11 md:w-14 md:h-14 rounded-full bg-accent-500/10 dark:bg-accent-500/20 text-accent-500 flex items-center justify-center text-xl md:text-2xl flex-shrink-0"
-                >📚</span
-              >
-              <div class="min-w-0">
-                <div class="font-bold text-sm md:text-base text-gray-900 dark:text-white truncate">
-                  Blog & Insight Bisnis
-                </div>
-                <div class="text-xs md:text-sm text-gray-500 dark:text-gray-400 truncate">
-                  Panduan, strategi, & tips optimasi AI
-                </div>
-              </div>
-            </div>
-            <svg
-              class="w-5 h-5 text-gray-400 group-hover:text-primary-400 group-hover:translate-x-1 transition-all flex-shrink-0 ml-2"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M9 5l7 7-7 7"></path>
-            </svg>
-          </a>
-        </div>
-      </div>
-
-      <!-- All 17 Specialists Showcase Grid -->
-      <div
-        class="p-6 md:p-8 rounded-3xl bg-white/60 dark:bg-white/5 backdrop-blur-sm border border-gray-200 dark:border-white/10 shadow-xl mb-10"
-      >
-        <div class="text-center mb-6">
-          <h2
-            class="text-sm md:text-base font-bold text-gray-900 dark:text-white uppercase tracking-wider opacity-90"
-          >
-            Explore 17+ AI Specialists
-          </h2>
-          <p class="text-xs md:text-sm text-gray-500 dark:text-gray-400 mt-1">
-            Pilih spesialis sesuai kebutuhan bidang bisnis Anda
+          </h1>
+          <p class="hero-desc">
+            Prompt teruji, workflow, dan tutorial praktis untuk kebutuhan bisnis
+            sehari-hari.
           </p>
-        </div>
 
-        <div class="grid grid-cols-4 sm:grid-cols-6 lg:grid-cols-9 gap-3 md:gap-4 text-center">
-          {
-            characters.map((c) => (
-              <a
-                href={["teja", "fina", "mita"].includes(c.id) ? `/${c.id}` : `/c/${c.id}`}
-                class="group flex flex-col items-center p-2 md:p-3 rounded-2xl hover:bg-white/80 dark:hover:bg-white/10 transition-all hover:scale-105"
+          <div class="hero-actions">
+            <a href="/catalog" class="btn-gold">
+              <span>Lihat Katalog Paket</span>
+            </a>
+            <a href="/library" class="btn-secondary-dark">
+              <span>Jelajahi Library Gratis</span>
+            </a>
+          </div>
+
+          <div class="hero-proof-bar">
+            <div class="proof-rating">
+              <span class="stars">★★★★★</span>
+              <span class="proof-text"
+                >4.9 / 5.0 dari 1.200+ pebisnis di Indonesia</span
               >
-                <img
-                  src={c.image}
-                  alt={c.name}
-                  class="w-12 h-12 md:w-16 md:h-16 rounded-full object-cover mb-2 border-2 shadow-md group-hover:shadow-lg transition-all"
-                  style={`border-color: ${c.themeColor}80;`}
-                  loading="lazy"
-                />
-                <span
-                  class="text-xs md:text-sm font-bold truncate w-full"
-                  style={`color: ${c.themeColor};`}
-                >
-                  {c.name}
-                </span>
-                <span class="text-[10px] md:text-xs text-gray-500 dark:text-gray-400 truncate w-full">
-                  {c.role.split(" ")[0]}
-                </span>
-              </a>
-            ))
-          }
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Clean Platform Screenshot Placeholder -->
+        <div class="hero-screenshot-col">
+          <div class="screenshot-window">
+            <div class="screenshot-body">
+              <img
+                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1000&q=80"
+                alt=""
+                loading="eager"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 1: Materi & Prompt Unggulan (Kembali ke Dasar Terang) -->
+    <section class="section-container">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Materi &amp; Prompt Pilihan</h2>
+        </div>
+        <a href="/library" class="section-link">Buka seluruh library &rarr;</a>
+      </div>
+
+      <div class="showcase-grid">
+        {
+          showcaseItems.map(({ resource, locked }) => (
+            <ResourceCard resource={resource} locked={locked} />
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- Section 2: Editorial reverse feature connects learning to products -->
+    <FeaturePathway
+      class="section-container"
+      title="Dari kenal AI sampai dipakai di bisnis"
+      description="Mulai dari dasar, coba materi yang tersedia, lalu pilih toolkit sesuai pekerjaan Anda."
+      items={pathwayItems}
+    />
+
+    <!-- Section 3: Jelajahi per Kategori -->
+    <SectionBand class="section-container home-category-band">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Jelajahi per Kategori</h2>
         </div>
       </div>
 
-      <!-- Trust Vendors -->
-      <div class="flex items-center justify-center gap-8 md:gap-12 opacity-60 py-4">
-        <img
-          src="/vendors/chatgpt-white.png"
-          alt="ChatGPT"
-          class="h-7 md:h-9 object-contain invert dark:invert-0"
-        />
-        <img
-          src="/vendors/claude.png"
-          alt="Claude"
-          class="h-7 md:h-9 object-contain"
-        />
+      <div class="cat-chips">
+        {
+          categories.map((cat) => {
+            const count = resources.filter(
+              (r) => r.category === cat.slug,
+            ).length;
+            return (
+              <a href={`/library/${cat.slug}`} class="chip">
+                <span class="chip-label">{cat.label}</span>
+                <span class="chip-count">{count}</span>
+              </a>
+            );
+          })
+        }
       </div>
-    </div>
+    </SectionBand>
+
+    <!-- Section 4: Warm highlight for the full library offer -->
+    {allAccessBundle && (
+      <section class="section-container home-pass-section" aria-label="Akses seluruh materi AIPEDIA">
+        <FeaturedShowcase
+          title={allAccessBundle.title}
+          description="Satu akses untuk menjelajahi prompt, tutorial, course, dan materi praktis AIPEDIA. Cocok jika Anda ingin punya banyak pilihan saat kebutuhan bisnis berubah."
+          price={allAccessBundle.price}
+          originalPrice={allAccessBundle.originalPrice}
+          href={`/products/${allAccessBundle.slug}`}
+          ctaText="Lihat All-Access Pass"
+          trustText="Akses materi lewat akun AIPEDIA"
+          discount=""
+          inclusions={[
+            { title: "Prompt bisnis", subtitle: "untuk marketing dan operasional" },
+            { title: "Tutorial & course", subtitle: "untuk belajar langkah demi langkah" },
+            { title: "Materi visual AI", subtitle: "untuk kebutuhan konten" },
+            { title: "Pilihan lebih luas", subtitle: "daripada membeli satu pack" },
+          ]}
+          tone="gold"
+        />
+      </section>
+    )}
+
+    <!-- Section 5: Paket satuan untuk kebutuhan spesifik -->
+    <section class="section-container">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Cari toolkit untuk kebutuhan tertentu?</h2>
+          <p class="section-subtitle">Pilih satu pack yang paling dekat dengan pekerjaan Anda.</p>
+        </div>
+        <a href="/catalog" class="section-link">Lihat semua toolkit &rarr;</a>
+      </div>
+
+      <div class="product-grid">
+        {featuredProducts.map((product) => <ProductCard product={product} />)}
+      </div>
+    </section>
+
+    <!-- Section 6: Pertanyaan Umum (FAQ) -->
+    <section class="section-container">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="section-title text-center home-faq-title">Pertanyaan umum</h2>
+        <div class="faq-list">
+          {faqs.map((faq) => <FaqItem q={faq.q} a={faq.a} />)}
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 7: Closing CTA -->
+    <section class="section-container">
+      <ClosingCta tone="dark" />
+    </section>
   </div>
-</Layout>
+</Base>
+
+<style>
+  /* ─── Home Canvas ─── */
+  .home-canvas {
+    position: relative;
+    border-radius: var(--radius-2xl);
+    padding: 4px 0 16px;
+  }
+
+  /* ─── Hero Block (Dark Gradient Focal Point) ─── */
+  .hero-block {
+    padding: 48px 24px;
+    margin-bottom: var(--space-section);
+    box-shadow:
+      0 24px 60px -15px rgba(15, 23, 42, 0.35),
+      inset 0 1px 0 rgba(255, 255, 255, 0.16);
+  }
+  @media (min-width: 860px) {
+    .hero-block {
+      padding: 64px 48px;
+    }
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    align-items: center;
+  }
+  @media (min-width: 1024px) {
+    .hero-grid {
+      grid-template-columns: 1.15fr 1fr;
+      gap: 56px;
+    }
+  }
+
+  .hero-copy-col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hero-eyebrow-chip {
+    display: inline-flex;
+    padding: 0.3rem 0.85rem;
+    border-radius: 9999px;
+    background: var(--gradient-glass-chip);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.2),
+      0 2px 6px rgba(0, 0, 0, 0.25);
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #f3f4f6;
+    margin-bottom: 18px;
+  }
+
+  .hero-title {
+    font-size: 2.25rem;
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+    color: #ffffff;
+    margin-bottom: 16px;
+  }
+  @media (min-width: 640px) {
+    .hero-title {
+      font-size: 2.85rem;
+    }
+  }
+
+  .text-gold-accent {
+    background: var(--gradient-gold-type);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline;
+  }
+
+  .hero-desc {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--color-dark-text-muted);
+    max-width: 500px;
+    margin-bottom: 28px;
+  }
+  @media (min-width: 640px) {
+    .hero-desc {
+      font-size: 1.0625rem;
+    }
+  }
+
+  .hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
+  }
+
+  /* Secondary button on dark background */
+  .btn-secondary-dark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 0.625rem 1.35rem;
+    border-radius: 9999px;
+    font-weight: 500;
+    font-size: 0.9375rem;
+    text-decoration: none !important;
+    background: rgba(255, 255, 255, 0.12);
+    color: #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow:
+      0 1px 2px rgba(0, 0, 0, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    transition: all 0.15s ease;
+  }
+  .btn-secondary-dark:hover {
+    background: rgba(255, 255, 255, 0.18);
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+
+  .hero-proof-bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    font-size: 0.75rem;
+    color: var(--color-dark-text-muted);
+    padding-top: 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .proof-rating {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .proof-rating .stars {
+    color: var(--color-accent-gold);
+    font-size: 0.8125rem;
+  }
+
+  /* ─── Hero Screenshot Window Placeholder with Ambient Glow ─── */
+  .hero-screenshot-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  .hero-screenshot-col::before {
+    content: "";
+    position: absolute;
+    width: 360px;
+    height: 260px;
+    background: var(--gradient-hero-glow);
+    filter: blur(44px);
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .screenshot-window {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 520px;
+    border-radius: var(--radius-lg);
+    background: #1e2029;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow:
+      0 24px 48px -12px rgba(0, 0, 0, 0.65),
+      0 0 0 1px rgba(255, 255, 255, 0.08);
+    overflow: hidden;
+  }
+
+  .screenshot-body {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    background: #111318;
+  }
+
+  .screenshot-body img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    opacity: 0.95;
+  }
+
+  /* ─── Standard Section Spacing & Layout ─── */
+  .section-container {
+    margin-bottom: var(--space-section);
+  }
+
+  .section-header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    margin-bottom: var(--space-section-heading);
+  }
+  @media (min-width: 640px) {
+    .section-header {
+      flex-direction: row;
+      align-items: flex-end;
+      justify-content: space-between;
+    }
+  }
+
+  .section-title {
+    font-size: var(--type-section-title);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--color-label);
+  }
+
+  .section-subtitle {
+    font-size: 0.9375rem;
+    color: var(--color-secondary-label);
+  }
+
+  .home-faq-title { margin-bottom: var(--space-section-heading); }
+
+  .section-link {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-tint);
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .showcase-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-card-grid);
+  }
+  /* Keep mixed source photography inside the site's cool blue / warm gold palette. */
+  .showcase-grid :global(.apple-card > div:first-child),
+  .product-grid :global(.card-image) {
+    isolation: isolate;
+  }
+  .showcase-grid :global(.apple-card > div:first-child img),
+  .product-grid :global(.card-image img) {
+    filter: saturate(.82) hue-rotate(4deg);
+  }
+  .showcase-grid :global(.apple-card > div:first-child)::after,
+  .product-grid :global(.card-image)::after {
+    position: absolute;
+    z-index: 1;
+    inset: 0;
+    content: "";
+    pointer-events: none;
+    background: var(--gradient-media-brand-wash);
+  }
+  .showcase-grid :global(.apple-card > div:first-child > div),
+  .product-grid :global(.card-image > span) {
+    z-index: 2;
+  }
+  @media (min-width: 640px) {
+    .showcase-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (min-width: 1024px) {
+    .showcase-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .cat-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .product-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-card-grid);
+  }
+
+  @media (max-width: 639px) {
+    .hero-block { margin-bottom: var(--space-section); padding: 30px 20px; }
+    .section-container { margin-bottom: var(--space-section); }
+  }
+  @media (min-width: 640px) {
+    .product-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (min-width: 1024px) {
+    .product-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+</style>

@@ -1,0 +1,65 @@
+---
+interface Props {
+  title: string;
+  level?: 1 | 2 | 3;
+  eyebrow?: string;
+  actionLabel?: string;
+  actionHref?: string;
+  class?: string;
+}
+
+const { title, level = 2, eyebrow, actionLabel, actionHref, class: className = "" } = Astro.props;
+const Tag = `h${level}` as const;
+---
+
+<div class:list={["section-heading", className]}>
+  <div class="section-heading-copy">
+    {eyebrow && <span class="section-eyebrow">{eyebrow}</span>}
+    <Tag class="section-title text-title-2">{title}</Tag>
+  </div>
+  {actionLabel && actionHref && (
+    <a href={actionHref} class="section-action">{actionLabel}</a>
+  )}
+</div>
+
+<style>
+  .section-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: var(--space-3);
+    margin-bottom: var(--space-section-heading);
+  }
+  .section-heading-copy { min-width: 0; }
+  .section-eyebrow {
+    display: block;
+    margin-bottom: var(--space-1);
+    color: var(--color-gold-text);
+    font-size: .72rem;
+    font-weight: 750;
+    letter-spacing: .09em;
+  }
+  .section-title {
+    color: var(--color-label);
+    font-size: var(--type-section-title);
+    font-weight: 750;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+  }
+  .section-action {
+    font-size: 0.9375rem;
+    font-weight: 650;
+    color: var(--color-tint);
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .section-action:hover {
+    text-decoration: none;
+    opacity: 0.7;
+  }
+
+  @media (max-width: 639px) {
+    .section-heading { align-items: flex-start; flex-direction: column; gap: var(--space-2); }
+    .section-action { white-space: normal; }
+  }
+</style>

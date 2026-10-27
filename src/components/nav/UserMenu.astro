@@ -1,0 +1,196 @@
+---
+import Icon from "../Icon.astro";
+
+interface Props {
+  user: { name: string; email: string } | null;
+}
+
+const { user } = Astro.props;
+
+const initials = user
+  ? user.name
+      .split(" ")
+      .map((w) => w[0])
+      .join("")
+      .slice(0, 2)
+      .toUpperCase()
+  : "";
+---
+
+<div class="user-menu-root relative font-sans">
+  {
+    user ? (
+      <div class="member-menu" data-user-menu>
+        <button
+          class="user-trigger flex items-center gap-2 pl-1 pr-3 py-1 rounded-full bg-[rgba(0,0,0,0.04)] hover:bg-[rgba(0,0,0,0.07)] border border-[rgba(0,0,0,0.06)] transition-all cursor-pointer text-left select-none"
+          type="button"
+          aria-label="Menu akun pengguna"
+          aria-expanded="false"
+          data-user-toggle
+        >
+          <span class="user-avatar-badge w-6 h-6 rounded-full bg-[var(--color-tint)] text-white text-[11px] font-bold flex items-center justify-center shrink-0 shadow-xs">
+            {initials}
+          </span>
+          <span class="user-name-text text-[13.5px] font-semibold text-[#1d1d1f] tracking-[-0.014em] max-w-[100px] truncate leading-tight">
+            {user.name.split(" ")[0]}
+          </span>
+          <svg
+            class="user-caret text-[var(--color-secondary-label)] transition-transform duration-150"
+            width="10"
+            height="10"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="m6 9 6 6 6-6"></path>
+          </svg>
+        </button>
+
+        <div
+          class="user-dropdown-panel absolute top-[calc(100%+8px)] right-0 z-50 w-64 p-2 rounded-2xl bg-white/95 border border-[var(--color-separator)] shadow-2xl backdrop-blur-2xl opacity-0 invisible translate-y-1 transition-all duration-150"
+          role="menu"
+          data-user-dropdown
+        >
+          <div class="user-info-header flex items-center gap-3 p-2.5 mb-1 bg-[rgba(0,113,227,0.04)] rounded-xl border border-[rgba(0,113,227,0.08)]">
+            <div class="w-9 h-9 rounded-full bg-[var(--color-tint)] text-white text-xs font-bold flex items-center justify-center shrink-0 shadow-xs">
+              {initials}
+            </div>
+            <div class="overflow-hidden min-w-0">
+              <p class="text-xs font-bold text-[var(--color-label)] truncate tracking-tight">
+                {user.name}
+              </p>
+              <p class="text-[11px] text-[var(--color-secondary-label)] truncate">
+                {user.email}
+              </p>
+            </div>
+          </div>
+
+          <div class="space-y-0.5">
+            <a
+              href="/app/dashboard"
+              class="flex items-center gap-2.5 px-3 py-2 text-[13px] font-medium text-[var(--color-label)] hover:bg-[var(--color-fill)] rounded-xl transition-colors tracking-tight"
+              role="menuitem"
+            >
+              <Icon name="home" size={15} class="text-[var(--color-secondary-label)]" />
+              <span>Dashboard</span>
+            </a>
+            <a
+              href="/app/my-library"
+              class="flex items-center gap-2.5 px-3 py-2 text-[13px] font-medium text-[var(--color-label)] hover:bg-[var(--color-fill)] rounded-xl transition-colors tracking-tight"
+              role="menuitem"
+            >
+              <Icon name="layers" size={15} class="text-[#ff9500]" />
+              <span class="font-semibold">Koleksi Saya</span>
+            </a>
+            <a
+              href="/app/library"
+              class="flex items-center gap-2.5 px-3 py-2 text-[13px] font-medium text-[var(--color-label)] hover:bg-[var(--color-fill)] rounded-xl transition-colors tracking-tight"
+              role="menuitem"
+            >
+              <Icon name="book" size={15} class="text-[var(--color-secondary-label)]" />
+              <span>Direktori Vault</span>
+            </a>
+            <a
+              href="/app/account"
+              class="flex items-center gap-2.5 px-3 py-2 text-[13px] font-medium text-[var(--color-label)] hover:bg-[var(--color-fill)] rounded-xl transition-colors tracking-tight"
+              role="menuitem"
+            >
+              <Icon name="user" size={15} class="text-[var(--color-secondary-label)]" />
+              <span>Pengaturan Akun</span>
+            </a>
+            <a
+              href="/catalog"
+              class="flex items-center gap-2.5 px-3 py-2 text-[13px] font-medium text-[var(--color-label)] hover:bg-[var(--color-fill)] rounded-xl transition-colors tracking-tight"
+              role="menuitem"
+            >
+              <Icon name="badge" size={15} class="text-[var(--color-tint)]" />
+              <span class="font-semibold text-[var(--color-tint)]">Katalog Toko</span>
+            </a>
+          </div>
+
+          <div class="h-px bg-[var(--color-separator)] my-1.5 mx-1"></div>
+
+          <a
+            href="/api/auth/logout"
+            class="flex items-center gap-2.5 px-3 py-2 text-[13px] font-medium text-[#e02e24] hover:bg-[rgba(224,46,36,0.06)] rounded-xl transition-colors w-full text-left tracking-tight"
+            role="menuitem"
+          >
+            <Icon name="logout" size={15} class="text-[#e02e24]" />
+            <span>Keluar Akun</span>
+          </a>
+        </div>
+      </div>
+    ) : (
+      <a
+        href="/login"
+        class="login-btn inline-flex items-center justify-center py-1.5 px-4 rounded-full text-[13px] font-semibold text-white bg-[var(--color-tint)] hover:bg-[#0077ed] active:scale-97 transition-all shadow-xs tracking-[-0.01em] no-underline"
+      >
+        Masuk
+      </a>
+    )
+  }
+</div>
+
+<style>
+  .user-menu-root {
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  .member-menu.open .user-dropdown-panel {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  .member-menu.open .user-caret {
+    transform: rotate(180deg);
+  }
+  .user-dropdown-panel {
+    background: rgba(255, 255, 255, 0.96);
+    box-shadow:
+      0 16px 36px -6px rgba(15, 23, 42, 0.16),
+      0 4px 10px rgba(15, 23, 42, 0.04),
+      inset 0 1px 0 rgba(255, 255, 255, 1);
+  }
+</style>
+
+<script>
+  function initUserMenu() {
+    document.querySelectorAll<HTMLElement>("[data-user-menu]").forEach((menu) => {
+      const trigger = menu.querySelector<HTMLButtonElement>("[data-user-toggle]");
+      const panel = menu.querySelector<HTMLElement>("[data-user-dropdown]");
+
+      function toggleMenu(e: Event) {
+        e.stopPropagation();
+        const isOpen = menu.classList.contains("open");
+        menu.classList.toggle("open");
+        trigger?.setAttribute("aria-expanded", String(!isOpen));
+      }
+
+      function closeMenu() {
+        menu.classList.remove("open");
+        trigger?.setAttribute("aria-expanded", "false");
+      }
+
+      trigger?.addEventListener("click", toggleMenu);
+
+      document.addEventListener("click", (e) => {
+        if (!menu.contains(e.target as Node)) {
+          closeMenu();
+        }
+      });
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+          closeMenu();
+        }
+      });
+    });
+  }
+
+  initUserMenu();
+  document.addEventListener("astro:page-load", initUserMenu);
+</script>

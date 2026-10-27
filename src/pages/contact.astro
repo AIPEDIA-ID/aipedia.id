@@ -1,0 +1,242 @@
+---
+import Base from "../layouts/Base.astro";
+---
+
+<Base title="Hubungi Kami - AIPEDIA" wide>
+  <div class="contact-container">
+    <div class="contact-grid">
+      <!-- Left: Context & Direct Contact Channels -->
+      <div class="contact-info-col">
+        <span
+          class="text-xs font-bold uppercase tracking-widest text-[var(--color-tint)]"
+          >BANTUAN & DUKUNGAN</span
+        >
+        <h1
+          class="text-3xl sm:text-4xl font-bold tracking-tight text-[var(--color-label)] mt-2"
+        >
+          Ada Pertanyaan atau Butuh Konsultasi Paket?
+        </h1>
+        <p
+          class="text-sm sm:text-base text-[var(--color-secondary-label)] mt-3 leading-relaxed"
+        >
+          Tim support kami siap membantu menjawab pertanyaan seputar materi
+          prompt, integrasi workflow bisnis, maupun kemitraan institusi.
+        </p>
+
+        <div class="contact-channels">
+          <div class="card p-4">
+            <h3 class="text-sm font-bold text-[var(--color-label)]">
+              WhatsApp Layanan Pelanggan
+            </h3>
+            <p class="text-sm text-[var(--color-secondary-label)] mt-1">
+              Respon cepat untuk panduan pembelian dan kendala akses materi.
+            </p>
+            <a
+              href="https://wa.me/6281234567890"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-sm font-semibold text-[var(--color-tint)] hover:underline inline-block mt-2"
+            >
+              Chat WhatsApp Resmi
+            </a>
+          </div>
+
+          <div class="card p-4">
+            <h3 class="text-sm font-bold text-[var(--color-label)]">
+              Email Dukungan
+            </h3>
+            <p class="text-sm text-[var(--color-secondary-label)] mt-1">
+              halo@aipedia.id • Dibalas dalam 1x24 jam kerja.
+            </p>
+          </div>
+
+          <div class="card p-4">
+            <h3 class="text-sm font-bold text-[var(--color-label)]">
+              Jam Operasional
+            </h3>
+            <p class="text-sm text-[var(--color-secondary-label)] mt-1">
+              Senin – Jumat, 09:00 – 17:00 WIB (Kecuali hari libur nasional).
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Contact Form -->
+      <div class="contact-form-col">
+        <div class="card p-6 sm:p-8">
+          <h2 class="text-lg font-bold text-[var(--color-label)] mb-1">
+            Kirim Pesan Langsung
+          </h2>
+          <p class="text-sm text-[var(--color-secondary-label)] mb-6">
+            Isi formulir berikut dan kami akan menghubungi Anda via email.
+          </p>
+
+          <form id="contact-form" class="space-y-4">
+            <div class="form-field">
+              <label for="contact-name" class="form-label">Nama Lengkap</label>
+              <input
+                type="text"
+                id="contact-name"
+                name="name"
+                class="form-input"
+                placeholder="Nama Anda"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label for="contact-email" class="form-label">Alamat Email</label>
+              <input
+                type="email"
+                id="contact-email"
+                name="email"
+                class="form-input"
+                placeholder="nama@perusahaan.com"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label for="contact-topic" class="form-label"
+                >Kategori Pertanyaan</label
+              >
+              <select id="contact-topic" name="topic" class="form-input">
+                <option value="beli">Pertanyaan Paket & Pembelian</option>
+                <option value="akses">Kendala Akses Materi / Akun</option>
+                <option value="kemitraan">Kemitraan & Kolaborasi</option>
+                <option value="lainnya">Lainnya</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label for="contact-message" class="form-label">Pesan</label>
+              <textarea
+                id="contact-message"
+                name="message"
+                class="form-input form-textarea"
+                placeholder="Tuliskan detail pertanyaan atau bantuan yang Anda butuhkan..."
+                required
+                rows="4"></textarea>
+            </div>
+
+            <div id="contact-success" class="success-notice card p-3" hidden>
+              <div
+                class="flex items-center gap-2 text-sm font-semibold text-[#1e7e34] dark:text-[#34c759]"
+              >
+                <span
+                  >Pesan berhasil dikirim! Tim kami akan segera merespons ke
+                  email Anda.</span
+                >
+              </div>
+            </div>
+
+            <button
+              type="submit"
+              id="contact-submit-btn"
+              class="btn-primary-full text-sm py-2.5"
+            >
+              <span>Kirim Pesan</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</Base>
+
+<style>
+  .contact-container {
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 0 0 var(--space-page-bottom);
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-section);
+  }
+
+  @media (min-width: 840px) {
+    .contact-grid {
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: var(--space-section);
+      align-items: start;
+    }
+  }
+
+  .contact-channels {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    margin-top: var(--space-5);
+  }
+
+  .form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .form-label {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--color-label);
+  }
+
+  .form-input {
+    width: 100%;
+    padding: 10px 14px;
+    min-height: 42px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-separator);
+    border-radius: var(--radius-md);
+    color: var(--color-label);
+    font-size: 0.875rem;
+    font-family: inherit;
+    outline: none;
+    transition:
+      border-color 0.15s,
+      box-shadow 0.15s;
+  }
+
+  .form-input:focus {
+    border-color: var(--color-tint);
+    box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.15);
+  }
+
+  .form-textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+
+  .success-notice {
+    background: rgba(52, 199, 89, 0.1);
+    border-color: rgba(52, 199, 89, 0.3);
+  }
+</style>
+
+<script>
+  const form = document.getElementById(
+    "contact-form",
+  ) as HTMLFormElement | null;
+  const successEl = document.getElementById("contact-success");
+  const submitBtn = document.getElementById(
+    "contact-submit-btn",
+  ) as HTMLButtonElement | null;
+
+  form?.addEventListener("submit", (e) => {
+    e.preventDefault();
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Mengirim...";
+    }
+    setTimeout(() => {
+      if (successEl) successEl.hidden = false;
+      if (submitBtn) {
+        submitBtn.hidden = true;
+      }
+      form.reset();
+    }, 600);
+  });
+</script>

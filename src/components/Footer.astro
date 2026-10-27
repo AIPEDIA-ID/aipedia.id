@@ -1,0 +1,501 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="app-footer">
+  <div class="footer-container">
+    <!-- Newsletter Callout Banner -->
+    <div class="footer-newsletter card">
+      <div class="newsletter-content">
+        <h3 class="newsletter-title">Update AI Mingguan</h3>
+        <p class="newsletter-desc">
+          Prompt, studi kasus, dan tips AI untuk bisnis.
+        </p>
+      </div>
+
+      <form class="newsletter-form" id="footer-newsletter-form">
+        <div class="newsletter-input-group">
+          <input
+            type="email"
+            id="newsletter-email"
+            name="email"
+            placeholder="Ketik email Anda..."
+            required
+            autocomplete="email"
+            class="newsletter-input"
+          />
+          <button type="submit" class="btn-gold btn-gold-sm newsletter-btn">
+            <span>Daftar</span>
+          </button>
+        </div>
+        <div
+          class="newsletter-status"
+          id="newsletter-status"
+          role="status"
+          aria-live="polite"
+        >
+        </div>
+      </form>
+    </div>
+
+    <!-- Main 4-Column Directory Grid -->
+    <div class="footer-grid">
+      <!-- Col 1: Brand & Value -->
+      <div class="footer-col footer-col-brand">
+        <a href="/" class="footer-logo" aria-label="AIPEDIA Beranda">
+          <svg
+            class="logo-icon"
+            width="28"
+            height="28"
+            viewBox="0 0 32 32"
+            fill="none"
+          >
+            <rect
+              x="2"
+              y="2"
+              width="28"
+              height="28"
+              rx="7"
+              fill="var(--color-tint)"></rect>
+            <path
+              d="M10 22L16 10L22 22"
+              stroke="white"
+              stroke-width="2.2"
+              stroke-linecap="round"
+              stroke-linejoin="round"></path>
+            <path
+              d="M12.5 18H19.5"
+              stroke="white"
+              stroke-width="2.2"
+              stroke-linecap="round"></path>
+          </svg>
+          <span class="logo-title">AIPEDIA</span>
+        </a>
+        <p class="brand-desc">
+          Platform edukasi dan toolkit prompt AI untuk bisnis, creator, dan UMKM
+          di Indonesia.
+        </p>
+      </div>
+
+      <!-- Col 2: Katalog & Paket -->
+      <div class="footer-col">
+        <h4 class="col-title">Toko &amp; Paket</h4>
+        <ul class="footer-link-list">
+          <li>
+            <a href="/catalog" class="highlight-link">
+              <span>All-Access Lifetime Pass</span>
+              <span class="badge-gold mini">Hemat 50%</span>
+            </a>
+          </li>
+          <li><a href="/catalog">Bundle UMKM Go-Digital</a></li>
+          <li><a href="/catalog">Marketing &amp; Sales Powerhouse</a></li>
+          <li><a href="/catalog">Creator Studio Ultra Pass</a></li>
+          <li><a href="/catalog">Starter Pack Prompt Bisnis</a></li>
+          <li>
+            <a href="/catalog" class="text-tint font-semibold">
+              Lihat Semua Paket &rarr;
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Col 3: Resource & Belajar -->
+      <div class="footer-col">
+        <h4 class="col-title">Eksplorasi</h4>
+        <ul class="footer-link-list">
+          <li><a href="/library">Perpustakaan Prompt</a></li>
+          <li>
+            <a href="/library?category=llm-prompt">Prompt Bisnis &amp; UMKM</a>
+          </li>
+          <li>
+            <a href="/library?category=visual-prompt">Prompt Midjourney</a>
+          </li>
+          <li><a href="/library?category=tutorial">Tutorial AI</a></li>
+          <li><a href="/news">Updates &amp; Tips AI</a></li>
+          <li><a href="/dashboard">Dashboard</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 4: Perusahaan & Bantuan -->
+      <div class="footer-col">
+        <h4 class="col-title">Bantuan</h4>
+        <ul class="footer-link-list">
+          <li><a href="/about">Tentang AIPEDIA</a></li>
+          <li><a href="/contact">Hubungi Tim</a></li>
+          <li><a href="/catalog#faq">FAQ Pembelian</a></li>
+          <li><a href="/ketentuan">Ketentuan Layanan</a></li>
+          <li><a href="/privasi">Kebijakan Privasi</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Bottom Bar: Legal -->
+    <div class="footer-bottom">
+      <div class="bottom-left">
+        <span class="copyright"
+          >&copy; {year} AIPEDIA.ID - Hak cipta dilindungi.</span
+        >
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Simple, Zero-Cost Client-Side Newsletter Handler
+  const form = document.getElementById(
+    "footer-newsletter-form",
+  ) as HTMLFormElement | null;
+  const statusEl = document.getElementById("newsletter-status");
+
+  if (form && statusEl) {
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const input = document.getElementById(
+        "newsletter-email",
+      ) as HTMLInputElement | null;
+      if (!input || !input.value) return;
+
+      const email = input.value.trim();
+      const btn = form.querySelector(
+        "button[type='submit']",
+      ) as HTMLButtonElement | null;
+
+      if (btn) btn.disabled = true;
+
+      // Save locally or dispatch event
+      try {
+        const existing = JSON.parse(
+          localStorage.getItem("aipedia_newsletter") || "[]",
+        );
+        if (!existing.includes(email)) {
+          existing.push(email);
+          localStorage.setItem("aipedia_newsletter", JSON.stringify(existing));
+        }
+      } catch {}
+
+      setTimeout(() => {
+        statusEl.innerHTML = `
+          <div class="newsletter-success">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#15803d" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12" />
+            </svg>
+            <span>Terima kasih! Email <strong>${email}</strong> telah terdaftar.</span>
+          </div>
+        `;
+        input.value = "";
+        if (btn) btn.disabled = false;
+      }, 400);
+    });
+  }
+</script>
+
+<style>
+  .app-footer {
+    border-top: 1px solid var(--color-separator);
+    background: #ffffff;
+    padding: 48px 20px calc(32px + var(--safe-bottom));
+    margin-top: 64px;
+    position: relative;
+    color: var(--color-label);
+  }
+
+  .footer-container {
+    max-width: 1160px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+  }
+
+  /* ─── Newsletter Callout Card ─── */
+  .footer-newsletter {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 32px 28px;
+    background: var(--gradient-footer-surface);
+    border: 1px solid #dcdde1;
+    border-bottom: 2px solid #cbccd2;
+    border-radius: var(--radius-xl);
+  }
+
+  @media (min-width: 860px) {
+    .footer-newsletter {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      padding: 36px 40px;
+      gap: 48px;
+    }
+    .newsletter-content {
+      max-width: 520px;
+    }
+  }
+
+  .newsletter-badge {
+    margin-bottom: 10px;
+  }
+
+  .newsletter-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--color-label);
+    line-height: 1.3;
+    margin-bottom: 8px;
+  }
+
+  .newsletter-desc {
+    font-size: 0.875rem;
+    color: var(--color-secondary-label);
+    line-height: 1.5;
+  }
+
+  .newsletter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+    max-width: 440px;
+  }
+
+  .newsletter-input-group {
+    display: flex;
+    align-items: center;
+    background: #ffffff;
+    border: 1px solid #bcc0ca;
+    border-radius: 9999px;
+    padding: 4px 5px 4px 14px;
+    box-shadow: inset 0 1.5px 3px rgba(0, 0, 0, 0.05);
+    transition: all 0.2s ease;
+  }
+
+  .newsletter-input-group:focus-within {
+    border-color: var(--color-gold);
+    box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.25);
+  }
+
+  .newsletter-icon {
+    color: var(--color-secondary-label);
+    flex-shrink: 0;
+    margin-right: 8px;
+  }
+
+  .newsletter-input {
+    border: none !important;
+    background: transparent !important;
+    padding: 6px 0 !important;
+    font-size: 0.875rem;
+    color: var(--color-label);
+    outline: none !important;
+    box-shadow: none !important;
+    width: 100%;
+  }
+
+  .newsletter-input::placeholder {
+    color: var(--color-tertiary-label);
+  }
+
+  .newsletter-btn {
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+
+  .newsletter-trust {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.75rem;
+    color: var(--color-tertiary-label);
+    padding-left: 10px;
+  }
+
+  .newsletter-status :global(.newsletter-success) {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 12px;
+    font-size: 0.8125rem;
+    color: #15803d;
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    border-radius: 8px;
+    margin-top: 4px;
+  }
+
+  /* ─── 4-Column Directory Grid ─── */
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  @media (min-width: 640px) {
+    .footer-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 36px 24px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .footer-grid {
+      grid-template-columns: 1.4fr 1fr 1fr 1fr;
+      gap: 40px;
+    }
+  }
+
+  .footer-col {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .footer-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .logo-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: var(--color-label);
+  }
+
+  .brand-desc {
+    font-size: 0.84375rem;
+    line-height: 1.55;
+    color: var(--color-secondary-label);
+  }
+
+  .trust-pill-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 4px;
+  }
+
+  .trust-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.78125rem;
+    color: var(--color-label);
+    font-weight: 500;
+  }
+
+  .col-title {
+    font-size: 0.875rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: var(--color-label);
+    text-transform: uppercase;
+  }
+
+  .footer-link-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footer-link-list a {
+    font-size: 0.84375rem;
+    color: var(--color-secondary-label);
+    text-decoration: none;
+    transition: color 0.15s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .footer-link-list a:hover {
+    color: var(--color-tint);
+  }
+
+  .highlight-link {
+    color: var(--color-label) !important;
+    font-weight: 600;
+  }
+
+  .mini {
+    font-size: 0.625rem !important;
+    padding: 0.1rem 0.45rem !important;
+  }
+
+  .badge-new {
+    font-size: 0.625rem;
+    font-weight: 700;
+    padding: 0.1rem 0.45rem;
+    border-radius: 9999px;
+    background: rgba(0, 113, 227, 0.1);
+    color: var(--color-tint);
+    border: 1px solid rgba(0, 113, 227, 0.25);
+  }
+
+  .text-tint {
+    color: var(--color-tint) !important;
+  }
+
+  /* ─── Bottom Bar ─── */
+  .footer-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding-top: 24px;
+    border-top: 1px solid var(--color-separator);
+    font-size: 0.78125rem;
+    color: var(--color-tertiary-label);
+  }
+
+  @media (min-width: 768px) {
+    .footer-bottom {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  .bottom-left {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .status-indicator {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #16a34a;
+    font-weight: 600;
+    background: #f0fdf4;
+    padding: 2px 8px;
+    border-radius: 9999px;
+    border: 1px solid #bbf7d0;
+  }
+
+  .status-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #22c55e;
+    box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.2);
+  }
+
+  .bottom-sep {
+    color: var(--color-separator);
+  }
+
+  .security-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--color-secondary-label);
+  }
+</style>

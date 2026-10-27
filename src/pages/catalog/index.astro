@@ -1,0 +1,150 @@
+---
+export const prerender = false;
+import Base from "../../layouts/Base.astro";
+import ProductCard from "../../components/ProductCard.astro";
+import FeaturedShowcase from "../../components/FeaturedShowcase.astro";
+import SegmentedControl from "../../components/SegmentedControl.astro";
+import Icon from "../../components/Icon.astro";
+import SectionBand from "../../components/SectionBand.astro";
+import { getCatalog, getCurrentUser } from "../../lib/data";
+
+const user = await getCurrentUser(Astro.cookies);
+const { products, bundles } = await getCatalog();
+const featuredBundle =
+  bundles.find((b) => b.slug === "bundle-all-access") || bundles[0];
+const otherBundles = bundles.filter((b) => b.slug !== featuredBundle?.slug);
+const all = [...otherBundles, ...products];
+
+function formatPrice(price: number): string {
+  return "Rp" + price.toLocaleString("id-ID");
+}
+---
+
+<Base title="Katalog Toolkit AI - AIPEDIA" wide user={user}>
+  <!-- Catalog Page Header -->
+  <header class="catalog-header page-intro">
+    <div class="max-w-2xl">
+      <h1 class="page-title text-[var(--color-label)]">Katalog Toolkit AI</h1>
+      <p class="page-description text-[var(--color-secondary-label)]">
+        Prompt, workflow, dan panduan praktis untuk bisnis.
+      </p>
+    </div>
+  </header>
+
+  <!-- Featured All-Access Pass Banner -->
+  {
+    featuredBundle && (
+      <FeaturedShowcase
+        tone="dark"
+        title={featuredBundle.title}
+        description={featuredBundle.description}
+        price={featuredBundle.price}
+        originalPrice={featuredBundle.originalPrice}
+        href={`/products/${featuredBundle.slug}`}
+        class="catalog-featured"
+      />
+    )
+  }
+
+  <!-- Store Catalog Controls -->
+  <SectionBand
+    class="catalog-products"
+    aria-labelledby="catalog-products-title"
+  >
+    <div
+      class="store-controls flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6"
+    >
+      <div>
+        <h2
+          id="catalog-products-title"
+          class="text-xl font-bold tracking-tight text-[var(--color-label)]"
+        >
+          Pilihan Paket & Toolkit Satuan
+        </h2>
+        <p class="text-xs text-[var(--color-secondary-label)]">
+          {all.length} produk
+        </p>
+      </div>
+
+      <div class="catalog-controls">
+        <SegmentedControl
+          name="catalog-filter"
+          segments={[
+            { label: "Semua", value: "all" },
+            { label: "Bundel Hemat", value: "bundles" },
+            { label: "Paket Satuan", value: "products" },
+          ]}
+        />
+      </div>
+    </div>
+
+    <!-- Store Product Grid -->
+    <div id="catalog-grid" class="product-grid">
+      {
+        all.map((product) => {
+          const isBundle = bundles.some((b) => b.slug === product.slug);
+          const type = isBundle ? "bundle" : "product";
+          return (
+            <div class="catalog-item" data-type={type}>
+              <ProductCard product={product} />
+            </div>
+          );
+        })
+      }
+    </div>
+  </SectionBand>
+</Base>
+
+<style>
+  .catalog-controls {
+    margin-bottom: 0;
+  }
+  .catalog-header {
+    margin-bottom: var(--space-4);
+  }
+  .catalog-featured {
+    margin-bottom: var(--space-section);
+  }
+  .catalog-products {
+    margin-top: 0;
+  }
+  .page-title {
+    font-size: var(--type-page-title);
+    line-height: 1.12;
+    letter-spacing: -0.035em;
+  }
+  .page-description {
+    margin-top: var(--space-2);
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  .product-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-card-grid);
+  }
+  @media (min-width: 640px) {
+    .product-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (min-width: 1024px) {
+    .product-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+</style>
+
+<script>
+  const control = document.querySelector(".segmented-control");
+  const items = document.querySelectorAll<HTMLElement>(".catalog-item");
+
+  control?.addEventListener("segment-change", (e: Event) => {
+    const value = (e as CustomEvent).detail.value as string;
+    items.forEach((item) => {
+      const type = item.getAttribute("data-type");
+      item.style.display =
+        value === "all" || value === type + "s" ? "" : "none";
+    });
+  });
+</script>

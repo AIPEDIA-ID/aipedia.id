@@ -1,0 +1,425 @@
+---
+export const prerender = false;
+import DashboardLayout from "../../../layouts/DashboardLayout.astro";
+import Card from "../../../components/Card.astro";
+import ResourceCard from "../../../components/ResourceCard.astro";
+import CopyButton from "../../../components/CopyButton.astro";
+import Pagination from "../../../components/Pagination.astro";
+import { getResources, getCurrentUser } from "../../../lib/data";
+
+const user = await getCurrentUser(Astro.cookies);
+const resources = await getResources();
+const freshResource =
+  resources.find(
+    (r) =>
+      r.id ===
+      "prompts/llm-prompt/customer-service-wa/balasan-chat-customer-marah",
+  ) ||
+  resources.find((r) => r.prompt_preview) ||
+  resources[0];
+
+const categories = [
+  { label: "LLM Prompt", slug: "llm-prompt" },
+  { label: "Visual Prompt", slug: "visual-prompt" },
+  { label: "Custom AI", slug: "custom-ai" },
+  { label: "Resource", slug: "resource" },
+  { label: "Tutorial", slug: "tutorial" },
+  { label: "Founder Space", slug: "founder-space" },
+  { label: "Kursus", slug: "course" },
+];
+
+const PAGE_SIZE = 12;
+const totalPages = Math.ceil(resources.length / PAGE_SIZE);
+---
+
+<DashboardLayout title="Direktori Vault - AIPEDIA" activeNav="library" user={user}>
+  <header class="library-header">
+    <div>
+      <span class="eyebrow">DIREKTORI LENGKAP</span>
+      <h1 class="text-large-title page-title">The Prompt & Resource Vault</h1>
+      <p class="page-desc text-body">
+        Eksplorasi 100+ prompt bisnis, script penanganan WhatsApp, dan panduan taktis siap pakai.
+      </p>
+    </div>
+  </header>
+
+  <!-- Fresh this week highlight card -->
+  {
+    freshResource && (
+      <Card as="section" tone="dark" class="fresh-highlight mb-8 p-5 sm:p-6 relative overflow-hidden">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+          <div class="space-y-2 max-w-xl">
+            <h2 class="text-lg sm:text-xl font-bold tracking-tight">
+              {freshResource.title}
+            </h2>
+            <p class="text-sm line-clamp-2">
+              {freshResource.description}
+            </p>
+            <div class="pt-2 flex items-center gap-3">
+              <a
+                href={`/app/r/${freshResource.id}`}
+                class="btn-gold text-xs py-2 px-4"
+              >
+                <span>Buka Materi</span>
+              </a>
+            </div>
+          </div>
+
+          {freshResource.prompt_preview && (
+            <div class="fresh-prompt-well shrink-0 w-full md:w-80 p-3.5 rounded-[var(--radius-md)] border font-mono text-xs">
+              <div class="flex items-center justify-between pb-2 mb-2 border-b text-xs font-semibold">
+                <span>Preview Prompt</span>
+                <CopyButton text={freshResource.prompt_preview} />
+              </div>
+              <div class="prompt-text line-clamp-3">
+                {freshResource.prompt_preview}
+              </div>
+            </div>
+          )}
+        </div>
+      </Card>
+    )
+  }
+
+  <div class="library-toolbar">
+    <div class="search-field">
+      <svg
+        class="search-icon"
+        width="18"
+        height="18"
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
+        <circle
+          cx="11"
+          cy="11"
+          r="7"
+          stroke="currentColor"
+          stroke-width="1.5"
+          fill="none"></circle>
+        <path
+          d="M21 21l-4.3-4.3"
+          stroke="currentColor"
+          stroke-width="1.5"
+          stroke-linecap="round"></path>
+      </svg>
+      <input
+        type="search"
+        id="library-search"
+        placeholder="Cari materi, topik, atau tools..."
+        aria-label="Cari materi"
+        class="search-input"
+      />
+    </div>
+    <span id="library-result-count" class="result-count"
+      >{resources.length} materi</span
+    >
+  </div>
+
+  <nav class="category-tabs" aria-label="Filter kategori">
+    <button class="category-tab active" type="button" data-category="all"
+      >Semua <span>{resources.length}</span></button
+    >
+    {
+      categories.map((cat) => {
+        const count = resources.filter((r) => r.category === cat.slug).length;
+        return (
+          <button class="category-tab" type="button" data-category={cat.slug}>
+            {cat.label} <span>{count}</span>
+          </button>
+        );
+      })
+    }
+  </nav>
+
+  <div id="library-list" class="resource-grid">
+    {
+      resources.map((r) => (
+        <div
+          class="library-item"
+          data-category={r.category}
+          data-title={r.title.toLowerCase()}
+          data-tools={r.tools.join(" ").toLowerCase()}
+          data-topics={r.topics.join(" ").toLowerCase()}
+        >
+          <ResourceCard resource={r} hrefPrefix="/app/r" />
+        </div>
+      ))
+    }
+  </div>
+
+  <div id="library-empty" class="library-empty" hidden>
+    <p>Tidak ada materi yang sesuai dengan pencarian.</p>
+  </div>
+
+  <Pagination
+    currentPage={1}
+    totalPages={totalPages}
+    totalItems={resources.length}
+    pageSize={PAGE_SIZE}
+    itemLabel="materi"
+    clientDriven={true}
+    class="mt-8 border-t border-[var(--color-separator)] pt-4"
+  />
+</DashboardLayout>
+
+<style>
+  .fresh-highlight h2 { color: var(--color-dark-text); }
+  .fresh-prompt-well { border-color: var(--color-dark-border); color: #e0e4ec; background: rgba(11,13,19,.42); }
+  .fresh-prompt-well > div:first-child { border-color: var(--color-dark-border); color: #aeb7c5; }
+  .library-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 28px;
+  }
+  .eyebrow {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--color-tint);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+  }
+  .page-title {
+    margin-bottom: 6px;
+  }
+  .page-desc {
+    color: var(--color-secondary-label);
+  }
+  .library-stats {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    color: var(--color-secondary-label);
+  }
+  .library-stats strong {
+    color: var(--color-label);
+    font-size: 1.75rem;
+    line-height: 1;
+  }
+  .library-stats span,
+  .result-count {
+    font-size: 0.75rem;
+  }
+  .library-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+  .search-field {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex: 1;
+  }
+  .search-icon {
+    position: absolute;
+    left: 12px;
+    color: var(--color-tertiary-label);
+    pointer-events: none;
+  }
+  .search-input {
+    width: 100%;
+    padding: 10px 12px 10px 40px;
+    min-height: 44px;
+    background: #edf0f4;
+    border: 1px solid #bcc0ca;
+    border-top-color: #abb0bc;
+    box-shadow:
+      inset 0 1.5px 2.5px rgba(0, 0, 0, 0.09),
+      0 1px 0 #ffffff;
+    border-radius: var(--radius-md);
+    color: var(--color-label);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    outline: none;
+    transition:
+      background 0.15s,
+      border-color 0.15s,
+      box-shadow 0.15s;
+  }
+  .search-input:focus {
+    background: #ffffff;
+    border-color: var(--color-tint);
+    box-shadow:
+      var(--color-focus-ring),
+      inset 0 1px 0 #ffffff;
+  }
+  .result-count {
+    white-space: nowrap;
+    color: var(--color-secondary-label);
+    font-weight: 600;
+  }
+  .category-tabs {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding: 2px 0 18px;
+    scrollbar-width: none;
+  }
+  .category-tabs::-webkit-scrollbar {
+    display: none;
+  }
+  .category-tab {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    min-height: 36px;
+    padding: 6px 14px;
+    border: 1px solid #c2c6d0;
+    border-bottom: 2px solid #b2b7c2;
+    border-radius: 100px;
+    background: linear-gradient(180deg, #ffffff 0%, #edf0f5 100%);
+    box-shadow:
+      0 1px 2px rgba(0, 0, 0, 0.06),
+      inset 0 1.5px 0 #ffffff;
+    color: var(--color-secondary-label);
+    cursor: pointer;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    white-space: nowrap;
+    transition: all 0.15s;
+  }
+  .category-tab span {
+    color: var(--color-tertiary-label);
+  }
+  .category-tab:hover {
+    background: linear-gradient(180deg, #ffffff 0%, #f4f6f9 100%);
+    border-color: #b0b5be;
+    color: var(--color-label);
+  }
+  .category-tab.active {
+    border: 1px solid #0052a3;
+    border-bottom: 2px solid #003d7a;
+    background: linear-gradient(180deg, #0077ed 0%, #0060bf 100%);
+    box-shadow:
+      0 1px 2px rgba(0, 0, 0, 0.18),
+      inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    color: #fff;
+  }
+  .category-tab.active span {
+    color: rgba(255, 255, 255, 0.85);
+  }
+  .category-tab:active {
+    transform: translateY(0.5px);
+    box-shadow: inset 0 1.5px 2px rgba(0, 0, 0, 0.15);
+  }
+  .resource-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .library-empty {
+    padding: 40px 16px;
+    text-align: center;
+    color: var(--color-secondary-label);
+  }
+  @media (min-width: 640px) {
+    .resource-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (min-width: 768px) {
+    .resource-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  @media (max-width: 520px) {
+    .library-header {
+      align-items: flex-start;
+    }
+    .library-stats {
+      display: none;
+    }
+    .library-toolbar {
+      align-items: stretch;
+      flex-direction: column;
+    }
+  }
+</style>
+
+<script>
+  const search = document.getElementById(
+    "library-search",
+  ) as HTMLInputElement | null;
+  const items = Array.from(document.querySelectorAll<HTMLElement>(".library-item"));
+  const tabs = document.querySelectorAll<HTMLButtonElement>(".category-tab");
+  const resultCount = document.getElementById("library-result-count");
+  const emptyState = document.getElementById("library-empty");
+  const pagination = document.querySelector<HTMLElement>("[data-pagination]");
+  const toolbar = document.querySelector(".library-toolbar");
+
+  const PAGE_SIZE = 12;
+  let activeCategory = "all";
+  let currentPage = 1;
+
+  function applyFilters(resetPage = true) {
+    if (resetPage) currentPage = 1;
+    const query = search?.value.toLowerCase().trim() ?? "";
+
+    const matchedItems: HTMLElement[] = [];
+    items.forEach((item) => {
+      const category = item.getAttribute("data-category") ?? "";
+      const haystack = [
+        item.getAttribute("data-title"),
+        item.getAttribute("data-tools"),
+        item.getAttribute("data-topics"),
+      ].join(" ");
+      const matches =
+        (activeCategory === "all" || category === activeCategory) &&
+        (!query || haystack.includes(query));
+
+      if (matches) {
+        matchedItems.push(item);
+      } else {
+        item.hidden = true;
+      }
+    });
+
+    const totalMatches = matchedItems.length;
+    const totalPages = Math.ceil(totalMatches / PAGE_SIZE) || 1;
+    if (currentPage > totalPages) currentPage = 1;
+
+    const startIdx = (currentPage - 1) * PAGE_SIZE;
+    const endIdx = startIdx + PAGE_SIZE;
+
+    matchedItems.forEach((item, idx) => {
+      item.hidden = idx < startIdx || idx >= endIdx;
+    });
+
+    if (resultCount) resultCount.textContent = `${totalMatches} materi`;
+    if (emptyState) emptyState.hidden = totalMatches > 0;
+
+    pagination?.dispatchEvent(
+      new CustomEvent("pagination:update", {
+        detail: { totalMatches, currentPage, pageSize: PAGE_SIZE },
+      })
+    );
+  }
+
+  pagination?.addEventListener("pagination:change", ((e: CustomEvent) => {
+    currentPage = e.detail.page;
+    applyFilters(false);
+    toolbar?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }) as EventListener);
+
+  const urlParams = new URLSearchParams(window.location.search);
+  const initialPage = Number(urlParams.get("page"));
+  if (initialPage && initialPage > 1) {
+    currentPage = initialPage;
+  }
+
+  search?.addEventListener("input", () => applyFilters(true));
+  tabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      activeCategory = tab.dataset.category ?? "all";
+      tabs.forEach((item) => item.classList.toggle("active", item === tab));
+      applyFilters(true);
+    });
+  });
+
+  applyFilters(false);
+</script>

@@ -1,0 +1,299 @@
+---
+// SESSION-DEPENDENT: must render per request when output becomes "server"
+import Base from "../../layouts/Base.astro";
+import StatusBadge from "../../components/StatusBadge.astro";
+import { getOrder } from "../../lib/data";
+import type { OrderStatus } from "../../lib/data/types";
+
+const orderId = Astro.url.searchParams.get("order") ?? "";
+const status = (Astro.url.searchParams.get("status") ?? "paid") as OrderStatus;
+
+const order = orderId ? await getOrder(orderId) : null;
+
+// Fallback order for preview if order not found in mock database
+const displayOrder = order || {
+  id: orderId || "ORD-2026-AIPEDIA",
+  productTitle: "Starter Pack Prompt Bisnis & UMKM",
+  date: new Date().toISOString(),
+  amount: 199000,
+  status: status,
+};
+
+function formatPrice(price: number): string {
+  return "Rp" + price.toLocaleString("id-ID");
+}
+
+function formatDate(date: string): string {
+  const d = new Date(date);
+  return d.toLocaleDateString("id-ID", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
+}
+
+const statusConfig = {
+  paid: {
+    title: "Pembayaran Berhasil Dikonfirmasi",
+    desc: "Akses materi telah aktif sepenuhnya di akun Anda. Anda bisa langsung membuka dan menggunakannya.",
+    badgeClass: "status-paid",
+  },
+  pending: {
+    title: "Menunggu Pembayaran",
+    desc: "Transaksi Anda sedang diproses oleh gateway pembayaran Midtrans. Mohon selesaikan transfer Anda.",
+    badgeClass: "status-pending",
+  },
+  failed: {
+    title: "Pembayaran Belum Berhasil",
+    desc: "Transaksi tidak dapat diselesaikan atau telah kedaluwarsa. Saldo Anda tidak terpotong.",
+    badgeClass: "status-failed",
+  },
+};
+
+const current = statusConfig[status] || statusConfig.paid;
+---
+
+<Base title={`${current.title} - AIPEDIA`}>
+  <div class="payment-result-container">
+    <div class:list={["status-hero-icon", `icon-${status}`]}>
+      {
+        status === "paid" && (
+          <svg
+            width="44"
+            height="44"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <polyline points="20 6 9 17 4 12" />
+          </svg>
+        )
+      }
+      {
+        status === "pending" && (
+          <svg
+            width="44"
+            height="44"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="12" cy="12" r="10" />
+            <polyline points="12 6 12 12 16 14" />
+          </svg>
+        )
+      }
+      {
+        status === "failed" && (
+          <svg
+            width="44"
+            height="44"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        )
+      }
+    </div>
+
+    <h1
+      class="text-2xl sm:text-3xl font-bold tracking-tight text-[var(--color-label)] mt-4"
+    >
+      {current.title}
+    </h1>
+    <p
+      class="text-sm text-[var(--color-secondary-label)] mt-2 max-w-md mx-auto leading-relaxed"
+    >
+      {current.desc}
+    </p>
+
+    <!-- Specific Semantic Instruction Box -->
+    {
+      status === "paid" && (
+        <div class="next-step-box step-box-paid card mt-6 text-left p-4">
+          <h2 class="text-xs font-bold uppercase tracking-wider text-[#1e7e34] dark:text-[#34c759]">
+            Langkah Selanjutnya:
+          </h2>
+          <p class="text-sm text-[var(--color-secondary-label)] mt-1.5 leading-relaxed">
+            Materi prompt & tutorial sudah siap di workspace dashboard Anda.
+            Klik tombol di bawah untuk langsung mulai menyalin template ke
+            ChatGPT atau Claude.
+          </p>
+        </div>
+      )
+    }
+
+    {
+      status === "pending" && (
+        <div class="next-step-box step-box-pending card mt-6 text-left p-4">
+          <h2 class="text-xs font-bold uppercase tracking-wider text-[#b4820a] dark:text-[#f59e0b]">
+            Petunjuk Pembayaran:
+          </h2>
+          <p class="text-sm text-[var(--color-secondary-label)] mt-1.5 leading-relaxed">
+            Silakan selesaikan pembayaran di aplikasi m-banking atau e-wallet
+            Anda. Setelah transfer berhasil, sistem akan mendeteksi otomatis
+            dalam 1–2 menit tanpa perlu kirim bukti transfer.
+          </p>
+        </div>
+      )
+    }
+
+    {
+      status === "failed" && (
+        <div class="next-step-box step-box-failed card mt-6 text-left p-4">
+          <h2 class="text-xs font-bold uppercase tracking-wider text-[#d32f2f]">
+            Solusi Masalah:
+          </h2>
+          <p class="text-sm text-[var(--color-secondary-label)] mt-1.5 leading-relaxed">
+            Sesi pembayaran kedaluwarsa atau terjadi gangguan koneksi bank.
+            Silakan kembali ke katalog untuk membuat pesanan baru atau pilih
+            opsi QRIS.
+          </p>
+        </div>
+      )
+    }
+
+    <!-- Order Summary Card -->
+    <div class="order-summary-box card mt-6 text-left p-5">
+      <h2
+        class="text-xs font-bold uppercase tracking-wider text-[var(--color-tertiary-label)] mb-3 pb-2 border-b border-[var(--color-separator)]"
+      >
+        Ringkasan Transaksi
+      </h2>
+      <div class="space-y-2.5 text-sm">
+        <div class="flex items-center justify-between">
+          <span class="text-[var(--color-secondary-label)]">No. Pesanan</span>
+          <span class="font-mono font-semibold text-[var(--color-label)]"
+            >{displayOrder.id}</span
+          >
+        </div>
+        <div class="flex items-center justify-between">
+          <span class="text-[var(--color-secondary-label)]">Produk</span>
+          <span
+            class="font-semibold text-[var(--color-label)] text-right max-w-[240px] truncate"
+            >{displayOrder.productTitle}</span
+          >
+        </div>
+        <div class="flex items-center justify-between">
+          <span class="text-[var(--color-secondary-label)]">Tanggal</span>
+          <span class="text-[var(--color-label)]"
+            >{formatDate(displayOrder.date)}</span
+          >
+        </div>
+        <div
+          class="flex items-center justify-between pt-2 border-t border-[var(--color-separator)]"
+        >
+          <span class="font-semibold text-[var(--color-label)]"
+            >Total Pembayaran</span
+          >
+          <span class="font-bold text-sm text-[var(--color-label)]"
+            >{formatPrice(displayOrder.amount)}</span
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- Semantic Primary Action -->
+    <div class="result-actions mt-8 space-y-3">
+      {
+        status === "paid" && (
+          <a href="/dashboard" class="btn-primary-full text-sm py-3">
+            <span>Buka Materi di Dashboard</span>
+          </a>
+        )
+      }
+      {
+        status === "pending" && (
+          <a
+            href={`/payment/success?status=paid&order=${displayOrder.id}`}
+            class="btn-primary-full text-sm py-3"
+          >
+            <span>Simulasi Pembayaran Sukses</span>
+          </a>
+        )
+      }
+      {
+        status === "failed" && (
+          <a href="/catalog" class="btn-primary-full text-sm py-3">
+            <span>Pilih Ulang Paket di Katalog</span>
+          </a>
+        )
+      }
+
+      <a href="/" class="btn-secondary-full text-sm py-2.5">
+        <span>Kembali ke Beranda</span>
+      </a>
+    </div>
+  </div>
+</Base>
+
+<style>
+  .payment-result-container {
+    max-width: 460px;
+    margin: 40px auto;
+    text-align: center;
+    padding: 0 16px;
+  }
+
+  .status-hero-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+  }
+
+  .icon-paid {
+    background: rgba(52, 199, 89, 0.12);
+    color: #34c759;
+    border: 1px solid rgba(52, 199, 89, 0.3);
+  }
+
+  .icon-pending {
+    background: rgba(255, 149, 0, 0.12);
+    color: #ff9500;
+    border: 1px solid rgba(255, 149, 0, 0.3);
+  }
+
+  .icon-failed {
+    background: rgba(255, 59, 48, 0.12);
+    color: #ff3b30;
+    border: 1px solid rgba(255, 59, 48, 0.3);
+  }
+
+  .step-box-paid {
+    background: rgba(52, 199, 89, 0.05);
+    border: 1px solid rgba(52, 199, 89, 0.2);
+  }
+
+  .step-box-pending {
+    background: rgba(255, 149, 0, 0.05);
+    border: 1px solid rgba(255, 149, 0, 0.2);
+  }
+
+  .step-box-failed {
+    background: rgba(255, 59, 48, 0.05);
+    border: 1px solid rgba(255, 59, 48, 0.2);
+  }
+
+  .order-summary-box {
+    background: var(--color-surface-elevated);
+    border: 1px solid var(--color-separator);
+    border-radius: var(--radius-lg);
+  }
+</style>

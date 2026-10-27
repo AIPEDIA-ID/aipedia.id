@@ -1,0 +1,190 @@
+---
+import Base from "../layouts/Base.astro";
+import Card from "../components/Card.astro";
+import SectionBand from "../components/SectionBand.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import Icon from "../components/Icon.astro";
+
+const services = [
+  {
+    id: "ai-workflow",
+    title: "AI Workflow",
+    icon: "layers",
+    description:
+      "Rancang alur kerja yang memanfaatkan AI untuk mengurangi pekerjaan berulang dan merapikan proses tim.",
+  },
+  {
+    id: "software-development",
+    title: "Software Development",
+    icon: "terminal",
+    description:
+      "Bangun website, dashboard, aplikasi internal, atau integrasi yang sesuai kebutuhan produk dan operasional.",
+  },
+  {
+    id: "software-qa",
+    title: "Software QA",
+    icon: "check",
+    description:
+      "Uji alur dan fitur aplikasi, temukan bug, lalu susun laporan yang jelas sebelum produk dirilis.",
+  },
+  {
+    id: "web-seo",
+    title: "Web & SEO",
+    icon: "compass",
+    description:
+      "Perbaiki struktur website, pengalaman halaman, dan fondasi SEO agar mudah ditemukan dan digunakan.",
+  },
+];
+---
+
+<Base
+  title="Services — AIPEDIA"
+  description="Layanan AI workflow, software development, software QA, web, dan SEO dari AIPEDIA."
+  wide
+>
+  <div class="services-page">
+    <section class="services-intro page-intro">
+      <span>SERVICES</span>
+      <h1>Butuh bantuan membangun solusi digital?</h1>
+      <p>
+        Kami membantu merancang workflow AI, mengembangkan software, menguji
+        kualitas produk, dan memperbaiki website.
+      </p>
+    </section>
+
+    <SectionBand class="services-band" aria-label="Layanan AIPEDIA">
+      <SectionHeading
+        eyebrow="LAYANAN"
+        title="Mulai dari kebutuhan yang paling penting"
+      />
+      <div class="services-grid">
+        {
+          services.map((service) => (
+            <Card as="article" class="service-card" id={service.id}>
+              <div class="service-icon">
+                <Icon name={service.icon} size={19} />
+              </div>
+              <h3>{service.title}</h3>
+              <p>{service.description}</p>
+            </Card>
+          ))
+        }
+      </div>
+    </SectionBand>
+
+    <Card as="section" tone="dark" class="services-contact">
+      <div>
+        <h2>Punya kebutuhan proyek?</h2>
+        <p>
+          Ceritakan tujuan dan tantanganmu. Kita bisa mulai dari ruang lingkup
+          yang paling dibutuhkan.
+        </p>
+      </div>
+      <a href="/contact" class="btn-gold"><span>Diskusikan proyek</span></a>
+    </Card>
+  </div>
+</Base>
+
+<style>
+  .services-page {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 0 var(--space-page-bottom);
+  }
+  .services-intro {
+    margin-top: 0;
+  }
+  .services-intro > span {
+    color: var(--color-gold-text);
+    font-size: 0.72rem;
+    font-weight: 750;
+    letter-spacing: 0.09em;
+  }
+  .services-band {
+    margin-top: 0;
+  }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-card-grid);
+  }
+  .service-card {
+    min-height: 164px;
+    padding: 20px;
+    scroll-margin-top: 90px;
+  }
+  .service-icon {
+    display: grid;
+    width: 36px;
+    height: 36px;
+    place-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 11px;
+    color: var(--color-secondary-label);
+    background: var(--gradient-icon-placeholder);
+    box-shadow:
+      inset 0 1px rgba(255, 255, 255, 0.95),
+      0 3px 8px rgba(36, 61, 94, 0.11);
+  }
+  .service-card h3 {
+    margin-top: var(--space-3);
+    color: var(--color-label);
+    font-size: var(--type-card-title);
+    line-height: 1.25;
+  }
+  .service-card p {
+    max-width: 440px;
+    margin-top: var(--space-1);
+    color: var(--color-secondary-label);
+    font-size: 0.9375rem;
+    line-height: 1.55;
+  }
+  .services-contact {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+    margin-top: var(--space-4);
+    padding: var(--space-4) var(--space-5);
+    border-radius: var(--radius-lg);
+  }
+  .services-contact h2 {
+    font-size: var(--type-card-title);
+  }
+  .services-contact p {
+    max-width: 550px;
+    margin-top: var(--space-1);
+    font-size: 0.9375rem;
+    line-height: 1.5;
+  }
+  .services-contact .btn-gold {
+    flex: 0 0 auto;
+  }
+  @media (max-width: 619px) {
+    .services-page {
+      padding-bottom: var(--space-page-bottom);
+    }
+    .services-intro {
+      margin: 0;
+    }
+    .services-band {
+      margin-top: 0;
+    }
+    .services-grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-2);
+    }
+    .service-card {
+      min-height: 0;
+      padding: 18px;
+    }
+    .services-contact {
+      align-items: flex-start;
+      flex-direction: column;
+      padding: 20px;
+    }
+    .services-contact .btn-gold {
+      width: 100%;
+    }
+  }
+</style>

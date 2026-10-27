@@ -1,0 +1,68 @@
+---
+import Base from "../layouts/Base.astro";
+import SectionBand from "../components/SectionBand.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import Card from "../components/Card.astro";
+import ToolBadge from "../components/ToolBadge.astro";
+
+const tools = [
+  { name: "ChatGPT", category: "AI assistant" },
+  { name: "Claude", category: "AI assistant" },
+  { name: "Gemini", category: "AI assistant" },
+  { name: "DeepSeek", category: "AI assistant" },
+  { name: "Midjourney", category: "Visual AI" },
+  { name: "Zapier", category: "Workflow automation" },
+];
+---
+
+<Base
+  title="Tools — AIPEDIA"
+  description="Jelajahi tools AI yang dibahas dan digunakan dalam materi AIPEDIA."
+  wide
+>
+  <div class="tools-page">
+    <section class="tools-intro page-intro">
+      <h1>Tools AI yang dibahas di AIPEDIA</h1>
+      <p>Kenali tools yang sering muncul di materi dan workflow AI kami.</p>
+    </section>
+
+    <SectionBand class="tools-section" aria-label="Daftar tools">
+      <SectionHeading
+        title="Daftar Tools"
+        actionLabel="Lihat materi →"
+        actionHref="/app/library"
+      />
+      <div class="tools-grid">
+        {tools.map((tool) => (
+          <Card as="article" class="tool-card">
+            <div class="flex items-center justify-between gap-2">
+              <span>{tool.category}</span>
+              <ToolBadge tool={tool.name} iconOnly />
+            </div>
+            <h3>{tool.name}</h3>
+          </Card>
+        ))}
+      </div>
+    </SectionBand>
+  </div>
+</Base>
+
+<style>
+  .tools-page { max-width: 1000px; margin: 0 auto; padding: 0 0 var(--space-page-bottom); }
+  .tools-intro { margin-top: 0; }
+  .tools-section { margin-top: 0; }
+  .tools-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-card-grid); }
+  .tool-card { min-height: 118px; display: flex; flex-direction: column; justify-content: space-between; padding: 20px; }
+  .tool-card span { color: var(--color-secondary-label); font-size: .8125rem; }
+  .tool-card h3 { color: var(--color-label); font-size: var(--type-card-title); line-height: 1.25; }
+  @media (max-width: 619px) {
+    .tools-page { padding-bottom: var(--space-page-bottom); }
+    .tools-intro { margin: 0; }
+    .tools-section { margin-top: 0; }
+    .tools-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-2); }
+    .tool-card { min-height: 104px; padding: 16px; }
+  }
+  @media (min-width: 620px) and (max-width: 900px) {
+    .tools-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+</style>

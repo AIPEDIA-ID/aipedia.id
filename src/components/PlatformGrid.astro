@@ -1,0 +1,209 @@
+---
+interface Platform {
+  name: string;
+  badge?: string;
+  desc: string;
+  icon: string;
+}
+
+interface Props {
+  title?: string;
+  subtitle?: string;
+  platforms?: Platform[];
+  class?: string;
+}
+
+const defaultPlatforms: Platform[] = [
+  {
+    name: "ChatGPT (CustomGPT)",
+    badge: "Free & Plus",
+    desc: "Tanya-jawab interaktif langsung di aplikasi ChatGPT web atau HP. Sudah dilengkapi instruksi rahasia & knowledge base.",
+    icon: "/vendors/chatgpt-white.png",
+  },
+  {
+    name: "Claude (Skills & Logic)",
+    badge: "Akurasi Tinggi",
+    desc: "Sangat cocok untuk analisis data laporan keuangan, audit dokumen panjang, dan penulisan copywriting berkualitas tinggi.",
+    icon: "/vendors/claude.png",
+  },
+  {
+    name: "IDE & AI Agents (Codex)",
+    badge: "Workflow Pro",
+    desc: "Jalankan instruksi otomatis langsung di IDE seperti Cursor atau VSCode untuk auto-generate audit report, code, dan SOP.",
+    icon: "/vendors/codex.png",
+  },
+];
+
+const {
+  title = "Tersedia di Platform Favorit Anda",
+  subtitle = "Tidak perlu install software rumit. Spesialis langsung terintegrasi di tools AI yang biasa Anda buka setiap hari.",
+  platforms = defaultPlatforms,
+  class: className = "",
+} = Astro.props;
+---
+
+<div class:list={["platform-section", className]}>
+  <div class="platform-header">
+    <span class="platform-kicker">KOMPATIBILITAS FLEKSIBEL</span>
+    <h2 class="platform-title">{title}</h2>
+    {subtitle && <p class="platform-subtitle">{subtitle}</p>}
+  </div>
+
+  <div class="platform-grid">
+    {platforms.map((p) => (
+      <div class="platform-card">
+        <div class="card-glass-shine"></div>
+
+        <div class="platform-card-top">
+          <div class="platform-icon-box">
+            <img src={p.icon} alt={p.name} class="platform-icon" />
+          </div>
+          {p.badge && <span class="platform-chip">{p.badge}</span>}
+        </div>
+        <h3 class="platform-name">{p.name}</h3>
+        <p class="platform-desc">{p.desc}</p>
+      </div>
+    ))}
+  </div>
+</div>
+
+<style>
+  .platform-section {
+    margin: 56px 0;
+  }
+
+  .platform-header {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 36px;
+  }
+
+  .platform-kicker {
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 750;
+    letter-spacing: 0.08em;
+    color: #1d4ed8;
+    background: rgba(0, 113, 227, 0.08);
+    border: 1px solid rgba(0, 113, 227, 0.2);
+    padding: 4px 12px;
+    border-radius: 999px;
+    margin-bottom: 12px;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  }
+
+  .platform-title {
+    font-size: clamp(1.5rem, 3vw, 2.1rem);
+    font-weight: 800;
+    color: var(--color-label, #1d1d1f);
+    letter-spacing: -0.025em;
+    line-height: 1.15;
+    margin: 0 0 10px;
+  }
+
+  .platform-subtitle {
+    font-size: 0.92rem;
+    color: var(--color-secondary-label, #6e6e73);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .platform-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+  }
+
+  .platform-card {
+    position: relative;
+    padding: 26px 24px;
+    border-radius: 22px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(250, 251, 254, 0.82) 100%);
+    border: 1px solid rgba(0, 0, 0, 0.07);
+    box-shadow:
+      0 4px 20px rgba(0, 0, 0, 0.03),
+      inset 0 1.5px 0.5px rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s, border-color 0.25s;
+    overflow: hidden;
+  }
+
+  .card-glass-shine {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 40%;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0) 100%);
+    pointer-events: none;
+  }
+
+  .platform-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(0, 113, 227, 0.28);
+    box-shadow:
+      0 14px 32px rgba(17, 24, 39, 0.08),
+      inset 0 1.5px 0 #fff;
+  }
+
+  .platform-card-top {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 18px;
+    z-index: 1;
+  }
+
+  .platform-icon-box {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: #0f172a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    transition: transform 0.25s;
+  }
+
+  .platform-card:hover .platform-icon-box {
+    transform: scale(1.06);
+  }
+
+  .platform-icon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+  }
+
+  .platform-chip {
+    font-size: 0.65rem;
+    font-weight: 700;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.04);
+    color: #475569;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  }
+
+  .platform-name {
+    position: relative;
+    margin: 0 0 8px;
+    font-size: 1.1rem;
+    font-weight: 750;
+    color: var(--color-label, #1d1d1f);
+    z-index: 1;
+  }
+
+  .platform-desc {
+    position: relative;
+    margin: 0;
+    font-size: 0.835rem;
+    color: var(--color-secondary-label, #6e6e73);
+    line-height: 1.58;
+    z-index: 1;
+  }
+</style>

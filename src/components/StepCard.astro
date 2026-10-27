@@ -1,0 +1,39 @@
+---
+interface Props {
+  step: string;
+  title: string;
+  description?: string;
+  class?: string;
+}
+
+const { step, title, description, class: className = "" } = Astro.props;
+---
+
+<div
+  class={`step-card card card-interactive p-6 flex flex-col ${className}`.trim()}
+>
+  <div class="step-num">{step}</div>
+  <h3 class="text-base font-bold text-[var(--color-label)] mb-2">{title}</h3>
+  {
+    description ? (
+      <p class="text-sm text-[var(--color-secondary-label)] leading-relaxed">
+        {description}
+      </p>
+    ) : (
+      <slot />
+    )
+  }
+</div>
+
+<style>
+  .step-num {
+    font-family: var(--font-mono);
+    font-size: 1.75rem;
+    font-weight: 800;
+    background: var(--gradient-blue-action);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 10px;
+    display: inline-block;
+  }
+</style>
