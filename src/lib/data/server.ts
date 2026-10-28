@@ -1,5 +1,4 @@
 import path from "node:path";
-import { fileURLToPath } from "node:url";
 import type { Resource, Product, Bundle, User, Order } from "./types";
 import { getAllResources, getResourceById as getResourceByIdFromEngine, getCatalog as getCatalogFromEngine } from "../../../resources/index.ts";
 import { mockUser, mockLoggedIn, mockGrants, mockOrders, products as fallbackProducts, bundles as fallbackBundles } from "../../data/catalog";
@@ -7,7 +6,9 @@ import { resources as fallbackResources } from "../../data/resources";
 
 // In Astro static build, Vite bundles modules into virtual chunks where import.meta.url is not in src/lib/data.
 // process.cwd() is always the project root during build and dev.
-const resourcesDir = path.resolve(process.cwd(), "resources");
+const resourcesDir = (typeof process !== "undefined" && typeof process.cwd === "function")
+  ? path.resolve(process.cwd(), "resources")
+  : "";
 
 function adaptResource(item: { id: string; data: Record<string, any>; content: string }): Resource {
   const d = item.data;

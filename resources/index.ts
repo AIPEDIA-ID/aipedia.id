@@ -2,8 +2,25 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+function getSafeDirname(): string {
+  try {
+    if (typeof import.meta !== 'undefined' && typeof import.meta.url === 'string' && import.meta.url) {
+      return path.dirname(fileURLToPath(import.meta.url));
+    }
+  } catch {
+    // ignore
+  }
+  try {
+    if (typeof process !== 'undefined' && typeof process.cwd === 'function') {
+      return process.cwd();
+    }
+  } catch {
+    // ignore
+  }
+  return '';
+}
+
+const __dirname = getSafeDirname();
 
 export interface ResourceItem {
   id: string; // Universal ID: e.g. 'course/ai-for-beginners', 'prompts/llm-prompt/seo-article-master'
@@ -156,6 +173,7 @@ function parseFrontmatter(raw: string): { data: Record<string, any>; content: st
  */
 export function getAllResources(baseDir?: string): ResourceItem[] {
   const root = baseDir || __dirname;
+  if (!root || typeof fs === 'undefined' || !fs.existsSync || !fs.existsSync(root)) return [];
   const items: ResourceItem[] = [];
 
   function walk(dir: string) {
@@ -193,6 +211,7 @@ export function getAllResources(baseDir?: string): ResourceItem[] {
  */
 export function getResourceById(id: string, baseDir?: string): ResourceItem | null {
   const root = baseDir || __dirname;
+  if (!root || typeof fs === 'undefined' || !fs.existsSync) return null;
   const fullPath = path.join(root, `${id}.md`);
   if (!fs.existsSync(fullPath)) return null;
 
@@ -212,6 +231,9 @@ export function getResourceById(id: string, baseDir?: string): ResourceItem | nu
  */
 export function getCatalog(baseDir?: string): CatalogData {
   const root = baseDir || __dirname;
+  if (!root || typeof fs === 'undefined' || !fs.existsSync) {
+    return { products: [], bundles: [] };
+  }
   const catalogPath = path.join(root, 'catalog.yaml');
   if (!fs.existsSync(catalogPath)) {
     return { products: [], bundles: [] };
