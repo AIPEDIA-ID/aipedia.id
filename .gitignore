@@ -19,6 +19,15 @@ pnpm-debug.log*
 
 # macOS-specific files
 .DS_Store
+**/.DS_Store
+
+# Temporary & backup files
+*.bak
+*.tmp
+
+# Third-party sandbox / builder artifacts
+.bolt/
+.codesandbox/
 
 # jetbrains setting folder
 .idea/
