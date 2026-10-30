@@ -25,12 +25,7 @@ const isActive = activeNav === "akun" || activeNav === "account";
 <div class={`sidebar-user-footer px-2.5 pb-3.5 pt-1 shrink-0 ${className}`.trim()}>
   <a
     href={user ? "/app/account" : "/login"}
-    class:list={[
-      "sidebar-nav-item sidebar-account-link group flex items-center gap-2.5 p-2 rounded-xl text-xs font-medium transition-all duration-150 no-underline select-none",
-      isActive
-        ? "active bg-[rgba(0,113,227,0.10)] text-[var(--color-tint)] font-semibold shadow-xs"
-        : "text-[var(--color-secondary-label)] hover:text-[var(--color-label)] hover:bg-[rgba(0,0,0,0.04)]",
-    ]}
+    class:list={["sidebar-nav-item sidebar-account-link group", { active: isActive }]}
     title={user ? user.name : "Akun Pengguna"}
   >
     <div

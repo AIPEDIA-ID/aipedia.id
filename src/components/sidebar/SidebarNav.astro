@@ -109,12 +109,7 @@ function isActive(key: string): boolean {
         return (
           <a
             href={item.href}
-            class:list={[
-              "sidebar-nav-item group flex items-center gap-2.5 px-2.5 py-2 rounded-xl text-xs font-medium transition-all duration-150 no-underline",
-              active
-                ? "active bg-[rgba(0,113,227,0.10)] text-[var(--color-tint)] font-semibold shadow-xs"
-                : "text-[var(--color-secondary-label)] hover:text-[var(--color-label)] hover:bg-[rgba(0,0,0,0.04)]",
-            ]}
+            class:list={["sidebar-nav-item group", { active }]}
             title={item.label}
           >
             <!-- Apple Colorful Glyph Capsule -->
@@ -149,12 +144,7 @@ function isActive(key: string): boolean {
         return (
           <a
             href={item.href}
-            class:list={[
-              "sidebar-nav-item group flex items-center gap-2.5 px-2.5 py-1.5 rounded-xl text-xs font-medium transition-all duration-150 no-underline",
-              active
-                ? "active bg-[rgba(0,113,227,0.10)] text-[var(--color-tint)] font-semibold shadow-xs"
-                : "text-[var(--color-secondary-label)] hover:text-[var(--color-label)] hover:bg-[rgba(0,0,0,0.04)]",
-            ]}
+            class:list={["sidebar-nav-item group", { active }]}
             title={item.label}
           >
             <!-- Joyful Apple Colorful Glyph Capsule -->

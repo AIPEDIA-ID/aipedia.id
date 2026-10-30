@@ -22,16 +22,16 @@ const initials = user
     user ? (
       <div class="member-menu" data-user-menu>
         <button
-          class="user-trigger flex items-center gap-2 pl-1 pr-3 py-1 rounded-full bg-[rgba(0,0,0,0.04)] hover:bg-[rgba(0,0,0,0.07)] border border-[rgba(0,0,0,0.06)] transition-all cursor-pointer text-left select-none"
+          class="user-trigger"
           type="button"
           aria-label="Menu akun pengguna"
           aria-expanded="false"
           data-user-toggle
         >
-          <span class="user-avatar-badge w-6 h-6 rounded-full bg-[var(--color-tint)] text-white text-[11px] font-bold flex items-center justify-center shrink-0 shadow-xs">
+          <span class="user-avatar-badge">
             {initials}
           </span>
-          <span class="user-name-text text-[13.5px] font-semibold text-[#1d1d1f] tracking-[-0.014em] max-w-[100px] truncate leading-tight">
+          <span class="user-name-text">
             {user.name.split(" ")[0]}
           </span>
           <svg
@@ -55,7 +55,7 @@ const initials = user
           data-user-dropdown
         >
           <div class="user-info-header flex items-center gap-3 p-2.5 mb-1 bg-[rgba(0,113,227,0.04)] rounded-xl border border-[rgba(0,113,227,0.08)]">
-            <div class="w-9 h-9 rounded-full bg-[var(--color-tint)] text-white text-xs font-bold flex items-center justify-center shrink-0 shadow-xs">
+            <div class="user-avatar-badge w-8 h-8 text-xs font-bold shadow-xs">
               {initials}
             </div>
             <div class="overflow-hidden min-w-0">
@@ -71,7 +71,7 @@ const initials = user
           <div class="space-y-0.5">
             <a
               href="/app/dashboard"
-              class="flex items-center gap-2.5 px-3 py-2 text-[13px] font-medium text-[var(--color-label)] hover:bg-[var(--color-fill)] rounded-xl transition-colors tracking-tight"
+              class="dropdown-item"
               role="menuitem"
             >
               <Icon name="home" size={15} class="text-[var(--color-secondary-label)]" />
@@ -79,7 +79,7 @@ const initials = user
             </a>
             <a
               href="/app/my-library"
-              class="flex items-center gap-2.5 px-3 py-2 text-[13px] font-medium text-[var(--color-label)] hover:bg-[var(--color-fill)] rounded-xl transition-colors tracking-tight"
+              class="dropdown-item"
               role="menuitem"
             >
               <Icon name="layers" size={15} class="text-[#ff9500]" />
@@ -87,7 +87,7 @@ const initials = user
             </a>
             <a
               href="/app/library"
-              class="flex items-center gap-2.5 px-3 py-2 text-[13px] font-medium text-[var(--color-label)] hover:bg-[var(--color-fill)] rounded-xl transition-colors tracking-tight"
+              class="dropdown-item"
               role="menuitem"
             >
               <Icon name="book" size={15} class="text-[var(--color-secondary-label)]" />
@@ -95,7 +95,7 @@ const initials = user
             </a>
             <a
               href="/app/account"
-              class="flex items-center gap-2.5 px-3 py-2 text-[13px] font-medium text-[var(--color-label)] hover:bg-[var(--color-fill)] rounded-xl transition-colors tracking-tight"
+              class="dropdown-item"
               role="menuitem"
             >
               <Icon name="user" size={15} class="text-[var(--color-secondary-label)]" />
@@ -103,7 +103,7 @@ const initials = user
             </a>
             <a
               href="/catalog"
-              class="flex items-center gap-2.5 px-3 py-2 text-[13px] font-medium text-[var(--color-label)] hover:bg-[var(--color-fill)] rounded-xl transition-colors tracking-tight"
+              class="dropdown-item"
               role="menuitem"
             >
               <Icon name="badge" size={15} class="text-[var(--color-tint)]" />
@@ -115,10 +115,10 @@ const initials = user
 
           <a
             href="/api/auth/logout"
-            class="flex items-center gap-2.5 px-3 py-2 text-[13px] font-medium text-[#e02e24] hover:bg-[rgba(224,46,36,0.06)] rounded-xl transition-colors w-full text-left tracking-tight"
+            class="dropdown-item-danger"
             role="menuitem"
           >
-            <Icon name="logout" size={15} class="text-[#e02e24]" />
+            <Icon name="logout" size={15} />
             <span>Keluar Akun</span>
           </a>
         </div>
@@ -126,7 +126,7 @@ const initials = user
     ) : (
       <a
         href="/login"
-        class="login-btn inline-flex items-center justify-center py-1.5 px-4 rounded-full text-[13px] font-semibold text-white bg-[var(--color-tint)] hover:bg-[#0077ed] active:scale-97 transition-all shadow-xs tracking-[-0.01em] no-underline"
+        class="btn-nav-login"
       >
         Masuk
       </a>
