@@ -5,12 +5,13 @@
 set -e
 
 # Base Directories
-PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-PRODUCTS_DIR="$PROJECT_ROOT/products"
+PRODUCTS_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+OPS_DIR="$(cd "$PRODUCTS_DIR/.." && pwd)"
+PROJECT_ROOT="$(cd "$OPS_DIR/.." && pwd)"
 PUBLIC_CHAR_DIR="$PROJECT_ROOT/public/character"
 SKILLS_SRC_DIR="$PRODUCTS_DIR/skills/codex/skills"
 CODEX_PLUGIN_DIR="$PRODUCTS_DIR/skills/codex"
-DELIVERY_DIR="$PROJECT_ROOT/delivery"
+DELIVERY_DIR="$OPS_DIR/delivery"
 
 CAMPAIGN="bundle"
 ONLY_IDS=""
@@ -41,10 +42,10 @@ echo "=================================================="
 # Generate docs based on --only flag
 if [ -n "$ONLY_IDS" ]; then
     echo "=> Generating ASISTANT.md for: $ONLY_IDS"
-    python3 "$PROJECT_ROOT/scripts/manager.py" generate-docs --only "$ONLY_IDS"
+    python3 "$OPS_DIR/scripts/manager.py" generate-docs --only "$ONLY_IDS"
 else
     echo "=> Generating full ASISTANT.md"
-    python3 "$PROJECT_ROOT/scripts/manager.py" generate-docs
+    python3 "$OPS_DIR/scripts/manager.py" generate-docs
 fi
 
 # Fix image paths in ASISTANT.md temporarily for PDF generation

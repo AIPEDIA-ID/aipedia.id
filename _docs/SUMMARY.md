@@ -22,29 +22,30 @@ Website: https://aipedia.id
 
 ```text
 aipedia.id/
-├── _docs/                        # 🧠 Business & Operations Brain
+├── _docs/                        # 🧠 Business & Operations Brain (SSOT)
 │   ├── database/               
 │   │   └── assistants.json       # 📍 Single Source of Truth (SSOT)
 │   ├── assets/                   # Raw assets & vendor icons
 │   ├── task/                     # Live operational tasks (product, marketing, website)
-│   ├── evaluation/               # Quality acceptance scenarios & testing
-│   ├── REFERENCES.md             # External references & learning materials
+│   ├── notes/                    # Research, plans, design reviews, references
 │   ├── strategy.md               # Business strategy & decision logs
-│   ├── SUMMARY.md                # Business executive summary & ecosystem
+│   └── SUMMARY.md                # Business executive summary & ecosystem
 │
-├── products/                     # 📦 Customer Deliverables & Packaging
-│   ├── mita-x/                   # Mita specific extended skills and prompts (-x means special)
-│   ├── codex-plugin-marketplace/ # Plugin registry & skills (Pro tier)
-│   ├── customgpt/                # Generated CustomGPT Instructions
-│   ├── delivery/                 # Final ZIP packages ready for distribution
-│   ├── guide/                    # PDF markdown sources (ASISTANT, GUIDE_Basic, GUIDE_Pro)
-│   ├── prompts/                  # Generated system prompts & settings
-│   └── build.sh                  # PDF compilation & packaging automation
+├── ops/                          # 🛠️ Centralized Operations, Products & Tools Hub
+│   ├── products/                 # 📦 Customer Deliverables & Packaging (CustomGPT, skills, guides)
+│   │   ├── customgpt/            # Generated CustomGPT Instructions
+│   │   ├── guide/                # PDF markdown sources (ASISTANT, GUIDE_Basic, GUIDE_Pro)
+│   │   ├── skills/               # Codex & Claude Specialist Skills
+│   │   ├── router.yaml           # Packaging router configuration
+│   │   └── build.sh              # Packaging automation script
+│   ├── scripts/                  # ⚙️ Automation Scripts (manager.py, builder.py)
+│   ├── content-generator/        # 🚀 Content Engine (Carousels, templates, captions)
+│   └── delivery/                 # Final compiled ZIP/PDF release packages
 │
-└── scripts/                      # ⚙️ Business Logic Automation
-    ├── manager.py                # SSOT parser, generator, & icon compressor
-    ├── reorder_assistants.py     # Utility to reorder assistants in JSON
-    └── character_image_prompts.txt # Auto-generated visual prompts for Midjourney/DALL-E
+├── src/                          # 🌐 Web Application (Astro & Tailwind)
+├── public/                       # Static web assets
+├── resources/                    # Web library & content collections
+└── db/                           # Database schemas & migrations
 ```
 ---
 
@@ -96,18 +97,17 @@ This project is not just a standard web application; it is a full **Product Gene
 - **Purpose**: Serve as the high-converting landing page for cold traffic and retargeting ads.
 - **Data Driven**: The UI consumes JSON data generated directly from the central database.
 
-### B. Product Deliverables (`products/`)
+### B. Product Deliverables (`ops/products/`)
 - Contains the final assets delivered to customers:
-    - **PDF Guides** (`products/guide/ASISTANT.md`, `GUIDE_Basic.md`, `GUIDE_Pro.md`)
-    - **Skills** (`products/codex-plugin-marketplace/`, `products/mita-x/`)
-    - **Delivery Packages** (`products/delivery/`)
-- Managed by `products/build.sh` which compiles Markdown into PDFs using Puppeteer and zips the final product packages.
+    - **PDF Guides** (`ops/products/guide/ASISTANT.md`, `GUIDE_Basic.md`, `GUIDE_Pro.md`)
+    - **Skills** (`ops/products/skills/`)
+    - **Delivery Packages** (`ops/delivery/`)
+- Managed by `ops/products/build.sh` or `ops/scripts/builder.py` which compiles Markdown into PDFs and zips the final product packages.
 
 ### C. Documentation & Prompts (`_docs/`)
-- **Internal Knowledge**: Business summary (`SUMMARY.md`) and external references (`REFERENCES.md`).
-- **Task Management**: Modular task tracking for product, marketing, and website (`tasks/`).
-- **Evaluations**: Acceptance scenarios and quality testing guidelines (`evaluations/`).
-- **Prompt Library**: System prompts (`prompts/system/`) and Character image prompts.
+- **Internal Knowledge**: Business summary (`SUMMARY.md`) and strategy (`strategy.md`).
+- **Task Management**: Modular task tracking for product, marketing, and website (`task/`).
+- **Notes & Research**: Plans, content refactoring, design reviews (`notes/`).
 
 ---
 
@@ -117,8 +117,8 @@ The entire project revolves around one central database:
 **`📍 _docs/database/assistants.json`**
 
 Whenever a new specialist is added or modified in this JSON file, it automatically propagates to:
-1. **The Website**: Automatically updates the Astro UI.
-2. **The Deliverables**: Automatically injects into the PDF generation (`products/guide/ASISTANT.md`) and settings in `products/customgpt/` & `products/prompts/`.
+1. **The Website**: Automatically updates the Astro UI (`src/data/characters.json`).
+2. **The Deliverables**: Automatically injects into the PDF generation (`ops/products/guide/ASISTANT.md`) and settings in `ops/products/customgpt/`.
 3. **Internal Tools**: Updates system prompts and image generation prompts.
 
 *Never hardcode character details in the Astro components or Markdown files. Always update the JSON.*
@@ -130,13 +130,13 @@ Whenever a new specialist is added or modified in this JSON file, it automatical
 ### Adding a New Specialist
 1. **Update SSOT**: Add the specialist's data block (ID, Name, Role, Color, Prompts) into `_docs/database/assistants.json`.
 2. **Generate System Updates**: 
-   Run `make project-generate-all` to sync the Web data, Product Markdown (`products/guide/ASISTANT.md`), and Internal Prompts.
+   Run `python3 ops/scripts/manager.py generate-all` to sync Web data, Product Markdown (`ops/products/guide/ASISTANT.md`), and Internal Prompts.
 3. **Generate & Prepare Assets**:
-   - Run `make project-visual-prompt` to generate the Midjourney/DALL-E prompt.
+   - Run `python3 ops/scripts/manager.py generate-visual-prompts` to generate the Midjourney/DALL-E prompt.
    - Generate the image, remove background, and save as `[id].png` in `_docs/assets/raw_icons/`.
-   - Run `make project-compress` to optimize and move the icon to the `public/` directory.
+   - Run `python3 ops/scripts/manager.py compress-icons` to optimize and move the icon to the `public/character/` directory.
 4. **Build Product Deliverables**:
-   - Run `make build-products` to compile the PDFs and ZIP packages for customer delivery.
+   - Run `python3 ops/scripts/builder.py [package_name]` to compile the PDFs and ZIP packages into `ops/delivery/`.
 
 ---
 

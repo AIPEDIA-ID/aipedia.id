@@ -3,8 +3,8 @@ packages:
     name: "Aipedia Basic Bundle"
     output_zip: "aipedia-basic-bundle.zip"
     documents:
-      - "products/guide/GUIDE_Basic.md"
-      - "products/guide/ASISTANT.md"
+      - "ops/products/guide/GUIDE_Basic.md"
+      - "ops/products/guide/ASISTANT.md"
     assistants: all
     include_skills: false
     include_codex: false
@@ -13,8 +13,8 @@ packages:
     name: "Aipedia Pro Bundle"
     output_zip: "aipedia-asistant-bundle.zip"
     documents:
-      - "products/guide/GUIDE_Pro.md"
-      - "products/guide/ASISTANT.md"
+      - "ops/products/guide/GUIDE_Pro.md"
+      - "ops/products/guide/ASISTANT.md"
     assistants: all
     include_skills: all
     include_codex: true
@@ -23,7 +23,7 @@ packages:
     name: "Tira Pajak UMKM Specialist"
     output_zip: "aipedia-specialist-tira.zip"
     documents:
-      - "products/guide/ASISTANT.md"
+      - "ops/products/guide/ASISTANT.md"
     assistants:
       - tira
       - fina
@@ -36,7 +36,7 @@ packages:
     name: "Mita Meta Ads Specialist"
     output_zip: "aipedia-specialist-mita.zip"
     documents:
-      - "products/guide/ASISTANT.md"
+      - "ops/products/guide/ASISTANT.md"
     assistants:
       - mita
     include_skills:

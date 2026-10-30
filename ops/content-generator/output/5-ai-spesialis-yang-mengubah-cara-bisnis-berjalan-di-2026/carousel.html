@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>5 AI Spesialis yang Mengubah Cara Bisnis Berjalan di 2026 - Aipedia Carousel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #07090e;
+      --card-bg: rgba(18, 24, 38, 0.7);
+      --card-border: rgba(255, 255, 255, 0.1);
+      --card-highlight: rgba(255, 255, 255, 0.05);
+      --accent-cyan: #38bdf8;
+      --accent-blue: #3b82f6;
+      --accent-purple: #a855f7;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      --slide-width: 1080px;
+      --slide-height: 1350px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      background: #020408;
+      color: var(--text-main);
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 32px;
+    }
+
+    /* Top Action Bar for in-browser preview */
+    .action-bar {
+      width: var(--slide-width);
+      max-width: 100%;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--card-border);
+      backdrop-filter: blur(16px);
+      padding: 16px 24px;
+      border-radius: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+    }
+
+    .action-bar h1 {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .action-bar .brand-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-main);
+      font-weight: 700;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    .action-buttons {
+      display: flex;
+      gap: 12px;
+    }
+
+    .btn {
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--text-main);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+
+    .btn:hover {
+      background: rgba(255, 255, 255, 0.2);
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+      color: #030712;
+      border: none;
+    }
+
+    .btn-primary:hover {
+      opacity: 0.95;
+      transform: translateY(-1px);
+    }
+
+    /* Carousel Slides Container */
+    .slides-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    /* Individual Slide Frame (1080 x 1350) */
+    .slide {
+      width: var(--slide-width);
+      height: var(--slide-height);
+      position: relative;
+      overflow: hidden;
+      background: var(--bg-dark);
+      border-radius: 0px;
+      box-shadow: 0 30px 100px -20px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.08);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 80px 80px 70px 80px;
+      page-break-after: always;
+    }
+
+    /* Ambient Background Lighting */
+    .slide::before {
+      content: '';
+      position: absolute;
+      top: -150px;
+      right: -150px;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.12) 0%, rgba(56, 189, 248, 0) 70%);
+      pointer-events: none;
+    }
+
+    .slide::after {
+      content: '';
+      position: absolute;
+      bottom: -150px;
+      left: -150px;
+      width: 650px;
+      height: 650px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(168, 85, 247, 0.1) 0%, rgba(168, 85, 247, 0) 70%);
+      pointer-events: none;
+    }
+
+    /* Grid pattern overlay */
+    .grid-overlay {
+      position: absolute;
+      inset: 0;
+      background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Header */
+    .slide-header {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .badge-category {
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      color: var(--accent-cyan);
+      font-size: 18px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      padding: 10px 22px;
+      border-radius: 100px;
+    }
+
+    .slide-counter {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text-dim);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 8px 18px;
+      border-radius: 100px;
+    }
+
+    .slide-counter span {
+      color: var(--text-main);
+    }
+
+    /* Body / Content */
+    .slide-body {
+      position: relative;
+      z-index: 2;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 32px;
+      margin: 40px 0;
+    }
+
+    /* Hook Slide Variant */
+    .slide-hook .hook-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(239, 68, 68, 0.12);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      color: #f87171;
+      font-size: 20px;
+      font-weight: 700;
+      padding: 10px 24px;
+      border-radius: 100px;
+      width: fit-content;
+    }
+
+    .slide-hook h2 {
+      font-size: 68px;
+      line-height: 1.15;
+      font-weight: 800;
+      letter-spacing: -1.5px;
+      color: #ffffff;
+    }
+
+    .slide-hook h2 .gradient-text {
+      background: linear-gradient(135deg, #38bdf8, #a855f7);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .slide-hook p.subtitle {
+      font-size: 28px;
+      line-height: 1.5;
+      color: var(--text-muted);
+      font-weight: 400;
+      max-width: 900px;
+    }
+
+    .swipe-prompt {
+      margin-top: 20px;
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--accent-cyan);
+    }
+
+    .swipe-icon {
+      animation: pulse-horizontal 1.5s infinite ease-in-out;
+    }
+
+    @keyframes pulse-horizontal {
+      0%, 100% { transform: translateX(0); }
+      50% { transform: translateX(8px); }
+    }
+
+    /* Content Slide Variant */
+    .slide-content .point-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.2), rgba(59, 130, 246, 0.2));
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: var(--accent-cyan);
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      padding: 8px 24px;
+      border-radius: 12px;
+      width: fit-content;
+    }
+
+    .slide-content h2 {
+      font-size: 48px;
+      line-height: 1.25;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: #ffffff;
+    }
+
+    .slide-content .glass-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      backdrop-filter: blur(20px);
+      border-radius: 24px;
+      padding: 40px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), inset 0 1px 0 var(--card-highlight);
+    }
+
+    .slide-content p.description {
+      font-size: 26px;
+      line-height: 1.6;
+      color: var(--text-muted);
+    }
+
+    .slide-content p.description strong {
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    .bullet-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-top: 24px;
+    }
+
+    .bullet-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      font-size: 24px;
+      line-height: 1.5;
+      color: #e2e8f0;
+    }
+
+    .bullet-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--accent-cyan);
+      margin-top: 12px;
+      flex-shrink: 0;
+      box-shadow: 0 0 12px var(--accent-cyan);
+    }
+
+    .pro-tip-box {
+      margin-top: 24px;
+      background: rgba(168, 85, 247, 0.1);
+      border: 1px solid rgba(168, 85, 247, 0.25);
+      border-radius: 16px;
+      padding: 24px 30px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .pro-tip-box .tip-icon {
+      font-size: 26px;
+      line-height: 1;
+    }
+
+    .pro-tip-box .tip-text {
+      font-size: 22px;
+      line-height: 1.5;
+      color: #e9d5ff;
+    }
+
+    .pro-tip-box .tip-text strong {
+      color: #ffffff;
+    }
+
+    /* CTA Slide Variant */
+    .slide-cta {
+      text-align: center;
+      align-items: center;
+    }
+
+    .slide-cta .cta-icon {
+      width: 110px;
+      height: 110px;
+      border-radius: 30px;
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.2), rgba(168, 85, 247, 0.2));
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 48px;
+      margin-bottom: 8px;
+      box-shadow: 0 20px 40px rgba(56, 189, 248, 0.2);
+    }
+
+    .slide-cta h2 {
+      font-size: 56px;
+      line-height: 1.2;
+      font-weight: 800;
+      color: #ffffff;
+      max-width: 850px;
+    }
+
+    .slide-cta p.cta-desc {
+      font-size: 26px;
+      line-height: 1.6;
+      color: var(--text-muted);
+      max-width: 800px;
+    }
+
+    .slide-cta .cta-button-card {
+      background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+      color: #030712;
+      font-size: 28px;
+      font-weight: 800;
+      padding: 24px 48px;
+      border-radius: 20px;
+      display: inline-flex;
+      align-items: center;
+      gap: 16px;
+      box-shadow: 0 20px 40px -10px rgba(56, 189, 248, 0.5);
+      margin-top: 12px;
+    }
+
+    .slide-cta .action-badges {
+      display: flex;
+      gap: 20px;
+      margin-top: 24px;
+    }
+
+    .slide-cta .action-badge {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 12px 24px;
+      border-radius: 100px;
+      font-size: 20px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Footer */
+    .slide-footer {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 28px;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .brand-logo-circle {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 800;
+      font-size: 22px;
+      color: #030712;
+    }
+
+    .brand-handle {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .brand-sub {
+      font-size: 16px;
+      color: var(--text-dim);
+    }
+
+    .footer-interactive {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      color: var(--text-dim);
+      font-size: 20px;
+    }
+
+    .interactive-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Print / PDF generation rules */
+    @media print {
+      body {
+        padding: 0;
+        background: transparent;
+      }
+      .action-bar {
+        display: none !important;
+      }
+      .slides-wrapper {
+        gap: 0;
+      }
+      .slide {
+        box-shadow: none;
+        page-break-after: always;
+        break-after: page;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Action Bar for interactive preview in browser -->
+  <div class="action-bar">
+    <div class="brand-badge">
+      <span>✨ Aipedia Carousel Studio</span>
+    </div>
+    <h1>5 AI Spesialis yang Mengubah Cara Bisnis Berjalan di 2026</h1>
+    <div class="action-buttons">
+      <button class="btn" onclick="window.print()">🖨️ Cetak PDF</button>
+      <a href="captions.md" class="btn" target="_blank">📋 Buka Captions</a>
+    </div>
+  </div>
+
+  <!-- Rendered Slides List -->
+  <div class="slides-wrapper">
+    
+    <div class="slide slide-hook" id="slide-1">
+      <div class="grid-overlay"></div>
+      
+      <!-- Slide Header -->
+      <div class="slide-header">
+        <div class="badge-category">STRATEGI 2026</div>
+        <div class="slide-counter"><span>01</span> / 06</div>
+      </div>
+
+      <!-- Slide Body -->
+      
+        <div class="slide-body slide-hook">
+          <div class="hook-pill">🔥 STRATEGI 2026</div>
+          <h2><span class="gradient-text">5 AI Spesialis</span> yang Mengubah Alur Kerja Bisnis</h2>
+          <p class="subtitle">Stop kerjakan copywriting, audit iklan, dan hitung pajak manual. Ini 5 spesialis digital yang siap kerja 24/7.</p>
+          <div class="swipe-prompt">
+            <span>Geser untuk membaca</span>
+            <span class="swipe-icon">👉</span>
+          </div>
+        </div>
+        
+
+      <!-- Slide Footer -->
+      <div class="slide-footer">
+        <div class="footer-brand">
+          <div class="brand-logo-circle">A</div>
+          <div>
+            <div class="brand-handle">@aipedia.id</div>
+            <div class="brand-sub">Katalog AI Spesialis Bisnis</div>
+          </div>
+        </div>
+        <div class="footer-interactive">
+          <div class="interactive-item"><span>❤️</span></div>
+          <div class="interactive-item"><span>💬</span></div>
+          <div class="interactive-item"><span>💾</span></div>
+        </div>
+      </div>
+    </div>
+    
+
+    <div class="slide slide-content" id="slide-2">
+      <div class="grid-overlay"></div>
+      
+      <!-- Slide Header -->
+      <div class="slide-header">
+        <div class="badge-category">MARKETING & ADS</div>
+        <div class="slide-counter"><span>02</span> / 06</div>
+      </div>
+
+      <!-- Slide Body -->
+      
+        <div class="slide-body slide-content">
+          <div class="point-badge">POIN 02</div>
+          <h2>01. Mita — Meta Ads & Funnel Expert</h2>
+          <div class="glass-card">
+            <p class="description">Audit campaign iklan Facebook & Instagram tanpa perlu tebak-tebakan metrik ROAS atau CTR.</p>
+            <div class="bullet-list"><div class="bullet-item"><div class="bullet-dot"></div><div>Deteksi fatigue kreatif iklan secara otomatis</div></div><div class="bullet-item"><div class="bullet-dot"></div><div>Rekomendasi perbaikan targeting & audience</div></div><div class="bullet-item"><div class="bullet-dot"></div><div>Evaluasi conversion rate landing page</div></div></div>
+          </div>
+          
+            <div class="pro-tip-box">
+              <div class="tip-icon">💡</div>
+              <div class="tip-text"><strong>Tips Praktis:</strong> Mita fokus pada evaluasi funnel holistik dari impresi sampai checkout.</div>
+            </div>
+            
+        </div>
+        
+
+      <!-- Slide Footer -->
+      <div class="slide-footer">
+        <div class="footer-brand">
+          <div class="brand-logo-circle">A</div>
+          <div>
+            <div class="brand-handle">@aipedia.id</div>
+            <div class="brand-sub">Katalog AI Spesialis Bisnis</div>
+          </div>
+        </div>
+        <div class="footer-interactive">
+          <div class="interactive-item"><span>❤️</span></div>
+          <div class="interactive-item"><span>💬</span></div>
+          <div class="interactive-item"><span>💾</span></div>
+        </div>
+      </div>
+    </div>
+    
+
+    <div class="slide slide-content" id="slide-3">
+      <div class="grid-overlay"></div>
+      
+      <!-- Slide Header -->
+      <div class="slide-header">
+        <div class="badge-category">COPYWRITING & HOOKS</div>
+        <div class="slide-counter"><span>03</span> / 06</div>
+      </div>
+
+      <!-- Slide Body -->
+      
+        <div class="slide-body slide-content">
+          <div class="point-badge">POIN 03</div>
+          <h2>02. Wita — Direct Response Copywriter</h2>
+          <div class="glass-card">
+            <p class="description">Hasilkan variasi headline, body text iklan, dan script video yang memicu konversi tinggi.</p>
+            <div class="bullet-list"><div class="bullet-item"><div class="bullet-dot"></div><div>Formula AIDA, PAS, dan Hook 3 detik</div></div><div class="bullet-item"><div class="bullet-dot"></div><div>Variasi 5 angle iklan berbeda dalam 60 detik</div></div><div class="bullet-item"><div class="bullet-dot"></div><div>Adaptasi bahasa lokal dan persona target audiens</div></div></div>
+          </div>
+          
+            <div class="pro-tip-box">
+              <div class="tip-icon">💡</div>
+              <div class="tip-text"><strong>Tips Praktis:</strong> Gunakan Wita bersama Mita untuk siklus refresh kreatif mingguan.</div>
+            </div>
+            
+        </div>
+        
+
+      <!-- Slide Footer -->
+      <div class="slide-footer">
+        <div class="footer-brand">
+          <div class="brand-logo-circle">A</div>
+          <div>
+            <div class="brand-handle">@aipedia.id</div>
+            <div class="brand-sub">Katalog AI Spesialis Bisnis</div>
+          </div>
+        </div>
+        <div class="footer-interactive">
+          <div class="interactive-item"><span>❤️</span></div>
+          <div class="interactive-item"><span>💬</span></div>
+          <div class="interactive-item"><span>💾</span></div>
+        </div>
+      </div>
+    </div>
+    
+
+    <div class="slide slide-content" id="slide-4">
+      <div class="grid-overlay"></div>
+      
+      <!-- Slide Header -->
+      <div class="slide-header">
+        <div class="badge-category">DATA & METRICS</div>
+        <div class="slide-counter"><span>04</span> / 06</div>
+      </div>
+
+      <!-- Slide Body -->
+      
+        <div class="slide-body slide-content">
+          <div class="point-badge">POIN 04</div>
+          <h2>03. Dany — Data Analyst & Business BI</h2>
+          <div class="glass-card">
+            <p class="description">Unggah data CSV penjualan atau inventory, dapatkan visualisasi pola & anomali secara instan.</p>
+            <div class="bullet-list"><div class="bullet-item"><div class="bullet-dot"></div><div>Analisis repeat order dan Customer Lifetime Value (CLV)</div></div><div class="bullet-item"><div class="bullet-dot"></div><div>Deteksi produk terlaris berdasarkan margin</div></div><div class="bullet-item"><div class="bullet-dot"></div><div>Ringkasan eksekutif mingguan otomatis</div></div></div>
+          </div>
+          
+        </div>
+        
+
+      <!-- Slide Footer -->
+      <div class="slide-footer">
+        <div class="footer-brand">
+          <div class="brand-logo-circle">A</div>
+          <div>
+            <div class="brand-handle">@aipedia.id</div>
+            <div class="brand-sub">Katalog AI Spesialis Bisnis</div>
+          </div>
+        </div>
+        <div class="footer-interactive">
+          <div class="interactive-item"><span>❤️</span></div>
+          <div class="interactive-item"><span>💬</span></div>
+          <div class="interactive-item"><span>💾</span></div>
+        </div>
+      </div>
+    </div>
+    
+
+    <div class="slide slide-content" id="slide-5">
+      <div class="grid-overlay"></div>
+      
+      <!-- Slide Header -->
+      <div class="slide-header">
+        <div class="badge-category">KEUANGAN & PAJAK</div>
+        <div class="slide-counter"><span>05</span> / 06</div>
+      </div>
+
+      <!-- Slide Body -->
+      
+        <div class="slide-body slide-content">
+          <div class="point-badge">POIN 05</div>
+          <h2>04. Tira & Fina — Duo Pajak & Keuangan</h2>
+          <div class="glass-card">
+            <p class="description">Hitung estimasi pajak UMKM dan simulasi arus kas tanpa pusing rumus akuntansi.</p>
+            <div class="bullet-list"><div class="bullet-item"><div class="bullet-dot"></div><div>Perhitungan PPh Final UMKM 0.5%</div></div><div class="bullet-item"><div class="bullet-dot"></div><div>Pemantauan rasio modal kerja dan burn rate</div></div><div class="bullet-item"><div class="bullet-dot"></div><div>Rekomendasi penghematan biaya operasional</div></div></div>
+          </div>
+          
+            <div class="pro-tip-box">
+              <div class="tip-icon">💡</div>
+              <div class="tip-text"><strong>Tips Praktis:</strong> Pastikan catatan arus kas terpisah antara kas bisnis dan pribadi.</div>
+            </div>
+            
+        </div>
+        
+
+      <!-- Slide Footer -->
+      <div class="slide-footer">
+        <div class="footer-brand">
+          <div class="brand-logo-circle">A</div>
+          <div>
+            <div class="brand-handle">@aipedia.id</div>
+            <div class="brand-sub">Katalog AI Spesialis Bisnis</div>
+          </div>
+        </div>
+        <div class="footer-interactive">
+          <div class="interactive-item"><span>❤️</span></div>
+          <div class="interactive-item"><span>💬</span></div>
+          <div class="interactive-item"><span>💾</span></div>
+        </div>
+      </div>
+    </div>
+    
+
+    <div class="slide slide-cta" id="slide-6">
+      <div class="grid-overlay"></div>
+      
+      <!-- Slide Header -->
+      <div class="slide-header">
+        <div class="badge-category"></div>
+        <div class="slide-counter"><span>06</span> / 06</div>
+      </div>
+
+      <!-- Slide Body -->
+      
+        <div class="slide-body slide-cta">
+          <div class="cta-icon">🚀</div>
+          <h2>Siap Otomasi Bisnis Kamu dengan AI Specialist?</h2>
+          <p class="cta-desc">Gabungkan keahlian 17 Asisten AI Spesialis untuk percepat eksekusi bisnismu di AIPEDIA.</p>
+          <div class="cta-button-card">
+            <span>Mulai Eksplorasi di aipedia.id</span>
+            <span>→</span>
+          </div>
+          <div class="action-badges">
+            <div class="action-badge">💾 Simpan Postingan</div>
+            <div class="action-badge">🔗 Bagikan ke Tim</div>
+          </div>
+        </div>
+        
+
+      <!-- Slide Footer -->
+      <div class="slide-footer">
+        <div class="footer-brand">
+          <div class="brand-logo-circle">A</div>
+          <div>
+            <div class="brand-handle">@aipedia.id</div>
+            <div class="brand-sub">Katalog AI Spesialis Bisnis</div>
+          </div>
+        </div>
+        <div class="footer-interactive">
+          <div class="interactive-item"><span>❤️</span></div>
+          <div class="interactive-item"><span>💬</span></div>
+          <div class="interactive-item"><span>💾</span></div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+
+</body>
+</html>

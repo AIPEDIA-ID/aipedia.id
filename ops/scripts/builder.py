@@ -8,12 +8,14 @@ import tempfile
 import argparse
 
 # Paths
-PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
-PRODUCTS_DIR = os.path.join(PROJECT_ROOT, "products")
+OPS_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+PROJECT_ROOT = os.path.abspath(os.path.join(OPS_DIR, ".."))
+PRODUCTS_DIR = os.path.join(OPS_DIR, "products")
 PUBLIC_CHAR_DIR = os.path.join(PROJECT_ROOT, "public/character")
 SKILLS_SRC_DIR = os.path.join(PRODUCTS_DIR, "skills/codex/skills")
 CODEX_PLUGIN_DIR = os.path.join(PRODUCTS_DIR, "skills/codex")
-DELIVERY_DIR = os.path.join(PROJECT_ROOT, "delivery")
+DELIVERY_DIR = os.path.join(OPS_DIR, "delivery")
+MANAGER_SCRIPT = os.path.join(os.path.dirname(__file__), "manager.py")
 
 def run_cmd(cmd, cwd=PROJECT_ROOT):
     print(f"Executing: {cmd}")
@@ -62,14 +64,14 @@ def main():
     # Generate ASISTANT.md based on assistants rule
     if assistants == "all":
         print("=> Generating full ASISTANT.md")
-        run_cmd(f"python3 {PROJECT_ROOT}/scripts/manager.py generate-docs")
+        run_cmd(f"python3 {MANAGER_SCRIPT} generate-docs")
     elif isinstance(assistants, list):
         ids_str = ",".join(assistants)
         print(f"=> Generating filtered ASISTANT.md for: {ids_str}")
-        run_cmd(f"python3 {PROJECT_ROOT}/scripts/manager.py generate-docs --only {ids_str}")
+        run_cmd(f"python3 {MANAGER_SCRIPT} generate-docs --only {ids_str}")
     else:
         print("=> Generating full ASISTANT.md (default)")
-        run_cmd(f"python3 {PROJECT_ROOT}/scripts/manager.py generate-docs")
+        run_cmd(f"python3 {MANAGER_SCRIPT} generate-docs")
 
     # Temporarily adjust image paths in ASISTANT.md for PDF generation
     asistant_md_path = os.path.join(PRODUCTS_DIR, "guide", "ASISTANT.md")
@@ -99,8 +101,16 @@ def main():
         for doc in documents:
             doc_path = os.path.join(PROJECT_ROOT, doc)
             if not os.path.exists(doc_path):
-                print(f"Warning: Document not found: {doc_path}")
-                continue
+                alt_path = os.path.join(OPS_DIR, doc)
+                if os.path.exists(alt_path):
+                    doc_path = alt_path
+                else:
+                    alt_path2 = os.path.join(PRODUCTS_DIR, doc.replace("products/", "").replace("ops/products/", ""))
+                    if os.path.exists(alt_path2):
+                        doc_path = alt_path2
+                    else:
+                        print(f"Warning: Document not found: {doc_path}")
+                        continue
             print(f"   Compiling {doc_path} to PDF...")
             run_cmd(f"npx -y md-to-pdf {doc_path}")
             pdf_path = os.path.splitext(doc_path)[0] + ".pdf"

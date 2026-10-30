@@ -10,9 +10,10 @@ from PIL import Image
 # PATH CONFIGURATION
 # ==========================================
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-PROJECT_ROOT = os.path.dirname(SCRIPT_DIR)
+OPS_DIR = os.path.dirname(SCRIPT_DIR)
+PROJECT_ROOT = os.path.dirname(OPS_DIR)
 AGENTS_DIR = os.path.join(PROJECT_ROOT, "_docs")
-PRODUCTS_DIR = os.path.join(PROJECT_ROOT, "products")
+PRODUCTS_DIR = os.path.join(OPS_DIR, "products")
 
 # MASTER DATABASE (SSOT)
 DATA_JSON_PATH = os.path.join(AGENTS_DIR, "database", "assistants.json")
@@ -244,7 +245,7 @@ def generate_docs(only_ids=None):
             f.write(f"### {name} - {role}\n\n")
             f.write("| | Informasi Asisten |\n")
             f.write("|:---:|:---|\n")
-            f.write(f'| <img src="../public/character/{char_id}.png" width="100"> | {desc}<br><br>**[🔗 Akses Asisten]({link})** |\n\n')
+            f.write(f'| <img src="../../../public/character/{char_id}.png" width="100"> | {desc}<br><br>**[🔗 Akses Asisten]({link})** |\n\n')
             
     print(f"✓ Generated Product Markdown: {assistant_md_path}")
     
