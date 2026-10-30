@@ -79,8 +79,8 @@
   --color-gold-gradient: linear-gradient(180deg, #fed766 0%, #f59e0b 100%);
   --color-gold-gradient-dark: linear-gradient(180deg, #fbbf24 0%, #d97706 100%);
   --gradient-gold-type: linear-gradient(135deg, #ffe894 0%, #f2c94c 50%, #f59e0b 100%);
-  --gradient-glass-chip: linear-gradient(180deg, rgba(255,255,255,.14) 0%, rgba(255,255,255,.05) 100%);
-  --gradient-hero-glow: radial-gradient(circle, rgba(0,113,227,.2) 0%, rgba(242,201,76,.08) 60%, transparent 70%);
+  --gradient-glass-chip: linear-gradient(180deg, rgba(255, 255, 255, .14) 0%, rgba(255, 255, 255, .05) 100%);
+  --gradient-hero-glow: radial-gradient(circle, rgba(0, 113, 227, .2) 0%, rgba(242, 201, 76, .08) 60%, transparent 70%);
   --gradient-blue-action: linear-gradient(180deg, #2b8bf5 0%, #0077ed 44%, #005bb5 100%);
   --gradient-blue-action-hover: linear-gradient(180deg, #429bff 0%, #0084ff 44%, #0066cc 100%);
   --gradient-blue-action-pressed: linear-gradient(180deg, #0056ac 0%, #004d99 100%);
@@ -104,12 +104,10 @@
   --color-feature-blue-chip: rgba(18, 34, 66, .82);
   --gradient-feature-blue:
     radial-gradient(ellipse at 88% 0%, rgba(255, 255, 255, .2), transparent 42%),
-    linear-gradient(
-      135deg,
+    linear-gradient(135deg,
       var(--color-feature-blue) 0%,
       var(--color-feature-blue-mid) 55%,
-      var(--color-feature-blue-end) 100%
-    );
+      var(--color-feature-blue-end) 100%);
   --shadow-feature-blue:
     0 16px 36px rgba(36, 100, 205, .18),
     inset 0 1px rgba(255, 255, 255, .28);
@@ -147,15 +145,15 @@
   --ease-standard: cubic-bezier(.25, .1, .25, 1);
 
   --gradient-success: linear-gradient(180deg, #34c759 0%, #28a745 100%);
-  --gradient-glass-header: linear-gradient(180deg, rgba(255,255,255,.95) 0%, rgba(246,248,252,.88) 100%);
-  --gradient-icon-placeholder: linear-gradient(145deg, rgba(255,255,255,.96), rgba(0,113,227,.10));
+  --gradient-glass-header: linear-gradient(180deg, rgba(255, 255, 255, .95) 0%, rgba(246, 248, 252, .88) 100%);
+  --gradient-icon-placeholder: linear-gradient(145deg, rgba(255, 255, 255, .96), rgba(0, 113, 227, .10));
   --gradient-media-brand-wash:
-    radial-gradient(ellipse at 88% 8%, rgba(242,201,76,.08), transparent 48%),
-    linear-gradient(145deg, rgba(7,43,83,.05), rgba(0,113,227,.08));
-  --gradient-section-neutral: linear-gradient(108deg, rgba(228,229,232,.56) 0%, rgba(246,246,248,.62) 50%, rgba(229,230,233,.56) 100%);
+    radial-gradient(ellipse at 88% 8%, rgba(242, 201, 76, .08), transparent 48%),
+    linear-gradient(145deg, rgba(7, 43, 83, .05), rgba(0, 113, 227, .08));
+  --gradient-section-neutral: linear-gradient(108deg, rgba(228, 229, 232, .56) 0%, rgba(246, 246, 248, .62) 50%, rgba(229, 230, 233, .56) 100%);
   --gradient-footer-surface: linear-gradient(180deg, #fbfbfd 0%, #f5f5f7 100%);
   --gradient-dark-panel:
-    radial-gradient(circle at 90% 0%, rgba(242,201,76,.10), transparent 42%),
+    radial-gradient(circle at 90% 0%, rgba(242, 201, 76, .10), transparent 42%),
     var(--color-dark-gradient);
   --texture-page: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.12'/%3E%3C/svg%3E");
 
@@ -200,14 +198,43 @@
   --sidebar-accent-foreground: #0071e3;
   --sidebar-border: rgba(0, 0, 0, 0.08);
 
-  /* Glass Tokens */
-  --glass-blur: 20px;
-  --glass-bg: rgba(255, 255, 255, 0.85);
-  --glass-bg-elevated: #ffffff;
-  --glass-shadow: none;
+  /* ═══════════════════════════════════════════════════════════════════
+     AUTHENTIC APPLE LIQUID GLASS TOKENS (LIGHT MODE SYSTEM)
+     ═══════════════════════════════════════════════════════════════════ */
+  /* Level 1: Ultra-Thin (Chips, Inset Badges, Micro-elements) */
+  --glass-ultra-thin-bg: rgba(255, 255, 255, 0.45);
+  --glass-ultra-thin-blur: blur(12px) saturate(170%);
+  --glass-ultra-thin-border: rgba(255, 255, 255, 0.50);
+  --glass-ultra-thin-shadow: inset 0 1px 0.5px rgba(255, 255, 255, 0.8), 0 1px 2px rgba(0, 0, 0, 0.03);
 
-  --nav-bg: rgba(255, 255, 255, 0.85);
-  --nav-border: rgba(0, 0, 0, 0.08);
+  /* Level 2: Regular Glass (Content Cards, Specialist Cards) */
+  --glass-card-bg: linear-gradient(180deg, rgba(255, 255, 255, 0.82) 0%, rgba(250, 251, 254, 0.72) 100%);
+  --glass-card-blur: blur(16px) saturate(180%);
+  --glass-card-border: rgba(255, 255, 255, 0.80);
+  --glass-card-border-subtle: rgba(0, 0, 0, 0.06);
+  --glass-card-shadow: 0 4px 20px rgba(0, 0, 0, 0.03), inset 0 1.5px 0.5px #ffffff;
+
+  /* Level 3: Floating Chrome (Header Island, Navbars, Floating Sidebar) */
+  --glass-header-bg: linear-gradient(180deg, rgba(255, 255, 255, 0.90) 0%, rgba(246, 248, 252, 0.82) 100%);
+  --glass-header-blur: blur(20px) saturate(190%);
+  --glass-header-border: rgba(255, 255, 255, 0.88);
+  --glass-header-border-subtle: rgba(0, 0, 0, 0.08);
+  --glass-header-shadow: 0 8px 24px rgba(0, 0, 0, 0.05), inset 0 1px 0.5px #ffffff;
+
+  /* Level 4: Modal & Popover (Dropdowns, Sheets, Dialogs) */
+  --glass-modal-bg: rgba(255, 255, 255, 0.94);
+  --glass-modal-blur: blur(28px) saturate(200%);
+  --glass-modal-border: rgba(255, 255, 255, 0.95);
+  --glass-modal-shadow: 0 20px 48px rgba(0, 0, 0, 0.12), inset 0 1px 0.5px #ffffff;
+
+  /* Legacy & Backward-compatible Aliases */
+  --glass-blur: 20px;
+  --glass-bg: var(--glass-header-bg);
+  --glass-bg-elevated: var(--glass-card-bg);
+  --glass-shadow: var(--glass-card-shadow);
+
+  --nav-bg: var(--glass-header-bg);
+  --nav-border: var(--glass-header-border-subtle);
 
   /* Clean Flat - Zero Heavy Shadows */
   --color-shadow: none;
@@ -256,12 +283,19 @@
     text-rendering: optimizeLegibility;
   }
 
-  .font-mono, [data-mono="true"], .tabular-nums {
+  .font-mono,
+  [data-mono="true"],
+  .tabular-nums {
     font-family: "SF Mono", "JetBrains Mono", Menlo, Monaco, Consolas, monospace;
     font-variant-numeric: tabular-nums;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-family: var(--font-heading);
     font-weight: 700;
     letter-spacing: -0.02em;
@@ -292,7 +326,7 @@
     letter-spacing: -0.035em;
   }
 
-  .page-intro > p {
+  .page-intro>p {
     max-width: 40rem;
     margin-top: var(--space-2);
     font-size: var(--type-body);
@@ -334,7 +368,9 @@
     background: var(--gradient-section-neutral);
   }
 
-  .section-band-blue::before { display: none; }
+  .section-band-blue::before {
+    display: none;
+  }
 
   .section-band-dark {
     color: var(--color-dark-text);
@@ -346,101 +382,75 @@
   }
 
   .section-band-dark h2,
-  .section-band-dark h3 { color: var(--color-dark-text); }
-  .section-band-dark p { color: var(--color-dark-text-muted); }
+  .section-band-dark h3 {
+    color: var(--color-dark-text);
+  }
+
+  .section-band-dark p {
+    color: var(--color-dark-text-muted);
+  }
 }
 
 /* ═══════════════════════════════════════════════════════════════════
-   CLASSIC MAC OS WINDOW CHROME & INSET SURFACES
+   APPLE LIQUID GLASS SURFACES (HIERARCHICAL MATERIAL SYSTEM)
    ═══════════════════════════════════════════════════════════════════ */
 
-.macos-window {
-  box-shadow: 0 24px 70px -12px rgba(0, 0, 0, 0.70), 0 0 0 1px rgba(255, 255, 255, 0.14);
+/* Level 1: Ultra-Thin (Interactive Chips, Micro-Badges) */
+.glass-chip,
+.apple-glass-ultra-thin {
+  background: var(--glass-ultra-thin-bg);
+  backdrop-filter: var(--glass-ultra-thin-blur);
+  -webkit-backdrop-filter: var(--glass-ultra-thin-blur);
+  border: 1px solid var(--glass-ultra-thin-border);
+  box-shadow: var(--glass-ultra-thin-shadow);
 }
 
-.macos-window-light {
-  box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.22), 0 0 0 1px rgba(0, 0, 0, 0.08);
-}
-
-/* Classic Mac OS Titlebar Gradient */
-.macos-titlebar-dark {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.10) 0%, rgba(255, 255, 255, 0.02) 100%), #262833;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.45);
-}
-
-.macos-titlebar-light {
-  background: linear-gradient(180deg, #ececec 0%, #d8d8d8 100%);
-  border-bottom: 1px solid #b8b8b8;
-}
-
-/* Mac OS Tactile Push Button */
-.macos-btn-dark {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.14) 0%, rgba(255, 255, 255, 0.03) 100%), #2c2f3c;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.16);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  transition: all 0.15s ease;
-}
-
-.macos-btn-dark:hover {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.20) 0%, rgba(255, 255, 255, 0.06) 100%), #353847;
-  border-color: rgba(255, 255, 255, 0.18);
-}
-
-.macos-btn-dark:active {
-  background: #1f212a;
-  box-shadow: inset 0 1.5px 3px rgba(0, 0, 0, 0.6);
-  transform: translateY(0.5px);
-}
-
-.macos-btn-light {
-  background: linear-gradient(180deg, #ffffff 0%, #f9fafc 38%, #ebf0f6 100%);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 2px 6px -1px rgba(0, 0, 0, 0.05), inset 0 1px 0.5px rgba(255, 255, 255, 1);
-  border: 1px solid rgba(0, 0, 0, 0.10);
-  border-bottom: 1.5px solid rgba(0, 0, 0, 0.16);
-  transition: all 0.15s ease;
-}
-
-.macos-btn-light:hover {
-  background: linear-gradient(180deg, #ffffff 0%, #fdfdfe 40%, #f2f5f9 100%);
-  border-color: rgba(0, 0, 0, 0.14);
-  border-bottom-color: rgba(0, 0, 0, 0.22);
-}
-
-.macos-btn-light:active {
-  background: #e4e7ed;
-  box-shadow: inset 0 1.5px 3px rgba(0, 0, 0, 0.16);
-  transform: translateY(0.5px);
-}
-
-/* Mac OS Inset Well (soft inset without harsh box borders) */
-.macos-inset-dark {
-  background: rgba(14, 16, 22, 0.65);
-  box-shadow: inset 0 1px 2.5px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.06);
-}
-
-.macos-inset-light {
-  background: #eaecef;
-  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.08);
-}
-
-/* Apple Liquid / Glass Surfaces */
-.apple-glass {
-  background: rgba(18, 18, 22, 0.72);
-  backdrop-filter: blur(24px) saturate(190%);
-  -webkit-backdrop-filter: blur(24px) saturate(190%);
-}
-
+/* Level 2: Regular Glass (Content Cards & Surfaces) */
+.glass-card,
 .apple-glass-card {
-  background: rgba(255, 255, 255, 0.035);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: var(--glass-card-bg);
+  backdrop-filter: var(--glass-card-blur);
+  -webkit-backdrop-filter: var(--glass-card-blur);
+  border: 1px solid var(--glass-card-border);
+  box-shadow: var(--glass-card-shadow);
+  border-radius: var(--radius-xl);
+  position: relative;
+  overflow: hidden;
 }
 
-.apple-dropdown {
-  background: rgba(28, 28, 30, 0.94);
-  backdrop-filter: blur(36px) saturate(210%);
-  -webkit-backdrop-filter: blur(36px) saturate(210%);
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.85);
+/* Level 3: Floating Chrome (Navbars, Header Islands, Floating Panels) */
+.glass-header,
+.apple-glass,
+.apple-glass-header {
+  background: var(--glass-header-bg);
+  backdrop-filter: var(--glass-header-blur);
+  -webkit-backdrop-filter: var(--glass-header-blur);
+  border: 1px solid var(--glass-header-border);
+  box-shadow: var(--glass-header-shadow);
+}
+
+/* Level 4: Modal & Popover Surfaces (Dropdowns, Sheets, Dialogs) */
+.glass-modal,
+.apple-dropdown,
+.apple-glass-modal {
+  background: var(--glass-modal-bg);
+  backdrop-filter: var(--glass-modal-blur);
+  -webkit-backdrop-filter: var(--glass-modal-blur);
+  border: 1px solid var(--glass-modal-border);
+  box-shadow: var(--glass-modal-shadow);
+  border-radius: var(--radius-xl);
+}
+
+/* Unified Subtle Refractive Top Highlight for Glass Cards */
+.card-glass-shine {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 40%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0) 100%);
+  pointer-events: none;
+  border-radius: inherit;
 }
 
 /* Apple Slider styling */
@@ -471,6 +481,7 @@ input[type="range"]::-webkit-slider-thumb:hover {
   0% {
     transform: translateX(0%);
   }
+
   100% {
     transform: translateX(-50%);
   }
@@ -566,30 +577,15 @@ button.apple-card:active,
   box-shadow: none;
 }
 
-/* ─── Centralized Prompt Preview Well (God of Prompt / AI Black Magic Inset Box) ─── */
-.prompt-preview-well {
-  background: #f3f4f6;
-  border: 1px solid #d5d8de;
-  border-radius: var(--radius-md);
-  padding: 0.75rem 0.875rem;
-  font-family: var(--font-mono);
-  font-size: 0.8125rem;
-  line-height: 1.45;
-  color: #4b5563;
-  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.06);
-  position: relative;
-  transition: all 0.15s ease;
-}
-
-.apple-card:hover .prompt-preview-well {
-  background: #eceef2;
-  border-color: #c7cbd2;
-}
-
-/* ─── Centralized Tactile Access Badges ─── */
-.badge-tactile-pro {
+/* ─── Centralized Badges (Pro, Free, Locked, Neutral, Glass) ─── */
+.badge-tactile-pro,
+.badge-tactile-free,
+.badge-tactile-locked,
+.badge-tactile-neutral,
+.badge-glass-dark {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.25rem;
   padding: 0.2rem 0.55rem;
   border-radius: 9999px;
@@ -597,6 +593,9 @@ button.apple-card:active,
   font-weight: 700;
   letter-spacing: 0.03em;
   text-transform: uppercase;
+}
+
+.badge-tactile-pro {
   background: var(--gradient-blue-action);
   color: #ffffff !important;
   border: 1px solid #0056ac;
@@ -604,15 +603,6 @@ button.apple-card:active,
 }
 
 .badge-tactile-free {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.25rem;
-  padding: 0.2rem 0.55rem;
-  border-radius: 9999px;
-  font-size: 0.6875rem;
-  font-weight: 700;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
   background: var(--gradient-success);
   color: #ffffff !important;
   border: 1px solid #208736;
@@ -620,15 +610,6 @@ button.apple-card:active,
 }
 
 .badge-tactile-locked {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.25rem;
-  padding: 0.2rem 0.55rem;
-  border-radius: 9999px;
-  font-size: 0.6875rem;
-  font-weight: 700;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
   background: var(--color-gold-gradient-dark);
   color: #ffffff !important;
   border: 1px solid #b45309;
@@ -636,17 +617,21 @@ button.apple-card:active,
 }
 
 .badge-tactile-neutral {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.25rem;
-  padding: 0.2rem 0.55rem;
-  border-radius: 9999px;
-  font-size: 0.6875rem;
-  font-weight: 600;
   background: var(--gradient-neutral-control);
   color: var(--color-secondary-label) !important;
   border: 1px solid #d1d5db;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0 1px 0 #ffffff;
+  font-weight: 600;
+  text-transform: none;
+}
+
+.badge-glass-dark {
+  background: rgba(18, 18, 22, 0.72);
+  backdrop-filter: var(--glass-ultra-thin-blur);
+  -webkit-backdrop-filter: var(--glass-ultra-thin-blur);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  color: #ffffff;
 }
 
 /* ─── Centralized Model Compatibility Pills ─── */
@@ -674,72 +659,33 @@ button.apple-card:active,
   border-bottom-color: #9fa4af;
 }
 
-/* ─── Centralized Trust Metric Card ─── */
-.trust-metric-card {
-  display: flex;
-  align-items: center;
-  gap: 0.875rem;
-  padding: 0.875rem 1.15rem;
-  background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
-  border: 1px solid #d1d5db;
-  border-radius: var(--radius-lg);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0 1px 0 #ffffff;
-}
-
-.trust-metric-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 42px;
-  height: 42px;
-  border-radius: var(--radius-md);
-  background: #f0f2f5;
-  border: 1px solid #e0e2e7;
-  color: var(--color-tint);
-  flex-shrink: 0;
-  box-shadow: inset 0 1px 1.5px rgba(0, 0, 0, 0.05);
-}
-
-/* ─── Centralized Navigations (Mac OS Tactile Chrome & Bevel) ─── */
-.app-header-island {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(246, 248, 252, 0.88) 100%) !important;
-  backdrop-filter: blur(24px) saturate(200%) !important;
-  -webkit-backdrop-filter: blur(24px) saturate(200%) !important;
-  border: 1px solid rgba(0, 0, 0, 0.08) !important;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.12) !important;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04), 
-              0 12px 28px -4px rgba(0, 0, 0, 0.07), 
-              inset 0 1px 0.5px #ffffff,
-              inset 0 -0.5px 0.5px rgba(0, 0, 0, 0.03) !important;
+/* ─── Centralized Floating Navigation Islands (Glass Substrates) ─── */
+.app-header-island,
+.mobile-nav-island {
+  background: var(--glass-header-bg) !important;
+  backdrop-filter: var(--glass-header-blur) !important;
+  -webkit-backdrop-filter: var(--glass-header-blur) !important;
+  border: 1px solid var(--glass-header-border) !important;
+  border-bottom: 1.5px solid var(--glass-header-border-subtle) !important;
+  box-shadow: var(--glass-header-shadow) !important;
 }
 
 .tab-bar {
-  background: linear-gradient(180deg, #ffffff 0%, #f4f6fa 100%) !important;
-  border-top: 1px solid rgba(0, 0, 0, 0.09) !important;
-  box-shadow: inset 0 1px 0 #ffffff, 0 -2px 8px rgba(0, 0, 0, 0.03) !important;
-}
-
-.mobile-nav-island {
-  background: linear-gradient(180deg, #ffffff 0%, #edf1f7 100%) !important;
-  border: 1px solid rgba(0, 0, 0, 0.08) !important;
-  border-bottom: 1.5px solid rgba(0, 0, 0, 0.14) !important;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04), inset 0 1.5px 0.5px #ffffff !important;
+  background: var(--glass-header-bg);
+  backdrop-filter: var(--glass-header-blur);
+  -webkit-backdrop-filter: var(--glass-header-blur);
+  border-top: 1px solid var(--glass-header-border);
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.04), inset 0 1px 0 #ffffff;
 }
 
 /* ─── Apple macOS Floating Sidebar (Tactile Window Panel) ─── */
 .sidebar-container {
-  background:
-    linear-gradient(155deg, rgba(255, 255, 255, 0.97) 0%, rgba(250, 251, 253, 0.94) 42%, rgba(231, 236, 244, 0.96) 100%);
-  -webkit-backdrop-filter: blur(18px) saturate(160%);
-  backdrop-filter: blur(18px) saturate(160%);
-  border: 1px solid rgba(255, 255, 255, 0.92);
-  border-bottom: 1.5px solid rgba(111, 121, 139, 0.3);
+  background: var(--glass-header-bg);
+  -webkit-backdrop-filter: var(--glass-header-blur);
+  backdrop-filter: var(--glass-header-blur);
+  border: 1px solid var(--glass-header-border);
   border-radius: var(--radius-xl);
-  box-shadow:
-    0 2px 4px rgba(24, 32, 46, 0.04),
-    0 12px 24px -8px rgba(24, 32, 46, 0.16),
-    inset 0 1.5px 0 rgba(255, 255, 255, 1),
-    inset 0 -1px 0 rgba(123, 133, 151, 0.12);
+  box-shadow: var(--glass-header-shadow);
   position: relative;
   transition: width 0.22s cubic-bezier(0.25, 0.1, 0.25, 1);
   will-change: width;
@@ -882,18 +828,6 @@ button.apple-card:active,
   transform: translateY(0.5px);
 }
 
-/* ─── Apple Frosted Header Bar ─── */
-.apple-glass-header {
-  position: sticky;
-  top: 0;
-  z-index: 40;
-  background: var(--glass-bg-elevated);
-  backdrop-filter: blur(var(--glass-blur));
-  -webkit-backdrop-filter: blur(var(--glass-blur));
-  border-bottom: 1px solid var(--color-separator);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-}
-
 /* ─── Classic Mac OS Tactile Capsule Chips & Tag Buttons (Unified) ─── */
 .chip,
 .cat-chip,
@@ -992,6 +926,7 @@ button.apple-card:active,
 
 /* ─── Apple Refined Inputs & Search Bar ─── */
 @layer base {
+
   input[type="search"],
   input[type="text"],
   input[type="email"],
@@ -1023,7 +958,7 @@ button.apple-card:active,
   }
 }
 
-/* ─── Mac OS Tactile Push & Apple Buttons (Centralized) ─── */
+/* ─── Apple Tactile Buttons (Centralized) ─── */
 .btn,
 .btn-primary,
 .btn-primary-sm,
@@ -1031,351 +966,342 @@ button.apple-card:active,
 .btn-submit,
 .btn-buy,
 .btn-back,
-.btn-secondary,
-.btn-secondary-sm,
-.btn-secondary-full {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  min-height: 44px;
-  min-width: 44px;
-  padding: 0.625rem 1.35rem;
-  border-radius: 9999px;
-  font-weight: 500;
-  font-size: 0.9375rem;
-  line-height: 1.25;
-  text-decoration: none !important;
-  cursor: pointer;
-  user-select: none;
-  -webkit-user-select: none;
-  position: relative;
-  transition: all 0.15s cubic-bezier(0.25, 0.1, 0.25, 1);
-}
 
-.btn-sm,
-.btn-primary-sm,
-.btn-secondary-sm {
-  min-height: 36px;
-  padding: 0.35rem 1rem;
-  font-size: 0.8125rem;
-}
+  .btn-secondary,
+  .btn-secondary-sm,
+  .btn-secondary-full,
+  .btn-gold,
+  .btn-gold-sm,
+  .btn-gold-full {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 44px;
+    min-width: 44px;
+    padding: 0.625rem 1.35rem;
+    border-radius: 9999px;
+    font-weight: 500;
+    font-size: 0.9375rem;
+    line-height: 1.25;
+    text-decoration: none !important;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    position: relative;
+    transition: all 0.15s cubic-bezier(0.25, 0.1, 0.25, 1);
+  }
 
-.btn-full,
-.btn-primary-full,
-.btn-secondary-full,
-.btn-submit {
-  width: 100%;
-}
+  /* Sizing Modifiers */
+  .btn-sm,
+  .btn-primary-sm,
+  .btn-secondary-sm,
+    .btn-gold-sm {
+      min-height: 36px;
+      padding: 0.35rem 1rem;
+      font-size: 0.8125rem;
+    }
 
-/* Mac OS Tactile Push Blue Primary Button (Soft Border + Glossy Sheen) */
-.btn-primary,
-.btn-primary-sm,
-.btn-primary-full,
-.btn-submit,
-.btn-buy,
-.btn-back {
-  background: var(--gradient-blue-action);
-  color: #ffffff !important;
-  border: 1px solid rgba(0, 75, 175, 0.35);
-  border-bottom: 1.5px solid rgba(0, 50, 130, 0.60);
-  box-shadow: 0 1px 2px rgba(0, 70, 160, 0.20),
-              0 4px 14px -2px rgba(0, 113, 227, 0.28),
-              inset 0 1px 0.5px rgba(255, 255, 255, 0.55),
-              inset 0 2px 3px -1px rgba(255, 255, 255, 0.25),
-              inset 0 -1px 1px rgba(0, 30, 80, 0.25);
-}
+    .btn-full,
+    .btn-primary-full,
+    .btn-secondary-full,
+    .btn-gold-full,
+      .btn-submit {
+        width: 100%;
+      }
 
-.btn-primary:hover,
-.btn-primary-sm:hover,
-.btn-primary-full:hover,
-.btn-submit:hover,
-.btn-buy:hover,
-.btn-back:hover {
-  background: var(--gradient-blue-action-hover);
-  border-color: rgba(0, 70, 165, 0.45);
-  border-bottom-color: rgba(0, 45, 120, 0.70);
-  box-shadow: 0 2px 6px rgba(0, 70, 160, 0.25),
+      /* Primary Variant (Action Blue) */
+      .btn-primary,
+      .btn-primary-sm,
+      .btn-primary-full,
+      .btn-submit,
+      .btn-buy,
+        .btn-back {
+          background: var(--gradient-blue-action);
+          color: #ffffff !important;
+          border: 1px solid rgba(0, 75, 175, 0.35);
+          border-bottom: 1.5px solid rgba(0, 50, 130, 0.60);
+          box-shadow: 0 1px 2px rgba(0, 70, 160, 0.20),
+            0 4px 14px -2px rgba(0, 113, 227, 0.28),
+            inset 0 1px 0.5px rgba(255, 255, 255, 0.55),
+            inset 0 2px 3px -1px rgba(255, 255, 255, 0.25),
+            inset 0 -1px 1px rgba(0, 30, 80, 0.25);
+        }
+
+        .btn-primary:hover,
+        .btn-primary-sm:hover,
+        .btn-primary-full:hover,
+        .btn-submit:hover,
+        .btn-buy:hover,
+          .btn-back:hover {
+            background: var(--gradient-blue-action-hover);
+            border-color: rgba(0, 70, 165, 0.45);
+            border-bottom-color: rgba(0, 45, 120, 0.70);
+            box-shadow: 0 2px 6px rgba(0, 70, 160, 0.25),
               0 6px 18px -2px rgba(0, 113, 227, 0.38),
-              inset 0 1px 0.5px rgba(255, 255, 255, 0.70),
-              inset 0 -1px 1px rgba(0, 30, 80, 0.25);
-  transform: translateY(-0.5px);
-}
+            inset 0 1px 0.5px rgba(255, 255, 255, 0.70),
+            inset 0 -1px 1px rgba(0, 30, 80, 0.25);
+            transform: translateY(-0.5px);
+          }
 
-.btn-primary:active,
-.btn-primary-sm:active,
-.btn-primary-full:active,
-.btn-submit:active,
-.btn-buy:active,
-.btn-back:active {
-  background: var(--gradient-blue-action-pressed);
-  box-shadow: inset 0 2px 4px rgba(0, 20, 60, 0.45);
-  transform: translateY(0.5px);
-}
+          .btn-primary:active,
+          .btn-primary-sm:active,
+          .btn-primary-full:active,
+          .btn-submit:active,
+          .btn-buy:active,
+            .btn-back:active {
+              background: var(--gradient-blue-action-pressed);
+              box-shadow: inset 0 2px 4px rgba(0, 20, 60, 0.45);
+              transform: translateY(0.5px);
+            }
 
-/* Mac OS Tactile Light Push Button (Secondary - Soft Border + Pearl/Glass Sheen) */
-.btn-secondary,
-.btn-secondary-sm,
-.btn-secondary-full {
-  background: var(--gradient-neutral-control);
-  border: 1px solid rgba(0, 0, 0, 0.10);
-  border-bottom: 1.5px solid rgba(0, 0, 0, 0.16);
-  color: #1d1d1f !important;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04),
-              0 2px 6px -1px rgba(0, 0, 0, 0.05),
-              inset 0 1px 0.5px rgba(255, 255, 255, 1),
-              inset 0 2px 2px -1px rgba(255, 255, 255, 0.70),
-              inset 0 -1px 1px rgba(0, 0, 0, 0.03);
-}
+            /* Secondary Variant (Neutral Gloss) */
+            .btn-secondary,
+              .btn-secondary-sm,
+              .btn-secondary-full {
+                background: var(--gradient-neutral-control);
+                border: 1px solid rgba(0, 0, 0, 0.10);
+                border-bottom: 1.5px solid rgba(0, 0, 0, 0.16);
+                color: #1d1d1f !important;
+                box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04),
+                  0 2px 6px -1px rgba(0, 0, 0, 0.05),
+                inset 0 1px 0.5px rgba(255, 255, 255, 1),
+                inset 0 2px 2px -1px rgba(255, 255, 255, 0.70),
+                inset 0 -1px 1px rgba(0, 0, 0, 0.03);
+              }
 
-.btn-secondary:hover,
-.btn-secondary-sm:hover,
-.btn-secondary-full:hover {
-  background: var(--gradient-neutral-control-hover);
-  border-color: rgba(0, 0, 0, 0.14);
-  border-bottom-color: rgba(0, 0, 0, 0.22);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06),
-              inset 0 1px 0.5px rgba(255, 255, 255, 1);
-  transform: translateY(-0.5px);
-}
+              .btn-secondary:hover,
 
-.btn-secondary:active,
-.btn-secondary-sm:active,
-.btn-secondary-full:active {
-  background: #e4e7ed;
-  box-shadow: inset 0 1.5px 3px rgba(0, 0, 0, 0.16);
-  transform: translateY(0.5px);
-}
+                .btn-secondary-sm:hover,
+                .btn-secondary-full:hover {
+                  background: var(--gradient-neutral-control-hover);
+                  border-color: rgba(0, 0, 0, 0.14);
+                  border-bottom-color: rgba(0, 0, 0, 0.22);
+                  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06),
+                    inset 0 1px 0.5px rgba(255, 255, 255, 1);
+                  transform: translateY(-0.5px);
+                }
 
-.btn:focus-visible,
-.btn-primary:focus-visible,
-.btn-primary-sm:focus-visible,
-.btn-primary-full:focus-visible,
-.btn-submit:focus-visible,
-.btn-buy:focus-visible,
-.btn-back:focus-visible,
-.btn-secondary:focus-visible,
-.btn-secondary-sm:focus-visible,
-.btn-secondary-full:focus-visible,
-.btn-gold:focus-visible,
-.btn-gold-sm:focus-visible,
-.btn-gold-full:focus-visible {
-  outline: none;
-  box-shadow: var(--color-focus-ring);
-}
+                .btn-secondary:active,
 
-/* ─── High-Converting Gold / Amber Accent Elements (Soft Border + Glossy Amber) ─── */
-.btn-gold,
-.btn-gold-sm,
-.btn-gold-full {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  min-height: 44px;
-  min-width: 44px;
-  padding: 0.625rem 1.35rem;
-  border-radius: 9999px;
-  font-weight: 600;
-  font-size: 0.9375rem;
-  line-height: 1.25;
-  text-decoration: none !important;
-  cursor: pointer;
-  user-select: none;
-  -webkit-user-select: none;
-  position: relative;
-  background: var(--gradient-gold-control);
-  color: #2b1a00 !important;
-  border: 1px solid rgba(166, 126, 22, 0.32);
-  border-bottom: 1.5px solid rgba(166, 126, 22, 0.52);
-  box-shadow: 0 1px 2px rgba(166, 126, 22, 0.17),
-              0 4px 14px -2px rgba(217, 173, 47, 0.28),
-              inset 0 1px 0.5px rgba(255, 255, 255, 0.75),
-              inset 0 2px 3px -1px rgba(255, 255, 255, 0.35),
-              inset 0 -1px 1px rgba(166, 126, 22, 0.24);
-  transition: all 0.15s cubic-bezier(0.25, 0.1, 0.25, 1);
-}
+                  .btn-secondary-sm:active,
+                  .btn-secondary-full:active {
+                    background: #e4e7ed;
+                    box-shadow: inset 0 1.5px 3px rgba(0, 0, 0, 0.16);
+                    transform: translateY(0.5px);
+                  }
 
-.btn-gold-sm {
-  min-height: 36px;
-  padding: 0.35rem 1rem;
-  font-size: 0.8125rem;
-}
+                  /* Gold Accent Variant */
+                  .btn-gold,
+                    .btn-gold-sm,
+                    .btn-gold-full {
+                      background: var(--gradient-gold-control);
+                      color: #2b1a00 !important;
+                      font-weight: 600;
+                      border: 1px solid rgba(166, 126, 22, 0.32);
+                      border-bottom: 1.5px solid rgba(166, 126, 22, 0.52);
+                      box-shadow: 0 1px 2px rgba(166, 126, 22, 0.17),
+                        0 4px 14px -2px rgba(217, 173, 47, 0.28),
+                      inset 0 1px 0.5px rgba(255, 255, 255, 0.75),
+                      inset 0 2px 3px -1px rgba(255, 255, 255, 0.35),
+                      inset 0 -1px 1px rgba(166, 126, 22, 0.24);
+                      transition: all 0.15s cubic-bezier(0.25, 0.1, 0.25, 1);
+                    }
 
-.btn-gold-full {
-  width: 100%;
-}
+                    .btn-gold:hover,
+                      .btn-gold-sm:hover,
+                      .btn-gold-full:hover {
+                        background: var(--gradient-gold-control-hover);
+                        color: #1a0f00 !important;
+                        border-color: rgba(166, 126, 22, 0.4);
+                        border-bottom-color: rgba(166, 126, 22, 0.65);
+                        box-shadow: 0 2px 6px rgba(166, 126, 22, 0.2),
+                          0 6px 18px -2px rgba(217, 173, 47, 0.34),
+                          inset 0 1px 0.5px rgba(255, 255, 255, 0.85);
+                        transform: translateY(-0.5px);
+                      }
 
-.btn-gold:hover,
-.btn-gold-sm:hover,
-.btn-gold-full:hover {
-  background: var(--gradient-gold-control-hover);
-  color: #1a0f00 !important;
-  border-color: rgba(166, 126, 22, 0.4);
-  border-bottom-color: rgba(166, 126, 22, 0.65);
-  box-shadow: 0 2px 6px rgba(166, 126, 22, 0.2),
-              0 6px 18px -2px rgba(217, 173, 47, 0.34),
-              inset 0 1px 0.5px rgba(255, 255, 255, 0.85);
-  transform: translateY(-0.5px);
-}
+                      .btn-gold:active,
 
-.btn-gold:active,
-.btn-gold-sm:active,
-.btn-gold-full:active {
-  background: var(--gradient-gold-control-pressed);
-  transform: translateY(0.5px);
-  box-shadow: inset 0 2px 4px rgba(69, 26, 3, 0.5);
-}
+                        .btn-gold-sm:active,
+                        .btn-gold-full:active {
+                          background: var(--gradient-gold-control-pressed);
+                          box-shadow: inset 0 2px 4px rgba(120, 53, 15, 0.45);
+                          transform: translateY(0.5px);
+                        }
 
-/* Badge Gold */
-.badge-gold {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  padding: 0.2rem 0.65rem;
-  font-size: 0.6875rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  background: var(--color-gold-surface);
-  color: var(--color-gold-text);
-  border: 1px solid var(--color-gold-border);
-  border-radius: 9999px;
-  box-shadow: 0 1px 2px rgba(245, 158, 11, 0.1);
-}
+                        /* Focus Visible */
+                        .btn:focus-visible,
 
-/* Block & Callout Gold */
-.block-gold {
-  background: var(--color-gold-surface);
-  border: 1px solid var(--color-gold-border);
-  border-radius: var(--radius-lg);
-  padding: 1.25rem 1.5rem;
-  color: var(--color-label);
-}
+                          .btn-primary:focus-visible,
+                          .btn-primary-sm:focus-visible,
+                          .btn-primary-full:focus-visible,
+                          .btn-submit:focus-visible,
+                          .btn-buy:focus-visible,
+                          .btn-back:focus-visible,
+                          .btn-secondary:focus-visible,
+                          .btn-secondary-sm:focus-visible,
+                          .btn-secondary-full:focus-visible,
+                          .btn-gold:focus-visible,
+                          .btn-gold-sm:focus-visible,
+                          .btn-gold-full:focus-visible {
+                            outline: none;
+                            box-shadow: var(--color-focus-ring);
+                          }
 
-/* Highlighter Text Marker */
-.mark-gold {
-  background: linear-gradient(120deg, rgba(254, 215, 102, 0.5) 0%, rgba(245, 158, 11, 0.45) 100%);
-  padding: 0.1em 0.35em;
-  border-radius: 4px;
-  box-decoration-break: clone;
-  -webkit-box-decoration-break: clone;
-  color: #2b1a00;
-}
 
-/* Block Dark Focal Section (Charcoal #17191F -> Navy #20283A with Ambient Glow & Dot Texture) */
-.block-dark {
-  background: var(--gradient-dark-panel);
-  color: var(--color-dark-text);
-  border: 1px solid var(--color-dark-border);
-  border-radius: var(--radius-2xl);
-  position: relative;
-  overflow: hidden;
-}
+                          /* Badge Gold */
+                          .badge-gold {
+                            display: inline-flex;
+                            align-items: center;
+                            gap: 0.35rem;
+                            padding: 0.2rem 0.65rem;
+                            font-size: 0.6875rem;
+                            font-weight: 700;
+                            text-transform: uppercase;
+                            letter-spacing: 0.04em;
+                            background: var(--color-gold-surface);
+                            color: var(--color-gold-text);
+                            border: 1px solid var(--color-gold-border);
+                            border-radius: 9999px;
+                            box-shadow: 0 1px 2px rgba(245, 158, 11, 0.1);
+                          }
 
-.text-gold-accent {
-  color: var(--color-accent-gold);
-}
+                          /* Block & Callout Gold */
+                          .block-gold {
+                            background: var(--color-gold-surface);
+                            border: 1px solid var(--color-gold-border);
+                            border-radius: var(--radius-lg);
+                            padding: 1.25rem 1.5rem;
+                            color: var(--color-label);
+                          }
 
-/* ─── Classic Mac OS Tactile Upgrade Card ─── */
-.upgrade-card {
-  background: linear-gradient(180deg, #edf0f5 0%, #e1e5ec 100%);
-  border: 1px solid #bcc0ca;
-  border-bottom: 2px solid #abb0bc;
-  box-shadow: inset 0 1.5px 0 #ffffff, 0 1px 2px rgba(0, 0, 0, 0.06);
-  border-radius: var(--radius-lg);
-  color: var(--color-label);
-  transition: all 0.15s ease;
-}
+                          /* Highlighter Text Marker */
+                          .mark-gold {
+                            background: linear-gradient(120deg, rgba(254, 215, 102, 0.5) 0%, rgba(245, 158, 11, 0.45) 100%);
+                            padding: 0.1em 0.35em;
+                            border-radius: 4px;
+                            box-decoration-break: clone;
+                            -webkit-box-decoration-break: clone;
+                            color: #2b1a00;
+                          }
 
-.upgrade-card:hover {
-  background: linear-gradient(180deg, #f2f4f9 0%, #e6eaef 100%);
-  border-color: #abb0bc;
-}
+                          /* Block Dark Focal Section (Charcoal #17191F -> Navy #20283A with Ambient Glow & Dot Texture) */
+                          .block-dark {
+                            background: var(--gradient-dark-panel);
+                            color: var(--color-dark-text);
+                            border: 1px solid var(--color-dark-border);
+                            border-radius: var(--radius-2xl);
+                            position: relative;
+                            overflow: hidden;
+                          }
 
-/* ─── Classic Mac OS Tactile CTA Box & Feature Banner (Centralized) ─── */
-.cta-box,
-.closing-cta {
-  background: linear-gradient(180deg, #ffffff 0%, #edf0f5 100%);
-  border: 1px solid #c0c4cc;
-  border-bottom: 3px solid #abb0bc;
-  border-radius: var(--radius-2xl);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 
-              0 6px 16px -4px rgba(0, 0, 0, 0.08), 
-              inset 0 1.5px 0 #ffffff;
-  padding: 56px 28px;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
+                          .text-gold-accent {
+                            color: var(--color-accent-gold);
+                          }
 
-.cta-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  padding: 0.3rem 0.85rem;
-  border-radius: 9999px;
-  background: linear-gradient(180deg, #ffffff 0%, #edf0f5 100%);
-  border: 1px solid #c2c6d0;
-  border-bottom: 2px solid #b2b7c2;
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: var(--color-tint);
-  letter-spacing: 0.02em;
-  margin-bottom: 1.25rem;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0 1.5px 0 #ffffff;
-}
+                          /* ─── Classic Mac OS Tactile Upgrade Card ─── */
+                          .upgrade-card {
+                            background: linear-gradient(180deg, #edf0f5 0%, #e1e5ec 100%);
+                            border: 1px solid #bcc0ca;
+                            border-bottom: 2px solid #abb0bc;
+                            box-shadow: inset 0 1.5px 0 #ffffff, 0 1px 2px rgba(0, 0, 0, 0.06);
+                            border-radius: var(--radius-lg);
+                            color: var(--color-label);
+                            transition: all 0.15s ease;
+                          }
 
-.cta-guarantee-list {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-  margin: 1.75rem 0 2rem;
-  padding: 0;
-  list-style: none;
-}
+                          .upgrade-card:hover {
+                            background: linear-gradient(180deg, #f2f4f9 0%, #e6eaef 100%);
+                            border-color: #abb0bc;
+                          }
 
-.cta-guarantee-item {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  font-size: 0.8125rem;
-  font-weight: 500;
-  color: var(--color-secondary-label);
-}
+                          /* ─── Classic Mac OS Tactile CTA Box & Feature Banner (Centralized) ─── */
+                          .cta-box,
+                          .closing-cta {
+                            background: linear-gradient(180deg, #ffffff 0%, #edf0f5 100%);
+                            border: 1px solid #c0c4cc;
+                            border-bottom: 3px solid #abb0bc;
+                            border-radius: var(--radius-2xl);
+                            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08),
+                              0 6px 16px -4px rgba(0, 0, 0, 0.08),
+                              inset 0 1.5px 0 #ffffff;
+                            padding: 56px 28px;
+                            text-align: center;
+                            position: relative;
+                            overflow: hidden;
+                          }
 
-.cta-guarantee-icon {
-  color: #34c759;
-  flex-shrink: 0;
-}
+                          .cta-badge {
+                            display: inline-flex;
+                            align-items: center;
+                            gap: 0.35rem;
+                            padding: 0.3rem 0.85rem;
+                            border-radius: 9999px;
+                            background: linear-gradient(180deg, #ffffff 0%, #edf0f5 100%);
+                            border: 1px solid #c2c6d0;
+                            border-bottom: 2px solid #b2b7c2;
+                            font-size: 0.75rem;
+                            font-weight: 700;
+                            color: var(--color-tint);
+                            letter-spacing: 0.02em;
+                            margin-bottom: 1.25rem;
+                            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0 1.5px 0 #ffffff;
+                          }
 
-/* ─── Apple Typography Helpers ─── */
-.text-large-title {
-  font-size: 2.125rem;
-  font-weight: 700;
-  letter-spacing: -0.022em;
-  color: var(--color-label);
-}
-.text-headline {
-  font-size: 1.0625rem;
-  font-weight: 600;
-  letter-spacing: -0.015em;
-  color: var(--color-label);
-}
-.text-body {
-  font-size: 1.0625rem;
-  color: var(--color-secondary-label);
-}
+                          .cta-guarantee-list {
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            gap: 1.5rem;
+                            flex-wrap: wrap;
+                            margin: 1.75rem 0 2rem;
+                            padding: 0;
+                            list-style: none;
+                          }
 
-/* ─── Scrollbar Utility ─── */
-.no-scrollbar::-webkit-scrollbar,
-.scrollbar-none::-webkit-scrollbar {
-  display: none;
-}
-.no-scrollbar,
-.scrollbar-none {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
+                          .cta-guarantee-item {
+                            display: inline-flex;
+                            align-items: center;
+                            gap: 0.45rem;
+                            font-size: 0.8125rem;
+                            font-weight: 500;
+                            color: var(--color-secondary-label);
+                          }
+
+                          .cta-guarantee-icon {
+                            color: #34c759;
+                            flex-shrink: 0;
+                          }
+
+                          /* ─── Apple Typography Helpers ─── */
+                          .text-large-title {
+                            font-size: 2.125rem;
+                            font-weight: 700;
+                            letter-spacing: -0.022em;
+                            color: var(--color-label);
+                          }
+
+                          .text-headline {
+                            font-size: 1.0625rem;
+                            font-weight: 600;
+                            letter-spacing: -0.015em;
+                            color: var(--color-label);
+                          }
+
+                          .text-body {
+                            font-size: 1.0625rem;
+                            color: var(--color-secondary-label);
+                          }
+
+                          /* ─── Scrollbar Utility ─── */
+                          .no-scrollbar::-webkit-scrollbar,
+                          .scrollbar-none::-webkit-scrollbar {
+                            display: none;
+                          }
+
+                          .no-scrollbar,
+                          .scrollbar-none {
+                            -ms-overflow-style: none;
+                            scrollbar-width: none;
+                          }

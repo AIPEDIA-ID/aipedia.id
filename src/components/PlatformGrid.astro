@@ -117,26 +117,14 @@ const {
   .platform-card {
     position: relative;
     padding: 26px 24px;
-    border-radius: 22px;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(250, 251, 254, 0.82) 100%);
-    border: 1px solid rgba(0, 0, 0, 0.07);
-    box-shadow:
-      0 4px 20px rgba(0, 0, 0, 0.03),
-      inset 0 1.5px 0.5px rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    border-radius: var(--radius-xl);
+    background: var(--glass-card-bg);
+    border: 1px solid var(--glass-card-border);
+    box-shadow: var(--glass-card-shadow);
+    backdrop-filter: var(--glass-card-blur);
+    -webkit-backdrop-filter: var(--glass-card-blur);
     transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s, border-color 0.25s;
     overflow: hidden;
-  }
-
-  .card-glass-shine {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 40%;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0) 100%);
-    pointer-events: none;
   }
 
   .platform-card:hover {

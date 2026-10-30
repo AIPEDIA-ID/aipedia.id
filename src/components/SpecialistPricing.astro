@@ -223,22 +223,12 @@ const {
     overflow: hidden;
   }
 
-  .card-glass-shine {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 40%;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
-    pointer-events: none;
-  }
-
   .standard-card {
-    background: rgba(255, 255, 255, 0.88);
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.03), inset 0 1.5px 0 #fff;
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    background: var(--glass-card-bg);
+    border: 1px solid var(--glass-card-border);
+    box-shadow: var(--glass-card-shadow);
+    backdrop-filter: var(--glass-card-blur);
+    -webkit-backdrop-filter: var(--glass-card-blur);
   }
 
   .hero-card {
