@@ -107,7 +107,7 @@ This project is not just a standard web application; it is a full **Product Gene
 ### C. Documentation & Prompts (`_docs/`)
 - **Internal Knowledge**: Business summary (`SUMMARY.md`) and strategy (`strategy.md`).
 - **Task Management**: Modular task tracking for product, marketing, and website (`task/`).
-- **Notes & Research**: Plans, content refactoring, design reviews (`notes/`).
+- **Notes & Research**: Plans, content refactoring, design reviews, image assets inventory & overhaul guide (`notes/image-assets.md`).
 
 ---
 

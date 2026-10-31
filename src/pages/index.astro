@@ -4,7 +4,6 @@ import ResourceCard from "../components/ResourceCard.astro";
 import ProductCard from "../components/ProductCard.astro";
 import FaqItem from "../components/FaqItem.astro";
 import ClosingCta from "../components/ClosingCta.astro";
-import SectionBand from "../components/SectionBand.astro";
 import FeaturedShowcase from "../components/FeaturedShowcase.astro";
 import FeaturePathway from "../components/FeaturePathway.astro";
 import { getResources, getCatalog } from "../lib/data";
@@ -156,7 +155,7 @@ const faqs = [
     />
 
     <!-- Section 3: Jelajahi per Kategori -->
-    <SectionBand class="section-container home-category-band">
+    <section class="section-container">
       <div class="section-header">
         <div>
           <h2 class="section-title">Jelajahi per Kategori</h2>
@@ -178,7 +177,7 @@ const faqs = [
           })
         }
       </div>
-    </SectionBand>
+    </section>
 
     <!-- Section 4: Warm highlight for the full library offer -->
     {allAccessBundle && (
@@ -429,6 +428,10 @@ const faqs = [
   /* ─── Standard Section Spacing & Layout ─── */
   .section-container {
     margin-bottom: var(--space-section);
+  }
+
+  .section-container:last-child {
+    margin-bottom: 0;
   }
 
   .section-header {
