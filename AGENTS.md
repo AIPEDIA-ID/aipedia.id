@@ -11,3 +11,7 @@
   - `_docs/`: Business strategies, market research, and task tracking for the Indonesian market.
   - `ops/`: Customer deliverables for Indonesian buyers (CustomGPT instructions, buyer guides) and marketing content generators for Indonesian social media.
   - User-facing UI copy on `aipedia.id` meant for Indonesian visitors.
+
+## 3. Architecture & Knowledge Index
+- For the complete project map, directory purposes, Apple HIG design tokens, and CLI automation commands, refer to `.agents/INDEX.md`.
+
