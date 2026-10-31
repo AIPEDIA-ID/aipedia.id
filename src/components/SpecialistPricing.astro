@@ -2,6 +2,7 @@
 interface Props {
   title?: string;
   subtitle?: string;
+  singleSlug?: string;
   singleName?: string;
   singlePrice?: string;
   singleDescription?: string;
@@ -9,6 +10,7 @@ interface Props {
   singleCtaText?: string;
   singleCtaUrl?: string;
 
+  bundleSlug?: string;
   bundleName?: string;
   bundlePrice?: string;
   bundleOriginalPrice?: string;
@@ -26,6 +28,7 @@ interface Props {
 const {
   title = "Pilih Paket Spesialis Anda",
   subtitle = "Investasi satu kali untuk efisiensi kerja bertahun-tahun. Tanpa biaya bulanan tersembunyi.",
+  singleSlug = "mita",
   singleName = "Spesialis Tunggal",
   singlePrice = "87.000",
   singleDescription = "Akses CustomGPT spesialis pilihan Anda",
@@ -37,6 +40,7 @@ const {
   singleCtaText = "Ambil Paket Ini",
   singleCtaUrl = "#",
 
+  bundleSlug = "bundle-all-access",
   bundleName = "Bundle Spesialis Lengkap",
   bundlePrice = "128.000",
   bundleOriginalPrice = "348.000",
@@ -92,7 +96,13 @@ const {
         ))}
       </ul>
 
-      <a href={singleCtaUrl} class="btn-single">
+      <a
+        href={singleCtaUrl || "#checkout"}
+        class="btn-single"
+        data-checkout-slug={singleSlug}
+        data-checkout-title={singleName}
+        data-checkout-price={`Rp ${singlePrice}`}
+      >
         <span>{singleCtaText}</span>
       </a>
     </div>
@@ -135,7 +145,13 @@ const {
         ))}
       </ul>
 
-      <a href={bundleCtaUrl} class="btn-bundle">
+      <a
+        href={bundleCtaUrl || "#checkout"}
+        class="btn-bundle"
+        data-checkout-slug={bundleSlug}
+        data-checkout-title={bundleName}
+        data-checkout-price={`Rp ${bundlePrice}`}
+      >
         <span>{bundleCtaText}</span>
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
           <path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/>

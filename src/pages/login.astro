@@ -5,11 +5,17 @@ import { getCurrentUser, isMockBypassActive } from "../lib/data";
 
 const user = await getCurrentUser(Astro.cookies);
 const bypassActive = isMockBypassActive(Astro.cookies);
+const errorParam = Astro.url.searchParams.get("error");
 ---
 
 <Base title="Masuk ke Akun - AIPEDIA" user={user}>
   <div class="auth-page">
     <div class="auth-card card p-7 sm:p-9 space-y-6">
+      {errorParam === "google_not_configured" && (
+        <div class="p-3.5 rounded-xl border border-[rgba(239,68,68,0.3)] bg-[rgba(239,68,68,0.1)] text-xs text-[#f87171] leading-relaxed">
+          Google OAuth belum dikonfigurasi di file <code>.env</code> server. Silakan gunakan <strong>Masuk Cepat (Akun Demo)</strong> atau sign-in email.
+        </div>
+      )}
       <!-- Mock Bypass Quick Switcher Banner -->
       <div class="p-3.5 rounded-xl border border-[var(--color-separator)] bg-[var(--color-fill)] text-xs flex flex-col gap-2">
         <div class="flex items-center justify-between">

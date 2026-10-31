@@ -55,7 +55,16 @@ const discount = discountPct(product.price, product.originalPrice);
       </div>
 
       <div class="card-action shrink-0">
-        <span class="btn-buy-pill"> Beli </span>
+        <button
+          type="button"
+          class="btn-buy-pill cursor-pointer"
+          data-checkout-slug={product.slug}
+          data-checkout-title={product.title}
+          data-checkout-price={formatPrice(product.price)}
+          onclick="event.stopPropagation();"
+        >
+          Beli
+        </button>
       </div>
     </div>
   </div>

@@ -41,6 +41,8 @@ export const entitlements = pgTable('entitlements', {
 export const orders = pgTable('orders', {
   id: text('id').primaryKey(), // Midtrans order_id, e.g. "ORD-1730000000000"
   userId: text('user_id').references(() => users.id, { onDelete: 'set null' }),
+  customerEmail: varchar('customer_email', { length: 255 }),
+  customerName: varchar('customer_name', { length: 255 }),
   productSlug: varchar('product_slug', { length: 255 }).notNull(),
   amount: integer('amount').notNull(), // IDR
   status: varchar('status', { length: 50 }).default('pending').notNull(), // pending, settlement, cancel, expire

@@ -213,12 +213,15 @@ const discount = discountPct(product.price, product.originalPrice);
                 </a>
               ) : (
                 <div>
-                  <a
-                    href={`/payment/success?status=paid&order=ORD-${product.slug.toUpperCase()}`}
-                    class="btn-gold-full text-center"
+                  <button
+                    type="button"
+                    class="btn-gold-full text-center w-full cursor-pointer"
+                    data-checkout-slug={product.slug}
+                    data-checkout-title={product.title}
+                    data-checkout-price={formatPrice(product.price)}
                   >
                     <span>Beli Paket Sekarang</span>
-                  </a>
+                  </button>
                   <span class="text-xs text-[var(--color-secondary-label)] text-center block mt-2">
                     Pembayaran instan via QRIS &amp; Virtual Account Midtrans
                   </span>
@@ -264,12 +267,15 @@ const discount = discountPct(product.price, product.originalPrice);
             Buka di Dashboard
           </a>
         ) : (
-          <a
-            href={`/payment/success?status=paid&order=ORD-${product.slug.toUpperCase()}`}
-            class="btn-gold text-xs py-2 px-4"
+          <button
+            type="button"
+            class="btn-gold text-xs py-2 px-4 cursor-pointer"
+            data-checkout-slug={product.slug}
+            data-checkout-title={product.title}
+            data-checkout-price={formatPrice(product.price)}
           >
             Beli Sekarang
-          </a>
+          </button>
         )
       }
     </div>

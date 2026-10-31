@@ -1,0 +1,393 @@
+---
+interface Props {
+  defaultEmail?: string;
+}
+
+const { defaultEmail = "" } = Astro.props;
+const isProduction = process.env.MIDTRANS_IS_PRODUCTION === "true";
+const clientKey = process.env.PUBLIC_MIDTRANS_CLIENT_KEY || process.env.MIDTRANS_CLIENT_KEY || "";
+const snapScriptSrc = isProduction
+  ? "https://app.midtrans.com/snap/snap.js"
+  : "https://app.sandbox.midtrans.com/snap/snap.js";
+---
+
+<!-- Universal Apple-Style Checkout Modal -->
+<div id="universal-checkout-modal" class="checkout-modal-backdrop" aria-hidden="true">
+  <div class="checkout-modal-card card-tactile">
+    <button type="button" class="checkout-modal-close" id="checkout-modal-close-btn" aria-label="Tutup">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+
+    <div class="checkout-modal-header">
+      <span class="checkout-badge">CHECKOUT INSTAN</span>
+      <h3 id="checkout-modal-title" class="checkout-title">Mulai Akses Materi</h3>
+      <p id="checkout-modal-desc" class="checkout-desc">
+        Akses langsung aktif setelah pembayaran terverifikasi otomatis.
+      </p>
+    </div>
+
+    <div class="checkout-price-card">
+      <span class="price-label">Total Investasi</span>
+      <span id="checkout-modal-price" class="price-value">Rp86.000</span>
+    </div>
+
+    <form id="universal-checkout-form" class="checkout-form">
+      <input type="hidden" id="checkout-slug-input" name="productSlug" value="" />
+
+      <div class="form-group">
+        <label for="checkout-email-input" class="form-label">Email Pengiriman Akses</label>
+        <input
+          type="email"
+          id="checkout-email-input"
+          name="email"
+          required
+          placeholder="nama@email.com"
+          value={defaultEmail}
+          class="input-recessed form-input"
+        />
+        <span class="form-hint">Panduan akses dan link CustomGPT akan dikaitkan ke email ini.</span>
+      </div>
+
+      <div id="checkout-error-msg" class="checkout-error" style="display: none;"></div>
+
+      <button type="submit" id="checkout-submit-btn" class="btn-tactile-primary btn-submit-full">
+        <span id="checkout-submit-text">Lanjut ke Pembayaran →</span>
+      </button>
+
+      <div class="security-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+          <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+        </svg>
+        <span>Pembayaran aman via QRIS, GoPay, OVO, & VA Bank</span>
+      </div>
+    </form>
+  </div>
+</div>
+
+{clientKey && (
+  <script is:inline src={snapScriptSrc} data-client-key={clientKey}></script>
+)}
+
+<script>
+  function setupCheckoutHandlers() {
+    const modal = document.getElementById("universal-checkout-modal");
+    const closeBtn = document.getElementById("checkout-modal-close-btn");
+    const form = document.getElementById("universal-checkout-form") as HTMLFormElement | null;
+    const titleEl = document.getElementById("checkout-modal-title");
+    const priceEl = document.getElementById("checkout-modal-price");
+    const slugInput = document.getElementById("checkout-slug-input") as HTMLInputElement | null;
+    const emailInput = document.getElementById("checkout-email-input") as HTMLInputElement | null;
+    const submitBtn = document.getElementById("checkout-submit-btn") as HTMLButtonElement | null;
+    const submitText = document.getElementById("checkout-submit-text");
+    const errorEl = document.getElementById("checkout-error-msg");
+
+    if (!modal || !form || !slugInput || !emailInput || !submitBtn || !submitText) return;
+
+    function openModal(slug: string, title?: string, price?: string) {
+      if (!modal || !slugInput) return;
+      slugInput.value = slug;
+      if (titleEl && title) titleEl.textContent = title;
+      if (priceEl && price) priceEl.textContent = price;
+      if (errorEl) errorEl.style.display = "none";
+      modal.classList.add("active");
+      modal.setAttribute("aria-hidden", "false");
+      setTimeout(() => emailInput?.focus(), 150);
+    }
+
+    function closeModal() {
+      if (!modal) return;
+      modal.classList.remove("active");
+      modal.setAttribute("aria-hidden", "true");
+    }
+
+    closeBtn?.addEventListener("click", closeModal);
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) closeModal();
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && modal.classList.contains("active")) {
+        closeModal();
+      }
+    });
+
+    // Delegate clicks for any element with [data-checkout-slug]
+    document.addEventListener("click", (e) => {
+      const target = (e.target as HTMLElement).closest("[data-checkout-slug]") as HTMLElement | null;
+      if (!target) return;
+      e.preventDefault();
+
+      const slug = target.getAttribute("data-checkout-slug");
+      if (!slug) return;
+
+      const title = target.getAttribute("data-checkout-title") || `Akses ${slug.toUpperCase()}`;
+      const price = target.getAttribute("data-checkout-price") || "Rp86.000";
+
+      // If user has prefilled email or session, can directly trigger or open modal
+      openModal(slug, title, price);
+    });
+
+    // Form submission
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const slug = slugInput.value;
+      const email = emailInput.value.trim();
+
+      if (!slug || !email) return;
+
+      submitBtn.disabled = true;
+      submitText.textContent = "Menghubungkan Midtrans…";
+      if (errorEl) errorEl.style.display = "none";
+
+      try {
+        const res = await fetch("/api/checkout", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ productSlug: slug, email }),
+        });
+
+        const data = await res.json();
+        if (!res.ok || (!data.success && !data.token && !data.redirectUrl && !data.mockRedirect)) {
+          throw new Error(data.error || "Gagal memproses transaksi.");
+        }
+
+        const nextUrl = data.redirectUrl || data.mockRedirect;
+
+        // If Midtrans Snap Popup is available on window
+        const win = window as any;
+        if (data.token && win.snap && typeof win.snap.pay === "function") {
+          submitText.textContent = "Buka Jendela Pembayaran…";
+          win.snap.pay(data.token, {
+            onSuccess: (result: any) => {
+              window.location.assign(
+                `/payment/success?status=paid&order=${result.order_id || data.orderId}&slug=${encodeURIComponent(slug)}`
+              );
+            },
+            onPending: (result: any) => {
+              window.location.assign(
+                `/payment/success?status=pending&order=${result.order_id || data.orderId}&slug=${encodeURIComponent(slug)}`
+              );
+            },
+            onError: (result: any) => {
+              window.location.assign(
+                `/payment/success?status=failed&order=${result.order_id || data.orderId}&slug=${encodeURIComponent(slug)}`
+              );
+            },
+            onClose: () => {
+              submitBtn.disabled = false;
+              submitText.textContent = "Lanjut ke Pembayaran →";
+            },
+          });
+          return;
+        }
+
+        // Direct URL redirection (Sandbox/Production redirect or Demo mode)
+        if (nextUrl) {
+          window.location.assign(nextUrl);
+        } else {
+          throw new Error("Tautan pembayaran tidak ditemukan.");
+        }
+      } catch (err: any) {
+        if (errorEl) {
+          errorEl.textContent = err.message || "Terjadi kesalahan. Silakan coba lagi.";
+          errorEl.style.display = "block";
+        }
+        submitBtn.disabled = false;
+        submitText.textContent = "Lanjut ke Pembayaran →";
+      }
+    });
+  }
+
+  // Support Astro View Transitions and initial load
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", setupCheckoutHandlers);
+  } else {
+    setupCheckoutHandlers();
+  }
+  document.addEventListener("astro:page-load", setupCheckoutHandlers);
+</script>
+
+<style>
+  .checkout-modal-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .checkout-modal-backdrop.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .checkout-modal-card {
+    position: relative;
+    width: 100%;
+    max-width: 440px;
+    background: var(--color-surface, #18191f);
+    border-radius: 20px;
+    padding: 28px 24px;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+    transform: scale(0.95) translateY(10px);
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .checkout-modal-backdrop.active .checkout-modal-card {
+    transform: scale(1) translateY(0);
+  }
+
+  .checkout-modal-close {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--color-ink-muted, #94a3b8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+
+  .checkout-modal-close:hover {
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+  }
+
+  .checkout-badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: #0ea5e9;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .checkout-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-ink-loud, #f8fafc);
+    margin: 0 0 6px 0;
+    letter-spacing: -0.01em;
+  }
+
+  .checkout-desc {
+    font-size: 0.8125rem;
+    color: var(--color-ink-muted, #94a3b8);
+    margin: 0 0 18px 0;
+    line-height: 1.45;
+  }
+
+  .checkout-price-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 12px 16px;
+    margin-bottom: 20px;
+  }
+
+  .price-label {
+    font-size: 0.8125rem;
+    color: var(--color-ink-muted, #94a3b8);
+  }
+
+  .price-value {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #f2c94c;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .form-group {
+    margin-bottom: 16px;
+    text-align: left;
+  }
+
+  .form-label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-ink-loud, #f8fafc);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .form-input {
+    width: 100%;
+    padding: 10px 14px;
+    border-radius: 10px;
+    font-size: 0.875rem;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    outline: none;
+    transition: border-color 0.15s ease;
+  }
+
+  .form-input:focus {
+    border-color: #0284c7;
+  }
+
+  .form-hint {
+    display: block;
+    font-size: 0.7rem;
+    color: var(--color-ink-faint, #64748b);
+    margin-top: 5px;
+  }
+
+  .checkout-error {
+    background: rgba(239, 68, 68, 0.12);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    color: #f87171;
+    font-size: 0.75rem;
+    border-radius: 8px;
+    padding: 8px 12px;
+    margin-bottom: 14px;
+    text-align: left;
+  }
+
+  .btn-submit-full {
+    width: 100%;
+    padding: 12px 18px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .security-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 14px;
+    font-size: 0.6875rem;
+    color: var(--color-ink-faint, #64748b);
+  }
+</style>
+

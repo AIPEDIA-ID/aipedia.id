@@ -2,6 +2,8 @@ import type { APIRoute } from 'astro';
 import { db, schema } from '../../../../db';
 import { eq } from 'drizzle-orm';
 import crypto from 'node:crypto';
+import { getCatalog } from '../../../lib/data';
+import { assistants } from '../../../data/assistants';
 
 export const prerender = false;
 
@@ -62,13 +64,74 @@ export const POST: APIRoute = async ({ request }) => {
           })
           .where(eq(schema.orders.id, orderId));
 
-        // If paid and order is associated with a user, grant access immediately
-        if (isPaid && order.userId) {
-          await db.insert(schema.entitlements).values({
-            userId: order.userId,
-            grant: order.productSlug,
-          });
-          console.log(`[Midtrans Webhook] Granted access for ${order.productSlug} to user ${order.userId}`);
+        // If paid, ensure user exists and grant entitlements
+        if (isPaid) {
+          let targetUserId = order.userId;
+
+          // If no userId on order, try matching by customerEmail
+          if (!targetUserId && order.customerEmail) {
+            const userMatch = await db
+              .select()
+              .from(schema.users)
+              .where(eq(schema.users.email, order.customerEmail))
+              .limit(1);
+
+            if (userMatch.length > 0) {
+              targetUserId = userMatch[0].id;
+            } else {
+              // Auto-create user for customer
+              targetUserId = `u_${Date.now()}_${Math.random().toString(36).slice(2, 7)}`;
+              await db.insert(schema.users).values({
+                id: targetUserId,
+                email: order.customerEmail,
+                name: order.customerName || order.customerEmail.split('@')[0],
+                image: null,
+              });
+            }
+
+            // Link back to order
+            await db
+              .update(schema.orders)
+              .set({ userId: targetUserId })
+              .where(eq(schema.orders.id, orderId));
+          }
+
+          if (targetUserId) {
+            // Determine all grants for this product/specialist
+            const grantsToApply = new Set<string>();
+            grantsToApply.add(order.productSlug);
+
+            // If it's a catalog product or bundle
+            const { products, bundles } = await getCatalog();
+            const catalogItem = [...products, ...bundles].find((item) => item.slug === order.productSlug);
+            if (catalogItem?.includes) {
+              catalogItem.includes.forEach((inc) => grantsToApply.add(inc));
+            }
+
+            // If it's an AI Specialist
+            const cleanSpecialistId = order.productSlug.replace(/^spesialis-/, '');
+            const assistant = assistants.find((a) => a.id === cleanSpecialistId || a.id === order.productSlug);
+            if (assistant) {
+              grantsToApply.add(`custom-ai/${assistant.id}`);
+              grantsToApply.add(`skills/${assistant.id}`);
+              grantsToApply.add(assistant.id);
+            }
+
+            // Insert each grant
+            for (const grant of grantsToApply) {
+              await db
+                .insert(schema.entitlements)
+                .values({
+                  userId: targetUserId,
+                  grant,
+                })
+                .catch(() => {}); // catch duplicate inserts gracefully
+            }
+
+            console.log(
+              `[Midtrans Webhook] Successfully granted [${Array.from(grantsToApply).join(', ')}] to user ${targetUserId}`
+            );
+          }
         }
       }
     }

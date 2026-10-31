@@ -183,15 +183,52 @@ All interface components adhere to **Apple Human Interface Guidelines (HIG)** wi
 
 ## 6. CLI Commands & Automation Cheatsheet
 
-### Web Development
+A top-level [`Makefile`](file:///Users/aji/Projects/aipedia.id/Makefile) acts as the **single official entrypoint** for all actions, organized by domain namespaces:
+
+```bash
+# 📖 General
+make help                    # Display command matrix and descriptions
+
+# 🌐 Web App (web-*)
+make web-dev                 # Start Astro dev server on http://localhost:4321
+make web-build               # Build Cloudflare Worker production bundle
+make web-preview             # Preview production build locally
+make web-clean               # Clean dist/, .astro/, and Vite caches
+
+# 🧪 Testing (test-*)
+make test                    # Run all 34 Vitest unit tests (alias: make test-run)
+make test-watch              # Run tests in interactive watch mode
+make test-file FILE=<path>   # Run single test (e.g. make test-file FILE=test/checkout.test.ts)
+
+# ⚙️ Operations & SSOT (ops-*)
+make ops-sync                # Full sync: assistants.json -> web characters, prompts, guides
+make ops-sync-web            # Sync only characters.json for Astro web UI
+make ops-icons               # Compress specialist avatars into public/character/
+make ops-prompts             # Generate AI visual prompts for all 17 specialists
+make ops-build               # Compile PDF delivery guides and packaged ZIPs
+make ops-content             # Generate social media carousel slides & captions
+
+# 🗄️ Database & Drizzle (db-*)
+make db-generate             # Generate SQL migrations from db/schema.ts
+make db-push                 # Push schema changes to PostgreSQL
+make db-studio               # Open local Drizzle Studio database GUI
+
+# ⚡ Fast Shortcuts
+make dev                     # Alias for 'make web-dev'
+make build                   # Alias for 'make web-build'
+make sync                    # Alias for 'make ops-sync'
+make clean                   # Alias for 'make web-clean'
+```
+
+### Direct CLI Commands (Under the Hood)
 ```bash
 # Start local dev server (http://localhost:4321)
 yarn dev
 
-# Run unit tests (access control, grants)
+# Run unit tests (access control, auth, checkout, webhook)
 yarn test
 
-# Typecheck and build production bundle
+# Build production bundle
 yarn build
 ```
 

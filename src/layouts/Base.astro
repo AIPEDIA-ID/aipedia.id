@@ -2,6 +2,7 @@
 import "../styles/tokens.css";
 import Header from "../components/Header.astro";
 import TabBar from "../components/TabBar.astro";
+import CheckoutHandler from "../components/CheckoutHandler.astro";
 import Footer from "../components/Footer.astro";
 import { getCurrentUser } from "../lib/data";
 
@@ -49,6 +50,7 @@ const currentPath = Astro.url.pathname;
     </main>
     {showFooter && <Footer />}
     <TabBar currentPath={currentPath} user={user} />
+    <CheckoutHandler defaultEmail={user?.email} />
 
     <style>
       .app-main {

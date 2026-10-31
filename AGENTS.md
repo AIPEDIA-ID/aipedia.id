@@ -15,3 +15,6 @@
 ## 3. Architecture & Knowledge Index
 - For the complete project map, directory purposes, Apple HIG design tokens, and CLI automation commands, refer to `.agents/INDEX.md`.
 
+## 4. Single Entrypoint Convention (Makefile)
+- Always treat `Makefile` as the primary CLI entrypoint for all actions. Use namespaced targets: `web-*` (frontend/build), `test-*` (testing), `ops-*` (SSOT/manufacturing), and `db-*` (database). Run `make help` to inspect available targets.
+

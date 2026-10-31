@@ -1,6 +1,7 @@
 import type { Resource } from "./data/types";
 
 export function pathCovers(grant: string, resourceId: string): boolean {
+  if (grant === "*" || grant === "bundle-all-access" || grant === "pro") return true;
   const normalizedGrant = grant.endsWith("/") ? grant.slice(0, -1) : grant;
   return resourceId === normalizedGrant || resourceId.startsWith(normalizedGrant + "/");
 }

@@ -40,6 +40,8 @@ const {
 function formatPrice(val: number): string {
   return "Rp" + val.toLocaleString("id-ID");
 }
+
+const productSlug = href.startsWith("/products/") ? href.replace("/products/", "") : undefined;
 ---
 
 <section class:list={["featured-showcase card card-elevated overflow-hidden", { "featured-showcase-dark": tone === "dark", "featured-showcase-gold": tone === "gold" }, className]}>
@@ -94,6 +96,9 @@ function formatPrice(val: number): string {
       <a
         href={href}
         class:list={[["dark", "gold"].includes(tone) ? "btn-gold" : "btn-primary", "w-full mt-5 text-sm font-semibold py-3 text-center justify-center"]}
+        data-checkout-slug={productSlug}
+        data-checkout-title={title}
+        data-checkout-price={formatPrice(price)}
       >
         <span>{ctaText}</span>
       </a>

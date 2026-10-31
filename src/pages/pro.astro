@@ -288,7 +288,7 @@ function formatPrice(price: number): string {
         }),
       });
       const result = await response.json();
-      if (!response.ok || result.error)
+      if (!response.ok || (!result.success && !result.redirectUrl && !result.mockRedirect))
         throw new Error(result.error || "Checkout belum dapat diproses.");
 
       const nextUrl = result.redirectUrl || result.mockRedirect;

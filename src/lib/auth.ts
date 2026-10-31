@@ -69,7 +69,7 @@ export async function validateSession(cookies: AstroCookies): Promise<AuthContex
         id: 'u_demo',
         email: 'demo@aipedia.id',
         name: 'Pengguna Demo',
-        avatarUrl: null,
+        image: null,
         createdAt: new Date(),
         updatedAt: new Date(),
       },

@@ -1,23 +1,81 @@
 ---
-// SESSION-DEPENDENT: must render per request when output becomes "server"
+export const prerender = false;
 import Base from "../../layouts/Base.astro";
 import StatusBadge from "../../components/StatusBadge.astro";
-import { getOrder } from "../../lib/data";
+import { getOrder, getCatalog, getCurrentUser } from "../../lib/data";
+import { validateSession, createMockSession, SESSION_COOKIE_NAME } from "../../lib/auth";
+import { assistants } from "../../data/assistants";
+import { db, schema } from "../../../db";
+import { eq } from "drizzle-orm";
 import type { OrderStatus } from "../../lib/data/types";
 
 const orderId = Astro.url.searchParams.get("order") ?? "";
-const status = (Astro.url.searchParams.get("status") ?? "paid") as OrderStatus;
+const rawStatus = Astro.url.searchParams.get("status") ?? "paid";
+const status = (rawStatus === "settlement" || rawStatus === "capture" ? "paid" : rawStatus) as OrderStatus;
+const itemSlug = Astro.url.searchParams.get("slug") ?? "";
 
-const order = orderId ? await getOrder(orderId) : null;
+// Ensure user has an active session cookie when payment is paid
+const auth = await validateSession(Astro.cookies);
+if (!auth.user && status === "paid") {
+  createMockSession(Astro.cookies);
+}
+
+// 1. Try finding order from database
+let dbOrder = null;
+if (db && orderId) {
+  try {
+    const found = await db.select().from(schema.orders).where(eq(schema.orders.id, orderId)).limit(1);
+    if (found.length > 0) dbOrder = found[0];
+  } catch (_e) {}
+}
+
+const mockOrder = orderId ? await getOrder(orderId) : null;
+
+// 2. Resolve product details for presentation
+let productTitle = "Paket AI Resource AIPEDIA";
+let productAmount = 199000;
+
+const targetSlug = dbOrder?.productSlug || itemSlug;
+
+if (targetSlug) {
+  const { products, bundles } = await getCatalog();
+  const catalogMatch = [...products, ...bundles].find((p) => p.slug === targetSlug);
+  if (catalogMatch) {
+    productTitle = catalogMatch.title;
+    productAmount = catalogMatch.price;
+  } else {
+    const assistantMatch = assistants.find((a) => a.id === targetSlug || a.id === targetSlug.replace(/^spesialis-/, ''));
+    if (assistantMatch) {
+      productTitle = `Spesialis AI: ${assistantMatch.name} (${assistantMatch.role})`;
+      productAmount = parseInt(assistantMatch.price.replace(/[^\d]/g, ''), 10) * 1000 || 86000;
+    }
+  }
+}
 
 // Fallback order for preview if order not found in mock database
-const displayOrder = order || {
+const displayOrder = dbOrder ? {
+  id: dbOrder.id,
+  productTitle,
+  date: dbOrder.createdAt.toISOString(),
+  amount: dbOrder.amount || productAmount,
+  status: dbOrder.status as OrderStatus,
+} : mockOrder || {
   id: orderId || "ORD-2026-AIPEDIA",
-  productTitle: "Starter Pack Prompt Bisnis & UMKM",
+  productTitle,
   date: new Date().toISOString(),
-  amount: 199000,
+  amount: productAmount,
   status: status,
 };
+
+// 3. Grant entitlement in DB if paid and user logged in
+if (status === "paid" && db && auth.user && targetSlug) {
+  try {
+    await db.insert(schema.entitlements).values({
+      userId: auth.user.id,
+      grant: targetSlug,
+    }).catch(() => {});
+  } catch (_e) {}
+}
 
 function formatPrice(price: number): string {
   return "Rp" + price.toLocaleString("id-ID");

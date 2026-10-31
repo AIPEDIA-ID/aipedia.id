@@ -24,6 +24,12 @@ describe("pathCovers", () => {
   it("unrelated grant returns false", () => {
     expect(pathCovers("founder-space/strategi-go-to-market-ai", "course/ai-untuk-pemula")).toBe(false);
   });
+
+  it("bundle-all-access and wildcard grants cover all resources", () => {
+    expect(pathCovers("bundle-all-access", "course/ai-untuk-pemula")).toBe(true);
+    expect(pathCovers("pro", "llm-prompt/email-penjualan-otomatis")).toBe(true);
+    expect(pathCovers("*", "visual-prompt/midjourney-banner-promosi")).toBe(true);
+  });
 });
 
 describe("canAccess", () => {

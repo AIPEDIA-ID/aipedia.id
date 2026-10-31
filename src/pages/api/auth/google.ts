@@ -5,12 +5,7 @@ export const prerender = false;
 export const GET: APIRoute = async ({ request, redirect, cookies }) => {
   const clientId = process.env.GOOGLE_CLIENT_ID;
   if (!clientId) {
-    return new Response(
-      JSON.stringify({
-        error: 'GOOGLE_CLIENT_ID is not configured in .env',
-      }),
-      { status: 500, headers: { 'Content-Type': 'application/json' } }
-    );
+    return redirect('/login?error=google_not_configured', 302);
   }
 
   const url = new URL(request.url);
