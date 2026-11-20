@@ -1,9 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700;800&family=JetBrains+Mono:wght@500;700;800&display=swap");
 @import "tailwindcss";
+
 
 @theme inline {
   --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", "Lucida Grande", sans-serif;
-  --font-heading: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", "Lucida Grande", sans-serif;
-  --font-mono: "SF Mono", "JetBrains Mono", Menlo, Monaco, Consolas, monospace;
+  --font-heading: "Space Grotesk", -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+  --font-mono: "JetBrains Mono", "SF Mono", Menlo, Monaco, monospace;
   --color-background: var(--color-background);
   --color-label: var(--color-label);
   --color-card: var(--card);
@@ -52,182 +54,175 @@
   --type-meta: 0.8125rem;
   --type-caption: 0.6875rem;
 
-  /* Classic Mac OS & Apple Surface Foundations */
-  --color-background: #f5f5f7;
-  --card: #ffffff;
+  /* ═══════════════════════════════════════════════════════════════════
+     PLAYFUL TECHIE LIGHT THEME FOUNDATIONS
+     (Modern Developer UI + AI Business Playfulness + High Depth)
+     ═══════════════════════════════════════════════════════════════════ */
+  --color-background: #d8e2ec;              /* Deep, bold-contrast cool tech canvas */
+  --card: #ffffff;                          /* Pure white card surface */
   --color-surface-elevated: #ffffff;
   --color-surface: #ffffff;
-  --color-surface-secondary: #eaecef;
+  --color-surface-secondary: #f1f5f9;
 
-  --color-label: #1d1d1f;
-  --color-secondary-label: #6e6e73;
-  --color-tertiary-label: #86868b;
+  --color-label: #0f172a;                   /* High contrast slate ink */
+  --color-secondary-label: #475569;         /* Slate body copy */
+  --color-tertiary-label: #94a3b8;          /* Muted metadata */
 
-  /* Apple System Blue Accent */
-  --color-tint: #0071e3;
-  --color-tint-hover: #0077ed;
-  --color-tint-pressed: #0062c4;
+  /* Playful Tech Brand Accents: Electric Indigo & Violet Glow */
+  --color-tint: #4f46e5;
+  --color-tint-hover: #4338ca;
+  --color-tint-pressed: #3730a3;
+  --color-tint-light: #eef2ff;
 
-  /* High-Impact Warm Yellow Accent (Referenced in Design Review) */
-  --color-accent-gold: #F2C94C;
+  /* Playful Warm Amber Gold (Bundle & Deals) */
+  --color-accent-gold: #f59e0b;
   --color-gold: #f59e0b;
   --color-gold-hover: #d97706;
   --color-gold-pressed: #b45309;
   --color-gold-surface: #fffbeb;
   --color-gold-border: rgba(245, 158, 11, 0.35);
-  --color-gold-text: #78350f;
-  --color-gold-gradient: linear-gradient(180deg, #fed766 0%, #f59e0b 100%);
-  --color-gold-gradient-dark: linear-gradient(180deg, #fbbf24 0%, #d97706 100%);
-  --gradient-gold-type: linear-gradient(135deg, #ffe894 0%, #f2c94c 50%, #f59e0b 100%);
-  --gradient-glass-chip: linear-gradient(180deg, rgba(255, 255, 255, .14) 0%, rgba(255, 255, 255, .05) 100%);
-  --gradient-hero-glow: radial-gradient(circle, rgba(0, 113, 227, .2) 0%, rgba(242, 201, 76, .08) 60%, transparent 70%);
-  --gradient-blue-action: linear-gradient(180deg, #2b8bf5 0%, #0077ed 44%, #005bb5 100%);
-  --gradient-blue-action-hover: linear-gradient(180deg, #429bff 0%, #0084ff 44%, #0066cc 100%);
-  --gradient-blue-action-pressed: linear-gradient(180deg, #0056ac 0%, #004d99 100%);
-  --gradient-neutral-control: linear-gradient(180deg, #ffffff 0%, #f9fafc 40%, #edf1f6 100%);
-  --gradient-neutral-control-hover: linear-gradient(180deg, #ffffff 0%, #fcfdfe 40%, #f3f6fa 100%);
-  --gradient-gold-control: linear-gradient(180deg, #fff0ad 0%, #f2c94c 54%, #d9ad2f 100%);
-  --gradient-gold-control-hover: linear-gradient(180deg, #fff5c9 0%, #f6d65b 54%, #d1a522 100%);
-  --gradient-gold-control-pressed: linear-gradient(180deg, #d4ac2d 0%, #be941e 100%);
+  --color-gold-text: #92400e;
 
-  /* Reusable feature panels: editorial blue and offer gold */
-  --color-feature-blue: #286fdb;
-  --color-feature-blue-mid: #4289f5;
-  --color-feature-blue-end: #3475e2;
+  /* Gradients */
+  --gradient-gold-type: linear-gradient(135deg, #4f46e5 0%, #7c3aed 45%, #f59e0b 100%);
+  --gradient-glass-chip: linear-gradient(180deg, #ffffff 0%, #f4f4f5 100%);
+  --gradient-hero-glow: radial-gradient(circle, rgba(99, 102, 241, 0.12) 0%, rgba(245, 158, 11, 0.06) 50%, transparent 70%);
+  --gradient-blue-action: linear-gradient(180deg, #6366f1 0%, #4f46e5 100%);
+  --gradient-blue-action-hover: linear-gradient(180deg, #4f46e5 0%, #4338ca 100%);
+  --gradient-blue-action-pressed: linear-gradient(180deg, #4338ca 0%, #3730a3 100%);
+  --gradient-neutral-control: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  --gradient-neutral-control-hover: linear-gradient(180deg, #ffffff 0%, #f1f5f9 100%);
+  --gradient-gold-control: linear-gradient(180deg, #fbbf24 0%, #f59e0b 100%);
+  --gradient-gold-control-hover: linear-gradient(180deg, #f59e0b 0%, #d97706 100%);
+  --gradient-gold-control-pressed: linear-gradient(180deg, #d97706 0%, #b45309 100%);
+
+  /* Reusable Feature Panels */
+  --color-feature-blue: #4f46e5;
+  --color-feature-blue-mid: #6366f1;
+  --color-feature-blue-end: #7c3aed;
   --color-feature-blue-ink: #ffffff;
   --color-feature-blue-muted: rgba(255, 255, 255, .9);
-  --color-feature-blue-border: rgba(255, 255, 255, .23);
-  --color-feature-blue-wash: rgba(255, 255, 255, .14);
-  --color-feature-blue-wash-hover: rgba(255, 255, 255, .2);
-  --color-feature-blue-card: rgba(13, 53, 130, .2);
-  --color-feature-blue-card-hover: rgba(13, 53, 130, .32);
-  --color-feature-blue-chip: rgba(18, 34, 66, .82);
+  --color-feature-blue-border: rgba(255, 255, 255, .25);
+  --color-feature-blue-wash: rgba(255, 255, 255, .15);
+  --color-feature-blue-wash-hover: rgba(255, 255, 255, .22);
+  --color-feature-blue-card: rgba(255, 255, 255, 0.12);
+  --color-feature-blue-card-hover: rgba(255, 255, 255, 0.2);
+  --color-feature-blue-chip: rgba(255, 255, 255, 0.18);
   --gradient-feature-blue:
-    radial-gradient(ellipse at 88% 0%, rgba(255, 255, 255, .2), transparent 42%),
-    linear-gradient(135deg,
-      var(--color-feature-blue) 0%,
-      var(--color-feature-blue-mid) 55%,
-      var(--color-feature-blue-end) 100%);
+    radial-gradient(ellipse at 88% 0%, rgba(255, 255, 255, .25), transparent 45%),
+    linear-gradient(135deg, #4f46e5 0%, #6366f1 55%, #7c3aed 100%);
   --shadow-feature-blue:
-    0 16px 36px rgba(36, 100, 205, .18),
-    inset 0 1px rgba(255, 255, 255, .28);
+    0 16px 36px rgba(79, 70, 229, .22),
+    inset 0 1px rgba(255, 255, 255, .35);
 
   --color-feature-gold-ink: #35270b;
   --color-feature-gold-muted: #695322;
   --color-feature-gold-note: #75643c;
-  --color-feature-gold-bullet: #aa7100;
-  --color-feature-gold-border: rgba(204, 145, 25, .3);
-  --color-feature-gold-action-border: rgba(158, 111, 7, .17);
-  --color-feature-gold-action: rgba(255, 255, 255, .72);
-  --color-feature-gold-button: #2c2108;
-  --color-feature-gold-button-border: #c17d00;
-  --gradient-feature-gold: linear-gradient(135deg, #fff5d6 0%, #ffe6a0 100%);
-  --gradient-feature-gold-button: linear-gradient(180deg, #ffdc78 0%, #f3b927 100%);
-  --gradient-feature-gold-button-hover: linear-gradient(180deg, #ffe49a 0%, #f7c648 100%);
+  --color-feature-gold-bullet: #d97706;
+  --color-feature-gold-border: rgba(245, 158, 11, .35);
+  --color-feature-gold-action-border: rgba(245, 158, 11, .45);
+  --color-feature-gold-action: rgba(255, 255, 255, .8);
+  --color-feature-gold-button: #ffffff;
+  --color-feature-gold-button-border: #d97706;
+  --gradient-feature-gold: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+  --gradient-feature-gold-button: linear-gradient(180deg, #f59e0b 0%, #d97706 100%);
+  --gradient-feature-gold-button-hover: linear-gradient(180deg, #fbbf24 0%, #f59e0b 100%);
   --shadow-feature-gold:
-    0 12px 30px rgba(171, 121, 21, .12),
+    0 12px 30px rgba(245, 158, 11, .14),
     inset 0 1px rgba(255, 255, 255, .9);
   --shadow-feature-gold-button:
-    inset 0 1px rgba(255, 255, 255, .65),
-    0 2px 5px rgba(125, 82, 0, .17);
+    0 2px 6px rgba(245, 158, 11, .35),
+    inset 0 1px rgba(255, 255, 255, .4);
 
-  /* Responsive workspace navigation */
+  /* Workspace Nav */
   --sidebar-width-tablet: 220px;
   --mobile-nav-height: 62px;
   --mobile-nav-clearance: 88px;
-  --mobile-nav-background: rgba(255, 255, 255, .94);
-  --mobile-nav-border: rgba(0, 0, 0, .1);
-  --mobile-nav-shadow: 0 -3px 14px rgba(20, 30, 50, .06);
+  --mobile-nav-background: rgba(255, 255, 255, .92);
+  --mobile-nav-border: #e2e8f0;
+  --mobile-nav-shadow: 0 -4px 16px rgba(15, 23, 42, .05);
   --mobile-nav-z-index: 40;
-  --mobile-sidebar-scrim: rgba(14, 18, 26, .08);
-  --mobile-sidebar-backdrop: rgba(0, 0, 0, .4);
+  --mobile-sidebar-scrim: rgba(15, 23, 42, .15);
+  --mobile-sidebar-backdrop: rgba(15, 23, 42, .4);
   --duration-fast: 180ms;
   --ease-standard: cubic-bezier(.25, .1, .25, 1);
 
-  --gradient-success: linear-gradient(180deg, #34c759 0%, #28a745 100%);
-  --gradient-glass-header: linear-gradient(180deg, rgba(255, 255, 255, .95) 0%, rgba(246, 248, 252, .88) 100%);
-  --gradient-icon-placeholder: linear-gradient(145deg, rgba(255, 255, 255, .96), rgba(0, 113, 227, .10));
+  --gradient-success: linear-gradient(180deg, #10b981 0%, #059669 100%);
+  --gradient-glass-header: linear-gradient(180deg, rgba(255, 255, 255, .96) 0%, rgba(248, 250, 252, .9) 100%);
+  --gradient-icon-placeholder: linear-gradient(145deg, #ffffff, rgba(79, 70, 229, .12));
   --gradient-media-brand-wash:
-    radial-gradient(ellipse at 88% 8%, rgba(242, 201, 76, .08), transparent 48%),
-    linear-gradient(145deg, rgba(7, 43, 83, .05), rgba(0, 113, 227, .08));
-  --gradient-section-neutral: linear-gradient(108deg, rgba(228, 229, 232, .56) 0%, rgba(246, 246, 248, .62) 50%, rgba(229, 230, 233, .56) 100%);
-  --gradient-footer-surface: linear-gradient(180deg, #fbfbfd 0%, #f5f5f7 100%);
-  --gradient-dark-panel:
-    radial-gradient(circle at 90% 0%, rgba(242, 201, 76, .10), transparent 42%),
-    var(--color-dark-gradient);
-  --texture-page: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.12'/%3E%3C/svg%3E");
+    radial-gradient(ellipse at 88% 8%, rgba(245, 158, 11, .1), transparent 48%),
+    linear-gradient(145deg, rgba(79, 70, 229, .06), rgba(99, 102, 241, .09));
+  --gradient-section-neutral: linear-gradient(108deg, rgba(241, 245, 249, .7) 0%, rgba(248, 250, 252, .8) 50%, rgba(241, 245, 249, .7) 100%);
+  --gradient-footer-surface: linear-gradient(180deg, #ffffff 0%, #fafafa 100%);
+  --gradient-dark-panel: #ffffff;
+  --texture-page: none;
 
-  /* ─── Glass card faces: cool blue depth with a clear, soft highlight ─── */
-  --card-gradient: linear-gradient(180deg, #ffffff 0%, #f4f8fd 52%, #e6effa 100%);
-  --card-gradient-hover: linear-gradient(180deg, #ffffff 0%, #f1f7fd 52%, #e2edfa 100%);
-  --card-border: rgba(255, 255, 255, 0.9);
-  --card-border-bottom: rgba(43, 77, 119, 0.24);
-  --card-border-hover: rgba(255, 255, 255, 0.96);
-  --card-border-bottom-hover: rgba(35, 72, 119, 0.3);
+  /* Card Surfaces & Borders */
+  --card-gradient: linear-gradient(180deg, #ffffff 0%, #fbfcfd 100%);
+  --card-gradient-hover: #ffffff;
+  --card-border: rgba(15, 23, 42, 0.09);
+  --card-border-bottom: rgba(15, 23, 42, 0.16);
+  --card-border-hover: #a5b4fc;
+  --card-border-bottom-hover: #6366f1;
 
-  /* Dark Focal Block Gradient (Charcoal #17191F to Dark Navy #20283A) */
-  --color-dark-surface: #17191F;
-  --color-dark-surface-to: #20283A;
-  --color-dark-gradient: linear-gradient(145deg, #17191F 0%, #20283A 100%);
-  --color-dark-border: rgba(255, 255, 255, 0.12);
-  --color-dark-text: #f5f5f7;
-  --color-dark-text-muted: #a1a9b8;
+  /* Dark Focal Panel Adaptation (Now clean modern crisp white with tech border) */
+  --color-dark-surface: #ffffff;
+  --color-dark-surface-to: #f8fafc;
+  --color-dark-gradient: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  --color-dark-border: rgba(15, 23, 42, 0.1);
+  --color-dark-text: #0f172a;
+  --color-dark-text-muted: #475569;
 
   /* Separators & Hairlines */
-  --color-separator: rgba(0, 0, 0, 0.08);
-  --border: rgba(0, 0, 0, 0.08);
-  --color-fill: rgba(0, 0, 0, 0.04);
-  --color-fill-strong: rgba(0, 0, 0, 0.08);
-  --color-fill-hover: rgba(0, 0, 0, 0.06);
-  --color-danger: #ff3b30;
+  --color-separator: #e2e8f0;
+  --border: #e2e8f0;
+  --color-fill: rgba(0, 0, 0, 0.03);
+  --color-fill-strong: rgba(0, 0, 0, 0.06);
+  --color-fill-hover: rgba(0, 0, 0, 0.05);
+  --color-danger: #ef4444;
 
-  /* Corner Radii */
-  --radius-xs: 6px;
-  --radius-sm: 8px;
-  --radius-md: 12px;
-  --radius-lg: 16px;
-  --radius-xl: 20px;
-  --radius-2xl: 24px;
+  /* Modern Tech Geometry */
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 10px;       /* Modern tech buttons: 10px */
+  --radius-lg: 12px;       /* Cards: 12px */
+  --radius-xl: 14px;
+  --radius-2xl: 20px;
+  --radius-pill: 9999px;
 
   /* Sidebar Tokens */
   --sidebar: #ffffff;
-  --sidebar-foreground: #1d1d1f;
-  --sidebar-primary: #0071e3;
+  --sidebar-foreground: #0f172a;
+  --sidebar-primary: #4f46e5;
   --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: rgba(0, 0, 0, 0.04);
-  --sidebar-accent-foreground: #0071e3;
-  --sidebar-border: rgba(0, 0, 0, 0.08);
+  --sidebar-accent: rgba(79, 70, 229, 0.06);
+  --sidebar-accent-foreground: #4f46e5;
+  --sidebar-border: #e2e8f0;
 
-  /* ═══════════════════════════════════════════════════════════════════
-     AUTHENTIC APPLE LIQUID GLASS TOKENS (LIGHT MODE SYSTEM)
-     ═══════════════════════════════════════════════════════════════════ */
-  /* Level 1: Ultra-Thin (Chips, Inset Badges, Micro-elements) */
-  --glass-ultra-thin-bg: rgba(255, 255, 255, 0.45);
-  --glass-ultra-thin-blur: blur(12px) saturate(170%);
-  --glass-ultra-thin-border: rgba(255, 255, 255, 0.50);
-  --glass-ultra-thin-shadow: inset 0 1px 0.5px rgba(255, 255, 255, 0.8), 0 1px 2px rgba(0, 0, 0, 0.03);
+  /* Playful Clean Translucent Chrome */
+  --glass-ultra-thin-bg: rgba(255, 255, 255, 0.85);
+  --glass-ultra-thin-blur: blur(12px);
+  --glass-ultra-thin-border: #e2e8f0;
+  --glass-ultra-thin-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
 
-  /* Level 2: Regular Glass (Content Cards, Specialist Cards) */
-  --glass-card-bg: linear-gradient(180deg, rgba(255, 255, 255, 0.82) 0%, rgba(250, 251, 254, 0.72) 100%);
-  --glass-card-blur: blur(16px) saturate(180%);
-  --glass-card-border: rgba(255, 255, 255, 0.80);
-  --glass-card-border-subtle: rgba(0, 0, 0, 0.06);
-  --glass-card-shadow: 0 4px 20px rgba(0, 0, 0, 0.03), inset 0 1.5px 0.5px #ffffff;
+  --glass-card-bg: #ffffff;
+  --glass-card-blur: none;
+  --glass-card-border: #e2e8f0;
+  --glass-card-border-subtle: #f1f5f9;
+  --glass-card-shadow: 0 2px 8px -2px rgba(15, 23, 42, 0.05), 0 1px 2px rgba(15, 23, 42, 0.03);
 
-  /* Level 3: Floating Chrome (Header Island, Navbars, Floating Sidebar) */
-  --glass-header-bg: linear-gradient(180deg, rgba(255, 255, 255, 0.90) 0%, rgba(246, 248, 252, 0.82) 100%);
-  --glass-header-blur: blur(20px) saturate(190%);
-  --glass-header-border: rgba(255, 255, 255, 0.88);
-  --glass-header-border-subtle: rgba(0, 0, 0, 0.08);
-  --glass-header-shadow: 0 8px 24px rgba(0, 0, 0, 0.05), inset 0 1px 0.5px #ffffff;
+  --glass-header-bg: rgba(255, 255, 255, 0.85);
+  --glass-header-blur: blur(16px) saturate(180%);
+  --glass-header-border: rgba(226, 232, 240, 0.8);
+  --glass-header-border-subtle: rgba(226, 232, 240, 0.5);
+  --glass-header-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
 
-  /* Level 4: Modal & Popover (Dropdowns, Sheets, Dialogs) */
-  --glass-modal-bg: rgba(255, 255, 255, 0.94);
-  --glass-modal-blur: blur(28px) saturate(200%);
-  --glass-modal-border: rgba(255, 255, 255, 0.95);
-  --glass-modal-shadow: 0 20px 48px rgba(0, 0, 0, 0.12), inset 0 1px 0.5px #ffffff;
+  --glass-modal-bg: #ffffff;
+  --glass-modal-blur: blur(20px);
+  --glass-modal-border: #e2e8f0;
+  --glass-modal-shadow: 0 16px 40px -4px rgba(15, 23, 42, 0.12), 0 4px 12px rgba(15, 23, 42, 0.04);
 
-  /* Legacy & Backward-compatible Aliases */
   --glass-blur: 20px;
   --glass-bg: var(--glass-header-bg);
   --glass-bg-elevated: var(--glass-card-bg);
@@ -236,11 +231,10 @@
   --nav-bg: var(--glass-header-bg);
   --nav-border: var(--glass-header-border-subtle);
 
-  /* Clean Flat - Zero Heavy Shadows */
   --color-shadow: none;
   --color-shadow-md: none;
   --color-shadow-lg: none;
-  --color-focus-ring: 0 0 0 3px rgba(0, 113, 227, 0.25);
+  --color-focus-ring: 0 0 0 3px rgba(99, 102, 241, 0.25);
 
   /* Safe Area Insets */
   --safe-top: env(safe-area-inset-top, 0px);
@@ -248,149 +242,6 @@
   --safe-left: env(safe-area-inset-left, 0px);
   --safe-right: env(safe-area-inset-right, 0px);
 }
-
-@layer base {
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-
-  html {
-    font-size: 16px;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    scroll-behavior: smooth;
-    background-color: var(--color-background);
-    color: var(--color-label);
-  }
-
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", "Lucida Grande", sans-serif;
-    letter-spacing: -0.012em;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    background-color: var(--color-background);
-    background-image:
-      var(--texture-page),
-      radial-gradient(ellipse at 50% 0%, rgba(255, 255, 255, 0.88) 0%, transparent 62%);
-    background-size: 320px 320px, 100% 720px;
-    background-repeat: repeat, no-repeat;
-    color: var(--color-label);
-    min-height: 100vh;
-    font-size: 1rem;
-    line-height: 1.55;
-    text-rendering: optimizeLegibility;
-  }
-
-  .font-mono,
-  [data-mono="true"],
-  .tabular-nums {
-    font-family: "SF Mono", "JetBrains Mono", Menlo, Monaco, Consolas, monospace;
-    font-variant-numeric: tabular-nums;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-family: var(--font-heading);
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    color: var(--color-label);
-  }
-
-  p {
-    color: var(--color-secondary-label);
-  }
-
-  a {
-    color: var(--color-tint);
-    text-decoration: none;
-  }
-}
-
-@layer components {
-  .page-intro {
-    max-width: 44rem;
-    margin: 0 0 var(--space-section);
-  }
-
-  .page-intro h1 {
-    margin-top: var(--space-1);
-    font-size: var(--type-page-title);
-    line-height: 1.12;
-    font-weight: 750;
-    letter-spacing: -0.035em;
-  }
-
-  .page-intro>p {
-    max-width: 40rem;
-    margin-top: var(--space-2);
-    font-size: var(--type-body);
-    line-height: 1.6;
-  }
-
-  .section-band {
-    position: relative;
-    isolation: isolate;
-    overflow: hidden;
-    width: 100vw;
-    margin-left: calc(50% - 50vw);
-    padding: var(--space-band-block) 0;
-    border-inline: 0;
-    border-radius: 0;
-  }
-
-  .section-band::before {
-    position: absolute;
-    z-index: 0;
-    inset: 0;
-    content: "";
-    pointer-events: none;
-    background-image: radial-gradient(rgba(55, 58, 65, 0.18) 0.75px, transparent 0.75px);
-    background-size: 25px 25px;
-    opacity: 0.38;
-    -webkit-mask-image: radial-gradient(ellipse at 86% 22%, #000 0%, transparent 58%);
-    mask-image: radial-gradient(ellipse at 86% 22%, #000 0%, transparent 58%);
-  }
-
-  .section-band-inner {
-    position: relative;
-    z-index: 1;
-    width: min(1000px, calc(100% - 32px));
-    margin-inline: auto;
-  }
-
-  .section-band-blue {
-    background: var(--gradient-section-neutral);
-  }
-
-  .section-band-blue::before {
-    display: none;
-  }
-
-  .section-band-dark {
-    color: var(--color-dark-text);
-    background: var(--gradient-dark-panel);
-  }
-
-  .section-band-dark::before {
-    display: none;
-  }
-
-  .section-band-dark h2,
-  .section-band-dark h3 {
-    color: var(--color-dark-text);
-  }
-
-  .section-band-dark p {
-    color: var(--color-dark-text-muted);
-  }
-}
-
 /* ═══════════════════════════════════════════════════════════════════
    APPLE LIQUID GLASS SURFACES (HIERARCHICAL MATERIAL SYSTEM)
    ═══════════════════════════════════════════════════════════════════ */
@@ -1511,3 +1362,817 @@ button.apple-card:active,
                             -ms-overflow-style: none;
                             scrollbar-width: none;
                           }
+
+/* ═══════════════════════════════════════════════════════════════════
+   CENTRALIZED THEME ENGINE: HIGH-CONTRAST TECHIE LIGHT THEME
+   Tailored specifically for AIPEDIA (17 AI Specialists & Toolkits)
+   Deep Cool Blueprint Canvas (#d8e2ec) + Pure White Cards (#ffffff)
+   Bold 1.5px/3.5px Slate Edges + Space Grotesk + Zero Texture Hero
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ─── 0. Tangible CAD Engineering Graph Canvas ─── */
+body {
+  background-color: #d8e2ec !important;
+  background-image:
+    linear-gradient(to right, rgba(99, 102, 241, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(99, 102, 241, 0.08) 1px, transparent 1px),
+    radial-gradient(circle at 50% 0%, rgba(99, 102, 241, 0.22) 0%, transparent 650px),
+    radial-gradient(circle at 85% 350px, rgba(245, 158, 11, 0.14) 0%, transparent 500px),
+    radial-gradient(circle at 12% 800px, rgba(16, 185, 129, 0.12) 0%, transparent 450px) !important;
+  background-size: 28px 28px, 28px 28px, 100% 100%, 100% 100%, 100% 100% !important;
+  background-attachment: fixed !important;
+  color: #0f172a !important;
+}
+
+/* ─── Unified Typography System & Harmonious Type Scale ─── */
+/* Level 1: Hero Display Titles (H1) */
+h1,
+.hero-title,
+.page-intro h1 {
+  font-family: "Space Grotesk", -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-size: clamp(2rem, 3.6vw, 2.85rem) !important;
+  font-weight: 800 !important;
+  line-height: 1.22 !important;
+  letter-spacing: -0.035em !important;
+  color: #0f172a !important;
+}
+
+/* Level 2: Section Titles (H2) */
+h2,
+.section-title,
+.directory-title,
+.pathway-heading h2,
+.closing-cta h2,
+.home-faq-title {
+  font-family: "Space Grotesk", -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-size: clamp(1.45rem, 2.4vw, 1.85rem) !important;
+  font-weight: 800 !important;
+  line-height: 1.26 !important;
+  letter-spacing: -0.025em !important;
+  color: #0f172a !important;
+}
+
+/* Level 3: Card & Component Titles (H3) */
+h3,
+.product-title,
+.name,
+.pathway-card-copy h3,
+.article-title {
+  font-family: "Space Grotesk", -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-size: 1.0625rem !important;
+  font-weight: 700 !important;
+  line-height: 1.36 !important;
+  letter-spacing: -0.015em !important;
+  color: #0f172a !important;
+}
+
+/* Subtitles & Lead Paragraphs */
+.hero-desc,
+.page-intro p {
+  font-family: var(--font-sans) !important;
+  font-size: clamp(0.9375rem, 1.4vw, 1.0625rem) !important;
+  font-weight: 450 !important;
+  line-height: 1.6 !important;
+  color: #475569 !important;
+}
+
+.section-subtitle,
+.pathway-heading p {
+  font-family: var(--font-sans) !important;
+  font-size: 0.9375rem !important;
+  font-weight: 450 !important;
+  line-height: 1.5 !important;
+  color: #475569 !important;
+  margin-top: 4px !important;
+}
+
+/* Card Body Descriptions */
+.product-desc,
+.apple-card p,
+.description,
+.card p {
+  font-family: var(--font-sans) !important;
+  font-size: 0.84375rem !important;
+  font-weight: 400 !important;
+  line-height: 1.55 !important;
+  color: #475569 !important;
+}
+
+/* Technical Eyebrows, Step Badges & Kickers */
+.pathway-eyebrow,
+.pathway-card-step,
+.news-kicker,
+.section-kicker,
+.hero-eyebrow-chip,
+.prompt-label {
+  font-family: "JetBrains Mono", monospace !important;
+  font-size: 0.71875rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.05em !important;
+  text-transform: uppercase !important;
+}
+
+/* Price Labels */
+.product-price,
+.price-val,
+.pricing-price {
+  font-family: "Space Grotesk", var(--font-sans) !important;
+  font-size: 1.1875rem !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.02em !important;
+  color: #0f172a !important;
+}
+
+.original-price {
+  font-size: 0.8125rem !important;
+  font-weight: 500 !important;
+  color: #94a3b8 !important;
+}
+
+.price-sub,
+.price-note {
+  font-size: 0.75rem !important;
+  color: #64748b !important;
+}
+
+/* Social Proof & Ratings */
+.proof-text,
+.strip-caption {
+  font-size: 0.84375rem !important;
+  font-weight: 600 !important;
+  color: #475569 !important;
+}
+
+.proof-rating .stars {
+  font-size: 0.9375rem !important;
+  letter-spacing: 2px !important;
+}
+
+/* ─── 0B. Section Hierarchy & Architectural Separation ─── */
+.section-header {
+  position: relative !important;
+  padding-bottom: 14px !important;
+  border-bottom: 2px dashed #94a3b8 !important;
+  margin-bottom: 28px !important;
+}
+
+.section-title {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  color: #0f172a !important;
+  font-weight: 800 !important;
+}
+
+.section-title::before {
+  content: "//" !important;
+  font-family: var(--font-mono) !important;
+  font-size: 1em !important;
+  font-weight: 900 !important;
+  color: #4f46e5 !important;
+}
+
+.section-subtitle {
+  color: #475569 !important;
+  font-size: 0.9375rem !important;
+  font-weight: 500 !important;
+  margin-top: 4px !important;
+}
+
+.section-link {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  color: #4f46e5 !important;
+  font-weight: 700 !important;
+  font-size: 0.84375rem !important;
+  padding: 6px 16px !important;
+  background: #ffffff !important;
+  border: 1.5px solid #94a3b8 !important;
+  border-bottom: 3px solid #64748b !important;
+  border-radius: 9999px !important;
+  box-shadow: 0 2px 4px rgba(15, 23, 42, 0.08), inset 0 1px 0 #ffffff !important;
+  transition: all 0.16s ease !important;
+}
+
+.section-link:hover {
+  background: #ffffff !important;
+  border-color: #4f46e5 !important;
+  border-bottom-color: #3730a3 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.22), inset 0 1px 0 #ffffff !important;
+}
+
+/* ─── 1. BOLD Volumetric Tactile Cards with Punchy Outlines ─── */
+.card,
+.apple-card,
+.news-hero,
+.featured-card,
+.news-card,
+.article-body,
+.article-cover,
+.related-card,
+.footer-newsletter,
+.specialist-card,
+.pricing-card,
+.product-card,
+.feed-card,
+.auth-card,
+.value-card,
+.feature-card,
+.pathway-card,
+.tool-card,
+.faq-item,
+.resource-item,
+.feature-pathway {
+  position: relative !important;
+  background: #ffffff !important;
+  background-image: none !important;
+  border: 1.5px solid #94a3b8 !important;
+  border-bottom: 3.5px solid #64748b !important;
+  border-radius: 14px !important;
+  box-shadow:
+    0 4px 6px -1px rgba(15, 23, 42, 0.08),
+    0 12px 28px -4px rgba(15, 23, 42, 0.12),
+    inset 0 1px 0 #ffffff !important;
+  color: #0f172a !important;
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.22s ease, border-color 0.22s ease !important;
+}
+
+.card:hover,
+.apple-card:hover,
+.product-card:hover,
+.specialist-card:hover,
+.pricing-card:hover,
+.news-card:hover,
+.featured-card:hover,
+.pathway-card:hover,
+.tool-card:hover {
+  transform: translateY(-4px) !important;
+  border-color: #6366f1 !important;
+  border-bottom-color: #3730a3 !important;
+  box-shadow:
+    0 6px 12px -2px rgba(15, 23, 42, 0.1),
+    0 18px 36px -4px rgba(79, 70, 229, 0.18),
+    inset 0 1px 0 #ffffff !important;
+}
+
+/* Category Top Color Accent Lips */
+.apple-card::before,
+.product-card::before,
+.pathway-card::before {
+  content: "" !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  height: 3px !important;
+  border-top-left-radius: 12px !important;
+  border-top-right-radius: 12px !important;
+  background: linear-gradient(90deg, #6366f1, #a855f7) !important;
+  z-index: 2 !important;
+}
+
+.apple-card[data-category="llm-prompt"]::before {
+  background: linear-gradient(90deg, #10b981, #059669) !important;
+}
+
+.apple-card[data-category="visual-prompt"]::before {
+  background: linear-gradient(90deg, #d946ef, #a855f7) !important;
+}
+
+.apple-card[data-category="custom-ai"]::before {
+  background: linear-gradient(90deg, #06b6d4, #0284c7) !important;
+}
+
+.apple-card[data-category="tutorial"]::before {
+  background: linear-gradient(90deg, #f97316, #ea580c) !important;
+}
+
+.apple-card[data-category="course"]::before {
+  background: linear-gradient(90deg, #e11d48, #be123c) !important;
+}
+
+.apple-card[data-category="founder-space"]::before {
+  background: linear-gradient(90deg, #f59e0b, #d97706) !important;
+}
+
+.product-card::before {
+  background: linear-gradient(90deg, #4f46e5 0%, #7c3aed 50%, #f59e0b 100%) !important;
+}
+
+/* Card Image Trays with Inner Recessed Border */
+.apple-card .aspect-video,
+.product-card .card-image,
+.pathway-card-image {
+  position: relative !important;
+  background: #f1f5f9 !important;
+  border-bottom: 2px solid #cbd5e1 !important;
+  box-shadow: inset 0 -4px 12px rgba(0, 0, 0, 0.04) !important;
+}
+
+/* ─── 2. Keycap Hardware Buttons ─── */
+.btn-primary,
+.btn-primary-dark,
+.btn-primary-action,
+.btn-gold,
+.btn-secondary,
+.btn-secondary-dark,
+.btn-secondary-action,
+.btn-nav-login,
+.btn-primary-sm,
+.btn-secondary-sm {
+  position: relative !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-family: var(--font-sans) !important;
+  font-weight: 700 !important;
+  font-size: 0.875rem !important;
+  letter-spacing: -0.01em !important;
+  border-radius: 10px !important;
+  cursor: pointer !important;
+  user-select: none !important;
+  transition: all 0.12s cubic-bezier(0.2, 0, 0, 1) !important;
+  text-decoration: none !important;
+}
+
+/* Primary Indigo Keycap */
+.btn-primary,
+.btn-primary-dark,
+.btn-primary-action,
+.btn-nav-login,
+.btn-primary-sm {
+  background: linear-gradient(180deg, #6366f1 0%, #4f46e5 100%) !important;
+  border: 1.5px solid #3730a3 !important;
+  border-bottom: 4px solid #1e1b4b !important;
+  color: #ffffff !important;
+  box-shadow:
+    0 4px 12px rgba(79, 70, 229, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35) !important;
+}
+
+.btn-primary:hover,
+.btn-primary-dark:hover,
+.btn-primary-action:hover,
+.btn-nav-login:hover,
+.btn-primary-sm:hover {
+  background: linear-gradient(180deg, #4f46e5 0%, #4338ca 100%) !important;
+  border-color: #312e81 !important;
+  border-bottom-color: #1e1b4b !important;
+  transform: translateY(-1.5px) !important;
+  box-shadow:
+    0 8px 20px rgba(79, 70, 229, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4) !important;
+}
+
+.btn-primary:active,
+.btn-primary-dark:active,
+.btn-primary-action:active,
+.btn-nav-login:active,
+.btn-primary-sm:active {
+  transform: translateY(2.5px) !important;
+  border-bottom-width: 1.5px !important;
+  box-shadow: 0 1px 2px rgba(79, 70, 229, 0.2) !important;
+}
+
+/* Gold / Amber Action Keycap */
+.btn-gold {
+  background: linear-gradient(180deg, #f59e0b 0%, #d97706 100%) !important;
+  border: 1.5px solid #92400e !important;
+  border-bottom: 4px solid #78350f !important;
+  color: #ffffff !important;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2) !important;
+  box-shadow:
+    0 4px 12px rgba(217, 119, 6, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.45) !important;
+}
+
+.btn-gold:hover {
+  background: linear-gradient(180deg, #d97706 0%, #b45309 100%) !important;
+  border-color: #78350f !important;
+  border-bottom-color: #451a03 !important;
+  transform: translateY(-1.5px) !important;
+  box-shadow:
+    0 8px 20px rgba(217, 119, 6, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5) !important;
+}
+
+.btn-gold:active {
+  transform: translateY(2.5px) !important;
+  border-bottom-width: 1.5px !important;
+  box-shadow: 0 1px 2px rgba(217, 119, 6, 0.2) !important;
+}
+
+/* Secondary White Keycap */
+.btn-secondary,
+.btn-secondary-dark,
+.btn-secondary-action,
+.btn-secondary-sm {
+  background: #ffffff !important;
+  border: 1.5px solid #94a3b8 !important;
+  border-bottom: 3.5px solid #64748b !important;
+  color: #0f172a !important;
+  box-shadow:
+    0 2px 4px rgba(15, 23, 42, 0.08),
+    inset 0 1px 0 #ffffff !important;
+}
+
+.btn-secondary:hover,
+.btn-secondary-dark:hover,
+.btn-secondary-action:hover,
+.btn-secondary-sm:hover {
+  background: #f8fafc !important;
+  border-color: #64748b !important;
+  border-bottom-color: #475569 !important;
+  color: #4f46e5 !important;
+  transform: translateY(-1.5px) !important;
+  box-shadow:
+    0 6px 16px rgba(15, 23, 42, 0.12),
+    inset 0 1px 0 #ffffff !important;
+}
+
+.btn-secondary:active,
+.btn-secondary-dark:active,
+.btn-secondary-action:active,
+.btn-secondary-sm:active {
+  transform: translateY(2px) !important;
+  border-bottom-width: 1.5px !important;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.06) !important;
+}
+
+/* ─── 3. Vibrant Category Badges & Filters ─── */
+.chip,
+.filter-btn,
+.tag-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  padding: 0.45rem 1rem !important;
+  border-radius: 9999px !important;
+  background: #ffffff !important;
+  border: 1.5px solid #94a3b8 !important;
+  border-bottom: 3px solid #64748b !important;
+  font-size: 0.8125rem !important;
+  font-weight: 700 !important;
+  color: #334155 !important;
+  box-shadow: 0 2px 4px rgba(15, 23, 42, 0.06), inset 0 1px 0 #ffffff !important;
+  transition: all 0.15s ease !important;
+  cursor: pointer !important;
+  text-decoration: none !important;
+}
+
+.chip:hover,
+.filter-btn:hover {
+  border-color: #6366f1 !important;
+  border-bottom-color: #3730a3 !important;
+  color: #4f46e5 !important;
+  transform: translateY(-1.5px) !important;
+  box-shadow: 0 4px 10px rgba(79, 70, 229, 0.18), inset 0 1px 0 #ffffff !important;
+}
+
+.chip.active,
+.filter-btn.active {
+  background: #eef2ff !important;
+  border-color: #4f46e5 !important;
+  border-bottom: 3px solid #3730a3 !important;
+  color: #4f46e5 !important;
+  box-shadow: 0 2px 8px rgba(79, 70, 229, 0.24), inset 0 1px 0 #ffffff !important;
+}
+
+.chip-count {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-width: 20px !important;
+  height: 20px !important;
+  padding: 0 6px !important;
+  border-radius: 9999px !important;
+  background: #f1f5f9 !important;
+  border: 1px solid #cbd5e1 !important;
+  font-family: var(--font-mono) !important;
+  font-size: 0.6875rem !important;
+  font-weight: 700 !important;
+  color: #475569 !important;
+}
+
+.chip.active .chip-count {
+  background: #4f46e5 !important;
+  border-color: #3730a3 !important;
+  color: #ffffff !important;
+}
+
+/* ─── 4. Hero Banner: 100% Solid Pure White, ZERO TEXTURE ─── */
+.block-dark,
+.hero-block,
+.section-band-dark,
+.cta-box,
+.news-hero,
+.hero-section {
+  background-color: #ffffff !important;
+  background-image: none !important;
+  border: 2px solid #94a3b8 !important;
+  border-bottom: 5px solid #4f46e5 !important;
+  border-radius: 20px !important;
+  box-shadow:
+    0 4px 6px rgba(15, 23, 42, 0.08),
+    0 24px 54px -6px rgba(15, 23, 42, 0.16),
+    0 36px 72px -12px rgba(79, 70, 229, 0.18),
+    inset 0 1px 0 #ffffff !important;
+  color: #0f172a !important;
+}
+
+.hero-ambient-glow,
+.hero-glass-shine {
+  display: none !important;
+}
+
+.block-dark h1,
+.block-dark .hero-title,
+.hero-block .hero-title,
+.hero-section .hero-title {
+  color: #0f172a !important;
+  font-family: "Space Grotesk", -apple-system, BlinkMacSystemFont, sans-serif !important;
+  letter-spacing: -0.03em !important;
+  font-weight: 800 !important;
+}
+
+.block-dark p,
+.block-dark .hero-desc,
+.hero-block .hero-desc,
+.hero-section .hero-desc {
+  color: #475569 !important;
+}
+
+.text-gold-accent,
+.hero-gradient {
+  background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 45%, #f59e0b 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  font-weight: 800 !important;
+}
+
+/* Proof Bar */
+.hero-proof-bar,
+.specialist-strip {
+  border-top: 1.5px dashed #cbd5e1 !important;
+  padding-top: 16px !important;
+  margin-top: 24px !important;
+}
+
+.proof-rating .stars {
+  color: #f59e0b !important;
+  letter-spacing: 2px !important;
+}
+
+.proof-text,
+.strip-caption {
+  color: #475569 !important;
+  font-weight: 600 !important;
+}
+
+/* App Screenshot Mockup */
+.screenshot-window {
+  background: #ffffff !important;
+  border: 2px solid #94a3b8 !important;
+  border-bottom: 4px solid #64748b !important;
+  border-radius: 16px !important;
+  overflow: hidden !important;
+  box-shadow:
+    0 16px 40px -8px rgba(15, 23, 42, 0.18),
+    0 4px 12px rgba(15, 23, 42, 0.08) !important;
+}
+
+.screenshot-body img {
+  border-top: 1.5px solid #cbd5e1 !important;
+}
+
+/* ─── 5. Navigation Bar & Dropdowns (Crisp, Solid, Tactile) ─── */
+.app-navbar-wrapper {
+  pointer-events: none !important;
+}
+
+.navbar-island {
+  pointer-events: auto !important;
+  background: #ffffff !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  border: 1.5px solid #94a3b8 !important;
+  border-bottom: 3px solid #64748b !important;
+  border-radius: 9999px !important;
+  box-shadow: 0 6px 20px -2px rgba(15, 23, 42, 0.12), inset 0 1px 0 #ffffff !important;
+}
+
+.nav-link-pill {
+  font-family: var(--font-sans) !important;
+  font-weight: 600 !important;
+  color: #334155 !important;
+  padding: 6px 14px !important;
+  border-radius: 9999px !important;
+  transition: all 0.15s ease !important;
+  text-decoration: none !important;
+}
+
+.nav-link-pill:hover {
+  background: #f1f5f9 !important;
+  color: #0f172a !important;
+}
+
+.nav-link-pill.active {
+  background: #eef2ff !important;
+  color: #4f46e5 !important;
+  border: 1.5px solid #818cf8 !important;
+  border-bottom: 2.5px solid #4f46e5 !important;
+  font-weight: 700 !important;
+  box-shadow: 0 2px 6px rgba(79, 70, 229, 0.14) !important;
+}
+
+.user-trigger {
+  background: #f8fafc !important;
+  border: 1.5px solid #cbd5e1 !important;
+  border-bottom: 2.5px solid #94a3b8 !important;
+  border-radius: 9999px !important;
+  padding: 4px 12px 4px 6px !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+}
+
+.services-popover,
+.user-dropdown-panel,
+.glass-modal {
+  background: #ffffff !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  border: 1.5px solid #94a3b8 !important;
+  border-bottom: 3.5px solid #64748b !important;
+  border-radius: 14px !important;
+  box-shadow:
+    0 16px 36px -4px rgba(15, 23, 42, 0.16),
+    0 4px 12px rgba(15, 23, 42, 0.08),
+    inset 0 1px 0 #ffffff !important;
+}
+
+.dropdown-item {
+  color: #1e293b !important;
+  font-weight: 600 !important;
+  border-radius: 8px !important;
+  padding: 8px 12px !important;
+  transition: all 0.12s ease !important;
+  text-decoration: none !important;
+}
+
+.dropdown-item:hover {
+  background: #f1f5f9 !important;
+  color: #4f46e5 !important;
+}
+
+/* ─── 6. Dashboard Workspace (Crisp Sidebar & Components) ─── */
+.sidebar-container {
+  background: #ffffff !important;
+  background-image: none !important;
+  border: 1.5px solid #94a3b8 !important;
+  border-bottom: 3.5px solid #64748b !important;
+  border-radius: 16px !important;
+  box-shadow: 0 8px 24px -4px rgba(15, 23, 42, 0.1), inset 0 1px 0 #ffffff !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+
+.sidebar-nav-item {
+  font-weight: 600 !important;
+  color: #475569 !important;
+  border-radius: 10px !important;
+  transition: all 0.15s ease !important;
+}
+
+.sidebar-nav-item:hover {
+  background: #f1f5f9 !important;
+  color: #0f172a !important;
+}
+
+.sidebar-nav-item.active {
+  background: #eef2ff !important;
+  color: #4f46e5 !important;
+  border: 1.5px solid #818cf8 !important;
+  border-bottom: 2.5px solid #4f46e5 !important;
+  box-shadow: 0 2px 6px rgba(79, 70, 229, 0.15) !important;
+  font-weight: 700 !important;
+}
+
+.macos-search-field {
+  background: #ffffff !important;
+  border: 1.5px solid #94a3b8 !important;
+  border-bottom: 2.5px solid #64748b !important;
+  border-radius: 12px !important;
+  color: #0f172a !important;
+  box-shadow: 0 2px 4px rgba(15, 23, 42, 0.06), inset 0 1px 0 #ffffff !important;
+}
+
+.macos-search-field:focus {
+  border-color: #4f46e5 !important;
+  border-bottom-color: #3730a3 !important;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2) !important;
+}
+
+.upgrade-card {
+  background: linear-gradient(180deg, #fef3c7 0%, #fde68a 100%) !important;
+  border: 1.5px solid #f59e0b !important;
+  border-bottom: 3.5px solid #d97706 !important;
+  border-radius: 12px !important;
+  color: #78350f !important;
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.18) !important;
+}
+
+.mobile-nav-island {
+  background: #ffffff !important;
+  border: 1.5px solid #94a3b8 !important;
+  border-bottom: 2.5px solid #64748b !important;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08), inset 0 1px 0 #ffffff !important;
+}
+
+.dashboard-mobile-tabs {
+  background: #ffffff !important;
+  border-top: 2px solid #94a3b8 !important;
+  box-shadow: 0 -4px 16px rgba(15, 23, 42, 0.08) !important;
+}
+
+/* ─── 7. Feature Pathway & Showcase ─── */
+.feature-pathway {
+  background: #ffffff !important;
+  border: 2px solid #94a3b8 !important;
+  border-bottom: 4px solid #4f46e5 !important;
+}
+
+.pathway-heading h2 {
+  color: #0f172a !important;
+  font-family: "Space Grotesk", -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-weight: 800 !important;
+}
+
+.pathway-heading p,
+.pathway-card-step,
+.pathway-card-cta {
+  color: #475569 !important;
+}
+
+.pathway-link {
+  background: #ffffff !important;
+  border: 1.5px solid #94a3b8 !important;
+  border-bottom: 3px solid #64748b !important;
+  color: #4f46e5 !important;
+  font-weight: 700 !important;
+}
+
+.pathway-card {
+  background: #ffffff !important;
+  border: 1.5px solid #94a3b8 !important;
+  border-bottom: 3.5px solid #64748b !important;
+  color: #0f172a !important;
+}
+
+.pathway-card-copy h3 {
+  color: #0f172a !important;
+  font-family: var(--font-sans) !important;
+  font-weight: 700 !important;
+}
+
+/* ─── 8. News & Article Styling ─── */
+.news-hero {
+  background: #ffffff !important;
+  border: 2px solid #94a3b8 !important;
+  border-bottom: 4px solid #4f46e5 !important;
+}
+
+.news-card,
+.featured-card {
+  background: #ffffff !important;
+  border: 1.5px solid #94a3b8 !important;
+  border-bottom: 3.5px solid #64748b !important;
+}
+
+.news-kicker {
+  font-family: var(--font-mono) !important;
+  font-weight: 700 !important;
+  color: #4f46e5 !important;
+  background: #eef2ff !important;
+  border: 1px solid #c7d2fe !important;
+  padding: 3px 8px !important;
+  border-radius: 6px !important;
+}
+
+/* ─── 9. Closing CTA Banner ─── */
+.closing-cta {
+  background: #ffffff !important;
+  border: 2px solid #94a3b8 !important;
+  border-bottom: 5px solid #4f46e5 !important;
+  box-shadow:
+    0 12px 32px rgba(15, 23, 42, 0.12),
+    0 24px 60px rgba(79, 70, 229, 0.16),
+    inset 0 1px 0 #ffffff !important;
+}
+
+.closing-cta h2 {
+  font-family: "Space Grotesk", -apple-system, BlinkMacSystemFont, sans-serif !important;
+  color: #0f172a !important;
+  font-weight: 800 !important;
+}
